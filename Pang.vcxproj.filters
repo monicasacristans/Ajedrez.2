@@ -18,7 +18,7 @@
     <ClCompile Include="src\Mundo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\Pang.cpp">
+    <ClCompile Include="src\Main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

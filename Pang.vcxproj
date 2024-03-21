@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mundo.cpp" />
-    <ClCompile Include="src\Pang.cpp" />
+    <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mundo.h" />
