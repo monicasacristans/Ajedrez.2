@@ -19,14 +19,14 @@ void Mundo::dibuja()
 	//aqui es donde hay que poner el codigo de dibujo
 	//dibujo del suelo
 	glDisable(GL_LIGHTING);
-	glBegin(GL_POLYGON);
+	/*glBegin(GL_POLYGON);
 		glColor3ub(255,0,0);
 		glVertex3f(-5.0f,0,-5.0f);
 		glVertex3f(-5.0f,0,5.0f);
 		glColor3ub(255,255,0);
 		glVertex3f(5.0f,0,5.0f);	
 		glVertex3f(5.0f,0,-5.0f);
-	glEnd();
+	glEnd();*/
 	glEnable(GL_LIGHTING);
 }
 
