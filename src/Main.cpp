@@ -22,6 +22,7 @@ int main(int argc, char* argv[])
 	//y crear la ventana
 	glutInit(&argc, argv);
 	glutInitWindowSize(1366, 768);
+	//glutInitWindowSize(800, 600);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutCreateWindow("MiJuego");
 
@@ -32,6 +33,7 @@ int main(int argc, char* argv[])
 	glEnable(GL_COLOR_MATERIAL);
 	glMatrixMode(GL_PROJECTION);
 	gluPerspective(40.0, 1366 / 768.0f, 0.1, 150);
+	//gluPerspective(40.0, 800 / 600.0f, 0.1, 150);
 
 	//Registrar los callbacks
 	glutPassiveMotionFunc(mouse);

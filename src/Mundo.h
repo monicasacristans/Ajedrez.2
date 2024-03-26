@@ -1,3 +1,5 @@
+#include "Tablero.h"
+
 class Mundo
 {
 public:

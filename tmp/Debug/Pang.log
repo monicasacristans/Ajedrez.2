@@ -1,1 +1,6 @@
-﻿  Pang.vcxproj -> C:\Users\cesar\Documents\GitHub\Ajedrez.2\bin\Pang.exe
+﻿  Mundo.cpp
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Mundo.cpp(8,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Mundo.cpp(9,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Mundo.cpp(11,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Mundo.cpp(12,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Pang.vcxproj -> C:\Users\cesar\Documents\GitHub\Ajedrez.2\bin\Pang.exe

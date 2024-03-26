@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Tablero.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Tablero.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Usuario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Usuario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\Tablero.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:Tablero.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Usuario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Usuario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Mundo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -19,16 +19,12 @@
       "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\Tablero.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:Tablero.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\Tablero.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:Tablero.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Usuario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Usuario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Usuario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Usuario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Mundo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Mundo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,37 +34,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "Mundo.h",
+              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Mundo.h",
+              "RelativeDocumentMoniker": "src\\Mundo.h",
+              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Mundo.h",
+              "RelativeToolTip": "src\\Mundo.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-26T18:48:07.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Tablero.cpp",
               "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\Tablero.cpp",
               "RelativeDocumentMoniker": "Tablero.cpp",
               "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\Tablero.cpp",
               "RelativeToolTip": "Tablero.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAAhAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABkAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-26T18:16:56.015Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Tablero.h",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Tablero.h",
-              "RelativeDocumentMoniker": "src\\Tablero.h",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Tablero.h",
-              "RelativeToolTip": "src\\Tablero.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-26T18:12:45.531Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Usuario.h",
               "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Usuario.h",
               "RelativeDocumentMoniker": "src\\Usuario.h",
@@ -87,7 +83,7 @@
               "RelativeDocumentMoniker": "src\\Mundo.cpp",
               "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Mundo.cpp",
               "RelativeToolTip": "src\\Mundo.cpp",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABYAAAAOAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-26T18:10:14.017Z",
               "EditorCaption": ""
@@ -100,35 +96,22 @@
               "RelativeDocumentMoniker": "src\\Main.cpp",
               "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Main.cpp",
               "RelativeToolTip": "src\\Main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-26T18:10:11.698Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Usuario.cpp",
               "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Usuario.cpp",
               "RelativeDocumentMoniker": "src\\Usuario.cpp",
               "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Usuario.cpp",
               "RelativeToolTip": "src\\Usuario.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOwAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-26T18:09:56.342Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Tablero.h",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\Tablero.h",
-              "RelativeDocumentMoniker": "Tablero.h",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\Tablero.h",
-              "RelativeToolTip": "Tablero.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-26T18:08:38.425Z",
               "EditorCaption": ""
             }
           ]

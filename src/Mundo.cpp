@@ -2,6 +2,7 @@
 #include "freeglut.h"
 #include <math.h>
 
+
 void Mundo::rotarOjo()
 {
     float dist = sqrt(x_ojo * x_ojo + z_ojo * z_ojo);
