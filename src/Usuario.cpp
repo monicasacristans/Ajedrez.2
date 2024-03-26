@@ -1,7 +1,9 @@
 #include "Usuario.h"
+#include "Tablero.h"
 #include "freeglut.h"
 #include <iostream>
 
+Tablero tablero;
 
 // Definir el objeto corona fuera de las funciones
 
@@ -230,6 +232,9 @@ void Usuario::dibuja() {
 			corona.draw();
 			menuinicio.draw();
 		}
+	}
+	if (estado == MODOJUEGO) {
+		tablero.dibujar();
 	}
 
 	if (estado == OP) {
