@@ -1,8 +1,13 @@
-﻿  Mundo.cpp
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Mundo.cpp(7,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Mundo.cpp(8,11): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Mundo.cpp(10,12): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Mundo.cpp(11,12): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-  Pang.cpp
-  Generando código...
-  Pang.vcxproj -> C:\I.Electronica I\6\Informática industrial\Ajedrez.2\bin\Pang.exe
+﻿  Main.cpp
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Main.cpp(55,2): warning C4551: function call missing argument list
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Main.cpp(85,3): warning C4551: function call missing argument list
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Main.cpp(113,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Main.cpp(113,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Main.cpp(117,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Mundo.cpp
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Mundo.cpp(7,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Mundo.cpp(8,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Mundo.cpp(10,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Mundo.cpp(11,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Pang.vcxproj -> C:\Users\cesar\Documents\GitHub\Ajedrez.2\bin\Pang.exe
