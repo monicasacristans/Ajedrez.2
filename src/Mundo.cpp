@@ -1,6 +1,9 @@
 #include "Mundo.h"
 #include "freeglut.h"
 #include <math.h>
+#include "Tablero.h"
+
+Tablero tablero;
 
 void Mundo::rotarOjo()
 {
@@ -28,6 +31,8 @@ void Mundo::dibuja()
 		glVertex3f(5.0f,0,-5.0f);
 	glEnd();*/
 	glEnable(GL_LIGHTING);
+
+	tablero.dibujar();
 }
 
 void Mundo::mueve()
@@ -38,8 +43,8 @@ void Mundo::mueve()
 void Mundo::inicializa()
 {
 	x_ojo=0;
-	y_ojo=10;
-	z_ojo=20;
+	y_ojo=0;
+	z_ojo=0.1;
 }
 
 void Mundo::tecla(unsigned char key)
