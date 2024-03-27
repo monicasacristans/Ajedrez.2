@@ -26,6 +26,7 @@
     <ClCompile Include="src\Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\ETSIDI.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Pieza.h" />
     <ClInclude Include="src\Tablero.h" />

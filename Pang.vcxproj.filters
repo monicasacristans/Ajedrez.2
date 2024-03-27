@@ -44,5 +44,8 @@
     <ClInclude Include="src\Pieza.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="lib\ETSIDI.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
