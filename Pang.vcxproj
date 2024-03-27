@@ -21,13 +21,13 @@
   <ItemGroup>
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Tablero.cpp" />
     <ClCompile Include="src\Usuario.cpp" />
-    <ClCompile Include="Tablero.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mundo.h" />
+    <ClInclude Include="src\Tablero.h" />
     <ClInclude Include="src\Usuario.h" />
-    <ClInclude Include="Tablero.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

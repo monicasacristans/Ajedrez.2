@@ -22,7 +22,6 @@ int main(int argc, char* argv[])
 	//y crear la ventana
 	glutInit(&argc, argv);
 	glutInitWindowSize(1366, 768);
-	//glutInitWindowSize(800, 600);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutCreateWindow("MiJuego");
 
@@ -33,7 +32,6 @@ int main(int argc, char* argv[])
 	glEnable(GL_COLOR_MATERIAL);
 	glMatrixMode(GL_PROJECTION);
 	gluPerspective(40.0, 1366 / 768.0f, 0.1, 150);
-	//gluPerspective(40.0, 800 / 600.0f, 0.1, 150);
 
 	//Registrar los callbacks
 	glutPassiveMotionFunc(mouse);
@@ -66,7 +64,9 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	mundo.dibuja();
+	gluLookAt(0, 0, 120,  // posicion del ojo
+		0, 0, 0,      // hacia que punto mira  (0,0,0) 
+		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
 	usuario.dibuja();
 
 	//no borrar esta linea ni poner nada despues
@@ -110,7 +110,7 @@ void OnTimer(int value)
 // w y h representan los nuevos valores de ancho y alto
 void reshape(int width, int height)
 {
-	usuario.setReshape(width * 1.0 / 1366, height * 1.0 / 768);
+	usuario.setReshape(width * 1.0 / 800, height * 1.0 / 600);
 
 	// Prevent a divide by zero, when window is too short
 	 // (you cant make a window of zero width).

@@ -3,19 +3,19 @@
 #include "freeglut.h"
 #include <iostream>
 
-Tablero tablero;
-
 // Definir el objeto corona fuera de las funciones
 
 ETSIDI::Sprite corona{ "imagenes/corona.png", 0,0,10,5 };
-
+Tablero tablero;
 Usuario::Usuario() {
 
 	estado = INICIO;
 	menu_inicio = I;
 	opcion = O;
-	ayuda = A;
 	n_ayuda = 0;
+	n_inst = 0;
+	n_texto_a = 0;
+	n_texto_ins = 0;
 }
 
 Usuario:: ~Usuario() {}
@@ -31,11 +31,11 @@ void Usuario::mouse(int x, int y) {
 		else if (x< shapx * 910 && x>shapx * 461 && y < shapy * 520 && y>shapy * 450) {
 			setMenuInicio(2);
 		}//opciones
-		
+
 	}
 	if (estado == OP) {
 		//if (x > shapx * 1230 || x<shapx * 152 || y>shapy * 584 || y < shapy * 98) {
-			setOpciones(0);
+		setOpciones(0);
 		//} //sin nada
 
 		if (x < shapx * 919 && x> shapx * 478 && y<shapy * 220 && y>shapy * 128) {
@@ -84,6 +84,46 @@ void Usuario::mouse(int x, int y) {
 				n_ayuda = 5;
 
 			} //reina
+		}
+	}
+
+	if (estado == INST) {
+		if (menu_instrucciones == INS) {
+
+			if (x > shapx * 1015 || x<shapx * 319 || y>shapy * 730 || y < shapy * 112) {
+
+				n_inst = 0;
+			} //sin nada
+			else if (x < shapx * 834 && x>shapx * 481 && y<shapy * 220 && y>shapy * 112) {
+
+				n_inst = 1;
+			} //objetivo
+			else if (x < shapx * 842 && x>shapx * 472 && y<shapy * 300 && y>shapy * 220) {
+
+				n_inst = 2;
+
+
+			} //enroque
+			else if (x < shapx * 916 && x>shapx * 409 && y<shapy * 400 && y>shapy * 305) {
+
+				n_inst = 3;
+			} //jaquemate
+			else if (x < shapx * 900 && x>shapx * 412 && y<shapy * 490 && y>shapy * 405) {
+
+				n_inst = 4;
+			} //coronacion
+			else if (x < shapx * 1015 && x>shapx * 319 && y<shapy * 570 && y>shapy * 495) {
+
+				n_inst = 5;
+			} //captura al paso
+			else if (x < shapx * 817 && x> shapx * 509 && y<shapy * 650 && y>shapy * 575) {
+
+				n_inst = 6;
+			} //tablas
+			else if (x < shapx * 793 && x> shapx * 587 && y<shapy * 730 && y>shapy * 655) {
+
+				n_inst = 7;
+			} //atras
 		}
 	}
 
@@ -212,6 +252,62 @@ void Usuario::raton(int button, int state, int x, int y) {
 		}
 	}
 
+	if (estado == INST) {
+		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+		{
+			if (menu_instrucciones == INS) {
+
+				//if (x > shapx * 1015 || x<shapx * 319 || y>shapy * 730 || y < shapy * 112) {
+				//	n_inst = 0;
+				//} //sin nada
+				if (x < shapx * 793 && x> shapx * 587 && y<shapy * 730 && y>shapy * 655) {
+					estado = OP;
+					return;
+				}
+				else if (x < shapx * 834 && x>shapx * 481 && y<shapy * 220 && y>shapy * 112) {
+					menu_instrucciones = TEXTO_I;
+					n_texto_ins = 0;
+					return;
+				} //objetivo
+				else if (x < shapx * 842 && x>shapx * 472 && y<shapy * 300 && y>shapy * 220) {
+					menu_instrucciones = TEXTO_I;
+					n_texto_ins = 1;
+					return;
+				} //enroque
+				else if (x < shapx * 916 && x>shapx * 409 && y<shapy * 400 && y>shapy * 305) {
+					menu_instrucciones = TEXTO_I;
+					n_texto_ins = 2;
+					return;
+				} //jaquemate
+				else if (x < shapx * 900 && x>shapx * 412 && y<shapy * 490 && y>shapy * 405) {
+					menu_instrucciones = TEXTO_I;
+					n_texto_ins = 3;
+					return;
+				} //coronacion
+				else if (x < shapx * 1015 && x>shapx * 319 && y<shapy * 570 && y>shapy * 495) {
+					menu_instrucciones = TEXTO_I;
+					n_texto_ins = 4;
+					return;
+				} //captura al paso
+				else if (x < shapx * 817 && x> shapx * 509 && y<shapy * 650 && y>shapy * 575) {
+
+					menu_instrucciones = TEXTO_I;
+					n_texto_ins = 5;
+					return;
+				} //tablas
+				//else if (x < shapx * 793 && x> shapx * 587 && y<shapy * 730 && y>shapy * 655) {
+					//estado = OP;
+					//return;
+
+				//} //atras
+			}
+			if (menu_instrucciones == TEXTO_I) {
+				menu_instrucciones = INS;
+				return;
+			}
+		}
+	}
+
 
 
 
@@ -309,6 +405,60 @@ void Usuario::dibuja() {
 				a_reina.draw();
 			}
 		}
-	
+
+	}
+	if (estado == INST) {
+		if (menu_instrucciones == INS) {
+			switch (n_inst) {
+			case 0:
+				instrucciones.draw();
+			case 1:
+				corona.setPos(shapx * -27, shapy * 27);
+				corona.draw();
+				instrucciones.draw();
+			case 2:
+				corona.setPos(shapx * -29, shapy * 16);
+				corona.draw();
+				instrucciones.draw();
+			case 3:
+				corona.setPos(shapx * -36, shapy * 5);
+				corona.draw();
+				instrucciones.draw();
+			case 4:
+				corona.setPos(shapx * -36, shapy * -6);
+				corona.draw();
+				instrucciones.draw();
+			case 5:
+				corona.setPos(shapx * -48, shapy * -17);
+				corona.draw();
+				instrucciones.draw();
+			case 6:
+				corona.setPos(shapx * -22, shapy * -29);
+				corona.draw();
+				instrucciones.draw();
+			case 7:
+				corona.setPos(shapx * -20, shapy * -40);
+				corona.draw();
+				instrucciones.draw();
+
+
+			}
+		}
+		if (menu_instrucciones == TEXTO_I) {
+			switch (n_texto_ins) {
+			case 0:
+				i_objetivo.draw();
+			case 1:
+				i_enroque.draw();
+			case 2:
+				i_jaquemate.draw();
+			case 3:
+				i_coronacion.draw();
+			case 4:
+				i_capturapaso.draw();
+			case 5:
+				i_tablas.draw();
+			}
+		}
 	}
 }

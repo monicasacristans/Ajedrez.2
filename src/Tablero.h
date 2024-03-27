@@ -9,4 +9,3 @@ public:
     void dibujar() const;
     //void asignarPieza(int fila, int columna, char pieza);
 };
-
