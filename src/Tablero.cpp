@@ -2,15 +2,34 @@
 #include "freeglut.h"
 #include <iostream>
 
+
 Tablero::Tablero() {
+
+    int inicial[8][8] = { 
+                    {-1,-2,-3,-4,-5,-3,-2,-1},
+                    {-6,-6,-6,-6,-6,-6,-6,-6},
+                    {0, 0, 0, 0, 0, 0, 0, 0},
+                    {0, 0, 0, 0, 0, 0, 0, 0},
+                    {0, 0, 0, 0, 0, 0, 0, 0},
+                    {0, 0, 0, 0, 0, 0, 0, 0},
+                    {6, 6, 6, 6, 6, 6, 6, 6},
+                    {1, 2, 3, 4, 5, 3, 2, 1} };
+
     // Inicializar el tablero con piezas vacías
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
-            tablero[i][j] = ' ';
+            tablero[i][j] = NULL;
         }
     }
 }
 
+Tablero::~Tablero() {
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            tablero[i][j]= NULL;
+        }
+    }
+}
 void Tablero::dibujar() const {
     
     for (int i = 0; i < 8; i++) {
