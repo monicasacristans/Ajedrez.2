@@ -10,4 +10,5 @@ public:
 	Torre(int value);
 
 	virtual void draw();
+	
 };

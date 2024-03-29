@@ -2,6 +2,7 @@
 #include <vector>
 #include <map>
 #include "Pieza.h"
+#include "ETSIDI.h"
 
 using namespace std;
 
@@ -19,6 +20,8 @@ public:
 
     void dibujar() ;
     void piezasdibujar();
+    ETSIDI::Vector2D convertirTableroAPantalla(float x, float y);
+
 
     //void asignarPieza(int fila, int columna, char pieza);
 
