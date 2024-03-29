@@ -19,19 +19,29 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Alfil.cpp" />
+    <ClCompile Include="src\Caballo.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Peon.cpp" />
     <ClCompile Include="src\Pieza.cpp" />
+    <ClCompile Include="src\Reina.cpp" />
+    <ClCompile Include="src\Rey.cpp" />
     <ClCompile Include="src\Tablero.cpp" />
+    <ClCompile Include="src\Torre.cpp" />
     <ClCompile Include="src\Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\ETSIDI.h" />
+    <ClInclude Include="src\Alfil.h" />
+    <ClInclude Include="src\Caballo.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Peon.h" />
     <ClInclude Include="src\Pieza.h" />
+    <ClInclude Include="src\Reina.h" />
+    <ClInclude Include="src\Rey.h" />
     <ClInclude Include="src\Tablero.h" />
+    <ClInclude Include="src\Torre.h" />
     <ClInclude Include="src\Usuario.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

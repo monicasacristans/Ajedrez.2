@@ -5,4 +5,6 @@
 
 
 Pieza::Pieza(){}
+
+
 void Pieza::draw() {};
