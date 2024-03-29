@@ -15,7 +15,8 @@ public:
 
     Tablero(); // Constructor
     ~Tablero(); //Destructor
-    void dibujar() const;
+    void dibujar() ;
+    void piezasdibujar();
     //void asignarPieza(int fila, int columna, char pieza);
 
 };

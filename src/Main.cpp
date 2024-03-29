@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 	glutMouseFunc(mouseClick);
 	glutReshapeFunc(reshape);
 
-	mundo.inicializa();
+	//mundo.inicializa();
 
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();

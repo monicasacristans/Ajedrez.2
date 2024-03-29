@@ -4,7 +4,5 @@
 #include <iostream>
 
 
-Pieza(ETSIDI::Sprite& sprite, ETSIDI::Vector2D posicion, int val) {
-
-}
-
+Pieza::Pieza(){}
+void Pieza::draw() {};
