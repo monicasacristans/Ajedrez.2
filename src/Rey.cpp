@@ -10,10 +10,10 @@ Rey::Rey(int value) :value(value)
 void Rey::draw()
 {
 
-	if (value == -4) {
+	if (value == -5) {
 		rey_n.draw();
 	}
-	else if (value == 4) {
+	else if (value == 5) {
 		rey_b.draw();
 	}
 }

@@ -20,7 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Alfil.cpp" />
+    <ClCompile Include="src\Arzobispo.cpp" />
     <ClCompile Include="src\Caballo.cpp" />
+    <ClCompile Include="src\Canciller.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Peon.cpp" />
@@ -34,7 +36,9 @@
   <ItemGroup>
     <ClInclude Include="lib\ETSIDI.h" />
     <ClInclude Include="src\Alfil.h" />
+    <ClInclude Include="src\Arzobispo.h" />
     <ClInclude Include="src\Caballo.h" />
+    <ClInclude Include="src\Canciller.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Peon.h" />
     <ClInclude Include="src\Pieza.h" />

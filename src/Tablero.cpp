@@ -7,23 +7,26 @@
 #include "Alfil.h"
 #include "Rey.h"
 #include "Reina.h"
+#include "Canciller.h"
+#include "Arzobispo.h"
+
 
 
 Tablero::Tablero() {
 
-    int inicial[8][8] = { 
-                    {-1,-2,-3,-4,-5,-3,-2,-1},
-                    {-6,-6,-6,-6,-6,-6,-6,-6},
-                    {0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0},
-                    {6, 6, 6, 6, 6, 6, 6, 6},
-                    {1, 2, 3, 4, 5, 3, 2, 1} };
+    int inicial[8][10] = {
+                    {-1,-2,-3,-4,-5,-6,-4,-7,-2,-1},
+                    {-6,-6,-6,-6,-6,-6,-6,-6,-6,-6},
+                    {0, 0, 0, 0, 0, 0, 0, 0,0,0},
+                    {0, 0, 0, 0, 0, 0, 0, 0,0,0},
+                    {0, 0, 0, 0, 0, 0, 0, 0,0,0},
+                    {0, 0, 0, 0, 0, 0, 0, 0,0,0},
+                    {6, 6, 6, 6, 6, 6, 6, 6,6,6},
+                    {1, 2, 3, 4, 5,6,4, 7, 2, 1} };
 
     // Inicializar el tablero con piezas vacías
     for (int i = 0; i < 8; ++i) {
-        for (int j = 0; j < 8; ++j) {
+        for (int j = 0; j < 10; ++j) {
             tablero[i][j] = NULL;
         }
     }
@@ -31,7 +34,7 @@ Tablero::Tablero() {
 
 Tablero::~Tablero() {
     for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
+        for (int j = 0; j < 10; j++) {
             tablero[i][j]= NULL;
         }
     }
@@ -39,7 +42,7 @@ Tablero::~Tablero() {
 
 void Tablero::dibujar() {
    
-   for (int i = 0; i < 8; i++) {
+   for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 8; j++) {
             if ((i + j) % 2 == 0) {
                 glColor3ub(240, 240, 240); // gris claro
@@ -77,6 +80,8 @@ void Tablero::piezasdibujar() {
     Peon* p6b = new Peon(6);
     Peon* p7b = new Peon(6);
     Peon* p8b = new Peon(6);
+    Peon* p9b = new Peon(6);
+    Peon* p10b = new Peon(6);
 
     //Creacion de peones negros
     Peon* p1n = new Peon(-6);
@@ -87,8 +92,10 @@ void Tablero::piezasdibujar() {
     Peon* p6n = new Peon(-6);
     Peon* p7n = new Peon(-6);
     Peon* p8n = new Peon(-6);
+    Peon* p9n = new Peon(-6);
+    Peon* p10n = new Peon(-6);
 
-
+    
     //Creacion torres blancas
     Torre* tb1 = new Torre(1);
     Torre* tb2 = new Torre(1);
@@ -105,21 +112,29 @@ void Tablero::piezasdibujar() {
     Caballo* cn1 = new Caballo(-2);
     Caballo* cn2 = new Caballo(-2);
 
+    //Creacion cancilleres
+    Canciller* cab = new Canciller(3);
+    Canciller* can = new Canciller(-3);
+
     //Creacion alfiles blancos
-    Alfil* ab1 = new Alfil(3);
-    Alfil* ab2 = new Alfil(3);
+    Alfil* ab1 = new Alfil(4);
+    Alfil* ab2 = new Alfil(4);
 
     //Creacion alfiles negros
-    Alfil* an1 = new Alfil(-3);
-    Alfil* an2 = new Alfil(-3);
+    Alfil* an1 = new Alfil(-4);
+    Alfil* an2 = new Alfil(-4);
 
     //Creacion de reyes
-    Rey* ryb = new Rey(4);
-    Rey* ryn = new Rey(-4);
+    Rey* ryb = new Rey(5);
+    Rey* ryn = new Rey(-5);
 
     //Creacion de reinas
-    Reina* ryab = new Reina(5);
-    Reina* ryan = new Reina(-5);
+    Reina* ryab = new Reina(6);
+    Reina* ryan = new Reina(-6);
+
+    //Creacion arzobispos
+    Arzobispo* arb = new Arzobispo(7);
+    Arzobispo* arn = new Arzobispo(-7);
 
     //Colocacion piezas en la posicion inicial
     p1b->setPos(-34.5, -24);
@@ -130,6 +145,8 @@ void Tablero::piezasdibujar() {
     p6b->setPos(14.5, -24);
     p7b->setPos(24.5, -24);
     p8b->setPos(34.5, -24);
+    p9b->setPos(44.5, -24);
+    p10b->setPos(54.5, -24);
 
     p1n->setPos(-34.5, 24);
     p2n->setPos(-24.5, 24);
@@ -139,27 +156,32 @@ void Tablero::piezasdibujar() {
     p6n->setPos(14.5, 24);
     p7n->setPos(24.5, 24);
     p8n->setPos(34.5, 24);
+    p9n->setPos(44.5, 24);
+    p10n->setPos(54.5, 24);
 
     tb1->setPos(-34.5, -34);
-    tb2->setPos(34.5, -34);
+    tb2->setPos(54.5, -34);
 
     tn1->setPos(-34.5, 34);
-    tn2->setPos(34.5, 34);
+    tn2->setPos(54.5, 34);
 
     cb1->setPos(-24, -34.5);
-    cb2->setPos(24, -34.5);
+    cb2->setPos(44.5, -34.5);
 
     cn1->setPos(-24, 34.5);
-    cn2->setPos(24, 34.5);
+    cn2->setPos(44.5, 34.5);
 
-    ab1->setPos(-14,-34.5);
-    ab2->setPos(14, -34.5);
+    cab->setPos(-14, 34.5);
+    can->setPos(34.5, -34.5);
 
-    an1->setPos(-14, 34.5);
-    an2->setPos(14, 34.5);
+    ab1->setPos(-4.5,-34.5);
+    ab2->setPos(24.5, -34.5);
 
-    ryb->setPos(-4.5, -34.5);
-    ryn->setPos(-4.5, 34.5);
+    an1->setPos(-4.5, 34.5);
+    an2->setPos(24.5, 34.5);
+
+    ryb->setPos(14.5, -34.5);
+    ryn->setPos(14.5, 34.5);
 
     ryab->setPos(4.5, -34.5);
     ryan->setPos(4.5, 34.5);
@@ -174,6 +196,8 @@ void Tablero::piezasdibujar() {
     p6b->draw();
     p7b->draw();
     p8b->draw();
+    p9b->draw();
+    p10b->draw();
 
     p1n->draw();
     p2n->draw();
@@ -183,6 +207,8 @@ void Tablero::piezasdibujar() {
     p6n->draw();
     p7n->draw();
     p8n->draw();
+    p9n->draw();
+    p10n->draw();
 
     tb1->draw();
     tb2->draw();
@@ -202,6 +228,12 @@ void Tablero::piezasdibujar() {
     ryb->draw();
     ryn->draw();
 
+    cab->draw();
+    can->draw();
+
+    arb->draw();
+    arn->draw();
+
     ryab->draw();
     ryan->draw();
 
@@ -212,7 +244,7 @@ void Tablero::piezasdibujar() {
 // Función para convertir coordenadas del tablero a coordenadas de pantalla
 ETSIDI::Vector2D Tablero::convertirTableroAPantalla(float x, float y) {
     float origenX = 684;
-    float origenY = 394;
+    float origenY = 200;
     int tamañoCasilla = 10;
     float pantallaX = origenX + x * tamañoCasilla;
     float pantallaY = origenY + y * tamañoCasilla;

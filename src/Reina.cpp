@@ -10,10 +10,10 @@ Reina::Reina(int value) :value(value)
 void Reina::draw()
 {
 
-	if (value == -5) {
+	if (value == -6) {
 		reina_n.draw();
 	}
-	else if (value == 5) {
+	else if (value == 6) {
 		reina_b.draw();
 	}
 }

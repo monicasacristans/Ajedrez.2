@@ -10,10 +10,10 @@ Alfil::Alfil(int value) :value(value)
 void Alfil::draw()
 {
 
-	if (value == -3) {
+	if (value == -4) {
 		alfil_n.draw();
 	}
-	else if (value == 3) {
+	else if (value == 4) {
 		alfil_b.draw();
 	}
 }
