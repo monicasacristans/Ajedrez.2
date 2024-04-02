@@ -51,11 +51,11 @@ void Tablero::dibujar() {
                 glColor3ub(130, 130, 130); // gris oscuro 
             }
             glBegin(GL_POLYGON);
-            glVertex3f(10 * i - 40, 10 * j - 41, -2); //Aumenta el tamaño del tablero multiplicando por 10, 
+            glVertex3f(10 * i - 48, 10 * j - 41, -2); //Aumenta el tamaño del tablero multiplicando por 10, 
             //ajusta las coordenadas para centrar el tablero en el centro
-            glVertex3f(10 * i - 40, 10 * (j + 1) - 41, -2);
-            glVertex3f(10 * (i + 1) - 40, 10 * (j + 1) - 41, -2);
-            glVertex3f(10 * (i + 1) - 40, 10 * j - 41, -2);
+            glVertex3f(10 * i - 48, 10 * (j + 1) - 41, -2);
+            glVertex3f(10 * (i + 1) - 48, 10 * (j + 1) - 41, -2);
+            glVertex3f(10 * (i + 1) - 48, 10 * j - 41, -2);
             glEnd();
         }
 
@@ -137,54 +137,54 @@ void Tablero::piezasdibujar() {
     Arzobispo* arn = new Arzobispo(-7);
 
     //Colocacion piezas en la posicion inicial
-    p1b->setPos(-34.5, -24);
-    p2b->setPos(-24.5, -24);
-    p3b->setPos(-14.5, -24);
-    p4b->setPos(-4.5,-24);
-    p5b->setPos(4.5, -24);
-    p6b->setPos(14.5, -24);
-    p7b->setPos(24.5, -24);
-    p8b->setPos(34.5, -24);
-    p9b->setPos(44.5, -24);
-    p10b->setPos(54.5, -24);
+    p1b->setPos(-42.5, -24);
+    p2b->setPos(-32.5, -24);
+    p3b->setPos(-22.5, -24);
+    p4b->setPos(-12.5,-24);
+    p5b->setPos(-2.5, -24);
+    p6b->setPos(7, -24);
+    p7b->setPos(17, -24);
+    p8b->setPos(27, -24);
+    p9b->setPos(37, -24);
+    p10b->setPos(47, -24);
 
-    p1n->setPos(-34.5, 24);
-    p2n->setPos(-24.5, 24);
-    p3n->setPos(-14.5, 24);
-    p4n->setPos(-4.5, 24);
-    p5n->setPos(4.5, 24);
-    p6n->setPos(14.5, 24);
-    p7n->setPos(24.5, 24);
-    p8n->setPos(34.5, 24);
-    p9n->setPos(44.5, 24);
-    p10n->setPos(54.5, 24);
+    p1n->setPos(-42.5, 24);
+    p2n->setPos(-32.5, 24);
+    p3n->setPos(-22.5, 24);
+    p4n->setPos(-12.5, 24);
+    p5n->setPos(-2.5, 24);
+    p6n->setPos(7, 24);
+    p7n->setPos(17, 24);
+    p8n->setPos(27, 24);
+    p9n->setPos(37, 24);
+    p10n->setPos(47, 24);
 
-    tb1->setPos(-34.5, -34);
-    tb2->setPos(54.5, -34);
+    tb1->setPos(-42.5, -35);
+    tb2->setPos(47, -35);
 
-    tn1->setPos(-34.5, 34);
-    tn2->setPos(54.5, 34);
+    tn1->setPos(-42.5, 34);
+    tn2->setPos(47, 34);
 
-    cb1->setPos(-24, -34.5);
-    cb2->setPos(44.5, -34.5);
+    cb1->setPos(-32, -35);
+    cb2->setPos(37, -35);
 
-    cn1->setPos(-24, 34.5);
-    cn2->setPos(44.5, 34.5);
+    cn1->setPos(-32, 34.5);
+    cn2->setPos(36, 34.5);
 
-    cab->setPos(-14, 34.5);
-    can->setPos(34.5, -34.5);
+    cab->setPos(-22, -35);
+    can->setPos(42.5, -35);
 
-    ab1->setPos(-4.5,-34.5);
-    ab2->setPos(24.5, -34.5);
+    ab1->setPos(-12.5,-35);
+    ab2->setPos(27, -35);
 
-    an1->setPos(-4.5, 34.5);
-    an2->setPos(24.5, 34.5);
+    an1->setPos(-12.5, 34.5);
+    an2->setPos(27, 34.5);
 
-    ryb->setPos(14.5, -34.5);
-    ryn->setPos(14.5, 34.5);
+    ryb->setPos(-2.5, -35);
+    ryn->setPos(-2.5, 34.5);
 
-    ryab->setPos(4.5, -34.5);
-    ryan->setPos(4.5, 34.5);
+    ryab->setPos(7, -35);
+    ryan->setPos(7, 34.5);
 
 
    //Dibujar las piezas
