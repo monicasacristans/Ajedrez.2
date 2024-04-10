@@ -9,13 +9,13 @@ void Mundo::dibuja()
 			0.0, 0, 0.0,      // hacia que punto mira  (0,0,0) 
 			0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y) */
 
-	/*gluLookAt(0, 0, 120,  // posicion del ojo
+	gluLookAt(0, 0, 120,  // posicion del ojo
 		0, 0, 0,      // hacia que punto mira  (0,0,0) 
-		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)   */
+		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)   
 
 	//aqui es donde hay que poner el codigo de dibujo
 	//dibujo del suelo
-	glDisable(GL_LIGHTING);
+	//glDisable(GL_LIGHTING);
 	/*glBegin(GL_POLYGON);
 		glColor3ub(255,0,0);
 		glVertex3f(-5.0f,0,-5.0f);
@@ -24,7 +24,7 @@ void Mundo::dibuja()
 		glVertex3f(5.0f,0,5.0f);	
 		glVertex3f(5.0f,0,-5.0f);
 	glEnd();*/
-	glEnable(GL_LIGHTING);
+	//glEnable(GL_LIGHTING);
 }
 
 void Mundo::mueve()

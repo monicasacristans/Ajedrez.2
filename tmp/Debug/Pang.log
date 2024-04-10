@@ -1,34 +1,33 @@
-﻿  Tablero.cpp
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(12,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(12,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(13,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(13,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(14,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(14,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(15,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(15,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(16,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(16,53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(17,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(17,53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(18,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(18,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(19,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(19,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(20,52): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(20,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(21,52): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(21,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(22,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(22,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(23,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(23,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(54,44): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(54,31): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(56,50): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(56,31): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(57,56): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(57,37): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(58,50): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(58,37): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-  Pang.vcxproj -> C:\Users\cesar\Documents\GitHub\Ajedrez.2\bin\Pang.exe
+﻿  Main.cpp
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(55,2): warning C4551: la llamada a la función no tiene lista de argumentos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(85,3): warning C4551: la llamada a la función no tiene lista de argumentos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(113,54): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(113,33): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(117,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  Usuario.cpp
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(12,54): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(12,47): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(13,54): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(13,47): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(14,56): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(14,49): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(15,56): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(15,49): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(16,59): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(16,53): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(17,60): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(17,53): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(18,55): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(18,49): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(19,56): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(19,49): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(20,52): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(20,45): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(21,52): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(21,45): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(22,56): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(22,49): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(23,56): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(23,49): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  Generando código...
+  Pang.vcxproj -> C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\bin\Pang.exe

@@ -318,17 +318,49 @@ void Usuario::raton(int button, int state, int x, int y) {
 void Usuario::dibuja() {
 	if (estado == INICIO) {
 
+
+		//Dibuja la pantalla de inicio
+
+		gluLookAt(0, 7.5, 30, // posicion del ojo
+			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0) 
+			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y) 
+
+		//Añadir fondo
+		glEnable(GL_TEXTURE_2D);
+		//glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("bin/imagenes/menuprincipal.png").id);
+		glDisable(GL_LIGHTING);
+		glBegin(GL_POLYGON);
+		glColor3f(1, 1, 0);
+		glTexCoord2d(0, 1); glVertex2f(-10, 0);
+		glTexCoord2d(1, 1); glVertex2f(10, 0);
+		glTexCoord2d(1, 0); glVertex2f(10, 15);
+		glTexCoord2d(0, 0); glVertex2f(-10, 15);
+		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
+		//Hay que mirar lo de las letras
+		setTextColor(1, 1, 0);
+		setFont("bin/fuentes/Bitwise.ttf", 80);
+		printxy("CHEST GAME", -58, 30);
+		setTextColor(1, 1, 1);
+		setFont("bin/fuentes/Bitwise.ttf", 60);
+		printxy("MODO DE JUEGO", -53, 8);
+		printxy("OPCIONES", -32, -12);
+		//menuinicio.draw();
 		switch (menu_inicio) {
 		case I:
-			menuinicio.draw();
+			//menuinicio.draw();
+			
 		case OPCIONES:
 			corona.setPos(shapx * -52, shapy * 5);
 			corona.draw();
-			menuinicio.draw();
+			//menuinicio.draw();
+		
 		case MODODEJUEGO:
 			corona.setPos(shapx * -33, shapy * -14);
 			corona.draw();
-			menuinicio.draw();
+			//menuinicio.draw();
+	
 		}
 	}
 	if (estado == MODOJUEGO) {
@@ -337,112 +369,218 @@ void Usuario::dibuja() {
 	}
 
 	if (estado == OP) {
+		setTextColor(1, 1, 1);
+		setFont("bin/fuentes/Bitwise.ttf", 65);
+		printxy("AYUDA", -20, 20);
+		printxy("INSTRUCCIONES", -50, -4);
+		printxy("ATRAS", -16, -27);
 		switch (opcion) {
 		case O:
-			opciones.draw();
+			//opciones.draw();
 		case AYUDA:
 			corona.setPos(shapx * -32, shapy * 25);
 			corona.draw();
-			opciones.draw();
+			//opciones.draw();
 		case INSTRUCCIONES:
 			corona.setPos(shapx * -64, shapy * 0);
 			corona.draw();
-			opciones.draw();
+			//opciones.draw();
 		case A_OPCION:
 			corona.setPos(shapx * -28, shapy * -27);
 			corona.draw();
-			opciones.draw();
-
+			//opciones.draw();
 		}
 	}
 
 	if (estado == AYU) {
 		if (menu_ayuda == H) {
+			setTextColor(1, 1, 0);
+			setFont("bin/fuentes/Bitwise.ttf", 70);
+			printxy("AYUDA", -24, 25);
+			setTextColor(1, 1, 1);
+			setFont("bin/fuentes/Bitwise.ttf", 45);
+			printxy("TORRE", -15, 13);
+			printxy("PEON", -13, 4);
+			printxy("CABALLO", -19, -6);
+			printxy("ALFIL", -10, -15);
+			printxy("REY", -10, -25);
+			printxy("REINA", -15, -35);
+			printxy("atras", -70, -38);
 			//ayudas.draw();
 			switch (n_ayuda) {
 			case 0:
 				corona.setPos(shapx * -22, shapy * 17);
 				corona.draw();
-				ayudas.draw();
+				//ayudas.draw();
 			case 1:
 				corona.setPos(shapx * -21, shapy * 7);
 				corona.draw();
-				ayudas.draw();
+				//ayudas.draw();
 			case 2:
 				corona.setPos(shapx * -27, shapy * -3);
 				corona.draw();
-				ayudas.draw();
+
 			case 3:
 				corona.setPos(shapx * -18, shapy * -14);
 				corona.draw();
-				ayudas.draw();
+				//ayudas.draw();
 			case 4:
 				corona.setPos(shapx * -17, shapy * -25);
 				corona.draw();
-				ayudas.draw();
+				//ayudas.draw();
 			case 5:
 				corona.setPos(shapx * -22, shapy * -35);
 				corona.draw();
-				ayudas.draw();
+				//ayudas.draw();
 			case 6:
 				corona.setPos(shapx * -82, shapy * -40);
 				corona.draw();
-				ayudas.draw();
-			case 7:
-				ayudas.draw();
+				//ayudas.draw();
 			}
 		}
 		if (menu_ayuda == TEXTO) {
 			switch (n_texto_a) {
 			case 0:
-				a_torre.draw();
+				//a_torre.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("TORRE", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Las torres pueden moverse tantas casillas como", -60, 10);
+				printxy("quieran, pero en sentido vertical y horizontal, es", -62, 3);
+				printxy("decir, arriba, abajo, derecha e izquierda", -60, -4);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
 			case 1:
-				a_peon.draw();
+				//a_peon.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("ALFIL", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Los peones tienen diferentes movimientos para sus desplazamientos", -60, 10);
+				printxy("y capturas, pero ambos obligan a moverse hacia adelante.", -62, 3);
+				printxy("Para moverse, solo pueden moverse una casilla hacia delante,", -60, -4);
+				printxy("excepto el primer movimiento, que puede ser de dos casillas", -35, -11);
+				printxy("Para capturar, lo hacen en diagonal, y deben estar frente a ellos.", -37, -18);
+				printxy("Si una pieza esta frente a ellos no podran avanzar", -30, -25);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
 			case 2:
-				a_caballo.draw();
+				//a_caballo.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("CABALLO", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Los caballos se mueven de la manera mas particular", -60, 10);
+				printxy("Avanza dos cuadrados en una direccion, luego uno", -62, 3);
+				printxy("mas en un angulo de 90 grados, dibujando la letra L", -60, -4);
+				printxy("Estas piezas son las unicas que pueden saltar", -35, -11);
+				printxy("sobre otras piezas", -17, -18);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
 			case 3:
-				a_alfil.draw();
+				//a_alfil.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("ALFIL", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Los alfiles pueden moverse tantas casillas como", -60, 10);
+				printxy("quieran, pero solo en diagonal, lo que significa que", -62, 3);
+				printxy("permanecen en el mismo color de la casilla inicial", -60, -4);
+				printxy("durante toda la partida", -35, -11);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
+
 			case 4:
-				a_rey.draw();
+				//a_rey.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("REY", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("El rey puede moverse solo una casilla, pero en cualquier direccion", -60, 10);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
 			case 5:
-				a_reina.draw();
+				//a_reina.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("REINA", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("La reina puede moverse tantas casillas como", -60, 10);
+				printxy("quiera, incluso en cualquier direccion sin saltar", -62, 3);
+				printxy("sobre las piezas de su mismo color", -60, -4);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
 			}
 		}
 
 	}
-	/*if (estado == INST) {
+	if (estado == INST) {
 		if (menu_instrucciones == INS) {
+			setTextColor(1, 1, 0);
+			setFont("bin/fuentes/Bitwise.ttf", 70);
+			printxy("INSTRUCCIONES", -45, 33);
+			setTextColor(1, 1, 1);
+			setFont("bin/fuentes/Bitwise.ttf", 45);
+			printxy("OBJETIVO", -18, 22);
+			printxy("ENROQUE", -19, 11);
+			printxy("JAQUE MATE", -28, 1);
+			printxy("CORONACION", -28, -9);
+			printxy("CAPTURA AL PASO", -39, -19);
+			printxy("TABLAS", -14, -29);
+			setTextColor(1, 1, 0);
+			printxy("atras", -9, -37);
 			switch (n_inst) {
 			case 0:
-				instrucciones.draw();
+				//instrucciones.draw();
+				
 			case 1:
 				corona.setPos(shapx * -27, shapy * 27);
 				corona.draw();
-				instrucciones.draw();
+				//instrucciones.draw();
+				
 			case 2:
 				corona.setPos(shapx * -29, shapy * 16);
 				corona.draw();
-				instrucciones.draw();
+				//instrucciones.draw();
+			
 			case 3:
 				corona.setPos(shapx * -36, shapy * 5);
 				corona.draw();
-				instrucciones.draw();
+				//instrucciones.draw();
+			
 			case 4:
 				corona.setPos(shapx * -36, shapy * -6);
 				corona.draw();
-				instrucciones.draw();
+				//instrucciones.draw();
+				
 			case 5:
 				corona.setPos(shapx * -48, shapy * -17);
 				corona.draw();
-				instrucciones.draw();
+				//instrucciones.draw();
+				
 			case 6:
 				corona.setPos(shapx * -22, shapy * -29);
 				corona.draw();
-				instrucciones.draw();
+				//instrucciones.draw();
+				
 			case 7:
 				corona.setPos(shapx * -20, shapy * -40);
 				corona.draw();
-				instrucciones.draw();
+				//instrucciones.draw();
+				
 
 
 			}
@@ -450,17 +588,99 @@ void Usuario::dibuja() {
 		if (menu_instrucciones == TEXTO_I) {
 			switch (n_texto_ins) {
 			case 0:
-				i_objetivo.draw();
+				//i_objetivo.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("OBJETIVO", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Dar Jaque Mate al", -60, 10);
+				printxy("rey contrario", -62, 3);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
 			case 1:
-				i_enroque.draw();
+				//i_enroque.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("ENROQUE", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Este movimiento permite poner al rey en una posicion mas segura", -60, 10);
+				printxy("y sacar la torre de la esquina. El rey se mueve dos casillas", -62, 3);
+				printxy("hacia el lado y la torrre se coloca al lado del rey en el lado opuesto", -60, -4);
+				printxy("Condiciones:", -20, -11);
+				printxy("1.- Debe ser el primer movimiento de ambas figuras", -50, -18);
+				printxy("2.- No puede haber piezas entre el rey y la torre", -54, -25);
+				printxy("No puede estar en jaque ni pasar por una casilla amenazada", -55, -32);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
 			case 2:
-				i_jaquemate.draw();
+				//i_jaquemate.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("JAQUE MATE", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Se dice que un jugador esta en jaque cuando su rey esta siendo", -60, 10);
+				printxy("atacado por una o dos piezas enemigas y seria posible para el rival", -62, 3);
+				printxy("capturarlo en el siguiente turno.", -43, -4);
+				printxy("Cuando el jugador no puede ejecutar ningun movimiento que lo resuelva", -63, -11);
+				printxy("ha perdido la partida", -36, -18);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
+
 			case 3:
-				i_coronacion.draw();
+				//i_coronacion.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("CORONACION", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Cuando un peon llega a la ultima fila ha de ser cambiado por", -60, 10);
+				printxy("un caballo, alfil, torre o dama, aunque el jugador ya posea esa pieza", -62, 3);
+				printxy("Esta sustitucion esta incluida en el mismo turno del peon", -60, -4);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
 			case 4:
-				i_capturapaso.draw();
+				//i_capturapaso.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("CAPTURA AL PASO", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Forma adicional de un PEON para capturar peones enemigos. Para ello:", -60, 10);
+				printxy("-El peon original debe estar en su quinta fila", -47, 3);
+				printxy("-El peon rival debe estar en su posicion inicial en una columna adyacente", -63, -4);
+				printxy("-El rival debe avanzar dos pasos su peon de modo que ambos peones queden juntos en la misma fila", -70, -11);
+				printxy("- En ese momento, puede capturar al enemigo como si solo se hubiera movido", -54, -18);
+				printxy("una casilla desplazando el propio en diagonal a la fila siguiente y", -50, -25);
+				printxy("retirando  al capturado", -20, -32);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
 			case 5:
-				i_tablas.draw();
+				//i_tablas.draw();
+				setTextColor(1, 1, 0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("TABLAS", -15, 20);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Posibilidades:", -13, 10);
+				printxy("-Un jugador que no esta en jaque no puede mover en su turno", -74, 3);
+				printxy("-Por mutuo acuerdo", -35, -4);
+				printxy("-Se ha producido la repeticion de la misma posicion 3 veces", -74, -11);
+				printxy("-No existen suficientes piezas por ningun bando para forzar un jaque mate", -83, -18);
+				printxy("-Se produce una secuencia de 50 jugadas de cada bando", -74, -25);
+				printxy("sin captura o movimiento del peon", -44, -32);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(1, 1, 1);
+				printxy("atras", -70, -38);
+
 			}
-		}*/
+		}
 	}
+}
