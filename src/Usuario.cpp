@@ -1,12 +1,11 @@
+#include <iostream>
 #include "Usuario.h"
 #include "Tablero.h"
-#include "freeglut.h"
-#include <iostream>
-#include "Pieza.h"
 #include "Peon.h"
 
 // Definir el objeto corona fuera de las funciones
 ETSIDI::Sprite corona{"imagenes/corona.png", 0,0,10,5 };
+
 Tablero tablero;
 
 Usuario::Usuario() {
@@ -318,15 +317,15 @@ void Usuario::raton(int button, int state, int x, int y) {
 void Usuario::dibuja() {
 	if (estado == INICIO) {
 
-
 		//Dibuja la pantalla de inicio
 
 		gluLookAt(0, 7.5, 30, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0) 
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y) 
 
+
 		//Añadir fondo
-		glEnable(GL_TEXTURE_2D);
+		/*glEnable(GL_TEXTURE_2D);
 		//glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("bin/imagenes/menuprincipal.png").id);
 		glDisable(GL_LIGHTING);
 		glBegin(GL_POLYGON);
@@ -337,7 +336,10 @@ void Usuario::dibuja() {
 		glTexCoord2d(0, 0); glVertex2f(-10, 15);
 		glEnd();
 		glEnable(GL_LIGHTING);
-		glDisable(GL_TEXTURE_2D);
+		glDisable(GL_TEXTURE_2D);*/
+
+		
+	
 		//Hay que mirar lo de las letras
 		setTextColor(1, 1, 0);
 		setFont("bin/fuentes/Bitwise.ttf", 80);
@@ -347,9 +349,15 @@ void Usuario::dibuja() {
 		printxy("MODO DE JUEGO", -53, 8);
 		printxy("OPCIONES", -32, -12);
 		//menuinicio.draw();
+		
+
+
 		switch (menu_inicio) {
 		case I:
+			fondo.draw();
+
 			//menuinicio.draw();
+
 			
 		case OPCIONES:
 			corona.setPos(shapx * -52, shapy * 5);

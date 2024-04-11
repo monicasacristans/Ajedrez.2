@@ -1,11 +1,10 @@
-#include "Mundo.h"
-#include "freeglut.h"
 #include <iostream>
-#include "ETSIDI.h"
+#include "Mundo.h"
 #include "Usuario.h"
 
 Mundo mundo;
 Usuario usuario;
+
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
 //NO HACE FALTA LLAMARLAS EXPLICITAMENTE
@@ -66,7 +65,8 @@ void OnDraw(void)
 
 	gluLookAt(0, 0, 120,  // posicion del ojo
 		0, 0, 0,      // hacia que punto mira  (0,0,0) 
-		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
+		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y) 
+
 	usuario.dibuja();
 
 	//no borrar esta linea ni poner nada despues

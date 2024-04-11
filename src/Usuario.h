@@ -1,13 +1,11 @@
 #pragma once
 #include "freeglut.h"
-#include <iostream>
 #include "ETSIDI.h"
+using namespace ETSIDI;
 
 class Usuario {
 
-private:
-
-	//ETSIDI::Sprite corona{ "imagenes/corona.png", 0,0,10,5};
+	Sprite fondo{ "bin/imagenes/fondo.png", 0.0, 0.0, 160.0, 90.0 };
 
 public:
 	Usuario();
