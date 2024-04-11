@@ -318,55 +318,36 @@ void Usuario::dibuja() {
 	if (estado == INICIO) {
 
 		//Dibuja la pantalla de inicio
-
-		gluLookAt(0, 7.5, 30, // posicion del ojo
-			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0) 
-			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y) 
-
-
-		//Añadir fondo
-		/*glEnable(GL_TEXTURE_2D);
-		//glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("bin/imagenes/menuprincipal.png").id);
-		glDisable(GL_LIGHTING);
-		glBegin(GL_POLYGON);
-		glColor3f(1, 1, 0);
-		glTexCoord2d(0, 1); glVertex2f(-10, 0);
-		glTexCoord2d(1, 1); glVertex2f(10, 0);
-		glTexCoord2d(1, 0); glVertex2f(10, 15);
-		glTexCoord2d(0, 0); glVertex2f(-10, 15);
-		glEnd();
-		glEnable(GL_LIGHTING);
-		glDisable(GL_TEXTURE_2D);*/
-
-		
+	
+		fondo.draw();
 	
 		//Hay que mirar lo de las letras
-		setTextColor(1, 1, 0);
+		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 		setFont("bin/fuentes/Bitwise.ttf", 80);
-		printxy("CHEST GAME", -58, 30);
+		printxy("CHEST GAME", -50, 20);
 		setTextColor(1, 1, 1);
 		setFont("bin/fuentes/Bitwise.ttf", 60);
-		printxy("MODO DE JUEGO", -53, 8);
-		printxy("OPCIONES", -32, -12);
+		printxy("MODO DE JUEGO", -48, 2.5);
+		printxy("OPCIONES", -29, -17.5);
 		//menuinicio.draw();
 		
-
-
 		switch (menu_inicio) {
 		case I:
-			fondo.draw();
 
+			//fondo.draw();
 			//menuinicio.draw();
 
 			
 		case OPCIONES:
 			corona.setPos(shapx * -52, shapy * 5);
 			corona.draw();
+			fondo.draw();
 			//menuinicio.draw();
 		
 		case MODODEJUEGO:
 			corona.setPos(shapx * -33, shapy * -14);
 			corona.draw();
+			fondo.draw();
 			//menuinicio.draw();
 	
 		}
@@ -377,6 +358,7 @@ void Usuario::dibuja() {
 	}
 
 	if (estado == OP) {
+
 		setTextColor(1, 1, 1);
 		setFont("bin/fuentes/Bitwise.ttf", 65);
 		printxy("AYUDA", -20, 20);
@@ -398,10 +380,14 @@ void Usuario::dibuja() {
 			corona.draw();
 			//opciones.draw();
 		}
+
+		fondo.draw();
 	}
 
 	if (estado == AYU) {
+
 		if (menu_ayuda == H) {
+			
 			setTextColor(1, 1, 0);
 			setFont("bin/fuentes/Bitwise.ttf", 70);
 			printxy("AYUDA", -24, 25);
@@ -536,6 +522,9 @@ void Usuario::dibuja() {
 
 	}
 	if (estado == INST) {
+
+		fondo.draw();
+
 		if (menu_instrucciones == INS) {
 			setTextColor(1, 1, 0);
 			setFont("bin/fuentes/Bitwise.ttf", 70);
