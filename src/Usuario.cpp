@@ -3,7 +3,6 @@
 #include "freeglut.h"
 #include <iostream>
 #include "Pieza.h"
-#include "Peon.h"
 
 // Definir el objeto corona fuera de las funciones
 ETSIDI::Sprite corona{"imagenes/corona.png", 0,0,10,5 };
@@ -332,8 +331,9 @@ void Usuario::dibuja() {
 		}
 	}
 	if (estado == MODOJUEGO) {
+		tablero.colocarPieza(1, 1, Pieza(tipo::torre, color::blanco));
+		tablero.colocarPieza(0, 0, Pieza(tipo::rey, color::negro));
 		tablero.dibujar();
-		tablero.piezasdibujar();
 	}
 
 	if (estado == OP) {

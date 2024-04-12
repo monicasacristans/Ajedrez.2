@@ -1,28 +1,38 @@
 #pragma once
-#include <vector>
-#include <map>
 #include "Pieza.h"
-#include "ETSIDI.h"
 
-using namespace std;
 
-class Tablero
-{
-private:
-    char tablero[8][10]; // Matriz para representar el tablero de ajedrez
-    map<int, Pieza*> mapaPiezas; //Mapa de enteros a punteros de Pieza
-    //donde cada entero se asocia con un puntero Pieza
+#define max_x 10
+#define max_y 8
+
+class Tablero {
+	//const int max_x = 10;
+	//const int max_y = 8;
+	Pieza tablero[max_x][max_y];
 
 public:
 
-    Tablero(); // Constructor
-    ~Tablero(); //Destructor
-
-    void dibujar() ;
-    void piezasdibujar();
-    ETSIDI::Vector2D convertirTableroAPantalla(float x, float y);
-
-
-    //void asignarPieza(int fila, int columna, char pieza);
-
+	Tablero();
+	void colocarPieza(int x, int y, Pieza p);
+	void dibujar();
 };
+//class Tablero
+//{
+//private:
+//    char tablero[8][10]; // Matriz para representar el tablero de ajedrez
+//    map<int, Pieza*> mapaPiezas; //Mapa de enteros a punteros de Pieza
+//    //donde cada entero se asocia con un puntero Pieza
+//
+//public:
+//
+//    Tablero(); // Constructor
+//    ~Tablero(); //Destructor
+//
+//    void dibujar() ;
+//    void piezasdibujar();
+//    ETSIDI::Vector2D convertirTableroAPantalla(float x, float y);
+//
+//
+//    //void asignarPieza(int fila, int columna, char pieza);
+//
+//};
