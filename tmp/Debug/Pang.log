@@ -1,5 +1,7 @@
-﻿  Tablero.cpp
-  LINK : no se encontró C:\Users\Cristina\Documents\GitHub\Ajedrez.2\bin\Pang.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
-Tablero.obj : error LNK2005: ya se definió "struct casilla __cdecl next(struct casilla,enum direcciones)" (?next@@YA?AUcasilla@@U1@W4direcciones@@@Z) en Pieza.obj
-Usuario.obj : error LNK2005: ya se definió "struct casilla __cdecl next(struct casilla,enum direcciones)" (?next@@YA?AUcasilla@@U1@W4direcciones@@@Z) en Pieza.obj
+﻿  Pieza.cpp
+  Tablero.cpp
+  Usuario.cpp
+  Generando código...
+Tablero.obj : error LNK2005: ya se definió "struct casilla __cdecl next(struct casilla &,enum direcciones)" (?next@@YA?AUcasilla@@AEAU1@W4direcciones@@@Z) en Pieza.obj
+Usuario.obj : error LNK2005: ya se definió "struct casilla __cdecl next(struct casilla &,enum direcciones)" (?next@@YA?AUcasilla@@AEAU1@W4direcciones@@@Z) en Pieza.obj
 C:\Users\Cristina\Documents\GitHub\Ajedrez.2\bin\Pang.exe : fatal error LNK1169: se encontraron uno o más símbolos definidos simultáneamente

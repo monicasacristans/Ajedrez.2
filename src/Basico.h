@@ -1,24 +1,27 @@
 #pragma once
 
+enum class direcciones { arriba, diag_sup_dcha, derecha, diag_inf_dcha, abajo, diag_inf_izq, izquierda, diag_sup_izq };
+enum class color { blanco, negro };
+enum class tipo { vacio, peon, torre, caballo, canciller, arzobispo, alfil, rey, reina };
+//0		1		2		3			4			5	6		7
+
+
 struct casilla {
 	int x; //columna
 	int y; //fila
 };
 
-enum class direcciones { arriba, diag_sup_dcha, derecha, diag_inf_dcha, abajo, diag_inf_izq, izquierda, diag_sup_izq };
-enum class color { blanco, negro };
-enum class tipo { vacio, peon, torre, caballo, canciller, arzobispo, alfil, rey, reina, };
-//0		1		2		3			4			5	6		7
 
-struct movimiento {
+/*struct movimiento {
 	casilla origen;
 	casilla destino;
-};
+};*/
 
-casilla next(casilla casilla1, direcciones direc) {
+casilla next(casilla &casilla1, direcciones direc) {
 
 	switch (direc) {
 	case direcciones::arriba:
+		
 		casilla1.y++;
 		break;
 	case direcciones::diag_sup_dcha:
@@ -46,14 +49,16 @@ casilla next(casilla casilla1, direcciones direc) {
 		casilla1.x--;
 		casilla1.y++;
 		break;
+	default:
+		break;
 	}
 
 	// Asegurar que las coordenadas están dentro de los límites del tablero de ajedrez 10x8.
-	if (casilla1.x < 0) casilla1.x = 0;
-	if (casilla1.x > 9) casilla1.x = 9; // Ahora x puede ir hasta 9 porque hay 10 columnas.
-	if (casilla1.y < 0) casilla1.y = 0;
-	if (casilla1.y > 7) casilla1.y = 7; // y va hasta 7 porque hay 8 filas.
+	//if (casilla1.x < 0) casilla1.x = 0;
+	//if (casilla1.x > 9) casilla1.x = 9; // Ahora x puede ir hasta 9 porque hay 10 columnas.
+	//if (casilla1.y < 0) casilla1.y = 0;
+	//if (casilla1.y > 7) casilla1.y = 7; // y va hasta 7 porque hay 8 filas.
 
 	return casilla1;
-
+	
 }
