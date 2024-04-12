@@ -1,10 +1,4 @@
-﻿  Main.cpp
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Main.cpp(54,2): warning C4551: function call missing argument list
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Main.cpp(85,3): warning C4551: function call missing argument list
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Main.cpp(113,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Main.cpp(113,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Main.cpp(117,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Usuario.cpp
+﻿  Usuario.cpp
 C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(12,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(12,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(13,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -29,8 +23,46 @@ C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(22,56): warning C4244: 'ar
 C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(22,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(23,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pieza.h(23,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(325,52): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(330,33): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(331,29): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  Generating Code...
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(323,53): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(328,34): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(329,30): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(336,53): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(341,34): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(342,30): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(349,53): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(354,34): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(355,30): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(415,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(426,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(434,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(445,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(453,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(464,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(472,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(483,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(492,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(503,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(512,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(523,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(532,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(543,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(550,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(561,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(580,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(668,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(679,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(686,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(697,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(705,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(716,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(725,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(736,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(744,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(755,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(763,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(774,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(782,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(793,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(801,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(812,54): warning C4305: 'argument': truncation from 'double' to 'float'
   Pang.vcxproj -> C:\Users\cesar\Documents\GitHub\Ajedrez.2\bin\Pang.exe

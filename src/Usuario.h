@@ -5,7 +5,7 @@ using namespace ETSIDI;
 
 class Usuario {
 
-	Sprite fondo{ "bin/imagenes/fondo.png", 0, 0, 180, 100 };
+	Sprite fondo{ "bin/imagenes/fondo.png", 0, 0, 220, 140 };
 
 public:
 	Usuario();
