@@ -569,54 +569,60 @@ void Usuario::dibuja() {
 			case 0:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
 				printxy("TORRE", -15, 20);
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 30);
 				printxy("Las torres pueden moverse tantas casillas como", -60, 10);
-				printxy("quieran, pero en sentido vertical y horizontal, es", -62, 3);
-				printxy("decir, arriba, abajo, derecha e izquierda", -60, -4);
+				printxy("quieran, pero en sentido vertical y horizontal, es", -61.5, 3);
+				printxy("decir, arriba, abajo, derecha e izquierda", -53, -4);
 				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
 				printxy("atras", -70, -38);
+
+				break;
 			case 1:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
-				printxy("ALFIL", -15, 20);
+				printxy("PEON", -15, 20);
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 30);
-				printxy("Los peones tienen diferentes movimientos para sus desplazamientos", -60, 10);
-				printxy("y capturas, pero ambos obligan a moverse hacia adelante.", -62, 3);
-				printxy("Para moverse, solo pueden moverse una casilla hacia delante,", -60, -4);
-				printxy("excepto el primer movimiento, que puede ser de dos casillas", -35, -11);
-				printxy("Para capturar, lo hacen en diagonal, y deben estar frente a ellos.", -37, -18);
-				printxy("Si una pieza esta frente a ellos no podran avanzar", -30, -25);
+				printxy("Los peones tienen diferentes tipos de movimientos", -60, 10);
+				printxy("y capturas, pero ambos obligan a moverse hacia adelante.", -69.5, 3);
+				printxy("Solo pueden moverse una casilla hacia delante,", -55, -4);
+				printxy("excepto el primer movimiento, que puede ser de dos casillas", -73, -11);
+				printxy("La captura es en diagonal y deben estar frente a ellos.", -66, -18);
+				printxy("Si una pieza esta frente a ellos no podran avanzar", -61, -25);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				printxy("atras", -70, -38);
+
+				break;
 			case 2:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
-				printxy("CABALLO", -15, 20);
+				printxy("CABALLO", -25, 20);
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 30);
-				printxy("Los caballos se mueven de la manera mas particular", -60, 10);
-				printxy("Avanza dos cuadrados en una direccion, luego uno", -62, 3);
-				printxy("mas en un angulo de 90 grados, dibujando la letra L", -60, -4);
-				printxy("Estas piezas son las unicas que pueden saltar", -35, -11);
-				printxy("sobre otras piezas", -17, -18);
+				printxy("Los caballos se mueven de la manera mas particular", -70, 10);
+				printxy("Avanza dos cuadrados en una direccion, luego uno", -70, 3);
+				printxy("mas en un angulo de 90 grados, dibujando la letra L", -70, -4);
+				printxy("Estas piezas son las unicas que pueden saltar", -65, -11);
+				printxy("sobre otras piezas", -20, -18);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				printxy("atras", -70, -38);
+
+				break;
 			case 3:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
 				printxy("ALFIL", -15, 20);
 				setTextColor(1, 1, 1);
@@ -626,35 +632,45 @@ void Usuario::dibuja() {
 				printxy("permanecen en el mismo color de la casilla inicial", -60, -4);
 				printxy("durante toda la partida", -35, -11);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				printxy("atras", -70, -38);
+
+				break;
 
 			case 4:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
-				printxy("REY", -15, 20);
+				printxy("REY", -12.5, 20);
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 30);
-				printxy("El rey puede moverse solo una casilla, pero en cualquier direccion", -60, 10);
+				printxy("El rey puede moverse solo una casilla", -45, 10);
+				printxy("pero en cualquier direccion", -33, 0);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				printxy("atras", -70, -38);
+
+				break;
 			case 5:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
 				printxy("REINA", -15, 20);
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 30);
 				printxy("La reina puede moverse tantas casillas como", -60, 10);
 				printxy("quiera, incluso en cualquier direccion sin saltar", -62, 3);
-				printxy("sobre las piezas de su mismo color", -60, -4);
+				printxy("sobre las piezas de su mismo color", -46, -4);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				printxy("atras", -70, -38);
+
+				break;
+
+			default:
+				break;
 			}
 		}
 
@@ -819,101 +835,114 @@ void Usuario::dibuja() {
 			case 0:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
-				printxy("OBJETIVO", -15, 20);
+				printxy("OBJETIVO", -25, 20);
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 30);
-				printxy("Dar Jaque Mate al", -60, 10);
-				printxy("rey contrario", -62, 3);
+				printxy("Dar Jaque Mate al rey contrario", -45, 10);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				printxy("atras", -70, -38);
+
+				break;
 			case 1:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
-				printxy("ENROQUE", -15, 20);
+				printxy("ENROQUE", -20, 25);
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 30);
-				printxy("Este movimiento permite poner al rey en una posicion mas segura", -60, 10);
-				printxy("y sacar la torre de la esquina. El rey se mueve dos casillas", -62, 3);
-				printxy("hacia el lado y la torrre se coloca al lado del rey en el lado opuesto", -60, -4);
-				printxy("Condiciones:", -20, -11);
-				printxy("1.- Debe ser el primer movimiento de ambas figuras", -50, -18);
-				printxy("2.- No puede haber piezas entre el rey y la torre", -54, -25);
-				printxy("No puede estar en jaque ni pasar por una casilla amenazada", -55, -32);
+				printxy("Este movimiento deja colocar al rey en una posicion mas segura", -80, 15);
+				printxy("y sacar la torre de la esquina. El rey se mueve dos casillas", -78, 8);
+				printxy("lateralmente y la torre se sitúa al lado opuesto del rey", -71, 1);
+				printxy("Condiciones:", -18, -6);
+				printxy("1.- Debe ser el primer movimiento de ambas figuras", -70, -13);
+				printxy("2.- No puede haber piezas entre el rey y la torre", -69, -20);
+				printxy("No puede estar en jaque ni pasar por una casilla amenazada", -78, -27);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				printxy("atras", -70, -38);
+
+				break;
 			case 2:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
-				printxy("JAQUE MATE", -15, 20);
+				printxy("JAQUE MATE", -30, 20);
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 30);
-				printxy("Se dice que un jugador esta en jaque cuando su rey esta siendo", -60, 10);
-				printxy("atacado por una o dos piezas enemigas y seria posible para el rival", -62, 3);
-				printxy("capturarlo en el siguiente turno.", -43, -4);
-				printxy("Cuando el jugador no puede ejecutar ningun movimiento que lo resuelva", -63, -11);
-				printxy("ha perdido la partida", -36, -18);
+				printxy("Un jugador esta en jaque cuando su rey esta siendo atacado por", -79, 10);
+				printxy("una o dos piezas enemigas y seria posible para el rival", -70, 3);
+				printxy("capturarlo en el siguiente turno.", -40, -4);
+				printxy("Cuando el jugador no puede ejecutar ningun movimiento", -70, -11);
+				printxy("que lo resuelva, ha perdido la partida", -49, -18);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				printxy("atras", -70, -38);
+
+				break;
 
 			case 3:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
-				printxy("CORONACION", -15, 20);
+				printxy("CORONACION", -33, 20);
 				setTextColor(1, 1, 1);
-				setFont("bin/fuentes/Bitwise.ttf", 30);
-				printxy("Cuando un peon llega a la ultima fila ha de ser cambiado por", -60, 10);
-				printxy("un caballo, alfil, torre o dama, aunque el jugador ya posea esa pieza", -62, 3);
-				printxy("Esta sustitucion esta incluida en el mismo turno del peon", -60, -4);
+				setFont("bin/fuentes/Bitwise.ttf", 27);
+				printxy("Cuando un peon llega a la ultima fila ha de ser cambiado por", -74, 10);
+				printxy("un caballo, alfil, torre o dama, aunque el jugador ya posea esa pieza", -80, 3);
+				printxy("Esta sustitucion esta incluida en el mismo turno del peon", -70, -4);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				printxy("atras", -70, -38);
+
+				break;
 			case 4:
 				fondo.draw();
 
-				setTextColor(1, 1, 0);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				setFont("bin/fuentes/Bitwise.ttf", 50);
-				printxy("CAPTURA AL PASO", -15, 20);
+				printxy("CAPTURA AL PASO", -40, 30);
 				setTextColor(1, 1, 1);
-				setFont("bin/fuentes/Bitwise.ttf", 30);
-				printxy("Forma adicional de un PEON para capturar peones enemigos. Para ello:", -60, 10);
-				printxy("-El peon original debe estar en su quinta fila", -47, 3);
-				printxy("-El peon rival debe estar en su posicion inicial en una columna adyacente", -63, -4);
-				printxy("-El rival debe avanzar dos pasos su peon de modo que ambos peones queden juntos en la misma fila", -70, -11);
-				printxy("- En ese momento, puede capturar al enemigo como si solo se hubiera movido", -54, -18);
-				printxy("una casilla desplazando el propio en diagonal a la fila siguiente y", -50, -25);
-				printxy("retirando  al capturado", -20, -32);
+				setFont("bin/fuentes/Bitwise.ttf", 23);
+				printxy("Forma adicional de un PEON para capturar peones enemigos:", -80, 20);
+				printxy("El peon original debe estar en su quinta fila", -80, 13);
+				printxy("El peon rival debe estar en su posicion inicial en una columna adyacente", -80, 6);
+				printxy("El rival debe mover su peón dos pasos para que ambos peones queden en la misma fila", -80, -1);
+				printxy("En ese momento, puede capturar al enemigo como si solo se hubiera movido", -80, -8);
+				printxy("una casilla desplazando el propio en diagonal a la fila siguiente y", -80, -15);
+				printxy("retirando  al capturado", -80, -22);
 				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
-				printxy("atras", -70, -38);
-			case 5:
-				fondo.draw();
-				setTextColor(1, 1, 0);
-				setFont("bin/fuentes/Bitwise.ttf", 50);
-				printxy("TABLAS", -15, 20);
-				setTextColor(1, 1, 1);
-				setFont("bin/fuentes/Bitwise.ttf", 30);
-				printxy("Posibilidades:", -13, 10);
-				printxy("-Un jugador que no esta en jaque no puede mover en su turno", -74, 3);
-				printxy("-Por mutuo acuerdo", -35, -4);
-				printxy("-Se ha producido la repeticion de la misma posicion 3 veces", -74, -11);
-				printxy("-No existen suficientes piezas por ningun bando para forzar un jaque mate", -83, -18);
-				printxy("-Se produce una secuencia de 50 jugadas de cada bando", -74, -25);
-				printxy("sin captura o movimiento del peon", -44, -32);
-				setFont("bin/fuentes/Bitwise.ttf", 45);
-				setTextColor(1, 1, 1);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 				printxy("atras", -70, -38);
 
+				break;
+			case 5:
+				fondo.draw();
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
+				setFont("bin/fuentes/Bitwise.ttf", 50);
+				printxy("TABLAS", -20, 30);
+				setTextColor(1, 1, 1);
+				setFont("bin/fuentes/Bitwise.ttf", 30);
+				printxy("Posibilidades:", -18, 20);
+				printxy("Un jugador que no esta en jaque no puede mover en su turno", -79, 13);
+				printxy("Por mutuo acuerdo", -79, 6);
+				printxy("Se ha producido la repeticion de la misma posicion 3 veces", -79, -1);
+				printxy("No hay suficientes piezas de ningún bando para hacer jaque mate", -79, -8);
+				printxy("Se produce una secuencia de 50 jugadas de cada bando", -79, -15);
+				printxy("sin captura o movimiento del peon", -79, -22);
+				setFont("bin/fuentes/Bitwise.ttf", 45);
+				setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
+				printxy("atras", -70, -38);
+
+				break;
+
+			default:
+				break;
 			}
 		}
 	}
