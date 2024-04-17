@@ -6,7 +6,7 @@
 ETSIDI::Sprite corona{ "bin/imagenes/corona.png", 0,0,10,5 };
 
 Tablero tablero;
-bool juegoInicializado = false;
+//bool juegoInicializado = false;
 
 Usuario::Usuario() {
 
@@ -160,6 +160,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 	// Actualizar las coordenadas del objeto en el juego
 	std::cout << "Coordenadas del raton en la pantalla: (" << screenX << ", " << screenY << ")" << std::endl;
 
+	tablero.definirCoordenadasTablero(button, state, x, y);
 
 	if (estado == INICIO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
@@ -356,13 +357,12 @@ void Usuario::dibuja() {
 		}
 	}
 	if (estado == MODOJUEGO) {
-		if (estado == MODOJUEGO && !juegoInicializado) {
-			tablero.piezasinicializa();
-			tablero.dibujar();
+		
+			//tablero.piezasinicializa();
+			//tablero.dibujar();
 			tablero.pintarCuadricula();
-			tablero.definirCoordenadasTablero();
-			juegoInicializado = true;
-		}
+		    //juegoInicializado = true;
+		
 	}
 
 		if (estado == OP) {

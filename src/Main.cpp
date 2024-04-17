@@ -1,11 +1,12 @@
-#include "Mundo.h"
 #include "freeglut.h"
 #include <iostream>
 #include "ETSIDI.h"
 #include "Usuario.h"
+//#include "Tablero.h"
 
-Mundo mundo;
 Usuario usuario;
+//Tablero tablero;
+
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
 //NO HACE FALTA LLAMARLAS EXPLICITAMENTE
@@ -77,6 +78,7 @@ void mouseClick(int button, int state, int x, int y)
 {
 
 	usuario.raton(button, state, x, y);
+	//tablero.definirCoordenadasTablero(button, state, x, y);
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
 		int screenX = x;
 		int screenY = y;
@@ -98,7 +100,6 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 void OnTimer(int value)
 {
 	//poner aqui el código de animacion
-	mundo.mueve();
 
 	//no borrar estas lineas
 	glutTimerFunc(100, OnTimer, 0);

@@ -88,12 +88,33 @@ casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) 
 	int screenX = x;
 	int screenY = y;
 
-	if (button == GLUT_LEFT_DOWN && state == GLUT_DOWN) {
+
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+		cas.x = 0;
+		cas.y = 0;
+		for (float i = 268; i < 1132; i += 86.4) {
+			for (float j = 738; j > 47; j -=86.4) {
+				cas.x++;
+				cas.y++;
+				std::cout << "casilla:" << cas.x <<","<< cas.y << std::endl;
+			
+			}
+		}
+		return cas;
+
+		/*
 		if (x > 267 && x < 353 && y < 738 && y>652) {
 			cas.x = 1;
 			cas.y = 1;
+			std::cout << "casilla:" << cas.x << cas.y << std::endl;
 			return cas;
 		}
+		if (x > 353 && x < 440 && y < 738 && y>652) {
+			cas.x = 2;
+			cas.y = 1;
+			std::cout << "casilla:" << cas.x << cas.y << std::endl;
+			return cas;
+		}*/
 	}
 }
 
