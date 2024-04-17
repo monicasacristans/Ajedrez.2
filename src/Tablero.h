@@ -2,8 +2,8 @@
 #include "Pieza.h"
 #include "freeglut.h"
 
-#define max_x 10
-#define max_y 8
+#define max_x 10//columnas
+#define max_y 8//filas
 
 class Tablero {
 	//const int max_x = 10;

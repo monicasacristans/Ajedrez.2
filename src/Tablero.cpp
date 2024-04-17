@@ -13,7 +13,7 @@ Tablero::Tablero() {
 //Metodo para colocar una pieza en el tablero
 void Tablero::colocarPieza(int x, int y, Pieza p) {
 	if (x >= 0 && x < max_x && y >= 0 && y < max_y) {
-		tablero[y][x] = p; //Primero fina y luego columna
+		tablero[y][x] = p; //Primero fila(y) y luego columna(x)
 	}
 	else {
 		std::cerr << "Posicion fuera de los límites del tablero" << std::endl;
@@ -55,7 +55,7 @@ void Tablero::piezasinicializa() {
 	for (int i = 0; i < 10; i++) {
 		colocarPieza(i, 6, Pieza(tipo::peon, color::blanco));
 		//	cin.sync();
-			//cin.clear();
+		//cin.clear();
 	}
 
 }
@@ -84,23 +84,25 @@ void Tablero::dibujar() {
 
 casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
-	casilla cas;
+	casilla cas{ 0,0 };
+
 	int screenX = x;
 	int screenY = y;
 
-
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-		cas.x = 0;
-		cas.y = 0;
-		for (float i = 268; i < 1132; i += 86.4) {
-			for (float j = 738; j > 47; j -=86.4) {
-				cas.x++;
-				cas.y++;
-				std::cout << "casilla:" << cas.x <<","<< cas.y << std::endl;
-			
-			}
+		// Calcular la columna y fila en función de las coordenadas x e y
+		int columna = ((x - 267) / 86.4) + ((x - 267) % 87 > 43.2 ? 1 : 0) + 1;//Conociendo las dimensiones y las coordenadas de la casilla, 
+		//y si el resto obtenido al dividir entre 87 es mayor a 43.2(la mitad de 87)suma 1, y si no, suma 0.
+		int fila = ((738 - y) / 86.4) + ((738 - y) % 87 > 43.2 ? 1 : 0);     
+
+		// Verificar que las coordenadas estén dentro del tablero
+		if (columna >= 1 && columna <= 10 && fila >= 1 && fila <= 8) {
+			cas.x = columna;
+			cas.y = fila;
+			std::cout << "casilla:" << cas.x << "," << cas.y << std::endl;
 		}
-		return cas;
+	}
+	return cas;
 
 		/*
 		if (x > 267 && x < 353 && y < 738 && y>652) {
@@ -115,7 +117,6 @@ casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) 
 			std::cout << "casilla:" << cas.x << cas.y << std::endl;
 			return cas;
 		}*/
-	}
 }
 
 void Tablero::pintarCuadricula() {
@@ -136,8 +137,7 @@ void Tablero::pintarCuadricula() {
 			glEnd();
 		}
 	}
-
-		glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHTING);
 }
 
 //Tablero::Tablero() {
