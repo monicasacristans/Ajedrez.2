@@ -12,12 +12,12 @@ struct casilla {
 };
 
 
-/*struct movimiento {
+struct movimiento {
 	casilla origen;
 	casilla destino;
-};*/
+};
 
-casilla next(casilla &casilla1, direcciones direc) {
+inline casilla next(casilla &casilla1, direcciones direc) {
 
 	switch (direc) {
 	case direcciones::arriba:

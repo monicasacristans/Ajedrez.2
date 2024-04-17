@@ -1,5 +1,6 @@
 #pragma once
 #include "Basico.h"
+#include "ETSIDI.h"
 
 
 class Pieza {
@@ -7,7 +8,7 @@ class Pieza {
 	casilla pos;
 	color colorPieza;
 	tipo tipoPieza;
-
+	ETSIDI::Sprite peon_b{ "bin/imagenes/peon_b.png", -42.5, -24 , 9, 9 };
 public:
 
 	// Constructor por defecto para inicializar una casilla vacía.

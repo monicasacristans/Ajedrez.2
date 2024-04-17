@@ -6,7 +6,7 @@
 Tablero::Tablero() {
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
-			tablero[y][x] = Pieza(); //Pieza crea una pieza vacia
+			tablero[y][x] = Pieza(tipo::vacio, color::blanco); //Pieza crea una pieza vacia
 		}
 	}
 }
@@ -17,21 +17,71 @@ void Tablero::colocarPieza(int x, int y, Pieza p) {
 		tablero[y][x] = p; //Primero fina y luego columna
 	}
 	else {
-		std::cout << "Posicion fuera de los límites del tablero" << std::endl;
+		std::cerr << "Posicion fuera de los límites del tablero" << std::endl;
 	}
+}
+
+void Tablero::piezasinicializa() {
+
+	colocarPieza(0, 0, Pieza(tipo::torre, color::negro));
+	colocarPieza(1, 0, Pieza(tipo::caballo, color::negro));
+	colocarPieza(2, 0, Pieza(tipo::canciller, color::negro));
+	colocarPieza(3, 0, Pieza(tipo::arzobispo, color::negro));
+	colocarPieza(4, 0, Pieza(tipo::rey, color::negro));
+	colocarPieza(5, 0, Pieza(tipo::reina, color::negro));
+	colocarPieza(6, 0, Pieza(tipo::arzobispo, color::negro));
+	colocarPieza(7, 0, Pieza(tipo::canciller, color::negro));
+	colocarPieza(8, 0, Pieza(tipo::caballo, color::negro));
+	colocarPieza(9, 0, Pieza(tipo::torre, color::negro));
+
+
+	for (int i = 0; i < 10; i++) {
+		colocarPieza(i, 1, Pieza(tipo::peon, color::negro));
+		//cin.sync();
+		//cin.clear();
+	}
+
+	colocarPieza(0, 7, Pieza(tipo::torre, color::blanco));
+	colocarPieza(1, 7, Pieza(tipo::caballo, color::blanco));
+	colocarPieza(2, 7, Pieza(tipo::canciller, color::blanco));
+	colocarPieza(3, 7, Pieza(tipo::arzobispo, color::blanco));
+	colocarPieza(4, 7, Pieza(tipo::rey, color::blanco));
+	colocarPieza(5, 7, Pieza(tipo::reina, color::blanco));
+	colocarPieza(6, 7, Pieza(tipo::arzobispo, color::blanco));
+	colocarPieza(7, 7, Pieza(tipo::canciller, color::blanco));
+	colocarPieza(8, 7, Pieza(tipo::caballo, color::blanco));
+	colocarPieza(9, 7, Pieza(tipo::torre, color::blanco));
+
+
+	for (int i = 0; i < 10; i++) {
+		colocarPieza(i, 6, Pieza(tipo::peon, color::blanco));
+	//	cin.sync();
+		//cin.clear();
+	}
+
 }
 
 //Dibuja el tablero 
 void Tablero::dibujar() {
+	
 	for (int y = 0; y < max_y; y++) {
-		for (int x = 0; x < max_y; x++) {
+		std::cout << y << "  "; //imprime el indice de la fila
+		for (int x = 0; x < max_x; x++) {
 			std::cout << tablero[y][x].obtenerRepresentacion() << " ";
-			//char representacion = tablero[x][y].obtenerRepresentacion();
-			//std::cout << representacion << ' ';
+			std::cout << " "; // Un espacio entre cada pieza para alineación.
+
 		}
+		std::cout << std::endl;
+
+	}
+
+	std::cout << "   "; // Espacios para alinear con los índices de las filas si son de un dígito
+	for (int x = 0; x < max_x; ++x) {
+		std::cout << x << "  "; // Imprimir el índice de la columna
 	}
 	std::cout << std::endl;
 }
+
 
 
 

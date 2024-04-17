@@ -1,7 +1,2 @@
-﻿  Pieza.cpp
-  Tablero.cpp
-  Usuario.cpp
-  Generando código...
-Tablero.obj : error LNK2005: ya se definió "struct casilla __cdecl next(struct casilla &,enum direcciones)" (?next@@YA?AUcasilla@@AEAU1@W4direcciones@@@Z) en Pieza.obj
-Usuario.obj : error LNK2005: ya se definió "struct casilla __cdecl next(struct casilla &,enum direcciones)" (?next@@YA?AUcasilla@@AEAU1@W4direcciones@@@Z) en Pieza.obj
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\bin\Pang.exe : fatal error LNK1169: se encontraron uno o más símbolos definidos simultáneamente
+﻿  Tablero.cpp
+  Pang.vcxproj -> C:\Users\Cristina\Documents\GitHub\Ajedrez.2\bin\Pang.exe

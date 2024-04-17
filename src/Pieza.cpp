@@ -7,6 +7,7 @@ char Pieza::obtenerRepresentacion() {
 		switch (tipoPieza) {
 		case tipo::peon:
 			return 'P';
+			peon_b.draw();
 			break;
 		case tipo::torre:
 			return 'T';

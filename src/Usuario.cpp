@@ -2,11 +2,12 @@
 #include "Tablero.h"
 #include "freeglut.h"
 #include <iostream>
-#include "Pieza.h"
+//#include "Pieza.h"
 
 // Definir el objeto corona fuera de las funciones
 ETSIDI::Sprite corona{"imagenes/corona.png", 0,0,10,5 };
 Tablero tablero;
+bool juegoInicializado = false;
 
 Usuario::Usuario() {
 
@@ -315,25 +316,29 @@ void Usuario::raton(int button, int state, int x, int y) {
 }
 
 void Usuario::dibuja() {
+	
 	if (estado == INICIO) {
 
 		switch (menu_inicio) {
 		case I:
 			menuinicio.draw();
+			break;
 		case OPCIONES:
 			corona.setPos(shapx * -52, shapy * 5);
 			corona.draw();
 			menuinicio.draw();
+			break;
 		case MODODEJUEGO:
 			corona.setPos(shapx * -33, shapy * -14);
 			corona.draw();
 			menuinicio.draw();
+			break;
 		}
 	}
-	if (estado == MODOJUEGO) {
-		tablero.colocarPieza(1, 1, Pieza(tipo::torre, color::blanco));
-		tablero.colocarPieza(0, 0, Pieza(tipo::rey, color::negro));
+	if (estado == MODOJUEGO && !juegoInicializado) {
+		tablero.piezasinicializa();
 		tablero.dibujar();
+		juegoInicializado = true;
 	}
 
 	if (estado == OP) {

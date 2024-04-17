@@ -8,12 +8,13 @@
 class Tablero {
 	//const int max_x = 10;
 	//const int max_y = 8;
-	Pieza tablero[max_x][max_y];
+	Pieza tablero[max_y][max_x];
 
 public:
 
 	Tablero();
 	void colocarPieza(int x, int y, Pieza p);
+	void piezasinicializa();
 	void dibujar();
 };
 //class Tablero
