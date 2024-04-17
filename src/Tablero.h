@@ -1,6 +1,6 @@
 #pragma once
 #include "Pieza.h"
-
+#include "freeglut.h"
 
 #define max_x 10
 #define max_y 8
@@ -15,6 +15,8 @@ public:
 	Tablero();
 	void colocarPieza(int x, int y, Pieza p);
 	void piezasinicializa();
+	casilla definirCoordenadasTablero(int button, int state, int x, int y);
+	void pintarCuadricula();
 	void dibujar();
 };
 //class Tablero

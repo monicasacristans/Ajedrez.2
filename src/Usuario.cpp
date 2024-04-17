@@ -359,6 +359,8 @@ void Usuario::dibuja() {
 		if (estado == MODOJUEGO && !juegoInicializado) {
 			tablero.piezasinicializa();
 			tablero.dibujar();
+			tablero.pintarCuadricula();
+			tablero.definirCoordenadasTablero();
 			juegoInicializado = true;
 		}
 	}

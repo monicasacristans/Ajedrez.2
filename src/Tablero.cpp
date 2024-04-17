@@ -1,5 +1,4 @@
 #include "Tablero.h"
-//#include "freeglut.h"
 #include <iostream>
 
 
@@ -83,7 +82,42 @@ void Tablero::dibujar() {
 }
 
 
+casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
+	casilla cas;
+	int screenX = x;
+	int screenY = y;
+
+	if (button == GLUT_LEFT_DOWN && state == GLUT_DOWN) {
+		if (x > 267 && x < 353 && y < 738 && y>652) {
+			cas.x = 1;
+			cas.y = 1;
+			return cas;
+		}
+	}
+}
+
+void Tablero::pintarCuadricula() {
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 8; j++) {
+			if ((i + j) % 2 == 0) {
+				glColor3ub(240, 240, 240); // gris claro
+			}
+			else {
+				glColor3ub(130, 130, 130); // gris oscuro 
+			}
+			glBegin(GL_POLYGON);
+			glVertex3f(10 * i - 48, 10 * j - 41, -2); //aumenta el tamaño del tablero multiplicando por 10, 
+			//ajusta las coordenadas para centrar el tablero en el centro
+			glVertex3f(10 * i - 48, 10 * (j + 1) - 41, -2);
+			glVertex3f(10 * (i + 1) - 48, 10 * (j + 1) - 41, -2);
+			glVertex3f(10 * (i + 1) - 48, 10 * j - 41, -2);
+			glEnd();
+		}
+	}
+
+		glEnable(GL_LIGHTING);
+}
 
 //Tablero::Tablero() {
 //
@@ -115,10 +149,10 @@ void Tablero::dibujar() {
 //
 //void Tablero::dibujar() {
 //   
-//   for (int i = 0; i < 10; i++) {
-//        for (int j = 0; j < 8; j++) {
-//            if ((i + j) % 2 == 0) {
-//                glColor3ub(240, 240, 240); // gris claro
+//  for (int i = 0; i < 10; i++) {
+    //    for (int j = 0; j < 8; j++) {
+  //          if ((i + j) % 2 == 0) {
+//              glColor3ub(240, 240, 240); // gris claro
 //            }
 //            else {
 //                glColor3ub(130, 130, 130); // gris oscuro 
