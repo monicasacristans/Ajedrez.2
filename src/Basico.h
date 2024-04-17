@@ -17,7 +17,7 @@ struct casilla {
 	casilla destino;
 };*/
 
-casilla next(casilla &casilla1, direcciones direc) {
+inline casilla next(casilla &casilla1, direcciones direc) {
 
 	switch (direc) {
 	case direcciones::arriba:
