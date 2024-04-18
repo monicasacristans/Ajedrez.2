@@ -85,6 +85,8 @@ void Tablero::dibujar() {
 casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
 	casilla cas{ 0,0 };
+	//movimiento mov;
+	int count = 0;
 
 	int screenX = x;
 	int screenY = y;
@@ -99,6 +101,7 @@ casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) 
 		if (columna >= 1 && columna <= 10 && fila >= 1 && fila <= 8) {
 			cas.x = columna;
 			cas.y = fila;
+			count++;
 			std::cout << "casilla:" << cas.x << "," << cas.y << std::endl;
 		}
 	}

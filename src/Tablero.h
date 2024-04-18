@@ -16,6 +16,7 @@ public:
 	void colocarPieza(int x, int y, Pieza p);
 	void piezasinicializa();
 	casilla definirCoordenadasTablero(int button, int state, int x, int y);
+	//void movimientoPieza(movimiento& mov);
 	void pintarCuadricula();
 	void dibujar();
 };
