@@ -1,7 +1,8 @@
 #pragma once
+#include <iostream>
 
 enum class direcciones { arriba, diag_sup_dcha, derecha, diag_inf_dcha, abajo, diag_inf_izq, izquierda, diag_sup_izq };
-enum class color { blanco, negro };
+enum class color { ninguno, blanco, negro };
 enum class tipo { vacio, peon, torre, caballo, canciller, arzobispo, alfil, rey, reina };
 //                 0	  1		2		 3		  4			  5		   6	 7		8
 
@@ -16,6 +17,12 @@ struct movimiento {
 	casilla origen;
 	casilla destino;
 };
+
+// Sobrecarga del operador <<
+std::ostream& operator<<(std::ostream& os, const casilla& c) {
+	os << "(" << c.x << ", " << c.y << ")";
+	return os;
+}
 
 inline casilla next(casilla &casilla1, direcciones direc) {
 

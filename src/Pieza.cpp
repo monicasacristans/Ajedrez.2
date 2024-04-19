@@ -58,6 +58,7 @@ char Pieza::obtenerRepresentacion() {
 		}
 	}
 }
+
 //Pieza::Pieza(){}
 //
 //

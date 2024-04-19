@@ -1,14 +1,12 @@
-﻿  Pieza.cpp
-  Tablero.cpp
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(96,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(98,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(143,35): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(143,22): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(145,41): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(145,22): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(146,47): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(146,28): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(147,41): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(147,28): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-  Generating Code...
+﻿  Tablero.cpp
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(95,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(97,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(146,35): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(146,22): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(148,41): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(148,22): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(149,47): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(149,28): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(150,41): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(150,28): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
   Pang.vcxproj -> C:\Users\cesar\Documents\GitHub\Ajedrez.2\bin\Pang.exe

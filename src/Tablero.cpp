@@ -1,11 +1,11 @@
+//<iostream> en Basico.h
 #include "Tablero.h"
-#include <iostream>
-
+#include "Usuario.h"
 
 Tablero::Tablero() {
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
-			tablero[y][x] = Pieza(tipo::vacio, color::blanco); //Pieza crea una pieza vacia
+			tablero[y][x] = Pieza(tipo::vacio, color::ninguno); //Pieza crea una pieza vacia 
 		}
 	}
 }
@@ -54,7 +54,7 @@ void Tablero::piezasinicializa() {
 
 	for (int i = 0; i < 10; i++) {
 		colocarPieza(i, 6, Pieza(tipo::peon, color::blanco));
-		//	cin.sync();
+		//cin.sync();
 		//cin.clear();
 	}
 
@@ -82,11 +82,10 @@ void Tablero::dibujar() {
 }
 
 
-casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
-
+casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y){
 	casilla cas{ 0,0 };
-	//movimiento mov;
-	int count = 0;
+	movimiento mov;
+	static int flag = 0;
 
 	int screenX = x;
 	int screenY = y;
@@ -101,8 +100,19 @@ casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) 
 		if (columna >= 1 && columna <= 10 && fila >= 1 && fila <= 8) {
 			cas.x = columna;
 			cas.y = fila;
-			count++;
-			std::cout << "casilla:" << cas.x << "," << cas.y << std::endl;
+
+			flag++;
+			
+			//Determinar casillas de origen y destino
+			if (flag==2) {
+				mov.origen = cas;
+				std::cout << "Casilla origen: " << mov.origen << std::endl;
+			}
+			else if(flag==3){
+				mov.destino = cas;
+				flag = 1;
+				std::cout << "Casilla destino: " << mov.destino << std::endl;
+			}
 		}
 	}
 	return cas;
@@ -121,6 +131,7 @@ casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) 
 			return cas;
 		}*/
 }
+
 
 void Tablero::pintarCuadricula() {
 	for (int i = 0; i < 10; i++) {
