@@ -15,10 +15,16 @@ public:
 	Tablero();
 	void colocarPieza(int x, int y, Pieza p);
 	void piezasinicializa();
+
 	casilla definirCoordenadasTablero(int button, int state, int x, int y);
+	bool checkCasillaOcupada(int x, int y);
+	//Pieza checkPiezaEnCasilla(int x, int y);
+
 	void pintarCuadricula();
 	void dibujar();
 };
+
+
 //class Tablero
 //{
 //private:

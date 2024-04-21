@@ -116,21 +116,32 @@ casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y){
 		}
 	}
 	return cas;
-
-		/*
-		if (x > 267 && x < 353 && y < 738 && y>652) {
-			cas.x = 1;
-			cas.y = 1;
-			std::cout << "casilla:" << cas.x << cas.y << std::endl;
-			return cas;
-		}
-		if (x > 353 && x < 440 && y < 738 && y>652) {
-			cas.x = 2;
-			cas.y = 1;
-			std::cout << "casilla:" << cas.x << cas.y << std::endl;
-			return cas;
-		}*/
 }
+
+bool Tablero::checkCasillaOcupada(int x, int y) {
+	if (x >= 0 && x < max_x && y >= 0 && y < max_y) {  //Comprueba que estamos dentro del tablero
+		
+		Pieza mipieza = tablero[y][x]; //Obtiene la pieza que hay en la casilla
+
+		if (mipieza.getTipo() != tipo::vacio) {
+			return true; //casilla ocupada
+		}
+	}
+	return false; //casilla vacía
+}
+
+
+/*
+Pieza Tablero::checkPiezaEnCasilla(int x, int y) {
+
+	if (x >= 0 && x < max_x && y >= 0 && y < max_y) { //Comprueba que estamos dentro del tablero
+		return tablero[y][x];  //Devuelve la pieza que hay en la casilla
+	}
+
+	// Si la casilla está fuera del tablero, devuelve una pieza vacía
+	return Pieza(tipo::vacio, color::ninguno);
+}
+*/
 
 
 void Tablero::pintarCuadricula() {

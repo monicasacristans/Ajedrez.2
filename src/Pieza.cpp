@@ -1,6 +1,9 @@
 #include "Pieza.h"
 #include <iostream>
 
+tipo Pieza::getTipo() {
+	return tipoPieza;
+}
 
 char Pieza::obtenerRepresentacion() {
 	if (colorPieza == color::blanco) {
