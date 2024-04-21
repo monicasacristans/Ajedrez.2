@@ -19,7 +19,7 @@ struct movimiento {
 };
 
 // Sobrecarga del operador <<
-std::ostream& operator<<(std::ostream& os, const casilla& c) {
+inline std::ostream& operator<<(std::ostream& os, const casilla& c) {
 	os << "(" << c.x << ", " << c.y << ")";
 	return os;
 }
