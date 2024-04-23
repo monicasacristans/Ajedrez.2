@@ -360,6 +360,16 @@ void Usuario::dibuja() {
 		
 			//tablero.piezasinicializa();
 			//tablero.dibujar();
+
+		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
+		setFont("bin/fuentes/Bitwise.ttf", 20);
+		printxy("JUGADOR", 57, 38);
+		printxy("NEGRO", 60, 33);
+		setTextColor(1, 1, 1);
+		setFont("bin/fuentes/Bitwise.ttf", 19);
+		printxy("JUGADOR", -71, -25);
+		printxy("BLANCO", -70, -30);
+
 			tablero.pintarCuadricula();
 		    //juegoInicializado = true;
 		

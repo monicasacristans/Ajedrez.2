@@ -1,90 +1,9 @@
-﻿  Main.cpp
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(56,2): warning C4551: la llamada a la función no tiene lista de argumentos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(87,3): warning C4551: la llamada a la función no tiene lista de argumentos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(114,54): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(114,33): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(118,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-  Pieza.cpp
-  Tablero.cpp
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(95,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(97,12): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(157,35): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(157,22): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(159,41): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(159,22): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(160,47): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(160,28): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(161,41): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(161,28): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-  Usuario.cpp
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(324,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(329,34): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(330,30): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(337,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(342,34): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(343,30): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(350,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(355,34): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(356,30): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(426,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(437,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(446,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(457,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(466,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(477,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(486,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(497,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(507,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(518,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(528,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(539,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(549,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(560,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(568,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(579,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(591,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(597,69): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(599,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(607,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(613,75): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(619,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(626,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(637,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(644,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(654,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(662,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(664,22): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(670,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(677,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(686,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(703,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(714,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(721,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(732,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(740,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(751,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(760,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(771,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(779,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(790,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(798,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(809,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(817,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(828,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(836,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(847,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(857,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(864,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(871,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(884,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(891,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(902,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(910,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(919,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(926,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(939,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(945,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Usuario.cpp(958,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-  Generando código...
-  LINK : no se encontró C:\Users\Cristina\Documents\GitHub\Ajedrez.2\bin\Pang.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
-  Pang.vcxproj -> C:\Users\Cristina\Documents\GitHub\Ajedrez.2\bin\Pang.exe
+﻿  Jugador.cpp
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Jugador.cpp(27,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Jugador.cpp(28,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Jugador.cpp(30,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Jugador.cpp(31,31): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Jugador.cpp(32,14): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Jugador.cpp(17,9): warning C4101: 'j': variable local sin referencia
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Jugador.cpp(17,6): warning C4101: 'i': variable local sin referencia
+  Pang.vcxproj -> C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\bin\Pang.exe

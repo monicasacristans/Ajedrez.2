@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Jugador.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Pieza.cpp" />
     <ClCompile Include="src\Tablero.cpp" />
@@ -27,6 +28,7 @@
   <ItemGroup>
     <ClInclude Include="lib\ETSIDI.h" />
     <ClInclude Include="src\Basico.h" />
+    <ClInclude Include="src\Jugador.h" />
     <ClInclude Include="src\Pieza.h" />
     <ClInclude Include="src\Tablero.h" />
     <ClInclude Include="src\Usuario.h" />

@@ -12,6 +12,7 @@ class Tablero {
 
 public:
 
+
 	Tablero();
 	void colocarPieza(int x, int y, Pieza p);
 	void piezasinicializa();
