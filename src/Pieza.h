@@ -1,17 +1,20 @@
 #pragma once
 #include "Basico.h"
-
+#include "ETSIDI.h"
 
 class Pieza {
 
 	casilla pos;
 	color colorPieza;
 	tipo tipoPieza;
+protected:
+
+	ETSIDI::Sprite peon_n{ "bin/imagenes/peon_n.png", pos.x, pos.y, 9, 9 };
 
 public:
 
 	// Constructor por defecto para inicializar una casilla vacía.
-	Pieza() : tipoPieza(tipo::vacio), colorPieza(color::blanco) {} // Valor por defecto, puedes ajustarlo como desees.
+	Pieza() : tipoPieza(tipo::vacio), colorPieza(color::ninguno) {} // Valor por defecto, puedes ajustarlo como desees.
 
 	// Constructor para crear una pieza con tipo y color específicos.
 	Pieza(tipo t, color c) : tipoPieza(t), colorPieza(c) {}
@@ -19,6 +22,8 @@ public:
 	tipo getTipo();
 
 	char obtenerRepresentacion();
+
+	//void draw();
 };
 
 //class Pieza {

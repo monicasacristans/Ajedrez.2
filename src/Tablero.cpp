@@ -149,9 +149,11 @@ void Tablero::pintarCuadricula() {
 		for (int j = 0; j < 8; j++) {
 			if ((i + j) % 2 == 0) {
 				glColor3ub(240, 240, 240); // gris claro
+				//tablero[i][j].obtenerRepresentacion();
 			}
 			else {
 				glColor3ub(130, 130, 130); // gris oscuro 
+				//tablero[i][j].obtenerRepresentacion();
 			}
 			glBegin(GL_POLYGON);
 			glVertex3f(10 * i - 48, 10 * j - 41, -2); //aumenta el tamaño del tablero multiplicando por 10, 
@@ -163,6 +165,15 @@ void Tablero::pintarCuadricula() {
 		}
 	}
 	glEnable(GL_LIGHTING);
+
+	for (int y = 0; y < max_y; y++) {
+		for (int x = 0; x < max_x; x++) {
+			glPushMatrix();
+			glTranslatef(y * 87, x * 87, 0.1);
+			//tablero[y][x].draw();
+			glPopMatrix();
+		}
+	}
 }
 
 //Tablero::Tablero() {
