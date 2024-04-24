@@ -1,0 +1,199 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "La variable \"Pieza::pos\" no está inicializada. Siempre debe inicializarse una variable miembro (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/aleja/OneDrive/Documentos/GitHub/Ajedrez.2/src/Pieza.h"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 2,
+                  "endLine": 17,
+                  "endColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0Pieza@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Pieza::pos"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "La variable \"Pieza::pos\" no está inicializada. Siempre debe inicializarse una variable miembro (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/aleja/OneDrive/Documentos/GitHub/Ajedrez.2/src/Pieza.h"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 2,
+                  "endLine": 20,
+                  "endColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0Pieza@@QEAA@W4tipo@@W4color@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Pieza::pos"
+          }
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.29.30148.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x64\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x0076C1B0 -il C:\\Users\\aleja\\AppData\\Local\\Temp\\_CL_1a207acbast -typedil -f src\\Peon.cpp -Ze -D_MSC_EXTENSIONS -Zp16 -pc \\:/ -D_MSC_VER=1929 -D_MSC_FULL_VER=192930148 -D_MSC_BUILD=0 -D_M_AMD64=100 -ZILP448 -D_M_X64=100 -D_WIN64 -D_WIN32 -GR -D_CPPRTTI -I C:\\Users\\aleja\\OneDrive\\Documentos\\GitHub\\Ajedrez.2\\lib -I C:\\Users\\aleja\\OneDrive\\Documentos\\GitHub\\Ajedrez.2\\src -nologo -W 3 -diagnostics:column -Ot -DCODE_ANALYSIS -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -Fotmp\\Debug\\Peon.obj -Fdtmp\\Debug\\vc142.pdb -external:W 3 -Gd -analyze:projectdirectory C:\\Users\\aleja\\OneDrive\\Documentos\\GitHub\\Ajedrez.2 -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\Rule Sets\\NativeRecommendedRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -external:I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/aleja/OneDrive/Documentos/GitHub/Ajedrez.2/src/Pieza.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "f6b4a3632fc63ef653c794927c63d103"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/aleja/OneDrive/Documentos/GitHub/Ajedrez.2/src/Usuario.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "04c03dc9b8cebf6f54e5237f4f348465"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleja/onedrive/documentos/github/ajedrez.2/src/usuario.h"
+          },
+          "hashes": {
+            "md5": "94e3fe4614bac1f74745e2a0ee69ca5e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleja/onedrive/documentos/github/ajedrez.2/lib/freeglut.h"
+          },
+          "hashes": {
+            "md5": "2459c3690c01e67ac3872998f26a3a3e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleja/onedrive/documentos/github/ajedrez.2/lib/etsidi.h"
+          },
+          "hashes": {
+            "md5": "e991882cd3c6794097bba21779af9481"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleja/onedrive/documentos/github/ajedrez.2/src/tablero.h"
+          },
+          "hashes": {
+            "md5": "8a903373f32f2e916960d7bf2a6b2d92"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleja/onedrive/documentos/github/ajedrez.2/src/basico.h"
+          },
+          "hashes": {
+            "md5": "72307e97861e6af1e4090649ad6ff876"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleja/onedrive/documentos/github/ajedrez.2/src/jugador.h"
+          },
+          "hashes": {
+            "md5": "43dc96ab0e244ef395a643510847cdfe"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/aleja/OneDrive/Documentos/GitHub/Ajedrez.2/src/Tablero.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "ba68c6f2493e7832caa0eafe4596616e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleja/onedrive/documentos/github/ajedrez.2/src/peon.h"
+          },
+          "hashes": {
+            "md5": "2c66b1373f465f1d5fe5916a013517f1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleja/onedrive/documentos/github/ajedrez.2/src/pieza.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "4df03d7c51225f171469b2cfe6e4cb91"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleja/onedrive/documentos/github/ajedrez.2/src/peon.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "a03d1ff3c3dbeb8fcef9d5be489e4739"
+          }
+        }
+      ]
+    }
+  ]
+}

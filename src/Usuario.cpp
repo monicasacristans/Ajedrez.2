@@ -177,7 +177,21 @@ void Usuario::raton(int button, int state, int x, int y) {
 
 		}
 	}
+	if (estado == MODOJUEGO) {
+		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+			if (estadodejuego == TURNO) {
+				//tablero.ratonTablero(button, state, x, y);
 
+				if (tablero.getFinTurnoNegro() == 1) {
+
+				}
+				if (tablero.getFinTurnoBlanco() == 1) {
+
+				}
+			}
+		
+		}
+	}
 	if (estado == OP) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 		{
@@ -359,7 +373,7 @@ void Usuario::dibuja() {
 	if (estado == MODOJUEGO) {
 		
 			//tablero.piezasinicializa();
-			//tablero.dibujar();
+		tablero.dibujar();
 
 		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 		setFont("bin/fuentes/Bitwise.ttf", 20);

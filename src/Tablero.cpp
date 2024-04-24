@@ -214,6 +214,35 @@ void Tablero::set_tablero() {
 
 }
 
+
+void Tablero::ratonTablero(int button, int state, int x, int y) {
+	finturnonegro = 0;
+	//std::cout << "JUEGAN LAS BLANCAS" << endl;
+	if (turno == 1) {
+		std::cout << "JUEGAN LAS BLANCAS" << endl;
+		//jugadorblanco->dibujarcorona();
+		jugadorblanco->posicionarPieza(button, state, x, y);
+		if (jugadorblanco->getFinTurno() == 1) {
+			finturnoblanco = 1;
+			finturnonegro = 0;
+			turno = 0; return;
+		}
+	}
+
+	finturnoblanco = 0;
+	if (turno == 0) {
+		//jugadornegro->dibujarcorona();
+		jugadornegro->posicionarPieza(button, state, x, y);
+		std::cout << "JUEGAN LAS NEGRAS" << endl;
+		if (jugadornegro->getFinTurno() == 1) {
+			finturnonegro = 1;
+			finturnoblanco = 0;
+			turno = 1;
+			return;
+		}
+	}
+}
+
 //void Tablero::pintarCuadricula() {
 //	for (int i = 0; i < 10; i++) {
 //		for (int j = 0; j < 8; j++) {
@@ -274,30 +303,55 @@ void Tablero::set_tablero() {
 //    }
 //}
 //
-//void Tablero::dibujar() {
-//   
-//  for (int i = 0; i < 10; i++) {
-    //    for (int j = 0; j < 8; j++) {
-  //          if ((i + j) % 2 == 0) {
-//              glColor3ub(240, 240, 240); // gris claro
-//            }
-//            else {
-//                glColor3ub(130, 130, 130); // gris oscuro 
-//            }
-//            glBegin(GL_POLYGON);
-//            glVertex3f(10 * i - 48, 10 * j - 41, -2); //Aumenta el tamaño del tablero multiplicando por 10, 
-//            //ajusta las coordenadas para centrar el tablero en el centro
-//            glVertex3f(10 * i - 48, 10 * (j + 1) - 41, -2);
-//            glVertex3f(10 * (i + 1) - 48, 10 * (j + 1) - 41, -2);
-//            glVertex3f(10 * (i + 1) - 48, 10 * j - 41, -2);
-//            glEnd();
-//        }
-//
-//
-//        glEnable(GL_LIGHTING);
-//    }  
-//   
-//}
+void Tablero::dibujar() {
+   
+  for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 8; j++) {
+            if ((i + j) % 2 == 0) {
+              glColor3ub(240, 240, 240); // gris claro
+            }
+            else {
+                glColor3ub(130, 130, 130); // gris oscuro 
+            }
+            glBegin(GL_POLYGON);
+            glVertex3f(10 * i - 48, 10 * j - 41, -2); //Aumenta el tamaño del tablero multiplicando por 10, 
+            //ajusta las coordenadas para centrar el tablero en el centro
+            glVertex3f(10 * i - 48, 10 * (j + 1) - 41, -2);
+            glVertex3f(10 * (i + 1) - 48, 10 * (j + 1) - 41, -2);
+            glVertex3f(10 * (i + 1) - 48, 10 * j - 41, -2);
+            glEnd();
+        }
+
+
+        glEnable(GL_LIGHTING);
+    }  
+   
+}
+
+
+void Tablero::setJugadorBlanco(Jugador* x) {
+	jugadorblanco = x;
+}
+
+
+void Tablero::setJugadorNegro(Jugador* x) {
+	jugadornegro = x;
+}
+
+//getters
+bool Tablero::getFinTurnoNegro() {
+	return finturnonegro;
+}
+
+
+bool Tablero::getFinTurnoBlanco() {
+	return finturnoblanco;
+}
+
+
+bool Tablero::getTurno() {
+	return turno;
+}
 //
 //void Tablero::piezasdibujar() {
 //   // glDisable(GL_LIGHTING);

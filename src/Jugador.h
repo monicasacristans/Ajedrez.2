@@ -1,27 +1,37 @@
 #pragma once
 #include <iostream>
 #include "Pieza.h"
+#include "ETSIDI.h"
 
+
+using namespace ETSIDI;
 using namespace std;
 
 
 class Jugador {
 private:
-	char colorJugador;
-	bool finTurno;
+	color colorJugador;
+	//bool finTurno;
 	bool piezaEscogida;
 	Pieza* piezaini, * piezafin;
+	int posicioninicial, posicionfinal;
 
+protected:
+
+	//FALLO
+	bool finTurno = 0;
 public:
 	Jugador();
-	Jugador(char colorJug);
+	Jugador(color colorJug);
 
 	void posicionarPieza(int button, int state, int x, int y);
 	
+	void dibujarcorona();
 
-	char getColorJugador();
+	color getColorJugador();
 	bool getFinTurno();
 
 	void setFinTurno(bool finTurno);
-	void setColorJugador(char color);
+	void setColorJugador(color color);
+
 };

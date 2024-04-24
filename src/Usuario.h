@@ -30,6 +30,9 @@ public:
 	enum Estado { INICIO, MODOJUEGO, OP, AYU, INST };
 	Estado estado;
 
+	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS};
+	EstadodeJuego estadodejuego;
+
 	enum Inicio { I, OPCIONES, MODODEJUEGO };
 	Inicio menu_inicio;
 
