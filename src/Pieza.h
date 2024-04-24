@@ -7,9 +7,6 @@ class Pieza {
 	casilla pos;
 	color colorPieza;
 	tipo tipoPieza;
-protected:
-
-	ETSIDI::Sprite peon_n{ "bin/imagenes/peon_n.png", pos.x, pos.y, 9, 9 };
 
 public:
 
@@ -20,10 +17,10 @@ public:
 	Pieza(tipo t, color c) : tipoPieza(t), colorPieza(c) {}
 
 	tipo getTipo();
+	color getColor();
 
 	char obtenerRepresentacion();
 
-	//void draw();
 };
 
 //class Pieza {

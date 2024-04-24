@@ -1,11 +1,12 @@
-#include "freeglut.h"
+
 #include <iostream>
-#include "ETSIDI.h"
+#include "Pintar.h"
 #include "Usuario.h"
-//#include "Tablero.h"
+#include "Tablero.h"
 
 Usuario usuario;
 //Tablero tablero;
+//Pintar miPintura(&tablero);
 
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos

@@ -1,11 +1,13 @@
 #include <iostream>
 #include "Usuario.h"
 #include "Tablero.h"
+#include "Pintar.h"
 
 // Definir el objeto corona fuera de las funciones
 ETSIDI::Sprite corona{ "bin/imagenes/corona.png", 0,0,10,5 };
 
 Tablero tablero;
+Pintar miPintura(&tablero);
 bool juegoInicializado = false;
 
 Usuario::Usuario() {
@@ -372,8 +374,11 @@ void Usuario::dibuja() {
 	}
 	if (estado == MODOJUEGO) {
 		
-			//tablero.piezasinicializa();
-		tablero.dibujar();
+		//tablero.piezasinicializa();
+		//tablero.dibujar();
+
+		miPintura.pintarCuadricula();
+		miPintura.pintarPiezasTablero();
 
 		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 		setFont("bin/fuentes/Bitwise.ttf", 20);

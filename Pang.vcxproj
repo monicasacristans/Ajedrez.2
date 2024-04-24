@@ -23,6 +23,7 @@
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Peon.cpp" />
     <ClCompile Include="src\Pieza.cpp" />
+    <ClCompile Include="src\Pintar.cpp" />
     <ClCompile Include="src\Tablero.cpp" />
     <ClCompile Include="src\Usuario.cpp" />
   </ItemGroup>
@@ -32,6 +33,7 @@
     <ClInclude Include="src\Jugador.h" />
     <ClInclude Include="src\Peon.h" />
     <ClInclude Include="src\Pieza.h" />
+    <ClInclude Include="src\Pintar.h" />
     <ClInclude Include="src\Tablero.h" />
     <ClInclude Include="src\Usuario.h" />
   </ItemGroup>
