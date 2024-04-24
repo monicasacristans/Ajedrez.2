@@ -6,7 +6,7 @@
 ETSIDI::Sprite corona{ "bin/imagenes/corona.png", 0,0,10,5 };
 
 Tablero tablero;
-//bool juegoInicializado = false;
+bool juegoInicializado = false;
 
 Usuario::Usuario() {
 
@@ -370,8 +370,12 @@ void Usuario::dibuja() {
 		printxy("JUGADOR", -71, -25);
 		printxy("BLANCO", -70, -30);
 
+		if (!juegoInicializado) {
+			tablero.set_tablero();
 			//tablero.pintarCuadricula();
-		    //juegoInicializado = true;
+
+			juegoInicializado = true;
+		}
 		
 	}
 

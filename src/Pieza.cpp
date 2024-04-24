@@ -5,6 +5,7 @@ tipo Pieza::getTipo() {
 	return tipoPieza;
 }
 
+void Pieza::dibuja() {};
 char Pieza::obtenerRepresentacion() {
 	if (colorPieza == color::blanco) {
 		switch (tipoPieza) {

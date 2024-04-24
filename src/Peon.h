@@ -3,6 +3,6 @@
 
 class Peon : public Pieza {
 public:
-	Peon();
-	//void draw();
+	Peon(tipo tip, color col);
+	void dibuja();
 };

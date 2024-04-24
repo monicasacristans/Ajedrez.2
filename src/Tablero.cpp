@@ -8,7 +8,7 @@ using namespace std;
 Tablero::Tablero() {
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
-			*tablero[y][x] = Pieza(tipo::vacio, color::ninguno); //Pieza crea una pieza vacia 
+			tablero[y][x] = nullptr; //Pieza crea una pieza vacia 
 		}
 	}
 }
@@ -142,18 +142,74 @@ Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
 	}
 	else {
 		// Si la casilla está fuera del tablero, devuelve una pieza vacía
-		return &Pieza(tipo::vacio, color::ninguno);
+		return nullptr;
 	}
 }
 
 void Tablero::set_tablero() {
 
-	Peon *ptrPeon = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(ptrPeon);
+	//blancas
+	Peon* pb1 = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(pb1);
+	Peon* pb2 = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(pb2);
+	Peon* pb3 = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(pb3);
+	Peon* pb4 = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(pb4);
+	Peon* pb5 = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(pb5);
+	Peon* pb6 = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(pb6);
+	Peon* pb7 = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(pb7);
+	Peon* pb8 = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(pb8);
+	Peon* pb9 = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(pb9);
+	Peon* pb10 = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(pb10);
 
+
+	//negras
+	Peon* pn1 = new Peon(tipo::peon, color::negro);
+	listapiezas.push_back(pn1);
+	Peon* pn2 = new Peon(tipo::peon, color::negro);
+	listapiezas.push_back(pn2);
+	Peon* pn3 = new Peon(tipo::peon, color::negro);
+	listapiezas.push_back(pn3);
+	Peon* pn4 = new Peon(tipo::peon, color::negro);
+	listapiezas.push_back(pn4);
+	Peon* pn5 = new Peon(tipo::peon, color::negro);
+	listapiezas.push_back(pn5);
+	Peon* pn6 = new Peon(tipo::peon, color::negro);
+	listapiezas.push_back(pn6);
+	Peon* pn7 = new Peon(tipo::peon, color::negro);
+	listapiezas.push_back(pn7);
+	Peon* pn8 = new Peon(tipo::peon, color::negro);
+	listapiezas.push_back(pn8);
+	Peon* pn9 = new Peon(tipo::peon, color::negro);
+	listapiezas.push_back(pn9);
+	Peon* pn10 = new Peon(tipo::peon, color::negro);
+	listapiezas.push_back(pn10);
+	std::cout << listapiezas.size() << endl;
+
+
+	if (listapiezas.size() >= 20) {
+		// Colocar y dibujar peones blancos
+		for (int i = 0; i < 10; i++) {
+			tablero[1][i] = listapiezas[i];
+			tablero[1][i]->dibuja();
+		}
+
+		// Colocar y dibujar peones negros
+		for (int i = 0; i < 10; i++) {
+			tablero[6][i] = listapiezas[i + 10]; // Sumar 10 para acceder a los peones negros
+			tablero[6][i]->dibuja();
+		}
+	}
 	//for (auto ptrPeon : listapiezas) {
-		tablero[1][1] = ptrPeon;
-		
+	
 	//}
 
 }

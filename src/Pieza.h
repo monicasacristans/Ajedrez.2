@@ -15,7 +15,7 @@ public:
 
 	// Constructor por defecto para inicializar una casilla vacía.
 	Pieza() : tipoPieza(tipo::vacio), colorPieza(color::ninguno) {} // Valor por defecto, puedes ajustarlo como desees.
-
+	virtual void dibuja();
 	// Constructor para crear una pieza con tipo y color específicos.
 	Pieza(tipo t, color c) : tipoPieza(t), colorPieza(c) {}
 
