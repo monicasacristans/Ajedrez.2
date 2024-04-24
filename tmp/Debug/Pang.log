@@ -1,6 +1,6 @@
 ﻿  Tablero.cpp
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(12,62): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pieza.h(12,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Tablero.cpp(98,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Tablero.cpp(100,12): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-  Pang.vcxproj -> C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\bin\Pang.exe
+C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Pieza.h(12,62): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Pieza.h(12,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(105,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Tablero.cpp(107,12): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  Pang.vcxproj -> C:\Users\Cristina\Documents\GitHub\Ajedrez.2\bin\Pang.exe
