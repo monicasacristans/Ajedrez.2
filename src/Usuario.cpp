@@ -370,7 +370,7 @@ void Usuario::dibuja() {
 		printxy("JUGADOR", -71, -25);
 		printxy("BLANCO", -70, -30);
 
-			tablero.pintarCuadricula();
+			//tablero.pintarCuadricula();
 		    //juegoInicializado = true;
 		
 	}

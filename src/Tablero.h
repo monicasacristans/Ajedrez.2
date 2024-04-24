@@ -1,6 +1,6 @@
 #pragma once
 #include "Pieza.h"
-#include "freeglut.h"
+#include <vector>
 
 #define max_x 10//columnas
 #define max_y 8//filas
@@ -8,20 +8,22 @@
 class Tablero {
 	//const int max_x = 10;
 	//const int max_y = 8;
-	Pieza tablero[max_y][max_x];
-
+	Pieza *tablero[max_y][max_x];
+	std::vector<Pieza*> listapiezas;
+	
 public:
 
 
 	Tablero();
-	void colocarPieza(int x, int y, Pieza p);
-	void piezasinicializa();
+	//void colocarPieza(int x, int y, Pieza p);
+	//void piezasinicializa();
+	void set_tablero();
 
 	casilla definirCoordenadasTablero(int button, int state, int x, int y);
 	bool checkCasillaOcupada(int x, int y);
-	//Pieza checkPiezaEnCasilla(int x, int y);
+	Pieza* checkPiezaEnCasilla(casilla pos);
 
-	void pintarCuadricula();
+	//void pintarCuadricula();
 	void dibujar();
 };
 

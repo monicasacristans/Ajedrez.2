@@ -1,85 +1,88 @@
 //<iostream> en Basico.h
 #include "Tablero.h"
 #include "Usuario.h"
+#include "Peon.h"
+
+using namespace std;
 
 Tablero::Tablero() {
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
-			tablero[y][x] = Pieza(tipo::vacio, color::ninguno); //Pieza crea una pieza vacia 
+			*tablero[y][x] = Pieza(tipo::vacio, color::ninguno); //Pieza crea una pieza vacia 
 		}
 	}
 }
 
 //Metodo para colocar una pieza en el tablero
-void Tablero::colocarPieza(int x, int y, Pieza p) {
-	if (x >= 0 && x < max_x && y >= 0 && y < max_y) {
-		tablero[y][x] = p; //Primero fila(y) y luego columna(x)
-	}
-	else {
-		std::cerr << "Posicion fuera de los límites del tablero" << std::endl;
-	}
-}
+//void Tablero::colocarPieza(int x, int y, Pieza p) {
+//	if (x >= 0 && x < max_x && y >= 0 && y < max_y) {
+//		tablero[y][x] = p; //Primero fila(y) y luego columna(x)
+//	}
+//	else {
+//		std::cerr << "Posicion fuera de los límites del tablero" << std::endl;
+//	}
+//}
 
-void Tablero::piezasinicializa() {
-
-	colocarPieza(0, 0, Pieza(tipo::torre, color::negro));
-	colocarPieza(1, 0, Pieza(tipo::caballo, color::negro));
-	colocarPieza(2, 0, Pieza(tipo::canciller, color::negro));
-	colocarPieza(3, 0, Pieza(tipo::arzobispo, color::negro));
-	colocarPieza(4, 0, Pieza(tipo::rey, color::negro));
-	colocarPieza(5, 0, Pieza(tipo::reina, color::negro));
-	colocarPieza(6, 0, Pieza(tipo::arzobispo, color::negro));
-	colocarPieza(7, 0, Pieza(tipo::canciller, color::negro));
-	colocarPieza(8, 0, Pieza(tipo::caballo, color::negro));
-	colocarPieza(9, 0, Pieza(tipo::torre, color::negro));
-
-
-	for (int i = 0; i < 10; i++) {
-		colocarPieza(i, 1, Pieza(tipo::peon, color::negro));
-		//cin.sync();
-		//cin.clear();
-	}
-
-	colocarPieza(0, 7, Pieza(tipo::torre, color::blanco));
-	colocarPieza(1, 7, Pieza(tipo::caballo, color::blanco));
-	colocarPieza(2, 7, Pieza(tipo::canciller, color::blanco));
-	colocarPieza(3, 7, Pieza(tipo::arzobispo, color::blanco));
-	colocarPieza(4, 7, Pieza(tipo::rey, color::blanco));
-	colocarPieza(5, 7, Pieza(tipo::reina, color::blanco));
-	colocarPieza(6, 7, Pieza(tipo::arzobispo, color::blanco));
-	colocarPieza(7, 7, Pieza(tipo::canciller, color::blanco));
-	colocarPieza(8, 7, Pieza(tipo::caballo, color::blanco));
-	colocarPieza(9, 7, Pieza(tipo::torre, color::blanco));
-
-
-	for (int i = 0; i < 10; i++) {
-		colocarPieza(i, 6, Pieza(tipo::peon, color::blanco));
-		//cin.sync();
-		//cin.clear();
-	}
-
-}
-
-//Dibuja el tablero 
-void Tablero::dibujar() {
-
-	for (int y = 0; y < max_y; y++) {
-		std::cout << y << "  "; //imprime el indice de la fila
-		for (int x = 0; x < max_x; x++) {
-			std::cout << tablero[y][x].obtenerRepresentacion() << " ";
-			std::cout << " "; // Un espacio entre cada pieza para alineación.
-
-		}
-		std::cout << std::endl;
-
-	}
-
-	std::cout << "   "; // Espacios para alinear con los índices de las filas si son de un dígito
-	for (int x = 0; x < max_x; ++x) {
-		std::cout << x << "  "; // Imprimir el índice de la columna
-	}
-	std::cout << std::endl;
-}
+//void Tablero::piezasinicializa() {
+//
+//	colocarPieza(0, 0, Pieza(tipo::torre, color::negro));
+//	colocarPieza(1, 0, Pieza(tipo::caballo, color::negro));
+//	colocarPieza(2, 0, Pieza(tipo::canciller, color::negro));
+//	colocarPieza(3, 0, Pieza(tipo::arzobispo, color::negro));
+//	colocarPieza(4, 0, Pieza(tipo::rey, color::negro));
+//	colocarPieza(5, 0, Pieza(tipo::reina, color::negro));
+//	colocarPieza(6, 0, Pieza(tipo::arzobispo, color::negro));
+//	colocarPieza(7, 0, Pieza(tipo::canciller, color::negro));
+//	colocarPieza(8, 0, Pieza(tipo::caballo, color::negro));
+//	colocarPieza(9, 0, Pieza(tipo::torre, color::negro));
+//
+//
+//	for (int i = 0; i < 10; i++) {
+//		colocarPieza(i, 1, Pieza(tipo::peon, color::negro));
+//		//cin.sync();
+//		//cin.clear();
+//	}
+//
+//	colocarPieza(0, 7, Pieza(tipo::torre, color::blanco));
+//	colocarPieza(1, 7, Pieza(tipo::caballo, color::blanco));
+//	colocarPieza(2, 7, Pieza(tipo::canciller, color::blanco));
+//	colocarPieza(3, 7, Pieza(tipo::arzobispo, color::blanco));
+//	colocarPieza(4, 7, Pieza(tipo::rey, color::blanco));
+//	colocarPieza(5, 7, Pieza(tipo::reina, color::blanco));
+//	colocarPieza(6, 7, Pieza(tipo::arzobispo, color::blanco));
+//	colocarPieza(7, 7, Pieza(tipo::canciller, color::blanco));
+//	colocarPieza(8, 7, Pieza(tipo::caballo, color::blanco));
+//	colocarPieza(9, 7, Pieza(tipo::torre, color::blanco));
+//
+//
+//	for (int i = 0; i < 10; i++) {
+//		colocarPieza(i, 6, Pieza(tipo::peon, color::blanco));
+//		//cin.sync();
+//		//cin.clear();
+//	}
+//
+//}
+//
+//Dibuja el tablero MIRAR
+//void Tablero::dibujar() {
+//	Pieza ptr = *tablero[max_y][max_x];
+//	for (int y = 0; y < max_y; y++) {
+//		std::cout << y << "  "; //imprime el indice de la fila
+//		for (int x = 0; x < max_x; x++) {
+//			std::cout << ptr[y][x].obtenerRepresentacion() << " ";
+//			std::cout << " "; // Un espacio entre cada pieza para alineación.
+//
+//		}
+//		std::cout << std::endl;
+//
+//	}
+//
+//	std::cout << "   "; // Espacios para alinear con los índices de las filas si son de un dígito
+//	for (int x = 0; x < max_x; ++x) {
+//		std::cout << x << "  "; // Imprimir el índice de la columna
+//	}
+//	std::cout << std::endl;
+//}
 
 
 casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y){
@@ -121,7 +124,7 @@ casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y){
 bool Tablero::checkCasillaOcupada(int x, int y) {
 	if (x >= 0 && x < max_x && y >= 0 && y < max_y) {  //Comprueba que estamos dentro del tablero
 		
-		Pieza mipieza = tablero[y][x]; //Obtiene la pieza que hay en la casilla
+		Pieza mipieza = *tablero[y][x]; //Obtiene la pieza que hay en la casilla
 
 		if (mipieza.getTipo() != tipo::vacio) {
 			return true; //casilla ocupada
@@ -131,50 +134,61 @@ bool Tablero::checkCasillaOcupada(int x, int y) {
 }
 
 
-/*
-Pieza Tablero::checkPiezaEnCasilla(int x, int y) {
 
-	if (x >= 0 && x < max_x && y >= 0 && y < max_y) { //Comprueba que estamos dentro del tablero
-		return tablero[y][x];  //Devuelve la pieza que hay en la casilla
+Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
+
+	if (pos.x >= 0 && pos.x < max_x && pos.y >= 0 && pos.y < max_y) { //Comprueba que estamos dentro del tablero
+		return tablero[pos.y][pos.x];  //Devuelve la pieza que hay en la casilla
 	}
-
-	// Si la casilla está fuera del tablero, devuelve una pieza vacía
-	return Pieza(tipo::vacio, color::ninguno);
-}
-*/
-
-
-void Tablero::pintarCuadricula() {
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 8; j++) {
-			if ((i + j) % 2 == 0) {
-				glColor3ub(240, 240, 240); // gris claro
-				//tablero[i][j].obtenerRepresentacion();
-			}
-			else {
-				glColor3ub(130, 130, 130); // gris oscuro 
-				//tablero[i][j].obtenerRepresentacion();
-			}
-			glBegin(GL_POLYGON);
-			glVertex3f(10 * i - 48, 10 * j - 41, -2); //aumenta el tamaño del tablero multiplicando por 10, 
-			//ajusta las coordenadas para centrar el tablero en el centro
-			glVertex3f(10 * i - 48, 10 * (j + 1) - 41, -2);
-			glVertex3f(10 * (i + 1) - 48, 10 * (j + 1) - 41, -2);
-			glVertex3f(10 * (i + 1) - 48, 10 * j - 41, -2);
-			glEnd();
-		}
-	}
-	glEnable(GL_LIGHTING);
-
-	for (int y = 0; y < max_y; y++) {
-		for (int x = 0; x < max_x; x++) {
-			glPushMatrix();
-			glTranslatef(y * 87, x * 87, 0.1);
-			//tablero[y][x].draw();
-			glPopMatrix();
-		}
+	else {
+		// Si la casilla está fuera del tablero, devuelve una pieza vacía
+		return &Pieza(tipo::vacio, color::ninguno);
 	}
 }
+
+void Tablero::set_tablero() {
+
+	Peon *ptrPeon = new Peon(tipo::peon, color::blanco);
+	listapiezas.push_back(ptrPeon);
+
+	//for (auto ptrPeon : listapiezas) {
+		tablero[1][1] = ptrPeon;
+		
+	//}
+
+}
+
+//void Tablero::pintarCuadricula() {
+//	for (int i = 0; i < 10; i++) {
+//		for (int j = 0; j < 8; j++) {
+//			if ((i + j) % 2 == 0) {
+//				glColor3ub(240, 240, 240); // gris claro
+//				//tablero[i][j].obtenerRepresentacion();
+//			}
+//			else {
+//				glColor3ub(130, 130, 130); // gris oscuro 
+//				//tablero[i][j].obtenerRepresentacion();
+//			}
+//			glBegin(GL_POLYGON);
+//			glVertex3f(10 * i - 48, 10 * j - 41, -2); //aumenta el tamaño del tablero multiplicando por 10, 
+//			//ajusta las coordenadas para centrar el tablero en el centro
+//			glVertex3f(10 * i - 48, 10 * (j + 1) - 41, -2);
+//			glVertex3f(10 * (i + 1) - 48, 10 * (j + 1) - 41, -2);
+//			glVertex3f(10 * (i + 1) - 48, 10 * j - 41, -2);
+//			glEnd();
+//		}
+//	}
+//	glEnable(GL_LIGHTING);
+//
+//	for (int y = 0; y < max_y; y++) {
+//		for (int x = 0; x < max_x; x++) {
+//			glPushMatrix();
+//			glTranslatef(y * 87, x * 87, 0.1);
+//			//tablero[y][x].draw();
+//			glPopMatrix();
+//		}
+//	}
+//}
 
 //Tablero::Tablero() {
 //
