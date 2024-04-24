@@ -164,16 +164,12 @@ void Tablero::set_tablero() {
 	listapiezas.push_back(cb1);
 	Arzobispo* zb1 = new Arzobispo(tipo::arzobispo, color::blanco);
 	listapiezas.push_back(zb1);
-	Canciller* nb1 = new Canciller(tipo::canciller, color::blanco);
-	listapiezas.push_back(nb1);
 	Rey* rb = new Rey(tipo::rey, color::blanco);
 	listapiezas.push_back(rb);
 	Reina* ryb = new Reina(tipo::reina, color::blanco);
 	listapiezas.push_back(ryb);
-	Canciller* nb2 = new Canciller(tipo::canciller, color::blanco);
-	listapiezas.push_back(nb2);
-	Arzobispo* zb2 = new Arzobispo(tipo::arzobispo, color::blanco);
-	listapiezas.push_back(zb2);
+	Canciller* nb1 = new Canciller(tipo::canciller, color::blanco);
+	listapiezas.push_back(nb1);
 	Caballo* cb2 = new Caballo(tipo::caballo, color::blanco);
 	listapiezas.push_back(cb2);
 	Alfil* ab2 = new Alfil(tipo::alfil, color::blanco);
@@ -237,16 +233,12 @@ void Tablero::set_tablero() {
 	listapiezas.push_back(cn1);
 	Arzobispo* zn1 = new Arzobispo(tipo::arzobispo, color::negro);
 	listapiezas.push_back(zn1);
-	Canciller* nn1 = new Canciller(tipo::canciller, color::negro);
-	listapiezas.push_back(nn1);
 	Rey* rn = new Rey(tipo::rey, color::negro);
 	listapiezas.push_back(rn);
 	Reina* ryn = new Reina(tipo::reina, color::negro);
 	listapiezas.push_back(ryn);
 	Canciller* nn2 = new Canciller(tipo::canciller, color::negro);
 	listapiezas.push_back(nn2);
-	Arzobispo* zn2 = new Arzobispo(tipo::arzobispo, color::negro);
-	listapiezas.push_back(zn2);
 	Caballo* cn2 = new Caballo(tipo::caballo, color::negro);
 	listapiezas.push_back(cn2);
 	Alfil* an2 = new Alfil(tipo::alfil, color::negro);
@@ -255,10 +247,10 @@ void Tablero::set_tablero() {
 	listapiezas.push_back(tn2);
 
 
-	if (listapiezas.size() >= 44) {
+	if (listapiezas.size() >= 40) {
 
 		//colocar y dibujar piezas blancas
-		for (int i = 0; i < 12; i++) {
+		for (int i = 0; i < 10; i++) {
 			tablero[0][i] = listapiezas[i];
 			tablero[0][i]->dibuja();
 			cout << " ";
@@ -266,8 +258,8 @@ void Tablero::set_tablero() {
 		}
 		cout << endl;
 		// colocar y dibujar peones blancos
-		for (int i = 0; i < 12; i++) {
-			tablero[1][i] = listapiezas[i + 12];
+		for (int i = 0; i < 10; i++) {
+			tablero[1][i] = listapiezas[i + 10];
 			tablero[1][i]->dibuja();
 			cout << " ";
 
@@ -275,8 +267,8 @@ void Tablero::set_tablero() {
 		cout << endl;
 
 		//colocar y dibujar piezas negras
-		for (int i = 0; i < 12; i++) {
-			tablero[7][i] = listapiezas[i + 23];
+		for (int i = 0; i < 10; i++) {
+			tablero[7][i] = listapiezas[i + 20];
 			tablero[7][i]->dibuja();
 			cout << " ";
 
@@ -284,8 +276,8 @@ void Tablero::set_tablero() {
 		cout << endl;
 
 		// colocar y dibujar peones negros
-		for (int i = 0; i < 12; i++) {
-			tablero[6][i] = listapiezas[i + 35];
+		for (int i = 0; i < 40; i++) {
+			tablero[6][i] = listapiezas[i + 30];
 			tablero[6][i]->dibuja();
 			cout << " ";
 
