@@ -18,6 +18,7 @@ public:
 	void setPos(float x, float y);
 	void draw();
 
+	void restringirCasilla();
 	void pintarCuadricula();
 	casilla definirCoordenadasTablero(int button, int state, int x, int y);
 	void pintarPiezasTablero();

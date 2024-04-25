@@ -13,6 +13,7 @@ Tablero::Tablero() {
 	}
 }
 
+
 //Metodo para colocar una pieza en el tablero
 //void Tablero::colocarPieza(int x, int y, Pieza p) {
 //	if (x >= 0 && x < max_x && y >= 0 && y < max_y) {
@@ -210,43 +211,43 @@ void Tablero::set_tablero() {
 	}
 }
 
-void Tablero::ratonTablero(int button, int state, int x, int y) {
-	// Verificar si es el turno de las blancas
-	finturnonegro = 0;
-	if (turno == 1) {
-		std::cout << "JUEGAN LAS BLANCAS" << endl;
-		// Realizar acciones correspondientes al turno de las blancas
-		//jugadorblanco->dibujarcorona();
-		jugadorblanco->posicionarPieza(button, state, x, y);
-		
-
-		// Verificar si el turno de las blancas ha terminado
-		if (jugadorblanco->getFinTurno()) {
-			// Actualizar el estado de turno y reiniciar el estado de fin de turno para el siguiente turno
-			jugadorblanco->setFinTurno(false);
-			finturnoblanco = 1;
-			finturnonegro = 0;
-			turno = 0; return;
-		}
-	}
-	finturnoblanco = 0;
-	 if (turno == 0) {
-		 std::cout << "JUEGAN LAS NEGRAS" << endl;
-		// Realizar acciones correspondientes al turno de las negras
-		//jugadornegro->dibujarcorona();
-		jugadornegro->posicionarPieza(button, state, x, y);
-
-		// Verificar si el turno de las negras ha terminado
-		if (jugadornegro->getFinTurno()) {
-			// Actualizar el estado de turno y reiniciar el estado de fin de turno para el siguiente turno
-			jugadornegro->setFinTurno(false);
-			finturnonegro = 1;
-			finturnoblanco = 0;
-			turno = 1; return;
-
-		}
-	}
-}
+//void Tablero::ratonTablero(int button, int state, int x, int y) {
+//	// Verificar si es el turno de las blancas
+//	finturnonegro = 0;
+//	if (turno == 1) {
+//		std::cout << "JUEGAN LAS BLANCAS" << endl;
+//		// Realizar acciones correspondientes al turno de las blancas
+//		//jugadorblanco->dibujarcorona();
+//		jugadorblanco->posicionarPieza(button, state, x, y);
+//		
+//
+//		// Verificar si el turno de las blancas ha terminado
+//		if (jugadorblanco->getFinTurno()) {
+//			// Actualizar el estado de turno y reiniciar el estado de fin de turno para el siguiente turno
+//			jugadorblanco->setFinTurno(false);
+//			finturnoblanco = 1;
+//			finturnonegro = 0;
+//			turno = 0; return;
+//		}
+//	}
+//	finturnoblanco = 0;
+//	 if (turno == 0) {
+//		 std::cout << "JUEGAN LAS NEGRAS" << endl;
+//		// Realizar acciones correspondientes al turno de las negras
+//		//jugadornegro->dibujarcorona();
+//		jugadornegro->posicionarPieza(button, state, x, y);
+//
+//		// Verificar si el turno de las negras ha terminado
+//		if (jugadornegro->getFinTurno()) {
+//			// Actualizar el estado de turno y reiniciar el estado de fin de turno para el siguiente turno
+//			jugadornegro->setFinTurno(false);
+//			finturnonegro = 1;
+//			finturnoblanco = 0;
+//			turno = 1; return;
+//
+//		}
+//	}
+//}
 
 //void Tablero::ratonTablero(int button, int state, int x, int y) {
 //	finturnonegro = 0;

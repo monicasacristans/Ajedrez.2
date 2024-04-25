@@ -43,6 +43,31 @@ void Pintar::pintarCuadricula() {
     }
 }
 
+void Pintar::restringirCasilla() {
+  
+    // Tamaño de la ventana y de la cuadrícula
+    int ventana_ancho = 1366; // Ancho de la ventana en píxeles
+    int ventana_alto = 768; // Alto de la ventana en píxeles
+    int cuadricula_ancho = 80; // Ancho de cada cuadrado de la cuadrícula en píxeles
+    int cuadricula_alto = 60; // Alto de cada cuadrado de la cuadrícula en píxeles
+
+    // Recorrer las casillas de la cuadrícula
+    for (int fila = 0; fila < 8; ++fila) {
+        for (int columna = 0; columna < 10; ++columna) {
+            // Calcular las coordenadas de la esquina superior izquierda de la casilla
+            int x = columna * cuadricula_ancho;
+            int y = fila * cuadricula_alto;
+
+            // Calcular las coordenadas de la esquina inferior derecha de la casilla
+            int x2 = x + cuadricula_ancho;
+            int y2 = y + cuadricula_alto;
+
+            // Asignar las coordenadas de la casilla al elemento correspondiente en el tablero
+            //tablero[fila][columna].asignarCoordenadas(x, y, x2, y2);
+        }
+    }
+}
+
 casilla Pintar::definirCoordenadasTablero(int button, int state, int x, int y) {
     casilla cas{ 0,0 };
     movimiento mov;
@@ -53,12 +78,12 @@ casilla Pintar::definirCoordenadasTablero(int button, int state, int x, int y) {
 
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
         // Calcular la columna y fila en función de las coordenadas x e y
-        int columna = ((x - 267) / 86.4) + ((x - 267) % 87 > 43.2 ? 1 : 0) + 1;//Conociendo las dimensiones y las coordenadas de la casilla, 
+        int columna = ((x - 267) / 86.4) + ((x - 267) % 87 > 43.2 ? 1 : 0);//Conociendo las dimensiones y las coordenadas de la casilla, 
         //y si el resto obtenido al dividir entre 87 es mayor a 43.2(la mitad de 87)suma 1, y si no, suma 0.
-        int fila = ((738 - y) / 86.4) + ((738 - y) % 87 > 43.2 ? 1 : 0);
+        int fila = ((y - 43) / 86.4) + ((y - 43) % 87 > 43.2 ? 1 : 0);
 
         // Verificar que las coordenadas estén dentro del tablero
-        if (columna >= 1 && columna <= 10 && fila >= 1 && fila <= 8) {
+        if (columna >= 0 && columna <= 9 && fila >= 0 && fila <= 7) {
             cas.x = columna;
             cas.y = fila;
 
