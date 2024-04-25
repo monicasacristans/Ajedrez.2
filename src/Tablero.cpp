@@ -92,12 +92,12 @@ casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y){
 
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
 		// Calcular la columna y fila en función de las coordenadas x e y
-		int columna = ((x - 267) / 86.4) + ((x - 267) % 87 > 43.2 ? 1 : 0) + 1;//Conociendo las dimensiones y las coordenadas de la casilla, 
-		//y si el resto obtenido al dividir entre 87 es mayor a 43.2(la mitad de 87)suma 1, y si no, suma 0.
-		int fila = ((738 - y) / 86.4) + ((738 - y) % 87 > 43.2 ? 1 : 0);     
+		int columna = ((x - 267) / 86.4) + ((x - 267) % 87 > 43.2 ? 1 : 0);//Conociendo las dimensiones y las coordenadas de la casilla, 
+		//y si el resto obtenido al dividir entre 87 es mayor a 43.2(la mitad de 87)suma 1, y si no, suma 0. 
+		int fila = ((y - 43) / 86.4) + ((y - 43) % 87 > 43.2 ? 1 : 0);
 
 		// Verificar que las coordenadas estén dentro del tablero
-		if (columna >= 1 && columna <= 10 && fila >= 1 && fila <= 8) {
+		if (columna >= 0 && columna <= 9 && fila >= 0 && fila <= 7) {
 			cas.x = columna;
 			cas.y = fila;
 
