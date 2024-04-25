@@ -210,35 +210,71 @@ void Tablero::set_tablero() {
 	}
 }
 
-
-
 void Tablero::ratonTablero(int button, int state, int x, int y) {
+	// Verificar si es el turno de las blancas
 	finturnonegro = 0;
-	//std::cout << "JUEGAN LAS BLANCAS" << endl;
 	if (turno == 1) {
 		std::cout << "JUEGAN LAS BLANCAS" << endl;
+		// Realizar acciones correspondientes al turno de las blancas
 		//jugadorblanco->dibujarcorona();
 		jugadorblanco->posicionarPieza(button, state, x, y);
-		if (jugadorblanco->getFinTurno() == 1) {
+		
+
+		// Verificar si el turno de las blancas ha terminado
+		if (jugadorblanco->getFinTurno()) {
+			// Actualizar el estado de turno y reiniciar el estado de fin de turno para el siguiente turno
+			jugadorblanco->setFinTurno(false);
 			finturnoblanco = 1;
 			finturnonegro = 0;
 			turno = 0; return;
 		}
 	}
-
 	finturnoblanco = 0;
-	if (turno == 0) {
+	 if (turno == 0) {
+		 std::cout << "JUEGAN LAS NEGRAS" << endl;
+		// Realizar acciones correspondientes al turno de las negras
 		//jugadornegro->dibujarcorona();
 		jugadornegro->posicionarPieza(button, state, x, y);
-		std::cout << "JUEGAN LAS NEGRAS" << endl;
-		if (jugadornegro->getFinTurno() == 1) {
+
+		// Verificar si el turno de las negras ha terminado
+		if (jugadornegro->getFinTurno()) {
+			// Actualizar el estado de turno y reiniciar el estado de fin de turno para el siguiente turno
+			jugadornegro->setFinTurno(false);
 			finturnonegro = 1;
 			finturnoblanco = 0;
-			turno = 1;
-			return;
+			turno = 1; return;
+
 		}
 	}
 }
+
+//void Tablero::ratonTablero(int button, int state, int x, int y) {
+//	finturnonegro = 0;
+//	//std::cout << "JUEGAN LAS BLANCAS" << endl;
+//	if (turno == 1) {
+//		std::cout << "JUEGAN LAS BLANCAS" << endl;
+//		//jugadorblanco->dibujarcorona();
+//		jugadorblanco->posicionarPieza(button, state, x, y);
+//		if (jugadorblanco->getFinTurno() == 1) {
+//			finturnoblanco = 1;
+//			finturnonegro = 0;
+//			turno = 0; return;
+//		}
+//	}
+//
+//	finturnoblanco = 0;
+//	if (turno == 0) {
+//		//jugadornegro->dibujarcorona();
+//		jugadornegro->posicionarPieza(button, state, x, y);
+//		std::cout << "JUEGAN LAS NEGRAS" << endl;
+//		if (jugadornegro->getFinTurno() == 1) {
+//			finturnonegro = 1;
+//			finturnoblanco = 0;
+//			turno = 1;
+//			return;
+//		}
+//	}
+//}
 
 //void Tablero::pintarCuadricula() {
 //	for (int i = 0; i < 10; i++) {

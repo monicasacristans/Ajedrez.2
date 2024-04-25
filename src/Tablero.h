@@ -14,7 +14,7 @@ class Tablero {
 	std::vector<Pieza*> listapiezas;
 
 	bool turno; //1 BLANCAS 0 NEGRAS
-	bool finturno;
+	//bool finturno;
 	bool finturnonegro;
 	bool finturnoblanco;
 

@@ -11,22 +11,22 @@ Jugador::Jugador() {
 	//finTurno = 0;
 }
 
-Jugador::Jugador(color colorJug) {
-	colorJugador = colorJug;
-}
+//Jugador::Jugador(color colorJug) {
+//	colorJugador = colorJug;
+//	}
 
-void Jugador::dibujarcorona() {
-	if (colorJugador == color::blanco) {
-		//corona2.setPos(shapx * -60, shapy * 5);
-		corona2.setPos(60, 15);
-		corona2.draw();
-	}
-	if (colorJugador == color::negro) {
-		corona2.setPos(-60, 15);
-		corona2.draw();
-	}
-
-}
+//void Jugador::dibujarcorona() {
+//	if (colorJugador == color::blanco) {
+//		//corona2.setPos(shapx * -60, shapy * 5);
+//		corona2.setPos(60, 15);
+//		corona2.draw();
+//	}
+//	if (colorJugador == color::negro) {
+//		corona2.setPos(-60, 15);
+//		corona2.draw();
+//	}
+//
+//}
 void Jugador::posicionarPieza(int button, int state, int x, int y) {
 
 	//finTurno = 0;
@@ -130,7 +130,7 @@ color Jugador::getColorJugador() {
 
 ///ESTO ESTA MAL FALLO
 bool Jugador::getFinTurno() {
-	return this->finTurno;
+	return finTurno;
 }
 
 void Jugador::setFinTurno(bool finT) {

@@ -182,14 +182,14 @@ void Usuario::raton(int button, int state, int x, int y) {
 	if (estado == MODOJUEGO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
 			if (estadodejuego == TURNO) {
-				//tablero.ratonTablero(button, state, x, y);
+				tablero.ratonTablero(button, state, x, y);
 
-				if (tablero.getFinTurnoNegro() == 1) {
+				//if (tablero.getFinTurnoNegro() == 1) {
 
-				}
-				if (tablero.getFinTurnoBlanco() == 1) {
+				//}
+				//if (tablero.getFinTurnoBlanco() == 1) {
 
-				}
+				//}
 			}
 		
 		}
