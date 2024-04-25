@@ -42,30 +42,31 @@ void Pintar::pintarCuadricula() {
         glEnable(GL_LIGHTING);
     }
 }
+casilla Pintar::restringirCasilla(int x, int y) {
+    
+    casilla pix; 
+    casilla cas;
+    cas.x = x;
+    cas.y = y;
 
-void Pintar::restringirCasilla() {
-  
-    // Tamaño de la ventana y de la cuadrícula
-    int ventana_ancho = 1366; // Ancho de la ventana en píxeles
-    int ventana_alto = 768; // Alto de la ventana en píxeles
-    int cuadricula_ancho = 80; // Ancho de cada cuadrado de la cuadrícula en píxeles
-    int cuadricula_alto = 60; // Alto de cada cuadrado de la cuadrícula en píxeles
+    int ventana_ancho = 1366; // ancho de la ventana en píxeles
+    int ventana_alto = 768; // alto de la ventana en píxeles
+    int cuadricula_ancho = 80; // ancho de cada cuadrado de la cuadrícula en píxeles
+    int cuadricula_alto = 60; // alto de cada cuadrado de la cuadrícula en píxeles
 
-    // Recorrer las casillas de la cuadrícula
-    for (int fila = 0; fila < 8; ++fila) {
-        for (int columna = 0; columna < 10; ++columna) {
-            // Calcular las coordenadas de la esquina superior izquierda de la casilla
-            int x = columna * cuadricula_ancho;
-            int y = fila * cuadricula_alto;
+    pix.x = cas.x * cuadricula_ancho;
+    pix.y = cas.y * cuadricula_alto;
 
-            // Calcular las coordenadas de la esquina inferior derecha de la casilla
-            int x2 = x + cuadricula_ancho;
-            int y2 = y + cuadricula_alto;
+    // Si quieres que el tablero esté centrado en la ventana, calcula el offset necesario
+    int centro_x = (ventana_ancho - (max_x * cuadricula_ancho)) / 2;
+    int centro_y = (ventana_alto - (max_y * cuadricula_alto)) / 2;
 
-            // Asignar las coordenadas de la casilla al elemento correspondiente en el tablero
-            //tablero[fila][columna].asignarCoordenadas(x, y, x2, y2);
-        }
-    }
+    // Aplica el offset a las coordenadas calculadas
+    pix.x+= centro_x;
+    pix.y += centro_y;
+
+    return pix;
+   
 }
 
 casilla Pintar::definirCoordenadasTablero(int button, int state, int x, int y) {
@@ -78,9 +79,9 @@ casilla Pintar::definirCoordenadasTablero(int button, int state, int x, int y) {
 
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
         // Calcular la columna y fila en función de las coordenadas x e y
-        int columna = ((x - 267) / 86.4) + ((x - 267) % 87 > 43.2 ? 1 : 0);//Conociendo las dimensiones y las coordenadas de la casilla, 
+        int columna = ((x - 267) / 86.4) + ((x - 267) % 87 > 43.2 ? 1 : 0)+1;//Conociendo las dimensiones y las coordenadas de la casilla, 
         //y si el resto obtenido al dividir entre 87 es mayor a 43.2(la mitad de 87)suma 1, y si no, suma 0.
-        int fila = ((y - 43) / 86.4) + ((y - 43) % 87 > 43.2 ? 1 : 0);
+        int fila = ((738 - y) / 86.4) + ((738 - y) % 87 > 43.2 ? 1 : 0);
 
         // Verificar que las coordenadas estén dentro del tablero
         if (columna >= 0 && columna <= 9 && fila >= 0 && fila <= 7) {

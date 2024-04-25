@@ -390,9 +390,10 @@ void Usuario::dibuja() {
 		printxy("BLANCO", -70, -30);
 
 		if (!juegoInicializado) {
+
 			tablero.set_tablero();
 			//tablero.pintarCuadricula();
-
+			cout<<miPintura.restringirCasilla(0,0);
 			juegoInicializado = true;
 		}
 		
