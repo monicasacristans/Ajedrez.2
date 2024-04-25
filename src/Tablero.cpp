@@ -199,7 +199,7 @@ void Tablero::set_tablero() {
 	Peon* pb10 = new Peon(tipo::peon, color::blanco);
 	listapiezas.push_back(pb10);
 	
-
+	
 
 	//peones negros
 	Peon* pn1 = new Peon(tipo::peon, color::negro);
@@ -246,6 +246,12 @@ void Tablero::set_tablero() {
 	Torre* tn2 = new Torre(tipo::torre, color::negro);
 	listapiezas.push_back(tn2);
 
+	//Iniciar todo el tablero a nullptr
+	for (int y = 0; y < max_y; y++) {
+		for (int x = 0; x < max_x; x++) {
+			tablero[y][x] = nullptr;
+		}
+	}
 
 	if (listapiezas.size() >= 40) {
 
@@ -254,7 +260,6 @@ void Tablero::set_tablero() {
 			tablero[0][i] = listapiezas[i];
 			tablero[0][i]->dibuja();
 			cout << " ";
-
 		}
 		cout << endl;
 		// colocar y dibujar peones blancos
@@ -262,7 +267,6 @@ void Tablero::set_tablero() {
 			tablero[1][i] = listapiezas[i + 10];
 			tablero[1][i]->dibuja();
 			cout << " ";
-
 		}
 		cout << endl;
 
@@ -276,12 +280,10 @@ void Tablero::set_tablero() {
 		cout << endl;
 
 		// colocar y dibujar peones negros
-		for (int i = 0; i < 40; i++) {
+		for (int i = 0; i < 10; i++) {
 			tablero[6][i] = listapiezas[i + 30];
 			tablero[6][i]->dibuja();
 			cout << " ";
-
-
 		}
 		cout << endl;
 	}
