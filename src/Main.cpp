@@ -5,8 +5,6 @@
 #include "Tablero.h"
 
 Usuario usuario;
-//Tablero tablero;
-//Pintar miPintura(&tablero);
 
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos

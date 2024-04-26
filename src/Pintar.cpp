@@ -50,6 +50,7 @@ casilla Pintar::restringirCasilla(int x, int y) {
     pix.x /= 11.8;
     pix.y /= 6.48;
 
+    pix.x -= 44;
     ////CUADRANTE II
     //if (cas.x >= 0 && cas.x <= 4 && cas.y >= 4 && cas.y <= 7) {
     //    pix.x = (-pix.x);
@@ -118,27 +119,27 @@ void Pintar::pintarPiezasTablero() {
                 casilla cas = restringirCasilla(x, y);
 
                 if (pieza->getTipo() == tipo::peon && pieza->getColor() == color::blanco) {
-                    peon_b.setPos(-44+cas.x, -39+ cas.y);
+                    peon_b.setPos(cas.x, -39+ cas.y);
                     peon_b.draw();
                 }
                 if (pieza->getTipo() == tipo::peon && pieza->getColor() == color::negro) {
-                    peon_n.setPos(-44+cas.x, -80+cas.y);
+                    peon_n.setPos(cas.x, -100+cas.y);
                     peon_n.draw();
 
                 }if (pieza->getTipo() == tipo::torre && pieza->getColor() == color::blanco) {
-                    torre_b.setPos(-44+ cas.x, -39+ cas.y);
+                    torre_b.setPos( cas.x, -33+ cas.y);
                     torre_b.draw();
                 }
                 if (pieza->getTipo() == tipo::torre && pieza->getColor() == color::negro) {
-                    torre_n.setPos(-44+cas.x, -80+cas.y);
+                    torre_n.setPos(cas.x, -72+cas.y);
                     torre_n.draw();
 
                 }if (pieza->getTipo() == tipo::alfil && pieza->getColor() == color::blanco) {
-                    alfil_b.setPos(-44+cas.x, -39+cas.y);
+                    alfil_b.setPos(cas.x, -33+cas.y);
                     alfil_b.draw();
                 }
                 if (pieza->getTipo() == tipo::alfil && pieza->getColor() == color::negro) {
-                    alfil_n.setPos(-44+cas.x, -80+cas.y);
+                    alfil_n.setPos(cas.x, -72+cas.y);
                     alfil_n.draw();
                 }
             }
