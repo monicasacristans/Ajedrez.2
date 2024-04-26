@@ -33,8 +33,8 @@ casilla Pintar::restringirCasilla(int x, int y) {
 
     int ventana_ancho = 1366; // ancho de la ventana en píxeles
     int ventana_alto = 768; // alto de la ventana en píxeles
-    int cuadricula_ancho = 30; // ancho de cada cuadrado de la cuadrícula en píxeles
-    int cuadricula_alto = 30; // alto de cada cuadrado de la cuadrícula en píxeles
+    int cuadricula_ancho = 118; // ancho de cada cuadrado de la cuadrícula en píxeles
+    int cuadricula_alto = 118; // alto de cada cuadrado de la cuadrícula en píxeles
 
     pix.x = cas.x * cuadricula_ancho;
     pix.y = cas.y * cuadricula_alto;
@@ -50,19 +50,19 @@ casilla Pintar::restringirCasilla(int x, int y) {
     pix.x /= 11.8;
     pix.y /= 6.48;
 
-    //CUADRANTE II
-    if (cas.x >= 0 && cas.x <= 4 && cas.y >= 4 && cas.y <= 7) {
-        pix.x = (-pix.x);
-    }
-    //CUADRANTE III
-    else if (cas.x >= 0 && cas.x <= 4 && cas.y >= 0 && cas.y <= 3) {
-        pix.x = (-pix.x);
-        pix.y = (-pix.y);
-    }
-    //CUADRANTE IV
-    else if (cas.x >= 5 && cas.x <= 9 && cas.y >= 0 && cas.y <= 3) {
-        pix.y = (-pix.y);
-    }
+    ////CUADRANTE II
+    //if (cas.x >= 0 && cas.x <= 4 && cas.y >= 4 && cas.y <= 7) {
+    //    pix.x = (-pix.x);
+    //}
+    ////CUADRANTE III
+    //else if (cas.x >= 0 && cas.x <= 4 && cas.y >= 0 && cas.y <= 3) {
+    //    pix.x = (-pix.x);
+    //    pix.y = (-pix.y);
+    //}
+    ////CUADRANTE IV
+    //else if (cas.x >= 5 && cas.x <= 9 && cas.y >= 0 && cas.y <= 3) {
+    //    pix.y = (-pix.y);
+    //}
 
     return pix;
    
@@ -118,12 +118,28 @@ void Pintar::pintarPiezasTablero() {
                 casilla cas = restringirCasilla(x, y);
 
                 if (pieza->getTipo() == tipo::peon && pieza->getColor() == color::blanco) {
-                    peon_b.setPos(cas.x, cas.y);
+                    peon_b.setPos(-44+cas.x, -39+ cas.y);
                     peon_b.draw();
                 }
                 if (pieza->getTipo() == tipo::peon && pieza->getColor() == color::negro) {
-                    peon_n.setPos(cas.x, cas.y);
+                    peon_n.setPos(-44+cas.x, -80+cas.y);
                     peon_n.draw();
+
+                }if (pieza->getTipo() == tipo::torre && pieza->getColor() == color::blanco) {
+                    torre_b.setPos(-44+ cas.x, -39+ cas.y);
+                    torre_b.draw();
+                }
+                if (pieza->getTipo() == tipo::torre && pieza->getColor() == color::negro) {
+                    torre_n.setPos(-44+cas.x, -80+cas.y);
+                    torre_n.draw();
+
+                }if (pieza->getTipo() == tipo::alfil && pieza->getColor() == color::blanco) {
+                    alfil_b.setPos(-44+cas.x, -39+cas.y);
+                    alfil_b.draw();
+                }
+                if (pieza->getTipo() == tipo::alfil && pieza->getColor() == color::negro) {
+                    alfil_n.setPos(-44+cas.x, -80+cas.y);
+                    alfil_n.draw();
                 }
             }
         }

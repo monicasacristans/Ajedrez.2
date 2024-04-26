@@ -22,6 +22,7 @@
     <ClCompile Include="src\Alfil.cpp" />
     <ClCompile Include="src\Arzobispo.cpp" />
     <ClCompile Include="src\Caballo.cpp" />
+    <ClCompile Include="src\Canciller.cpp" />
     <ClCompile Include="src\Jugador.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Peon.cpp" />
@@ -30,6 +31,7 @@
     <ClCompile Include="src\Reina.cpp" />
     <ClCompile Include="src\Rey.cpp" />
     <ClCompile Include="src\Tablero.cpp" />
+    <ClCompile Include="src\Torre.cpp" />
     <ClCompile Include="src\Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +48,7 @@
     <ClInclude Include="src\Reina.h" />
     <ClInclude Include="src\Rey.h" />
     <ClInclude Include="src\Tablero.h" />
+    <ClInclude Include="src\Torre.h" />
     <ClInclude Include="src\Usuario.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
