@@ -18,10 +18,11 @@ public:
 
 	tipo getTipo();
 	color getColor();
-
+	
 	char obtenerRepresentacion();
-
+	void setPos(int x, int y);
 };
+
 
 //class Pieza {
 //protected:

@@ -11,6 +11,10 @@ color Pieza::getColor() {
 
 void Pieza::dibuja() {};
 
+void Pieza::setPos(int x, int y) {
+	pos.x = x;
+	pos.y = y;
+}
 char Pieza::obtenerRepresentacion() {
 	if (colorPieza == color::blanco) {
 		switch (tipoPieza) {
