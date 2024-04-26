@@ -1,24 +1,5 @@
 #include "Pintar.h"
 
-void Pintar::setPos(float x, float y){
-   
-    c.x = x;
-    c.y = y;
-   
-    peon_b.setPos(c.x, c.y);
-    peon_n.setPos(c.x, c.y);
-   /* caballo_b.setpos(pos.x, pos.y);
-    caballo_n.setpos(pos.x, pos.y);
-    torre_b.setpos(pos.x, pos.y); // actualiza la posición del sprite, si se quita sale en el centro
-    torre_n.setpos(pos.x, pos.y);
-    alfil_b.setpos(pos.x, pos.y);
-    alfil_n.setpos(pos.x, pos.y);
-    reina_b.setpos(pos.x, pos.y);
-    reina_n.setpos(pos.x, pos.y);
-    rey_b.setpos(pos.x, pos.y);
-    rey_n.setpos(pos.x, pos.y);*/
-    
-}
 
 void Pintar::draw(){}
 
@@ -42,6 +23,7 @@ void Pintar::pintarCuadricula() {
         glEnable(GL_LIGHTING);
     }
 }
+
 casilla Pintar::restringirCasilla(int x, int y) {
     
     casilla pix; 
@@ -51,19 +33,36 @@ casilla Pintar::restringirCasilla(int x, int y) {
 
     int ventana_ancho = 1366; // ancho de la ventana en píxeles
     int ventana_alto = 768; // alto de la ventana en píxeles
-    int cuadricula_ancho = 80; // ancho de cada cuadrado de la cuadrícula en píxeles
-    int cuadricula_alto = 60; // alto de cada cuadrado de la cuadrícula en píxeles
+    int cuadricula_ancho = 30; // ancho de cada cuadrado de la cuadrícula en píxeles
+    int cuadricula_alto = 30; // alto de cada cuadrado de la cuadrícula en píxeles
 
     pix.x = cas.x * cuadricula_ancho;
     pix.y = cas.y * cuadricula_alto;
 
     // Si quieres que el tablero esté centrado en la ventana, calcula el offset necesario
-    int centro_x = (ventana_ancho - (max_x * cuadricula_ancho)) / 2;
-    int centro_y = (ventana_alto - (max_y * cuadricula_alto)) / 2;
+    int centro_x = (ventana_ancho - (max_x * cuadricula_ancho)) / 10;
+    int centro_y = (ventana_alto - (max_y * cuadricula_alto)) / 8;
 
     // Aplica el offset a las coordenadas calculadas
     pix.x+= centro_x;
     pix.y += centro_y;
+
+    pix.x /= 11.8;
+    pix.y /= 6.48;
+
+    //CUADRANTE II
+    if (cas.x >= 0 && cas.x <= 4 && cas.y >= 4 && cas.y <= 7) {
+        pix.x = (-pix.x);
+    }
+    //CUADRANTE III
+    else if (cas.x >= 0 && cas.x <= 4 && cas.y >= 0 && cas.y <= 3) {
+        pix.x = (-pix.x);
+        pix.y = (-pix.y);
+    }
+    //CUADRANTE IV
+    else if (cas.x >= 5 && cas.x <= 9 && cas.y >= 0 && cas.y <= 3) {
+        pix.y = (-pix.y);
+    }
 
     return pix;
    
@@ -79,9 +78,9 @@ casilla Pintar::definirCoordenadasTablero(int button, int state, int x, int y) {
 
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
         // Calcular la columna y fila en función de las coordenadas x e y
-        int columna = ((x - 267) / 86.4) + ((x - 267) % 87 > 43.2 ? 1 : 0)+1;//Conociendo las dimensiones y las coordenadas de la casilla, 
+        int columna = ((x - 267) / 86.4) + ((x - 267) % 87 > 43.2 ? 1 : 0);//Conociendo las dimensiones y las coordenadas de la casilla, 
         //y si el resto obtenido al dividir entre 87 es mayor a 43.2(la mitad de 87)suma 1, y si no, suma 0.
-        int fila = ((738 - y) / 86.4) + ((738 - y) % 87 > 43.2 ? 1 : 0);
+        int fila = ((738 - y) / 86.4);
 
         // Verificar que las coordenadas estén dentro del tablero
         if (columna >= 0 && columna <= 9 && fila >= 0 && fila <= 7) {
@@ -110,19 +109,20 @@ void Pintar::pintarPiezasTablero() {
     for (int y = 0; y < max_y; ++y) {
         for (int x = 0; x < max_x; ++x) {
 
-            //Convierto las coordenadas de la casilla 'glut' a una casilla normal
-           // casilla cas = definirCoordenadasTablero(GLUT_LEFT_BUTTON, GLUT_DOWN, mouseX, mouseY);
-            casilla cas = { x,y };
             // Obtengo la pieza que hay en la casilla anterior
-            Pieza* pieza = tablero->checkPiezaEnCasilla(cas);
-            
+            Pieza* pieza = tablero->checkPiezaEnCasilla({ x,y });
+
             // Verifico que hay una pieza en la casilla seleccionada
             if (pieza != nullptr) {
 
+                casilla cas = restringirCasilla(x, y);
+
                 if (pieza->getTipo() == tipo::peon && pieza->getColor() == color::blanco) {
+                    peon_b.setPos(cas.x, cas.y);
                     peon_b.draw();
                 }
                 if (pieza->getTipo() == tipo::peon && pieza->getColor() == color::negro) {
+                    peon_n.setPos(cas.x, cas.y);
                     peon_n.draw();
                 }
             }

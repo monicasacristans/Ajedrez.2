@@ -377,9 +377,7 @@ void Usuario::dibuja() {
 		//tablero.piezasinicializa();
 		//tablero.dibujar();
 
-		miPintura.pintarCuadricula();
-		miPintura.pintarPiezasTablero();
-
+		
 		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 		setFont("bin/fuentes/Bitwise.ttf", 20);
 		printxy("JUGADOR", 57, 38);
@@ -392,10 +390,12 @@ void Usuario::dibuja() {
 		if (!juegoInicializado) {
 
 			tablero.set_tablero();
-			//tablero.pintarCuadricula();
-			cout<<miPintura.restringirCasilla(0,0);
 			juegoInicializado = true;
 		}
+
+		miPintura.pintarPiezasTablero();
+		glutPostRedisplay();
+		miPintura.pintarCuadricula();
 		
 	}
 

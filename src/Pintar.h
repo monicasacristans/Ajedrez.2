@@ -6,16 +6,15 @@
 class Pintar {
 
 	Tablero* tablero = nullptr;
-
-	casilla c;
-	Sprite peon_b{ "bin/imagenes/peon_b.png", c.x, c.y, 9, 9 };
-	Sprite peon_n{ "bin/imagenes/peon_n.png", c.x, c.y, 9, 9 };
+protected:
+	//casilla c = { 40, 18};
+	Sprite peon_b{ "bin/imagenes/peon_b.png", 0, 0, 9, 9 };
+	Sprite peon_n{ "bin/imagenes/peon_n.png", 0, 0, 9, 9 };
 
 public:
 
 	Pintar(Tablero* ptrTab) : tablero(ptrTab) {}
 
-	void setPos(float x, float y);
 	void draw();
 
 	casilla restringirCasilla(int x, int y);
