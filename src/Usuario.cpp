@@ -332,6 +332,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 }
 
 void Usuario::dibuja() {
+
 	if (estado == INICIO) {
 		switch (menu_inicio) {
 		case I:

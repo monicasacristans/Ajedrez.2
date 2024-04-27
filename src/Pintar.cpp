@@ -58,9 +58,10 @@ void Pintar::pintarCuadricula() {
         }
     }
 
-    // Limpia el buffer de dibujo (opcional)
-    // glFlush(); 
+ 
 }
+
+/*
 casilla Pintar::restringirCasilla(int x, int y) {
 
     casilla pix;
@@ -100,9 +101,32 @@ casilla Pintar::restringirCasilla(int x, int y) {
     else if (cas.x >= 5 && cas.x <= 9 && cas.y >= 0 && cas.y <= 3) {
         pix.y = (-pix.y);
     }
-   */
+   
     return pix;
 
+}*/
+
+casilla Pintar::restringirCasilla(int x, int y) {
+
+    casilla pix;
+
+    // Dimensiones del tablero
+    int anchoTablero = 10 * 80; // 10 columnas de cuadrados de 80 píxeles
+    int altoTablero = 8 * 80; // 8 filas de cuadrados de 80 píxeles
+
+    // Coordenadas del centro del tablero
+    int centro_x = 1366 / 2;
+    int centro_y = 768 / 2;
+
+    // Coordenadas de la esquina superior izquierda del tablero
+    int esquinaSupDer_x = centro_x + anchoTablero / 2; //1083
+    int esquinaSupDer_y = centro_x - altoTablero / 2;  //64
+
+    // Convierte las coordenadas de la casilla a las coordenadas de la cuadrícula
+    pix.x = esquinaSupDer_x - ((10 - x) * 80);
+    pix.y = ((10 - y) * 80) - esquinaSupDer_y;
+
+    return pix;
 }
 
 casilla Pintar::definirCoordenadasTablero(int button, int state, int x, int y) {
@@ -155,11 +179,11 @@ void Pintar::pintarPiezasTablero() {
                 casilla cas = restringirCasilla(x, y);
 
                 if (pieza->getTipo() == tipo::peon && pieza->getColor() == color::blanco) {
-                    peon_b.setPos(- 44 +cas.x, -39 + cas.y);
+                    peon_b.setPos(cas.x, cas.y);
                     peon_b.draw();
                 }
                 if (pieza->getTipo() == tipo::peon && pieza->getColor() == color::negro) {
-                    peon_n.setPos(- 44 + cas.x, -80 + cas.y);
+                    peon_n.setPos(cas.x, cas.y);
                     peon_n.draw();
                 }
             }
