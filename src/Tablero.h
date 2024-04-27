@@ -11,7 +11,7 @@ class Tablero {
 	//const int max_x = 10;
 	//const int max_y = 8;
 	Pieza *tablero[max_y][max_x];
-	std::vector<Pieza*> listapiezas;
+	//std::vector<Pieza*> listapiezas;
 
 	bool turno; //1 BLANCAS 0 NEGRAS
 	//bool finturno;

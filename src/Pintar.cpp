@@ -139,7 +139,7 @@ void Pintar::pintarPiezasTablero() {
                     alfil_b.draw();
                 }
                 if (pieza->getTipo() == tipo::alfil && pieza->getColor() == color::negro) {
-                    alfil_n.setPos(cas.x, -72+cas.y);
+                    alfil_n.setPos(cas.x, -90+cas.y);
                     alfil_n.draw();
                 }
             }

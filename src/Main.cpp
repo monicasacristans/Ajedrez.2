@@ -64,8 +64,8 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(0, 0, 120,  // posicion del ojo
-		0, 0, 0,      // hacia que punto mira  (0,0,0) 
+	gluLookAt(0, 0, 1.0,  // posicion del ojo( mirando hacia abajo en el eje Z desde una altura)
+		0, 0, 0,      // hacia que punto mira  (0,0,0) hacia el origen
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
 	usuario.dibuja();
 
@@ -112,6 +112,10 @@ void reshape(int width, int height)
 {
 	usuario.setReshape(width * 1.0 / 1366, height * 1.0 / 768);
 
+	// Evitar una división por cero cuando la ventana es demasiado estrecha (no puedes tener una ventana de ancho cero).
+	if (height == 0) {
+		height = 1; // Hacer el alto mínimo 1
+	}
 	// Prevent a divide by zero, when window is too short
 	 // (you cant make a window of zero width).
 	float ratio = width * 1.0 / height;
@@ -128,8 +132,12 @@ void reshape(int width, int height)
 
 	//poryeccion ortográfica que mantiene una relacion de aspecto constante
 	//con una altura del 75% del ancho
-	gluPerspective(40.0, ratio, 0.1, 150);
+	//gluPerspective(40.0, ratio, 0.1, 150);
+	float worldHeight = 100.0f; // Altura del mundo que quieres mostrar
+	float worldWidth = worldHeight * ratio; // Ajustar el ancho del mundo para mantener la relación de aspecto
+	glOrtho(-worldWidth / 2, worldWidth / 2, -worldHeight / 2, worldHeight / 2, -1.0, 1.0);
 
 	// matriz de vista de modelo
 	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 }

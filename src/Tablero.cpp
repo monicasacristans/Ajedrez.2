@@ -156,96 +156,6 @@ Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
 
 void Tablero::set_tablero() {
 
-	//Piezas blancas
-	Torre* tb1 = new Torre(tipo::torre, color::blanco);
-	listapiezas.push_back(tb1);
-	Alfil* ab1 = new Alfil(tipo::alfil, color::blanco);
-	listapiezas.push_back(ab1);
-	Caballo* cb1 = new Caballo(tipo::caballo, color::blanco);
-	listapiezas.push_back(cb1);
-	Arzobispo* zb1 = new Arzobispo(tipo::arzobispo, color::blanco);
-	listapiezas.push_back(zb1);
-	Rey* rb = new Rey(tipo::rey, color::blanco);
-	listapiezas.push_back(rb);
-	Reina* ryb = new Reina(tipo::reina, color::blanco);
-	listapiezas.push_back(ryb);
-	Canciller* nb1 = new Canciller(tipo::canciller, color::blanco);
-	listapiezas.push_back(nb1);
-	Caballo* cb2 = new Caballo(tipo::caballo, color::blanco);
-	listapiezas.push_back(cb2);
-	Alfil* ab2 = new Alfil(tipo::alfil, color::blanco);
-	listapiezas.push_back(ab2);
-	Torre* tb2 = new Torre(tipo::torre, color::blanco);
-	listapiezas.push_back(tb2);
-
-	//peones blancos
-	Peon* pb1 = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(pb1);
-	Peon* pb2 = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(pb2);
-	Peon* pb3 = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(pb3);
-	Peon* pb4 = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(pb4);
-	Peon* pb5 = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(pb5);
-	Peon* pb6 = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(pb6);
-	Peon* pb7 = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(pb7);
-	Peon* pb8 = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(pb8);
-	Peon* pb9 = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(pb9);
-	Peon* pb10 = new Peon(tipo::peon, color::blanco);
-	listapiezas.push_back(pb10);
-
-
-
-	//peones negros
-	Peon* pn1 = new Peon(tipo::peon, color::negro);
-	listapiezas.push_back(pn1);
-	Peon* pn2 = new Peon(tipo::peon, color::negro);
-	listapiezas.push_back(pn2);
-	Peon* pn3 = new Peon(tipo::peon, color::negro);
-	listapiezas.push_back(pn3);
-	Peon* pn4 = new Peon(tipo::peon, color::negro);
-	listapiezas.push_back(pn4);
-	Peon* pn5 = new Peon(tipo::peon, color::negro);
-	listapiezas.push_back(pn5);
-	Peon* pn6 = new Peon(tipo::peon, color::negro);
-	listapiezas.push_back(pn6);
-	Peon* pn7 = new Peon(tipo::peon, color::negro);
-	listapiezas.push_back(pn7);
-	Peon* pn8 = new Peon(tipo::peon, color::negro);
-	listapiezas.push_back(pn8);
-	Peon* pn9 = new Peon(tipo::peon, color::negro);
-	listapiezas.push_back(pn9);
-	Peon* pn10 = new Peon(tipo::peon, color::negro);
-	listapiezas.push_back(pn10);
-	//std::cout << listapiezas.size() << endl;
-
-	//Piezas negras
-	Torre* tn1 = new Torre(tipo::torre, color::negro);
-	listapiezas.push_back(tn1);
-	Alfil* an1 = new Alfil(tipo::alfil, color::negro);
-	listapiezas.push_back(an1);
-	Caballo* cn1 = new Caballo(tipo::caballo, color::negro);
-	listapiezas.push_back(cn1);
-	Arzobispo* zn1 = new Arzobispo(tipo::arzobispo, color::negro);
-	listapiezas.push_back(zn1);
-	Rey* rn = new Rey(tipo::rey, color::negro);
-	listapiezas.push_back(rn);
-	Reina* ryn = new Reina(tipo::reina, color::negro);
-	listapiezas.push_back(ryn);
-	Canciller* nn2 = new Canciller(tipo::canciller, color::negro);
-	listapiezas.push_back(nn2);
-	Caballo* cn2 = new Caballo(tipo::caballo, color::negro);
-	listapiezas.push_back(cn2);
-	Alfil* an2 = new Alfil(tipo::alfil, color::negro);
-	listapiezas.push_back(an2);
-	Torre* tn2 = new Torre(tipo::torre, color::negro);
-	listapiezas.push_back(tn2);
 
 	//Iniciar todo el tablero a nullptr
 	for (int y = 0; y < max_y; y++) {
@@ -253,36 +163,41 @@ void Tablero::set_tablero() {
 			tablero[y][x] = nullptr;
 		}
 	}
-
-	if (listapiezas.size() >= 40) {
-
-		//colocar y dibujar piezas blancas
-		for (int i = 0; i < 10; i++) {
-			tablero[0][i] = listapiezas[i];
-
-		}
-		cout << endl;
-		// colocar y dibujar peones blancos
-		for (int i = 0; i < 10; i++) {
-			tablero[1][i] = listapiezas[i + 10];
-			
-		}
-		cout << endl;
-
-		//colocar y dibujar piezas negras
-		for (int i = 0; i < 10; i++) {
-			tablero[7][i] = listapiezas[i + 20];
-			
-		}
-		cout << endl;
-
-		// colocar y dibujar peones negros
-		for (int i = 0; i < 10; i++) {
-			tablero[6][i] = listapiezas[i + 30];
-		
-		}
-		cout << endl;
+	//Piezas blancas
+	tablero[0][0]= new Torre(tipo::torre, color::blanco);
+	tablero[0][1] = new Caballo(tipo::caballo, color::blanco);
+	tablero[0][2] = new Arzobispo(tipo::arzobispo, color::blanco);
+	tablero[0][3] = new Alfil(tipo::alfil, color::blanco);
+	tablero[0][4] = new Rey(tipo::rey, color::blanco);
+	tablero[0][5] = new Reina(tipo::reina, color::blanco);
+	tablero[0][6] = new Alfil(tipo::alfil, color::blanco);
+	tablero[0][7] = new Canciller(tipo::canciller, color::blanco);
+	tablero[0][8] = new Caballo(tipo::caballo, color::blanco);
+	tablero[0][9] = new Torre(tipo::torre, color::blanco);
+	
+	//Peones blancos 
+	for (int i = 0; i < 10; i++) {
+		tablero[1][i] = new Peon(tipo::peon, color::blanco);
 	}
+
+	//Peones negros
+	for (int i = 0; i < 10; i++) {
+		tablero[6][i] = new Peon(tipo::peon, color::negro);
+	}
+
+	//Piezas negras
+	tablero[7][0] = new Torre(tipo::torre, color::negro);
+	tablero[7][1] = new Caballo(tipo::caballo, color::negro);
+	tablero[7][2] = new Arzobispo(tipo::arzobispo, color::negro);
+	tablero[7][3] = new Alfil(tipo::alfil, color::negro);
+	tablero[7][4] = new Rey(tipo::rey, color::negro);
+	tablero[7][5] = new Reina(tipo::reina, color::negro);
+	tablero[7][6] = new Alfil(tipo::alfil, color::negro);
+	tablero[7][7] = new Canciller(tipo::canciller, color::negro);
+	tablero[7][8] = new Caballo(tipo::caballo, color::negro);
+	tablero[7][9] = new Torre(tipo::torre, color::negro);
+
+
 }
 
 //void Tablero::ratonTablero(int button, int state, int x, int y) {
