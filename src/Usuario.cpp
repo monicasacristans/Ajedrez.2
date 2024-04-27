@@ -162,7 +162,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 	// Actualizar las coordenadas del objeto en el juego
 	std::cout << "Coordenadas del raton en la pantalla: (" << screenX << ", " << screenY << ")" << std::endl;
 
-	tablero.definirCoordenadasTablero(button, state, x, y);
+	miPintura.definirCoordenadasTablero(button, state, x, y);
 
 	if (estado == INICIO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
@@ -181,16 +181,16 @@ void Usuario::raton(int button, int state, int x, int y) {
 	}
 	if (estado == MODOJUEGO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-			if (estadodejuego == TURNO) {
-				tablero.ratonTablero(button, state, x, y);
+			//if (estadodejuego == TURNO) {
+			//	tablero.ratonTablero(button, state, x, y);
 
-				//if (tablero.getFinTurnoNegro() == 1) {
+			//	//if (tablero.getFinTurnoNegro() == 1) {
 
-				//}
-				//if (tablero.getFinTurnoBlanco() == 1) {
+			//	//}
+			//	//if (tablero.getFinTurnoBlanco() == 1) {
 
-				//}
-			}
+			//	//}
+			//}
 		
 		}
 	}
@@ -377,9 +377,7 @@ void Usuario::dibuja() {
 		//tablero.piezasinicializa();
 		//tablero.dibujar();
 
-		miPintura.pintarCuadricula();
-		miPintura.pintarPiezasTablero();
-
+		
 		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 		setFont("bin/fuentes/Bitwise.ttf", 20);
 		printxy("JUGADOR", 57, 38);
@@ -390,11 +388,14 @@ void Usuario::dibuja() {
 		printxy("BLANCO", -70, -30);
 
 		if (!juegoInicializado) {
-			tablero.set_tablero();
-			//tablero.pintarCuadricula();
 
+			tablero.set_tablero();
 			juegoInicializado = true;
 		}
+
+		miPintura.pintarPiezasTablero();
+		glutPostRedisplay();
+		miPintura.pintarCuadricula();
 		
 	}
 

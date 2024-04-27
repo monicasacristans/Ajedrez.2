@@ -129,9 +129,9 @@ color Jugador::getColorJugador() {
 }
 
 ///ESTO ESTA MAL FALLO
-bool Jugador::getFinTurno() {
-	return finTurno;
-}
+//bool Jugador::getFinTurno() {
+//	return finTurno;
+//}
 
 void Jugador::setFinTurno(bool finT) {
 	finTurno = finT;
