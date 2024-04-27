@@ -346,7 +346,7 @@ void Usuario::dibuja() {
 			printxy("OPCIONES", -29, -17.5);
 
 		case OPCIONES:
-			corona.setPos(shapx * -60, shapy * 5);
+			corona.setPos(shapx * 1, shapy * 1);
 			corona.draw();
 			fondo.draw();
 
@@ -359,7 +359,7 @@ void Usuario::dibuja() {
 			printxy("OPCIONES", -29, -17.5);
 
 		case MODODEJUEGO:
-			corona.setPos(shapx * -38, shapy * -14);
+			corona.setPos(shapx * 1, shapy * 1);
 			corona.draw();
 			fondo.draw();
 
@@ -380,12 +380,12 @@ void Usuario::dibuja() {
 		
 		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 		setFont("bin/fuentes/Bitwise.ttf", 20);
-		printxy("JUGADOR", 57, 38);
-		printxy("NEGRO", 60, 33);
+		printxy("JUGADOR", 1150, 720);
+		printxy("NEGRO", 1170, 680);
 		setTextColor(1, 1, 1);
 		setFont("bin/fuentes/Bitwise.ttf", 19);
-		printxy("JUGADOR", -71, -25);
-		printxy("BLANCO", -70, -30);
+		printxy("JUGADOR", 70, 220);
+		printxy("BLANCO", 80, 180);
 
 		if (!juegoInicializado) {
 

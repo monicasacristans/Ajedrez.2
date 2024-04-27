@@ -3,7 +3,44 @@
 
 void Pintar::draw() {}
 
+//void Pintar::pintarCuadricula() {
+//    for (int i = 0; i < 10; i++) {
+//        for (int j = 0; j < 8; j++) {
+//            if ((i + j) % 2 == 0) {
+//                glColor3ub(240, 240, 240); // gris claro
+//            }
+//            else {
+//                glColor3ub(130, 130, 130); // gris oscuro 
+//            }
+//            glBegin(GL_POLYGON);
+//            glVertex3f(10 * i - 48, 10 * j - 41, -2); //Aumenta el tamaño del tablero multiplicando por 10, 
+//            //ajusta las coordenadas para centrar el tablero en el centro
+//            glVertex3f(10 * i - 48, 10 * (j + 1) - 41, 0);
+//            glVertex3f(10 * (i + 1) - 48, 10 * (j + 1) - 41, -2);
+//            glVertex3f(10 * (i + 1) - 48, 10 * j - 41, -2);
+//            glEnd();
+//        }
+//        glEnable(GL_LIGHTING);
+//    }
+//}
+
 void Pintar::pintarCuadricula() {
+    // Calcula las coordenadas para centrar el tablero
+    int tableroWidth = 10 * 80; // Ancho total del tablero (10 columnas de cuadrados de 80 píxeles)
+    int tableroHeight = 8 * 80; // Altura total del tablero (8 filas de cuadrados de 80 píxeles)
+    int offsetX = (1366 - tableroWidth) / 2; // Desplazamiento horizontal para centrar el tablero
+    int offsetY = (768 - tableroHeight) / 2; // Desplazamiento vertical para centrar el tablero
+
+    // Configura la matriz de proyección
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0, 1366, 0, 768, -1, 1); // Establece el sistema de coordenadas en 2D (1336x768)
+
+    // Cambia a la matriz de modelo-vista
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    // Dibuja la cuadrícula
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 8; j++) {
             if ((i + j) % 2 == 0) {
@@ -13,17 +50,17 @@ void Pintar::pintarCuadricula() {
                 glColor3ub(130, 130, 130); // gris oscuro 
             }
             glBegin(GL_POLYGON);
-            glVertex3f(10 * i - 48, 10 * j - 41, -2); //Aumenta el tamaño del tablero multiplicando por 10, 
-            //ajusta las coordenadas para centrar el tablero en el centro
-            glVertex3f(10 * i - 48, 10 * (j + 1) - 41, -2);
-            glVertex3f(10 * (i + 1) - 48, 10 * (j + 1) - 41, -2);
-            glVertex3f(10 * (i + 1) - 48, 10 * j - 41, -2);
+            glVertex2f(offsetX + 80 * i, offsetY + 80 * j); // Ajusta las coordenadas para centrar el tablero
+            glVertex2f(offsetX + 80 * i, offsetY + 80 * (j + 1));
+            glVertex2f(offsetX + 80 * (i + 1), offsetY + 80 * (j + 1));
+            glVertex2f(offsetX + 80 * (i + 1), offsetY + 80 * j);
             glEnd();
         }
-        glEnable(GL_LIGHTING);
     }
-}
 
+    // Limpia el buffer de dibujo (opcional)
+    // glFlush(); 
+}
 casilla Pintar::restringirCasilla(int x, int y) {
 
     casilla pix;
