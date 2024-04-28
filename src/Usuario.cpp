@@ -166,7 +166,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 		{
 			if (x<shapx * 1071 && x> shapx * 315 && y< shapy * 377 && y>shapy * 310) {
-
+		
 				estado = MODOJUEGO;
 				return;
 			}
@@ -457,8 +457,8 @@ void Usuario::dibuja() {
 					printxy("AYUDA", 520, 638 );
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("TORRE", -15, 13);
-					printxy("PEON", -13, 4);
+					printxy("TORRE", 520, 568);
+					printxy("PEON", 527, 400);
 					printxy("CABALLO", -19, -6);
 					printxy("ALFIL", -10, -15);
 					printxy("REY", -10, -25);
@@ -485,7 +485,7 @@ void Usuario::dibuja() {
 					printxy("REINA", -15, -35);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 					break;
 				case 2:
 					corona.setPos(shapx * -27, shapy * -3);
@@ -505,7 +505,7 @@ void Usuario::dibuja() {
 					printxy("REINA", -15, -35);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 					break;
 				case 3:
 					corona.setPos(shapx * -18, shapy * -14);
@@ -525,7 +525,7 @@ void Usuario::dibuja() {
 					printxy("REINA", -15, -35);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 					break;
 
 				case 4:
@@ -546,7 +546,7 @@ void Usuario::dibuja() {
 					printxy("REINA", -15, -35);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 					break;
 
 				case 5:
@@ -567,7 +567,7 @@ void Usuario::dibuja() {
 					printxy("REINA", -15, -35);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 					break;
 
 				case 6:
@@ -588,7 +588,7 @@ void Usuario::dibuja() {
 					printxy("REINA", -15, -35);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 					break;
 
 				case 7:
@@ -607,7 +607,7 @@ void Usuario::dibuja() {
 					printxy("REINA", -15, -35);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 					break;
 				}
 			}
@@ -627,7 +627,7 @@ void Usuario::dibuja() {
 					printxy("decir, arriba, abajo, derecha e izquierda", -53, -4);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 
 					break;
 				case 1:
@@ -646,7 +646,7 @@ void Usuario::dibuja() {
 					printxy("Si una pieza esta frente a ellos no podran avanzar", -61, -25);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 
 					break;
 				case 2:
@@ -664,7 +664,7 @@ void Usuario::dibuja() {
 					printxy("sobre otras piezas", -20, -18);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 
 					break;
 				case 3:
@@ -681,7 +681,7 @@ void Usuario::dibuja() {
 					printxy("durante toda la partida", -35, -11);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 
 					break;
 
@@ -697,7 +697,7 @@ void Usuario::dibuja() {
 					printxy("pero en cualquier direccion", -33, 0);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 
 					break;
 				case 5:
@@ -713,7 +713,7 @@ void Usuario::dibuja() {
 					printxy("sobre las piezas de su mismo color", -46, -4);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 
 					break;
 
@@ -731,17 +731,17 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 70);
-					printxy("INSTRUCCIONES", -45, 33);
+					printxy("INSTRUCCIONES", 285, 684);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("OBJETIVO", -18, 22);
-					printxy("ENROQUE", -19, 11);
-					printxy("JAQUE MATE", -28, 1);
-					printxy("CORONACION", -28, -9);
-					printxy("CAPTURA AL PASO", -39, -19);
-					printxy("TABLAS", -14, -29);
+					printxy("OBJETIVO", 499, 596);
+					printxy("ENROQUE", 491, 505);
+					printxy("JAQUE MATE", 419, 426);
+					printxy("CORONACION", 420, 345);
+					printxy("CAPTURA AL PASO", 333, 266);
+					printxy("TABLAS", 543, 184);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -9, -37);
+					printxy("atras", 575, 100);
 				case 1:
 					corona.setPos(shapx * -27, shapy * 27);
 					corona.draw();
@@ -749,17 +749,18 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 70);
-					printxy("INSTRUCCIONES", -45, 33);
+					printxy("INSTRUCCIONES", 285, 684);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("OBJETIVO", -18, 22);
-					printxy("ENROQUE", -19, 11);
-					printxy("JAQUE MATE", -28, 1);
-					printxy("CORONACION", -28, -9);
-					printxy("CAPTURA AL PASO", -39, -19);
-					printxy("TABLAS", -14, -29);
+					printxy("OBJETIVO", 499, 596);
+					printxy("ENROQUE", 491, 505);
+					printxy("JAQUE MATE", 419, 426);
+					printxy("CORONACION", 420, 345);
+					printxy("CAPTURA AL PASO", 333, 266);
+					printxy("TABLAS", 543, 184);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -9, -37);
+					printxy("atras", 575, 100);
+
 
 				case 2:
 					corona.setPos(shapx * -29, shapy * 16);
@@ -768,17 +769,17 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 70);
-					printxy("INSTRUCCIONES", -45, 33);
+					printxy("INSTRUCCIONES", 285, 684);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("OBJETIVO", -18, 22);
-					printxy("ENROQUE", -19, 11);
-					printxy("JAQUE MATE", -28, 1);
-					printxy("CORONACION", -28, -9);
-					printxy("CAPTURA AL PASO", -39, -19);
-					printxy("TABLAS", -14, -29);
+					printxy("OBJETIVO", 499, 596);
+					printxy("ENROQUE", 491, 505);
+					printxy("JAQUE MATE", 419, 426);
+					printxy("CORONACION", 420, 345);
+					printxy("CAPTURA AL PASO", 333, 266);
+					printxy("TABLAS", 543, 184);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -9, -37);
+					printxy("atras", 575, 100);
 
 
 				case 3:
@@ -788,17 +789,17 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 70);
-					printxy("INSTRUCCIONES", -45, 33);
+					printxy("INSTRUCCIONES", 285, 684);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("OBJETIVO", -18, 22);
-					printxy("ENROQUE", -19, 11);
-					printxy("JAQUE MATE", -28, 1);
-					printxy("CORONACION", -28, -9);
-					printxy("CAPTURA AL PASO", -39, -19);
-					printxy("TABLAS", -14, -29);
+					printxy("OBJETIVO", 499, 596);
+					printxy("ENROQUE", 491, 505);
+					printxy("JAQUE MATE", 419, 426);
+					printxy("CORONACION", 420, 345);
+					printxy("CAPTURA AL PASO", 333, 266);
+					printxy("TABLAS", 543, 184);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -9, -37);
+					printxy("atras", 575, 100);
 
 				case 4:
 					corona.setPos(shapx * -36, shapy * -6);
@@ -807,17 +808,17 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 70);
-					printxy("INSTRUCCIONES", -45, 33);
+					printxy("INSTRUCCIONES", 285, 684);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("OBJETIVO", -18, 22);
-					printxy("ENROQUE", -19, 11);
-					printxy("JAQUE MATE", -28, 1);
-					printxy("CORONACION", -28, -9);
-					printxy("CAPTURA AL PASO", -39, -19);
-					printxy("TABLAS", -14, -29);
+					printxy("OBJETIVO", 499, 596);
+					printxy("ENROQUE", 491, 505);
+					printxy("JAQUE MATE", 419, 426);
+					printxy("CORONACION", 420, 345);
+					printxy("CAPTURA AL PASO", 333, 266);
+					printxy("TABLAS", 543, 184);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -9, -37);
+					printxy("atras", 575, 100);
 
 				case 5:
 					corona.setPos(shapx * -48, shapy * -17);
@@ -826,17 +827,17 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 70);
-					printxy("INSTRUCCIONES", -45, 33);
+					printxy("INSTRUCCIONES", 285, 684);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("OBJETIVO", -18, 22);
-					printxy("ENROQUE", -19, 11);
-					printxy("JAQUE MATE", -28, 1);
-					printxy("CORONACION", -28, -9);
-					printxy("CAPTURA AL PASO", -39, -19);
-					printxy("TABLAS", -14, -29);
+					printxy("OBJETIVO", 499, 596);
+					printxy("ENROQUE", 491, 505);
+					printxy("JAQUE MATE", 419, 426);
+					printxy("CORONACION", 420, 345);
+					printxy("CAPTURA AL PASO", 333, 266);
+					printxy("TABLAS", 543, 184);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -9, -37);
+					printxy("atras", 575, 100);
 
 				case 6:
 					corona.setPos(shapx * -22, shapy * -29);
@@ -845,17 +846,17 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 70);
-					printxy("INSTRUCCIONES", -45, 33);
+					printxy("INSTRUCCIONES", 285, 684);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("OBJETIVO", -18, 22);
-					printxy("ENROQUE", -19, 11);
-					printxy("JAQUE MATE", -28, 1);
-					printxy("CORONACION", -28, -9);
-					printxy("CAPTURA AL PASO", -39, -19);
-					printxy("TABLAS", -14, -29);
+					printxy("OBJETIVO", 499, 596);
+					printxy("ENROQUE", 491, 505);
+					printxy("JAQUE MATE", 419, 426);
+					printxy("CORONACION", 420, 345);
+					printxy("CAPTURA AL PASO", 333, 266);
+					printxy("TABLAS", 543, 184);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -9, -37);
+					printxy("atras", 575, 100);
 
 				case 7:
 					corona.setPos(shapx * -20, shapy * -40);
@@ -864,17 +865,17 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 70);
-					printxy("INSTRUCCIONES", -45, 33);
+					printxy("INSTRUCCIONES", 285, 684);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("OBJETIVO", -18, 22);
-					printxy("ENROQUE", -19, 11);
-					printxy("JAQUE MATE", -28, 1);
-					printxy("CORONACION", -28, -9);
-					printxy("CAPTURA AL PASO", -39, -19);
-					printxy("TABLAS", -14, -29);
+					printxy("OBJETIVO", 499, 596);
+					printxy("ENROQUE", 491, 505);
+					printxy("JAQUE MATE", 419, 426);
+					printxy("CORONACION", 420, 345);
+					printxy("CAPTURA AL PASO", 333, 266);
+					printxy("TABLAS", 543, 184);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -9, -37);
+					printxy("atras", 575, 100);
 				}
 			}
 
@@ -885,13 +886,13 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 50);
-					printxy("OBJETIVO", -25, 20);
+					printxy("OBJETIVO", 444, 579);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 30);
-					printxy("Dar Jaque Mate al rey contrario", -45, 10);
+					printxy("Dar Jaque Mate al rey contrario", 283, 497);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 81, 90);
 
 					break;
 				case 1:
@@ -899,19 +900,19 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 50);
-					printxy("ENROQUE", -20, 25);
+					printxy("ENROQUE", 483, 620);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 30);
-					printxy("Este movimiento deja colocar al rey en una posicion mas segura", -80, 15);
-					printxy("y sacar la torre de la esquina. El rey se mueve dos casillas", -78, 8);
-					printxy("lateralmente y la torre se sitúa al lado opuesto del rey", -71, 1);
-					printxy("Condiciones:", -18, -6);
-					printxy("1.- Debe ser el primer movimiento de ambas figuras", -70, -13);
-					printxy("2.- No puede haber piezas entre el rey y la torre", -69, -20);
-					printxy("No puede estar en jaque ni pasar por una casilla amenazada", -78, -27);
+					printxy("Este movimiento deja colocar al rey en una posicion mas segura", 2, 537);
+					printxy("y sacar la torre de la esquina. El rey se mueve dos casillas", 18, 472);
+					printxy("lateralmente y la torre se sitúa al lado opuesto del rey", 73, 407);
+					printxy("Condiciones:", 500, 342);
+					printxy("1.- Debe ser el primer movimiento de ambas figuras", 90, 277);
+					printxy("2.- No puede haber piezas entre el rey y la torre", 90, 212);
+					printxy("No puede estar en jaque ni pasar por una casilla amenazada", 18, 147);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 81, 90);
 
 					break;
 				case 2:
@@ -919,17 +920,17 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 50);
-					printxy("JAQUE MATE", -30, 20);
+					printxy("JAQUE MATE", 404, 576);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 30);
-					printxy("Un jugador esta en jaque cuando su rey esta siendo atacado por", -79, 10);
-					printxy("una o dos piezas enemigas y seria posible para el rival", -70, 3);
-					printxy("capturarlo en el siguiente turno.", -40, -4);
-					printxy("Cuando el jugador no puede ejecutar ningun movimiento", -70, -11);
-					printxy("que lo resuelva, ha perdido la partida", -49, -18);
+					printxy("Un jugador esta en jaque cuando su rey esta siendo atacado por", 11, 499);
+					printxy("una o dos piezas enemigas y seria posible para el rival", 83, 434);
+					printxy("capturarlo en el siguiente turno.", 323, 369);
+					printxy("Cuando el jugador no puede ejecutar ningun movimiento", 83, 304);
+					printxy("que lo resuelva, ha perdido la partida", 249, 239);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 81,90);
 
 					break;
 
@@ -938,15 +939,15 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 50);
-					printxy("CORONACION", -33, 20);
+					printxy("CORONACION", 379, 577);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 27);
-					printxy("Cuando un peon llega a la ultima fila ha de ser cambiado por", -74, 10);
-					printxy("un caballo, alfil, torre o dama, aunque el jugador ya posea esa pieza", -80, 3);
-					printxy("Esta sustitucion esta incluida en el mismo turno del peon", -70, -4);
+					printxy("Cuando un peon llega a la ultima fila ha de ser cambiado por", 50, 497);
+					printxy("un caballo, alfil, torre o dama, aunque el jugador ya posea esa pieza", 2, 432);
+					printxy("Esta sustitucion esta incluida en el mismo turno del peon", 82, 367);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 81,90);
 
 					break;
 				case 4:
@@ -954,38 +955,38 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 50);
-					printxy("CAPTURA AL PASO", -40, 30);
+					printxy("CAPTURA AL PASO", 325, 658);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 23);
-					printxy("Forma adicional de un PEON para capturar peones enemigos:", -80, 20);
-					printxy("El peon original debe estar en su quinta fila", -80, 13);
-					printxy("El peon rival debe estar en su posicion inicial en una columna adyacente", -80, 6);
-					printxy("El rival debe mover su peón dos pasos para que ambos peones queden en la misma fila", -80, -1);
-					printxy("En ese momento, puede capturar al enemigo como si solo se hubiera movido", -80, -8);
-					printxy("una casilla desplazando el propio en diagonal a la fila siguiente y", -80, -15);
-					printxy("retirando  al capturado", -80, -22);
+					printxy("Forma adicional de un PEON para capturar peones enemigos:", 225, 577 );
+					printxy("El peon original debe estar en su quinta fila", 5, 512);
+					printxy("El peon rival debe estar en su posicion inicial en una columna adyacente", 5, 447);
+					printxy("El rival debe mover su peón dos pasos para que ambos peones queden en la misma fila", 5, 382);
+					printxy("En ese momento, puede capturar al enemigo como si solo se hubiera movido", 5, 317);
+					printxy("una casilla desplazando el propio en diagonal a la fila siguiente y", 5, 252);
+					printxy("retirando  al capturado", 5, 187);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 81, 90);
 
 					break;
 				case 5:
 					fondo.draw();
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 50);
-					printxy("TABLAS", -20, 30);
+					printxy("TABLAS", 487, 659);
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 30);
-					printxy("Posibilidades:", -18, 20);
-					printxy("Un jugador que no esta en jaque no puede mover en su turno", -79, 13);
-					printxy("Por mutuo acuerdo", -79, 6);
-					printxy("Se ha producido la repeticion de la misma posicion 3 veces", -79, -1);
-					printxy("No hay suficientes piezas de ningún bando para hacer jaque mate", -79, -8);
-					printxy("Se produce una secuencia de 50 jugadas de cada bando", -79, -15);
-					printxy("sin captura o movimiento del peon", -79, -22);
+					printxy("Posibilidades:", 499, 576);
+					printxy("Un jugador que no esta en jaque no puede mover en su turno", 9, 511);
+					printxy("Por mutuo acuerdo", 9, 446);
+					printxy("Se ha producido la repeticion de la misma posicion 3 veces", 9, 381);
+					printxy("No hay suficientes piezas de ningún bando para hacer jaque mate", 9, 316);
+					printxy("Se produce una secuencia de 50 jugadas de cada bando", 9, 251);
+					printxy("sin captura o movimiento del peon", 9, 186);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-					printxy("atras", -70, -38);
+					printxy("atras", 81,90);
 
 					break;
 
