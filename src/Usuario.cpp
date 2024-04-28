@@ -26,8 +26,7 @@ Usuario:: ~Usuario() {}
 void Usuario::mouse(int x, int y) {
 	if (estado == INICIO) {
 		setMenuInicio(0);
-		//if (x > shapx * 1030 || x< shapx * 280 || y> shapy * 500 || y < shapy * 240) {
-		//} //sin nada
+
 		if (x<shapx * 1071 && x> shapx * 315 && y< shapy * 377 && y>shapy * 310) {
 			setMenuInicio(1);
 		} //modo de juego
@@ -37,9 +36,8 @@ void Usuario::mouse(int x, int y) {
 
 	}
 	if (estado == OP) {
-		//if (x > shapx * 1230 || x<shapx * 152 || y>shapy * 584 || y < shapy * 98) {
+		
 		setOpciones(0);
-		//} //sin nada
 
 		if (x < shapx * 919 && x> shapx * 478 && y<shapy * 220 && y>shapy * 128) {
 			setOpciones(1);
@@ -340,11 +338,11 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 80);
-			printxy("CHEST GAME", -50, 20);
+			printxy("CHEST GAME", 300, 525);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 60);
-			printxy("MODO DE JUEGO", -48, 2.5);
-			printxy("OPCIONES", -29, -17.5);
+			printxy("MODO DE JUEGO", 315, 400); 
+			printxy("OPCIONES", 461, 250);
 
 		case OPCIONES:
 			corona.setPos(shapx * 1, shapy * 1);
@@ -353,11 +351,11 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 80);
-			printxy("CHEST GAME", -50, 20);
+			printxy("CHEST GAME", 300, 525);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 60);
-			printxy("MODO DE JUEGO", -48, 2.5);
-			printxy("OPCIONES", -29, -17.5);
+			printxy("MODO DE JUEGO", 315, 400);
+			printxy("OPCIONES", 461, 250);
 
 		case MODODEJUEGO:
 			corona.setPos(shapx * 1, shapy * 1);
@@ -366,18 +364,14 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 80);
-			printxy("CHEST GAME", -50, 20);
+			printxy("CHEST GAME", 300, 525);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 60);
-			printxy("MODO DE JUEGO", -48, 2.5);
-			printxy("OPCIONES", -29, -17.5);
+			printxy("MODO DE JUEGO", 315, 400);
+			printxy("OPCIONES", 461, 250);
 		}
 	}
 	if (estado == MODOJUEGO) {
-		
-		//tablero.piezasinicializa();
-		//tablero.dibujar();
-
 		
 		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 		setFont("bin/fuentes/Bitwise.ttf", 20);
@@ -407,9 +401,9 @@ void Usuario::dibuja() {
 
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 65);
-				printxy("AYUDA", -20, 20);
-				printxy("INSTRUCCIONES", -48, -4);
-				printxy("ATRAS", -20, -27);
+				printxy("AYUDA", 520, 545);
+				printxy("INSTRUCCIONES", 300, 341);
+				printxy("ATRAS", 520, 145);
 				break;
 
 			case AYUDA:
@@ -419,9 +413,9 @@ void Usuario::dibuja() {
 
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 65);
-				printxy("AYUDA", -20, 20);
-				printxy("INSTRUCCIONES", -48, -4);
-				printxy("ATRAS", -20, -27);
+				printxy("AYUDA", 520, 545);
+				printxy("INSTRUCCIONES", 300, 341);
+				printxy("ATRAS", 520, 145);
 				break;
 
 			case INSTRUCCIONES:
@@ -431,9 +425,9 @@ void Usuario::dibuja() {
 
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 65);
-				printxy("AYUDA", -20, 20);
-				printxy("INSTRUCCIONES", -48, -4);
-				printxy("ATRAS", -20, -27);
+				printxy("AYUDA", 520, 545);
+				printxy("INSTRUCCIONES", 300, 341);
+				printxy("ATRAS", 520, 145);
 				break;
 
 			case A_OPCION:
@@ -443,9 +437,9 @@ void Usuario::dibuja() {
 
 				setTextColor(1, 1, 1);
 				setFont("bin/fuentes/Bitwise.ttf", 65);
-				printxy("AYUDA", -20, 20);
-				printxy("INSTRUCCIONES", -48, -4);
-				printxy("ATRAS", -20, -27);
+				printxy("AYUDA", 520, 545);
+				printxy("INSTRUCCIONES", 300, 341);
+				printxy("ATRAS", 520, 145);
 				break;
 			}
 		}
@@ -460,7 +454,7 @@ void Usuario::dibuja() {
 
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 70);
-					printxy("AYUDA", -24, 25);
+					printxy("AYUDA", 520, 638 );
 					setTextColor(1, 1, 1);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
 					printxy("TORRE", -15, 13);
@@ -471,7 +465,7 @@ void Usuario::dibuja() {
 					printxy("REINA", -15, -35);
 					setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 					setFont("bin/fuentes/Bitwise.ttf", 45);
-					printxy("atras", -70, -38);
+					printxy("atras", 65, 38);
 					break;
 				case 1:
 					corona.setPos(shapx * -22, shapy * 8);

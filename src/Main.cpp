@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 	glutMouseFunc(mouseClick);
 	glutReshapeFunc(reshape);
 
-	//mundo.inicializa();
+	
 
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
@@ -133,9 +133,8 @@ void reshape(int width, int height)
 	//poryeccion ortográfica que mantiene una relacion de aspecto constante
 	//con una altura del 75% del ancho
 	//gluPerspective(40.0, ratio, 0.1, 150);
-	float worldHeight = 100.0f; // Altura del mundo que quieres mostrar
-	float worldWidth = worldHeight * ratio; // Ajustar el ancho del mundo para mantener la relación de aspecto
-	glOrtho(-worldWidth / 2, worldWidth / 2, -worldHeight / 2, worldHeight / 2, -1.0, 1.0);
+
+	glOrtho(0, 1366, 0, 768, -1.0, 1.0);
 
 	// matriz de vista de modelo
 	glMatrixMode(GL_MODELVIEW);

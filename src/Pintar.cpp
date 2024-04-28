@@ -32,10 +32,10 @@ void Pintar::pintarCuadricula() {
     int offsetY = (768 - tableroHeight) / 2; // Desplazamiento vertical para centrar el tablero
 
     // Configura la matriz de proyección
-    glMatrixMode(GL_PROJECTION);
+  /*  glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(0, 1366, 0, 768, -1, 1); // Establece el sistema de coordenadas en 2D (1336x768)
-
+*/
     // Cambia a la matriz de modelo-vista
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
