@@ -1,69 +1,13 @@
-﻿  Usuario.cpp
+﻿  Main.cpp
 C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.h(11,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.h(11,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.h(12,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.h(12,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(339,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(352,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(365,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(376,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(455,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(466,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(475,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(486,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(495,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(506,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(515,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(526,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(536,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(547,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(557,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(568,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(578,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(589,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(597,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(608,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(620,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(626,69): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(628,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(636,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(642,75): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(648,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(655,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(666,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(673,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(683,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(691,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(693,22): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(699,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(706,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(715,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(732,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(743,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(750,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(761,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(770,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(781,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(790,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(801,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(809,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(820,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(828,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(839,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(847,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(858,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(866,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(877,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(887,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(894,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(901,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(914,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(921,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(932,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(940,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(949,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(956,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(969,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(975,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(988,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(70,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(73,2): warning C4551: la llamada a la función no tiene lista de argumentos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(105,19): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(113,3): warning C4551: la llamada a la función no tiene lista de argumentos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(122,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(140,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(140,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Pang.vcxproj -> C:\I.Electronica I\6\Informática industrial\Ajedrez.2\bin\Pang.exe

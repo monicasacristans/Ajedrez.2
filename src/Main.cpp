@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "Pintar.h"
 #include "Usuario.h"
@@ -30,8 +29,21 @@ int main(int argc, char* argv[])
 	glEnable(GL_LIGHTING);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_COLOR_MATERIAL);
+
+	glViewport(0, 0, 1366, 768);
 	glMatrixMode(GL_PROJECTION);
-	gluPerspective(40.0, 1366 / 768.0f, 0.1, 150);
+
+	glViewport(0, 0, 1366, 768);
+
+	// se carga la matriz identidad
+	glLoadIdentity();
+
+	glOrtho(0, 1366, 0, 768, 0, 1.0);
+	usuario.setReshape(1366, 768);
+	// matriz de vista de modelo
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
 
 	//Registrar los callbacks
 	glutPassiveMotionFunc(mouse);
@@ -41,8 +53,6 @@ int main(int argc, char* argv[])
 	glutMouseFunc(mouseClick);
 	glutReshapeFunc(reshape);
 
-	
-
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
 
@@ -50,6 +60,7 @@ int main(int argc, char* argv[])
 }
 
 void mouse(int x, int y) {
+	y = usuario.shapy -y;
 	usuario.mouse(x, y);
 	OnDraw();
 	glutPostRedisplay;
@@ -58,15 +69,20 @@ void mouse(int x, int y) {
 void OnDraw(void)
 {
 	//Borrado de la pantalla	
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
+	
+	glClearDepth(1.0);
 
+	glClear(GL_DEPTH_BUFFER_BIT);
+
+	glMatrixMode(GL_PROJECTION);
 	//Para definir el punto de vista
-	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+	glOrtho(0, 1366, 0,768, -1, 1.0);
 
-	gluLookAt(0, 0, 1.0,  // posicion del ojo( mirando hacia abajo en el eje Z desde una altura)
-		0, 0, 0,      // hacia que punto mira  (0,0,0) hacia el origen
-		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)  
+	glMatrixMode(GL_MODELVIEW);
+
+	glLoadIdentity();
 	usuario.dibuja();
 
 	//no borrar esta linea ni poner nada despues
@@ -75,7 +91,7 @@ void OnDraw(void)
 
 void mouseClick(int button, int state, int x, int y)
 {
-
+	y= usuario.shapy - y;
 	usuario.raton(button, state, x, y);
 	//tablero.definirCoordenadasTablero(button, state, x, y);
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
@@ -91,15 +107,12 @@ void mouseClick(int button, int state, int x, int y)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-	//mundo.tecla(key);
-
+	y_t = usuario.shapy - y_t;
 	glutPostRedisplay();
 }
 
 void OnTimer(int value)
 {
-	//poner aqui el código de animacion
-
 	//no borrar estas lineas
 	glutTimerFunc(100, OnTimer, 0);
 	glutPostRedisplay();
@@ -110,33 +123,6 @@ void OnTimer(int value)
 // w y h representan los nuevos valores de ancho y alto
 void reshape(int width, int height)
 {
-	usuario.setReshape(width * 1.0 / 1366, height * 1.0 / 768);
+	usuario.setReshape(width, height);
 
-	// Evitar una división por cero cuando la ventana es demasiado estrecha (no puedes tener una ventana de ancho cero).
-	if (height == 0) {
-		height = 1; // Hacer el alto mínimo 1
-	}
-	// Prevent a divide by zero, when window is too short
-	 // (you cant make a window of zero width).
-	float ratio = width * 1.0 / height;
-
-	// establece la ventana de visualizacion para que coincida con 
-	//el tamaño de la ventana
-	glViewport(0, 0, width, height);
-
-	// Use the Projection Matrix
-	glMatrixMode(GL_PROJECTION);
-
-	// se carga la matriz identidad
-	glLoadIdentity();
-
-	//poryeccion ortográfica que mantiene una relacion de aspecto constante
-	//con una altura del 75% del ancho
-	//gluPerspective(40.0, ratio, 0.1, 150);
-
-	glOrtho(0, 1366, 0, 768, -1.0, 1.0);
-
-	// matriz de vista de modelo
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
 }

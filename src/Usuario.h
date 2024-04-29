@@ -6,6 +6,7 @@ using namespace ETSIDI;
 class Usuario {
 
 	Sprite fondo{ "bin/imagenes/fondo.png", 0, 0, 220, 140 };
+	Sprite corona{ "bin/imagenes/corona.png", 0,0,50,25 };
 
 public:
 	Usuario();
@@ -14,7 +15,7 @@ public:
 	void mouse(int x, int y);
 	void raton(int button, int state, int x, int y);
 	void dibuja();
-
+	void dibujaFondo();
 	void setMenuInicio(int x);
 	void setOpciones(int x);
 	void setReshape(float x, float y);
@@ -33,8 +34,7 @@ public:
 	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS};
 	EstadodeJuego estadodejuego;
 
-	enum Inicio { I, OPCIONES, MODODEJUEGO };
-	Inicio menu_inicio;
+	int seleccion_ini = 0;
 
 	enum Opcion { O, AYUDA, INSTRUCCIONES, A_OPCION };
 	Opcion opcion;

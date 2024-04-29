@@ -3,17 +3,22 @@
 #include "Tablero.h"
 #include "Pintar.h"
 
-// Definir el objeto corona fuera de las funciones
-ETSIDI::Sprite corona{ "bin/imagenes/corona.png", 0,0,10,5 };
 
 Tablero tablero;
 Pintar miPintura(&tablero);
 bool juegoInicializado = false;
 
+struct OPCION {
+	int x, y, w, h;
+	int sel;
+	const char* texto;
+};
+OPCION MENU_INI[]{ {315,310,756,67,1,"MODO JUEGO"},{118,41,450,67,2, "OPCIONES"} };
+
 Usuario::Usuario() {
 
 	estado = INICIO;
-	menu_inicio = I;
+	seleccion_ini = 0;
 	opcion = O;
 	n_ayuda = 0;
 	n_inst = 0;
@@ -23,17 +28,11 @@ Usuario::Usuario() {
 
 Usuario:: ~Usuario() {}
 
+
 void Usuario::mouse(int x, int y) {
 	if (estado == INICIO) {
-		setMenuInicio(0);
-
-		if (x<shapx * 1071 && x> shapx * 315 && y< shapy * 377 && y>shapy * 310) {
-			setMenuInicio(1);
-		} //modo de juego
-		else if (x< shapx * 910 && x>shapx * 461 && y < shapy * 520 && y>shapy * 450) {
-			setMenuInicio(2);
-		}//opciones
-
+		for (auto m : MENU_INI)
+			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//modo de juego
 	}
 	if (estado == OP) {
 		
@@ -131,10 +130,10 @@ void Usuario::mouse(int x, int y) {
 }
 
 
-void Usuario::setMenuInicio(int x) {
-	if (x == 0) menu_inicio = I;
+void Usuario::setMenuInicio(int x) {//quitar
+	/*if (x == 0) menu_inicio = I;
 	if (x == 1) menu_inicio = OPCIONES;
-	if (x == 2) menu_inicio = MODODEJUEGO;
+	if (x == 2) menu_inicio = MODODEJUEGO;*/
 }
 
 void Usuario::setOpciones(int x) {
@@ -165,12 +164,12 @@ void Usuario::raton(int button, int state, int x, int y) {
 	if (estado == INICIO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 		{
-			if (x<shapx * 1071 && x> shapx * 315 && y< shapy * 377 && y>shapy * 310) {
+			if (x< 1071 && x>  315 && y< 377 && y> 310) {
 		
 				estado = MODOJUEGO;
 				return;
 			}
-			else if (x< shapx * 910 && x>shapx * 461 && y < shapy * 520 && y>shapy * 450) {
+			else if (x<  910 && x> 461 && y < 520 && y> 450) {
 				estado = OP;
 
 			}
@@ -329,47 +328,44 @@ void Usuario::raton(int button, int state, int x, int y) {
 
 }
 
+void Usuario::dibujaFondo() {
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("bin/imagenes/fondo.png").id);
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3d(1, 1, 1);
+	glTexCoord2d(0, 1); glVertex3d(0, 0, -0.5);
+	glTexCoord2d(1, 1); glVertex3d(shapx, 0, -0.5);
+	glTexCoord2d(1, 0); glVertex3d(shapx, shapy,- 0.5);
+	glTexCoord2d(0, 0); glVertex3d(0, shapy, -0.5);
+	glEnd();
+	glEnable(GL_LIGHTING);
+	glDisable(GL_TEXTURE_2D);
+}
+
 void Usuario::dibuja() {
 
 	if (estado == INICIO) {
-		switch (menu_inicio) {
-		case I:
-			fondo.draw();
 
-			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-			setFont("bin/fuentes/Bitwise.ttf", 80);
-			printxy("CHEST GAME", 300, 525);
-			setTextColor(1, 1, 1);
-			setFont("bin/fuentes/Bitwise.ttf", 60);
-			printxy("MODO DE JUEGO", 315, 400); 
-			printxy("OPCIONES", 461, 250);
 
-		case OPCIONES:
-			corona.setPos(shapx * 1, shapy * 1);
+			dibujaFondo();
+			corona.setPos(100, 100);
 			corona.draw();
-			fondo.draw();
-
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 80);
 			printxy("CHEST GAME", 300, 525);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 60);
-			printxy("MODO DE JUEGO", 315, 400);
-			printxy("OPCIONES", 461, 250);
+			for (auto m : MENU_INI) {
+				printxy(m.texto, m.x, m.y);
+				if (m.sel == seleccion_ini) {
+					corona.setPos(m.x - 50, m.y);
+					corona.draw();
+				}
+			}
 
-		case MODODEJUEGO:
-			corona.setPos(shapx * 1, shapy * 1);
-			corona.draw();
-			fondo.draw();
 
-			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-			setFont("bin/fuentes/Bitwise.ttf", 80);
-			printxy("CHEST GAME", 300, 525);
-			setTextColor(1, 1, 1);
-			setFont("bin/fuentes/Bitwise.ttf", 60);
-			printxy("MODO DE JUEGO", 315, 400);
-			printxy("OPCIONES", 461, 250);
-		}
+		
 	}
 	if (estado == MODOJUEGO) {
 		
