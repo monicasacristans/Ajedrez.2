@@ -340,9 +340,9 @@ void Usuario::dibujaFondo() {
 	glBegin(GL_POLYGON);
 	glColor3d(1, 1, 1);
 	glTexCoord2d(0, 1); glVertex3d(0, 0, -0.5);
-	glTexCoord2d(1, 1); glVertex3d(shapx, 0, -0.5);
-	glTexCoord2d(1, 0); glVertex3d(shapx, shapy,- 0.5);
-	glTexCoord2d(0, 0); glVertex3d(0, shapy, -0.5);
+	glTexCoord2d(1, 1); glVertex3d(1366, 0, -0.5);
+	glTexCoord2d(1, 0); glVertex3d(1366, 768,- 0.5);
+	glTexCoord2d(0, 0); glVertex3d(0, 768, -0.5);
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
@@ -360,6 +360,7 @@ void Usuario::dibuja() {
 			printxy("CHEST GAME", 300, 525);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 60);
+
 			for (auto m : MENU_INI) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
@@ -385,6 +386,9 @@ void Usuario::dibuja() {
 		if (!juegoInicializado) {
 
 			tablero.set_tablero();
+			cout << tablero.checkCasillaOcupada(1, 1);
+			cout << tablero.checkCasillaOcupada(2, 4);
+
 			juegoInicializado = true;
 		}
 

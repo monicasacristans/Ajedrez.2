@@ -48,9 +48,9 @@ Tablero::Tablero() {
 bool Tablero::checkCasillaOcupada(int x, int y) {
 	if (x >= 0 && x < max_x && y >= 0 && y < max_y) {  //Comprueba que estamos dentro del tablero
 		
-		Pieza mipieza = *tablero[y][x]; //Obtiene la pieza que hay en la casilla
+		Pieza *mipieza = tablero[y][x]; //Obtiene la pieza que hay en la casilla
 
-		if (mipieza.getTipo() != tipo::vacio) {
+		if (mipieza != nullptr) {
 			return true; //casilla ocupada
 		}
 	}
