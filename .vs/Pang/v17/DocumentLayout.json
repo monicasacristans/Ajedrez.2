@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Pintar.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Pintar.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Pintar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Pintar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Pieza.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Pieza.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Pintar.h",
+              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Pintar.h",
+              "RelativeDocumentMoniker": "src\\Pintar.h",
+              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Pintar.h",
+              "RelativeToolTip": "src\\Pintar.h",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAABoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-29T16:26:53.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Pieza.h",
+              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Pieza.h",
+              "RelativeDocumentMoniker": "src\\Pieza.h",
+              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Pieza.h",
+              "RelativeToolTip": "src\\Pieza.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-29T16:26:50.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Pintar.cpp",
+              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Pintar.cpp",
+              "RelativeDocumentMoniker": "src\\Pintar.cpp",
+              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Pintar.cpp",
+              "RelativeToolTip": "src\\Pintar.cpp",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAAAJQAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-29T16:26:29.844Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

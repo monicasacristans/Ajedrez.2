@@ -24,6 +24,10 @@ class Pintar {
 	Sprite reina_n{ "bin/imagenes/reina_n.png", 0, 0, 60,60 };
 	Sprite rey_b{ "bin/imagenes/rey_b.png", 0, 0, 60,60 };
 	Sprite rey_n{ "bin/imagenes/rey_n.png", 0, 0, 60,60 };
+	Sprite canciller_b{ "bin/imagenes/canciller_b.png", 0, 0, 60,60 };
+	Sprite canciller_n{ "bin/imagenes/canciller_n.png", 0, 0, 60,60 };
+	Sprite arzobispo_b{ "bin/imagenes/arzobispo_b.png", 0, 0, 60,60 };
+	Sprite arzobispo_n{ "bin/imagenes/arzobispo_n.png", 0, 0, 60,60 };
 
 public:
 	

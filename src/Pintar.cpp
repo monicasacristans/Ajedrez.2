@@ -146,6 +146,22 @@ void Pintar::pintarPiezasTablero() {
                     rey_n.setPos(cas.x, cas.y);
                     rey_n.draw();
                 }
+                if (pieza->getTipo() == tipo::canciller && pieza->getColor() == color::blanco) {
+                    canciller_b.setPos(cas.x, cas.y);
+                    canciller_b.draw();
+                }
+                if (pieza->getTipo() == tipo::canciller && pieza->getColor() == color::negro) {
+                    canciller_n.setPos(cas.x, cas.y);
+                    canciller_n.draw();
+                }
+                if (pieza->getTipo() == tipo::arzobispo && pieza->getColor() == color::blanco) {
+                    arzobispo_b.setPos(cas.x, cas.y);
+                    arzobispo_b.draw();
+                }
+                if (pieza->getTipo() == tipo::arzobispo && pieza->getColor() == color::negro) {
+                    arzobispo_n.setPos(cas.x, cas.y);
+                    arzobispo_n.draw();
+                }
             }
         }
     }
