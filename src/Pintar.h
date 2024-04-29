@@ -9,10 +9,10 @@ class Pintar {
 
 	casilla c;
 	Sprite peon_b{ "bin/imagenes/peon_b.png", c.x, c.y, 20,20 };
-	Sprite peon_n{ "bin/imagenes/peon_n.png", c.x, c.y, 20,};
+	Sprite peon_n{ "bin/imagenes/peon_n.png", c.x, c.y, 20,20 };
 
 public:
-
+	
 	Pintar(Tablero* ptrTab) : tablero(ptrTab) {}
 
 	void setPos(float x, float y);

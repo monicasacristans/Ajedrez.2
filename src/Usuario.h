@@ -6,7 +6,7 @@ using namespace ETSIDI;
 class Usuario {
 
 	Sprite fondo{ "bin/imagenes/fondo.png", 0, 0, 220, 140 };
-	Sprite corona{ "bin/imagenes/corona.png", 0,0,50,25 };
+	Sprite corona{ "bin/imagenes/corona.png", 0,0, 80, 40 };
 
 public:
 	Usuario();
@@ -35,6 +35,7 @@ public:
 	EstadodeJuego estadodejuego;
 
 	int seleccion_ini = 0;
+	int seleccion_estado = 0;
 
 	enum Opcion { O, AYUDA, INSTRUCCIONES, A_OPCION };
 	Opcion opcion;

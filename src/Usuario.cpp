@@ -3,6 +3,14 @@
 #include "Tablero.h"
 #include "Pintar.h"
 
+/* 
+   1-Crear un una nueva varibale de tipo OPCION (la estructura)
+   2-Ir al mouse primero y seguir el primer caso
+   3- Ir al raton y seguir la estructura. 
+
+   los shapx,y desaparecen
+
+*/
 
 Tablero tablero;
 Pintar miPintura(&tablero);
@@ -13,12 +21,13 @@ struct OPCION {
 	int sel;
 	const char* texto;
 };
-OPCION MENU_INI[]{ {315,310,756,67,1,"MODO JUEGO"},{118,41,450,67,2, "OPCIONES"} };
-
+OPCION MENU_INI[]{ {401,390,561,60,1,"MODO JUEGO"},{455,230,404,60,2, "OPCIONES"} };
+				//  x inicial, y inicila, ancho de las letras, altura de las letras, numero de selección, texto
 Usuario::Usuario() {
 
 	estado = INICIO;
 	seleccion_ini = 0;
+	seleccion_estado = estado;
 	opcion = O;
 	n_ayuda = 0;
 	n_inst = 0;
@@ -129,13 +138,6 @@ void Usuario::mouse(int x, int y) {
 
 }
 
-
-void Usuario::setMenuInicio(int x) {//quitar
-	/*if (x == 0) menu_inicio = I;
-	if (x == 1) menu_inicio = OPCIONES;
-	if (x == 2) menu_inicio = MODODEJUEGO;*/
-}
-
 void Usuario::setOpciones(int x) {
 	if (x == 0) opcion = O;
 	if (x == 1) opcion = AYUDA;
@@ -156,6 +158,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 	int screenX = x;
 	int screenY = y;
 
+
 	// Actualizar las coordenadas del objeto en el juego
 	std::cout << "Coordenadas del raton en la pantalla: (" << screenX << ", " << screenY << ")" << std::endl;
 
@@ -164,18 +167,20 @@ void Usuario::raton(int button, int state, int x, int y) {
 	if (estado == INICIO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 		{
-			if (x< 1071 && x>  315 && y< 377 && y> 310) {
+			for (auto m : MENU_INI) {
+				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+					for (int i = INICIO; i <= INST; i++) {
+						if (m.sel == 1) estado = MODOJUEGO;
+						if (m.sel == 2) estado = OP;
+					}
+				}
+			}
 		
-				estado = MODOJUEGO;
-				return;
-			}
-			else if (x<  910 && x> 461 && y < 520 && y> 450) {
-				estado = OP;
-
-			}
+		
 
 		}
 	}
+
 	if (estado == MODOJUEGO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
 			//if (estadodejuego == TURNO) {
@@ -349,8 +354,7 @@ void Usuario::dibuja() {
 
 
 			dibujaFondo();
-			corona.setPos(100, 100);
-			corona.draw();
+
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 80);
 			printxy("CHEST GAME", 300, 525);
@@ -359,7 +363,7 @@ void Usuario::dibuja() {
 			for (auto m : MENU_INI) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
-					corona.setPos(m.x - 50, m.y);
+					corona.setPos(m.x - 60, m.y+25);
 					corona.draw();
 				}
 			}
