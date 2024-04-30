@@ -28,7 +28,7 @@ public:
 	int n_texto_ins;
 	float shapx, shapy;
 
-	enum Estado { INICIO, MODOJUEGO, OP, AYU, INST };
+	enum Estado { INICIO, MODOJUEGO, OP, AYU, INST, TEXTO_A, TEXTO_IN};
 	Estado estado;
 
 	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS};
