@@ -37,7 +37,6 @@ public:
 	void draw();
 	casilla restringirCasilla(int x, int y);
 	void pintarCuadricula();
-	casilla definirCoordenadasTablero(int button, int state, int x, int y);
 	void pintarPiezasTablero();
 
 

@@ -50,40 +50,6 @@ casilla Pintar::restringirCasilla(int x, int y) {
     return pix;
 }
 
-casilla Pintar::definirCoordenadasTablero(int button, int state, int x, int y) {
-    casilla cas{ 0,0 };
-    movimiento mov;
-    static int flag = 0;
-
-    int screenX = x;
-    int screenY = y;
-
-    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-        // Calcular la columna y fila en función de las coordenadas x e y
-        int columna = ((x - 283) / 80);
-        int fila = ((y - 64) / 80);
-
-        // Verificar que las coordenadas estén dentro del tablero
-        if (columna >= 0 && columna <= 9 && fila >= 0 && fila <= 7) {
-            cas.x = columna;
-            cas.y = fila;
-
-            flag++;
-
-            //Determinar casillas de origen y destino
-            if (flag == 2) {
-                mov.origen = cas;
-                std::cout << "Casilla origen: " << mov.origen << std::endl;
-            }
-            else if (flag == 3) {
-                mov.destino = cas;
-                flag = 1;
-                std::cout << "Casilla destino: " << mov.destino << std::endl;
-            }
-        }
-    }
-    return cas;
-}
 
 void Pintar::pintarPiezasTablero() {
 

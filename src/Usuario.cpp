@@ -157,7 +157,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 	// Actualizar las coordenadas del objeto en el juego
 	std::cout << "Coordenadas del raton en la pantalla: (" << screenX << ", " << screenY << ")" << std::endl;
 
-	miPintura.definirCoordenadasTablero(button, state, x, y);
+	tablero.definirCoordenadasTablero(button, state, x, y);
 
 	if (estado == INICIO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)

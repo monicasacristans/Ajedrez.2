@@ -37,9 +37,11 @@ public:
 	bool getFinTurnoBlanco();
 	bool getTurno();
 
+	casilla definirCoordenadasTablero(int button, int state, int x, int y);
 	bool checkCasillaOcupada(int x, int y);
 	Pieza* checkPiezaEnCasilla(casilla pos);
 
+	bool moverPieza(casilla origen, casilla destino);
 
 	void dibujar();
 };
