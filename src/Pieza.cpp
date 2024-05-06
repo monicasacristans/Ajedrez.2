@@ -15,7 +15,7 @@ void Pieza::setPos(int x, int y) {
 	pos.x = x;
 	pos.y = y;
 }
-char Pieza::obtenerRepresentacion() {
+/*char Pieza::obtenerRepresentacion() {
 	if (colorPieza == color::blanco) {
 		switch (tipoPieza) {
 		case tipo::peon:
@@ -72,3 +72,4 @@ char Pieza::obtenerRepresentacion() {
 	}
 }
 
+*/

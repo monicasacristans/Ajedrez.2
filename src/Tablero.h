@@ -11,6 +11,9 @@ class Tablero {
 
 	Pieza *tablero[max_y][max_x];
 	//std::vector<Pieza*> listapiezas;
+	bool flag = false;
+	casilla cas_origen{ -1 , -1 };
+	casilla cas_destino{ - 1, -1 };
 
 	bool turno; //1 BLANCAS 0 NEGRAS
 	//bool finturno;
@@ -37,11 +40,11 @@ public:
 	bool getFinTurnoBlanco();
 	bool getTurno();
 
-	casilla definirCoordenadasTablero(int button, int state, int x, int y);
+	void definirCoordenadasTablero(int button, int state, int x, int y);
 	bool checkCasillaOcupada(int x, int y);
 	Pieza* checkPiezaEnCasilla(casilla pos);
 
-	bool moverPieza(casilla origen, casilla destino);
+	void moverPieza(casilla origen, casilla destino);
 
 	void dibujar();
 };

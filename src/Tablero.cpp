@@ -44,13 +44,10 @@ Tablero::Tablero() {
 //	std::cout << std::endl;
 //}
 
-casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
-	casilla cas{ 0,0 };
-	casilla aux{ 0,0 };
-	movimiento mov{};
-	Pieza* p = checkPiezaEnCasilla(cas);
-	static int flag = 0;
-	//bool flag_mov = moverPieza(mov.origen, mov.destino);
+void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
+
+	Pieza* p = checkPiezaEnCasilla(cas_origen);
+	
 
 	int screenX = x;
 	int screenY = y;
@@ -59,64 +56,43 @@ casilla Tablero::definirCoordenadasTablero(int button, int state, int x, int y) 
 		// Calcular la columna y fila en función de las coordenadas x e y
 		int columna = ((x - 283) / 80);
 		int fila = ((y - 64) / 80);
+		//std::cout << "Clic en: x=" << x << ", y=" << y << " -> columna=" << columna << ", fila=" << fila << std::endl;
 
-		// Verificar que las coordenadas estén dentro del tablero
-		if (columna >= 0 && columna <= 9 && fila >= 0 && fila <= 7) {
-			cas.x = columna;
-			cas.y = fila;
+		if (columna < 0 || columna >= 10 || fila < 0 || fila >= 8) {
+			std::cout << "Clic fuera de los límites del tablero." << std::endl;
+			return;
+		}
 
-			flag++;
-
-			//Determinar casillas de origen y destino
-			if (flag == 2) {
-				mov.origen = cas;
-				aux = cas;
-				p = tablero[cas.y][cas.x];
-				if (p != nullptr) 
-					std::cout << "Casilla origen: " << mov.origen << "," << p->obtenerRepresentacion() << std::endl;
+		if (!flag) {
+			cas_origen = { columna, fila };
+			flag = true;
+			std::cout << "Casilla de origen: (" << cas_origen.x << ", " << cas_origen.y << ")" << std::endl;
+		}
+		else {
+			cas_destino = { columna, fila };
+			if (cas_origen.x == cas_destino.x && cas_origen.y == cas_destino.y) {
+				std::cout << "Origen y destino son iguales, seleccione otra casilla." << std::endl;
+				cas_destino = { -1, -1 }; // Reiniciar casilla destino si es igual al origen
+				return;
 			}
-			else if (flag == 3) {
-				mov.origen = aux;
-				mov.destino = cas;
-				p = tablero[cas.y][cas.x];
-				flag = 1;
-				if (p != nullptr) {
-					std::cout << "Casilla destino: " << mov.destino << "," << p->obtenerRepresentacion() << std::endl;
-				}
-				else {
-					// Copiar la pieza de la casilla de origen a la casilla de destino
-					tablero[mov.destino.y][mov.destino.x] = tablero[mov.origen.y][mov.origen.x];
-					// Vaciar la casilla de origen
-					tablero[mov.origen.y][mov.origen.x] = nullptr;
-					// Actualizar p para que apunte a la pieza en la nueva casilla de destino
-					p = tablero[mov.destino.y][mov.destino.x];
-					std::cout << "Casilla destino: " << mov.destino << "," << p->obtenerRepresentacion() << std::endl;
-				}
-			}
+			std::cout << "Casilla de destino: (" << cas_destino.x << ", " << cas_destino.y << ")" << std::endl;
+			flag = false;
+			moverPieza(cas_origen, cas_destino);
 		}
 	}
-	return cas;
 }
 
-bool Tablero::moverPieza(casilla origen, casilla destino) {
-	// Verificar si las coordenadas de origen y destino están dentro de los límites del tablero
-	if (origen.x < 0 || origen.x >= max_x || origen.y < 0 || origen.y >= max_y ||
-		destino.x < 0 || destino.x >= max_x || destino.y < 0 || destino.y >= max_y) {
-		return false; // Si alguna de las coordenadas está fuera del tablero, el movimiento no es válido.
-	}
 
-	// Asegúrate de que la casilla de origen no está vacía
-	if (tablero[origen.y][origen.x]==nullptr) {
-		return false;
-	}
+
+void Tablero::moverPieza(casilla origen, casilla destino) {
 
 	// Mover la pieza
 	Pieza *piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
-	//tablero[origen.y][origen.x] = Pieza(); // Dejar la casilla de origen vacía
-	tablero[origen.y][origen.x] = nullptr; // Dejar la casilla de origen vacía
 	tablero[destino.y][destino.x] = piezaMovida; // Colocar la pieza en la casilla de destino
+	tablero[origen.y][origen.x] = nullptr; // Dejar la casilla de origen vacía
+	std::cout << "Movimiento realizado de (" << origen.x << ", " << origen.y << ") a (" << destino.x << ", " << destino.y << ")" << std::endl;
 
-	return true; // El movimiento se ha realizado con éxito
+	//return true; // El movimiento se ha realizado con éxito
 }
 
 bool Tablero::checkCasillaOcupada(int x, int y) {

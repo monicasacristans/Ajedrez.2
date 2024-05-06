@@ -14,6 +14,8 @@
 Tablero tablero;
 Pintar miPintura(&tablero);
 bool juegoInicializado = false;
+bool clicInicializado = false;
+
 
 struct OPCION {
 	int x, y, w, h;
@@ -157,7 +159,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 	// Actualizar las coordenadas del objeto en el juego
 	std::cout << "Coordenadas del raton en la pantalla: (" << screenX << ", " << screenY << ")" << std::endl;
 
-	tablero.definirCoordenadasTablero(button, state, x, y);
+	//tablero.definirCoordenadasTablero(button, state, x, y);
 
 	if (estado == INICIO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
@@ -174,6 +176,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 	}
 
 	if (estado == MODOJUEGO) {
+		//tablero.definirCoordenadasTablero(button, state, x, y);
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
 			//if (estadodejuego == TURNO) {
 			//	tablero.ratonTablero(button, state, x, y);
@@ -183,9 +186,15 @@ void Usuario::raton(int button, int state, int x, int y) {
 			//	//}
 			//	//if (tablero.getFinTurnoBlanco() == 1) {
 
-			//	//}
-			//}
+			//	//}if (!juegoInicializado) {
 
+			
+			
+		tablero.definirCoordenadasTablero(button, state, x, y);
+			
+
+			//}
+			//tablero.definirCoordenadasTablero(button, state, x, y);
 		}
 	}
 	if (estado == OP) {
