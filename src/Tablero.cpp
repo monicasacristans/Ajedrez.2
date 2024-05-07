@@ -79,14 +79,13 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			std::cout << "Casilla de destino: (" << cas_destino.x << ", " << cas_destino.y << ")" << std::endl;
 			flag = false;
 			click = 1;
-			moverPieza(cas_origen, cas_destino);
+			moverPieza(cas_origen, cas_destino, tablero);
 		}
 	}
 }
 
 
-
-void Tablero::moverPieza(casilla origen, casilla destino) {
+void Tablero::moverPieza(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
 
 	// Mover la pieza
 	Pieza *piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
@@ -108,7 +107,6 @@ bool Tablero::checkCasillaOcupada(int x, int y) {
 	}
 	return false; //casilla vacía
 }
-
 
 Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
 
@@ -233,6 +231,7 @@ void Tablero::set_tablero() {
 //}
 
 
+/*
 
 void Tablero::setJugadorBlanco(Jugador* x) {
 	jugadorblanco = x;
@@ -257,7 +256,7 @@ bool Tablero::getFinTurnoBlanco() {
 bool Tablero::getTurno() {
 	return turno;
 }
-
+*/
 
 //// Función para convertir coordenadas del tablero a coordenadas de pantalla
 //ETSIDI::Vector2D Tablero::convertirTableroAPantalla(float x, float y) {

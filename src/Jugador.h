@@ -10,16 +10,19 @@ using namespace std;
 
 class Jugador {
 private:
+	/*
 	color colorJugador;
 	bool finTurno;
 	bool piezaEscogida;
 	Pieza* piezaini, * piezafin;
-	int posicioninicial, posicionfinal;
+	int posicioninicial, posicionfinal;*/
 
 protected:
 
 
 public:
+
+	/*
 	Jugador();
 	Jugador(color colorJug):colorJugador(colorJug), finTurno(nullptr), piezaEscogida(false), piezaini(nullptr), piezafin(nullptr), posicioninicial(0), posicionfinal(0) {};
 
@@ -31,6 +34,6 @@ public:
 	bool getFinTurno();
 
 	void setFinTurno(bool finTurno);
-	void setColorJugador(color color);
+	void setColorJugador(color color);*/
 
 };

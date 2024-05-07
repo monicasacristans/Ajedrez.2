@@ -2,6 +2,9 @@
 #include "Basico.h"
 #include "ETSIDI.h"
 
+#define max_x 10//columnas
+#define max_y 8//filas
+
 class Pieza {
 
 	casilla pos;

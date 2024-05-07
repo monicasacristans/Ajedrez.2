@@ -5,11 +5,13 @@
 
 ETSIDI::Sprite corona2{ "bin/imagenes/corona.png", 0,0,10,5 };
 
+/*
 Jugador::Jugador() {
 	//getColorJugador();
 	//piezaEscogida = 0;
 	//finTurno = 0;
 }
+*/
 
 //Jugador::Jugador(color colorJug) {
 //	colorJugador = colorJug;
@@ -27,6 +29,8 @@ Jugador::Jugador() {
 //	}
 //
 //}
+
+/*
 void Jugador::posicionarPieza(int button, int state, int x, int y) {
 
 	//finTurno = 0;
@@ -138,4 +142,4 @@ void Jugador::setFinTurno(bool finT) {
 }
 void Jugador::setColorJugador(color color) {
 	colorJugador = color;
-}
+}*/

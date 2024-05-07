@@ -20,8 +20,8 @@ class Tablero {
 	bool finturnonegro;
 	bool finturnoblanco;
 
-	Jugador* jugadorblanco;
-	Jugador* jugadornegro;
+	//Jugador* jugadorblanco;
+	//Jugador* jugadornegro;
 	
 public:
 
@@ -32,8 +32,8 @@ public:
 
 	//setters
 	void set_tablero();
-	void setJugadorBlanco(Jugador* x);
-	void setJugadorNegro(Jugador* x);
+	//void setJugadorBlanco(Jugador* x);
+	//void setJugadorNegro(Jugador* x);
 
 	//getters
 	bool getFinTurnoNegro();
@@ -44,7 +44,7 @@ public:
 	bool checkCasillaOcupada(int x, int y);
 	Pieza* checkPiezaEnCasilla(casilla pos);
 
-	void moverPieza(casilla origen, casilla destino);
+	virtual void moverPieza(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]);
 
 	void dibujar();
 };
