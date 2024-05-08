@@ -8,6 +8,6 @@ class Peon : public Pieza {
 public:
 	Peon(tipo tip, color col);
 	void dibuja();
-
-	void moverPieza(casilla origen, casilla destino, Pieza *tablero[max_y][max_x]);
+	bool movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]);
+	//void moverPieza(casilla origen, casilla destino, Pieza *tablero[max_y][max_x]);
 };

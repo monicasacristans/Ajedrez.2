@@ -79,21 +79,23 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			std::cout << "Casilla de destino: (" << cas_destino.x << ", " << cas_destino.y << ")" << std::endl;
 			flag = false;
 			click = 1;
-			moverPieza(cas_origen, cas_destino, tablero);
+			moverPieza(cas_origen, cas_destino);
 		}
 	}
 }
 
 
-void Tablero::moverPieza(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
+void Tablero::moverPieza(casilla origen, casilla destino) {
 
 	// Mover la pieza
 	Pieza *piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
-	tablero[destino.y][destino.x] = piezaMovida; // Colocar la pieza en la casilla de destino
-	tablero[origen.y][origen.x] = nullptr; // Dejar la casilla de origen vacía
-	std::cout << "Movimiento realizado de (" << origen.x << ", " << origen.y << ") a (" << destino.x << ", " << destino.y << ")" << std::endl;
 
-	//return true; // El movimiento se ha realizado con éxito
+	if (piezaMovida->movimientoValido(origen, destino, tablero) == true) {
+		tablero[destino.y][destino.x] = piezaMovida; // Colocar la pieza en la casilla de destino
+		tablero[origen.y][origen.x] = nullptr; // Dejar la casilla de origen vacía
+		std::cout << "Movimiento realizado de (" << origen.x << ", " << origen.y << ") a (" << destino.x << ", " << destino.y << ")" << std::endl;
+	}
+	
 }
 
 bool Tablero::checkCasillaOcupada(int x, int y) {

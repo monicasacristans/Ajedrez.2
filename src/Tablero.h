@@ -44,7 +44,7 @@ public:
 	bool checkCasillaOcupada(int x, int y);
 	Pieza* checkPiezaEnCasilla(casilla pos);
 
-	virtual void moverPieza(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]);
+	virtual void moverPieza(casilla origen, casilla destino);
 
 	void dibujar();
 };

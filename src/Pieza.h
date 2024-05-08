@@ -1,6 +1,7 @@
 #pragma once
 #include "Basico.h"
 #include "ETSIDI.h"
+#include <math.h>
 
 #define max_x 10//columnas
 #define max_y 8//filas
@@ -24,6 +25,8 @@ public:
 	
 	//char obtenerRepresentacion();
 	void setPos(int x, int y);
+
+	virtual bool movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) = 0;
 };
 
 
