@@ -1,7 +1,7 @@
 #pragma once
 #include "Pieza.h"
 #include <vector>
-#include "Jugador.h"
+
 
 
 #define max_x 10//columnas
@@ -15,13 +15,8 @@ class Tablero {
 	casilla cas_origen{ -1 , -1 };
 	casilla cas_destino{ - 1, -1 };
 
-	bool turno; //1 BLANCAS 0 NEGRAS
-	//bool finturno;
-	bool finturnonegro;
-	bool finturnoblanco;
+	bool turno = true;; //true BLANCAS,  false NEGRAS
 
-	//Jugador* jugadorblanco;
-	//Jugador* jugadornegro;
 	
 public:
 
@@ -30,15 +25,7 @@ public:
 
 	void ratonTablero(int button, int state, int x, int y);
 
-	//setters
 	void set_tablero();
-	//void setJugadorBlanco(Jugador* x);
-	//void setJugadorNegro(Jugador* x);
-
-	//getters
-	bool getFinTurnoNegro();
-	bool getFinTurnoBlanco();
-	bool getTurno();
 
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	bool checkCasillaOcupada(int x, int y);

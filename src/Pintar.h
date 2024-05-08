@@ -3,6 +3,8 @@
 #include "freeglut.h"
 #include "Tablero.h"
 
+using namespace ETSIDI;
+
 class Pintar {
 
 	Tablero* tablero = nullptr;
