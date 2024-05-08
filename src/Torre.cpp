@@ -10,19 +10,19 @@ bool Torre::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max
 		return false; // Las torres se mueven solo en línea recta.
 		std::cout << "NO PUEDES" << std::endl;
 	}
-
+	//Movimiento horizontal
 	if (origen.x == destino.x) {
 		int movY = (destino.y > origen.y) ? 1 : -1;
-		for (int y = origen.y + movY; y != destino.y; y += movY) {
-			if (tablero[origen.x][y] != nullptr) {
+		for (int i = origen.y + movY; i != destino.y; i += movY) {
+			if (tablero[i][origen.x] != nullptr) {
 				return false;
 			}
 		}
-	}
+	}//Movimiento vertical
 	else if (origen.y == destino.y) {
 		int movX = (destino.x > origen.x) ? 1 : -1;
-		for (int x = origen.x + movX; x != destino.x; x += movX) {
-			if (tablero[x][origen.y] != nullptr) {
+		for (int j = origen.x + movX; j != destino.x; j += movX) {
+			if (tablero[origen.y][j] != nullptr) {
 				return false;
 			}
 		}

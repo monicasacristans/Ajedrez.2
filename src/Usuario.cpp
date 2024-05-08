@@ -419,16 +419,6 @@ void Usuario::dibuja() {
 
 	}
 	if (estado == MODOJUEGO) {
-
-		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-		setFont("bin/fuentes/Bitwise.ttf", 20);
-		printxy("JUGADOR", 1150, 720);
-		printxy("NEGRO", 1170, 680);
-		setTextColor(1, 1, 1);
-		setFont("bin/fuentes/Bitwise.ttf", 19);
-		printxy("JUGADOR", 70, 220);
-		printxy("BLANCO", 80, 180);
-
 		if (!juegoInicializado) {
 
 			tablero.set_tablero();
@@ -441,7 +431,7 @@ void Usuario::dibuja() {
 		miPintura.pintarPiezasTablero();
 		glutPostRedisplay();
 		miPintura.pintarCuadricula();
-
+		miPintura.pintarCorona();
 	}
 
 	if (estado == OP) {

@@ -37,7 +37,6 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
 		if (columna < 0 || columna >= 10 || fila < 0 || fila >= 8) {
 			std::cout << "Clic fuera de los límites del tablero." << std::endl;
-			return;
 		}
 
 		if (!flag && click == 2) {
@@ -50,7 +49,6 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			if (cas_origen.x == cas_destino.x && cas_origen.y == cas_destino.y) {
 				std::cout << "Origen y destino son iguales, seleccione otra casilla." << std::endl;
 				cas_destino = { -1, -1 }; // Reiniciar casilla destino si es igual al origen
-				return;
 			}
 			std::cout << "Casilla de destino: (" << cas_destino.x << ", " << cas_destino.y << ")" << std::endl;
 			flag = false;
@@ -60,11 +58,13 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 				moverPieza(cas_origen, cas_destino);
 				turno = !turno; //cambia el turno despues del movimiento
 			}
-			
 		}
 	}
 }
 
+bool Tablero::getTurno() {
+	return turno;
+}
 
 void Tablero::moverPieza(casilla origen, casilla destino) {
 
@@ -76,7 +76,6 @@ void Tablero::moverPieza(casilla origen, casilla destino) {
 		tablero[origen.y][origen.x] = nullptr; // Dejar la casilla de origen vacía
 		std::cout << "Movimiento realizado de (" << origen.x << ", " << origen.y << ") a (" << destino.x << ", " << destino.y << ")" << std::endl;
 	}
-	
 }
 
 bool Tablero::checkCasillaOcupada(int x, int y) {

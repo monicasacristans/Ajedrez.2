@@ -3,6 +3,27 @@
 
 void Pintar::draw() {}
 
+void Pintar::pintarCorona() {
+    //Texto para cada jugador
+    setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
+    setFont("bin/fuentes/Bitwise.ttf", 20);
+    printxy("JUGADOR", 1150, 720);
+    printxy("NEGRO", 1170, 680);
+    setTextColor(1, 1, 1);
+    setFont("bin/fuentes/Bitwise.ttf", 19);
+    printxy("JUGADOR", 70, 220);
+    printxy("BLANCO", 80, 180);
+
+    if (tablero->getTurno() == true){
+        corona.setPos(129, 265);
+        corona.draw();
+    }
+    else if (tablero->getTurno() == false) {
+        corona.setPos(1182, 631);
+        corona.draw();
+    }
+}
+
 void Pintar::pintarCuadricula() {
     // Calcula las coordenadas para centrar el tablero
     int offsetX = (1366 - anchoTablero) / 2; // Desplazamiento horizontal para centrar el tablero

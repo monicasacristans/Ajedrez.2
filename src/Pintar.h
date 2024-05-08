@@ -13,7 +13,6 @@ class Pintar {
 	int anchoTablero = 10 * 80;
 	int altoTablero = 8 * 80;
 
-	//casilla c;
 	Sprite peon_b{ "bin/imagenes/peon_b.png", 0, 0, 60,60 };
 	Sprite peon_n{ "bin/imagenes/peon_n.png", 0, 0, 60,60 };
 	Sprite torre_b{ "bin/imagenes/torre_b.png", 0, 0, 60,60 };
@@ -31,10 +30,13 @@ class Pintar {
 	Sprite arzobispo_b{ "bin/imagenes/arzobispo_b.png", 0, 0, 60,60 };
 	Sprite arzobispo_n{ "bin/imagenes/arzobispo_n.png", 0, 0, 60,60 };
 
+	Sprite corona{ "bin/imagenes/corona.png", 0,0, 80, 40 };
+
 public:
 	
 	Pintar(Tablero* ptrTab) : tablero(ptrTab) {}
 
+	void pintarCorona();
 	void setPos(float x, float y);
 	void draw();
 	casilla restringirCasilla(int x, int y);

@@ -26,6 +26,7 @@ public:
 	void ratonTablero(int button, int state, int x, int y);
 
 	void set_tablero();
+	bool getTurno();
 
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	bool checkCasillaOcupada(int x, int y);
