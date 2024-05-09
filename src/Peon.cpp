@@ -3,37 +3,51 @@
 
 using namespace std;
 Peon::Peon(tipo t, color c) :Pieza(t, c) {
-	peonMovido = false;
 }
-
-void Peon::dibuja() {
-	
-	cout << "PEON 1" << endl;
-	
-}
-
-
-/*
-
-void Peon::moverPieza(casilla origen, casilla destino, Pieza *tablero[max_y][max_x]) {
-
-	//caos, distinto el blanco del negro
-
-	if (peonMovido == 0) {
-		next(origen, direcciones::arriba);
-		next(origen, direcciones::arriba);	//chapuza a solucionar checkCasillaOcupada no la puedo usar.
-
-		peonMovido = 1;
-	}
-	else {
-		/*if (Tablero::checkCasillaOcupada(origen.x, origen.y + 1) == 0) {
-			next(origen, direcciones::arriba);
-		}
-	}
-}
-
-*/
 
 bool Peon::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
-	return true;
-}
+
+    int movX = destino.x - origen.x;
+    int movY = destino.y - origen.y;
+
+
+
+
+    if (getColor() == color::blanco) {
+            // MOVIMIENTO 1 CASILLA ADELANTE
+            if (movY == -1 && movX == 0 && tablero[destino.y][destino.x] == nullptr) {
+                return true; 
+            }
+
+            // MOVIMIENTO DOS CASILLAS ADELANTE (primer movimiento)
+            if (origen.y == 6 && movY == -2 && movX == 0 && tablero[5][origen.x] == nullptr && tablero[4][origen.x] == nullptr && tablero[3][origen.x] == nullptr) {
+                return true; // Avance de dos casillas vacías desde la posición inicial del peón blanco
+            }
+
+            // CAPTURA DE PEON DIAGONAL
+            if (abs(movY) == 1 && abs(movX) == 1 && tablero[destino.y][destino.x] != nullptr && tablero[destino.y][destino.x]->getColor() == color::negro) {
+                return true; 
+            }
+        }
+
+        // Movimiento válido para peón negro (hacia abajo)
+    if (getColor() == color::negro) {
+            // MOVIMIENTO 1 CASILLA ADELANTE
+            if (movY == 1 && movX == 0 && tablero[destino.y][destino.x] == nullptr) {
+                return true; 
+            }
+
+            //  MOVIMIENTO DOS CASILLAS ADELANTE (primer movimiento)
+            if (origen.y == 1 && movY == 2 && movX == 0 && tablero[2][origen.x] == nullptr && tablero[3][origen.x] == nullptr && tablero[4][origen.x] == nullptr) {
+                return true; 
+            }
+
+            // CAPTURA DE PEON DIAGONAL
+            if (abs(movY) == 1 && abs(movX) == 1 && tablero[destino.y][destino.x] != nullptr && tablero[destino.y][destino.x]->getColor() == color::blanco) {
+                return true; 
+            }
+        }
+    std::cout << "MOVIMIENTO INVALIDO" << std::endl;
+        return false; 
+    }
+
