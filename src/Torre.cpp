@@ -12,19 +12,37 @@ bool Torre::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max
 	}
 	//Movimiento horizontal
 	if (origen.x == destino.x) {
-		int movY = (destino.y > origen.y) ? 1 : -1;
-		for (int i = origen.y + movY; i != destino.y; i += movY) {
-			if (tablero[i][origen.x] != nullptr) {
-				return false;
+		// Verificar si hay una pieza en el destino y es del color opuesto
+		if (tablero[destino.y][destino.x] != nullptr) {
+			if (tablero[destino.y][destino.x]->getColor() != getColor()) {
+				int movY = (destino.y > origen.y) ? 1 : -1;
+				for (int i = origen.y + movY; i != destino.y; i += movY) {
+					if (tablero[i][origen.x] != nullptr) {
+						return false;//No puede moverse, hay una pieza de por medio
+					}
+					else
+						return true;//Si puede moverse
+				}
 			}
+			else
+				return false;
 		}
 	}//Movimiento vertical
 	else if (origen.y == destino.y) {
-		int movX = (destino.x > origen.x) ? 1 : -1;
-		for (int j = origen.x + movX; j != destino.x; j += movX) {
-			if (tablero[origen.y][j] != nullptr) {
-				return false;
+		// Verificar si hay una pieza en el destino y es del color opuesto
+		if (tablero[destino.y][destino.x] != nullptr) {
+			if (tablero[destino.y][destino.x]->getColor() != getColor()) {
+				int movX = (destino.x > origen.x) ? 1 : -1;
+				for (int j = origen.x + movX; j != destino.x; j += movX) {
+					if (tablero[origen.y][j] != nullptr) {
+						return false;//No puede moverse, hay una pieza de por medio
+					}
+					else
+						return true;//Si puede moverse
+				}
 			}
+			else
+				return false;
 		}
 	}
 	return true;

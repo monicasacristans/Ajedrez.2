@@ -26,11 +26,10 @@ bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y
                 return false; // Movimiento inválido (pieza del mismo color en el destino)
             }
         }
-        else {
-            return true; // Movimiento válido (casilla vacía)
-        }
+    }
+    else {
+        return false;
     }
 
-    return false; // Movimiento inválido (más de una casilla o dirección no permitida)
-
+    return true; 
 }

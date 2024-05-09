@@ -63,9 +63,9 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 						break;
 					}
 				}
-
-				turno = !turno; //Cambia el turno despues del movimiento
 			}
+
+			turno = !turno; //Cambia el turno despues del movimiento
 		}
 	}
 }

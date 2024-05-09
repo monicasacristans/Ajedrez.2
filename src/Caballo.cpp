@@ -14,7 +14,13 @@ bool Caballo::movimientoValido(casilla origen, casilla destino, Pieza* tablero[m
 	//1(Si el caballo se mueve una casilla a la derecha/izquierda y dos arriba/abajo)
 	//2(Si el caballo se mueve dos casillas a la derecha/izquierda y una arriba/abajo)
 	if ((movX == 1 && movY == 2) || (movX == 2 && movY == 1)) {
-		return true;
+		if (tablero[destino.y][destino.x] != nullptr) {
+			if (tablero[destino.y][destino.x]->getColor() != getColor()) {
+				return true;//Puede comer
+			}
+			else
+				return false;//No puede comer, pieza del mismo color
+		}
 	}
 	else {
 		return false;
