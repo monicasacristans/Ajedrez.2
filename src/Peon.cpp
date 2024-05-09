@@ -6,23 +6,35 @@ Peon::Peon(tipo t, color c) :Pieza(t, c) {
 }
 
 bool Peon::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
-
+    
     int movX = destino.x - origen.x;
     int movY = destino.y - origen.y;
-    int direc_mov = int(getColor() == color::blanco) ? 1 : -1;
-
-    if (movX == direc_mov && movY == 0) {
-        return true;
+    
+    if (movY == 0) {
+        //Asegurarnos que no se puede comer una pieza del mismo color que el suyo
+        if (tablero[destino.y][destino.x] != nullptr) {
+            if (tablero[destino.y][destino.x]->getColor() != getColor()) {
+                if ((movX == 2) && peonMovido == false) {
+                    peonMovido = true;
+                    return true;
+                }
+                else {
+                    return false;
+                }
+                
+                if (movX == 1 && peonMovido == true) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
     }
-    else if (movX == 2 * direc_mov && movY == 0 && peonMovido == false) {
-        peonMovido = true;
-        return true;
-    }
-
- 
-
-   
-
+    
 
     //if (getColor() == color::blanco) {
     //        // MOVIMIENTO 1 CASILLA ADELANTE
@@ -61,6 +73,6 @@ bool Peon::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_
     //std::cout << "MOVIMIENTO INVALIDO" << std::endl;
     //    return false; 
 
-    return true;
+  return true;
 }
 

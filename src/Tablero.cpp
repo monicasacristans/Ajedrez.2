@@ -58,14 +58,15 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			while (!mov_valido) {
 				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
 					mov_valido = moverPieza(cas_origen, cas_destino);
+					std::cout << mov_valido << std::endl;
 					if (!mov_valido) {
 						std::cout << "Movimiento no valido, intenta de nuevo." << std::endl;
 						break;
 					}
+					else 
+						turno = !turno; //Cambia el turno despues del movimiento
 				}
 			}
-
-			turno = !turno; //Cambia el turno despues del movimiento
 		}
 	}
 }

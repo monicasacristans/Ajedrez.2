@@ -22,8 +22,10 @@ public:
 
 	tipo getTipo();
 	color getColor();
+
+	//bool caminoLibreY(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]);
+	//bool caminoLibreX(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]);
 	
-	//char obtenerRepresentacion();
 	void setPos(int x, int y);
 
 	virtual bool movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) = 0;
