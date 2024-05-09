@@ -32,11 +32,10 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 		// Calcular la columna y fila en función de las coordenadas x e y
 		int columna = ((x - 283) / 80);
 		int fila = ((y - 64) / 80);
-		//std::cout << "Clic en: x=" << x << ", y=" << y << " -> columna=" << columna << ", fila=" << fila << std::endl;
 		click++;
 
 		if (columna < 0 || columna >= 10 || fila < 0 || fila >= 8) {
-			std::cout << "Clic fuera de los límites del tablero." << std::endl;
+			std::cout << "Clic fuera de los limites del tablero." << std::endl;
 		}
 
 		if (!flag && click == 2) {
@@ -54,9 +53,18 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			flag = false;
 			click = 1;
 
-			if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
-				moverPieza(cas_origen, cas_destino);
-				turno = !turno; //cambia el turno despues del movimiento
+			bool mov_valido = false;
+			//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
+			while (!mov_valido) {
+				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
+					mov_valido = moverPieza(cas_origen, cas_destino);
+					if (!mov_valido) {
+						std::cout << "Movimiento no valido, intenta de nuevo." << std::endl;
+						break;
+					}
+				}
+
+				turno = !turno; //Cambia el turno despues del movimiento
 			}
 		}
 	}
@@ -66,7 +74,7 @@ bool Tablero::getTurno() {
 	return turno;
 }
 
-void Tablero::moverPieza(casilla origen, casilla destino) {
+bool Tablero::moverPieza(casilla origen, casilla destino) {
 
 	// Mover la pieza
 	Pieza *piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
@@ -75,7 +83,11 @@ void Tablero::moverPieza(casilla origen, casilla destino) {
 		tablero[destino.y][destino.x] = piezaMovida; // Colocar la pieza en la casilla de destino
 		tablero[origen.y][origen.x] = nullptr; // Dejar la casilla de origen vacía
 		std::cout << "Movimiento realizado de (" << origen.x << ", " << origen.y << ") a (" << destino.x << ", " << destino.y << ")" << std::endl;
+
+		return true;
 	}
+	else
+		return false;
 }
 
 bool Tablero::checkCasillaOcupada(int x, int y) {
