@@ -3,26 +3,6 @@
 
 void Pintar::draw() {}
 
-void Pintar::pintarCorona() {
-    //Texto para cada jugador
-    setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-    setFont("bin/fuentes/Bitwise.ttf", 20);
-    printxy("JUGADOR", 1120, 620);
-    printxy("NEGRO", 1140, 580);
-    setTextColor(1, 1, 1);
-    setFont("bin/fuentes/Bitwise.ttf", 19);
-    printxy("JUGADOR", 70, 180);
-    printxy("BLANCO", 80, 140);
-
-    if (tablero->getTurno() == true){
-        corona.setPos(129, 100);
-        corona.draw();
-    }
-    else if (tablero->getTurno() == false) {
-        corona.setPos(1192, 541);
-        corona.draw();
-    }
-}
 
 void Pintar::pintarCuadricula() {
     // Calcula las coordenadas para centrar el tablero
@@ -152,4 +132,41 @@ void Pintar::pintarPiezasTablero() {
             }
         }
     }
+}
+
+//void Pintar::pintarCasillaElegida() {
+//
+//}
+
+void Pintar::pintarCorona() {
+    //Texto para cada jugador
+    setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
+    setFont("bin/fuentes/Bitwise.ttf", 20);
+    printxy("JUGADOR", 1120, 620);
+    printxy("NEGRO", 1140, 580);
+    setTextColor(1, 1, 1);
+    setFont("bin/fuentes/Bitwise.ttf", 19);
+    printxy("JUGADOR", 70, 180);
+    printxy("BLANCO", 80, 140);
+
+    if (tablero->getTurno() == true) {
+        corona.setPos(129, 100);
+        corona.draw();
+    }
+    else if (tablero->getTurno() == false) {
+        corona.setPos(1192, 541);
+        corona.draw();
+    }
+}
+
+
+void Pintar::pintarError() {
+
+    if (tablero->getFlagMovValido() == true) {    //Si es 1, el mov no es valido, salta error
+        setTextColor(255, 0, 0);
+        setFont("bin/fuentes/Bitwise.ttf", 40);
+        printxy("ERROR", 60, 620);
+        setFont("bin/fuentes/Bitwise.ttf", 15);
+        printxy("MUEVE OTRA VEZ", 60, 580);
+    }  
 }

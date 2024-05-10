@@ -30,18 +30,22 @@ class Pintar {
 	Sprite arzobispo_b{ "bin/imagenes/arzobispo_b.png", 0, 0, 60,60 };
 	Sprite arzobispo_n{ "bin/imagenes/arzobispo_n.png", 0, 0, 60,60 };
 
-	Sprite corona{ "bin/imagenes/corona.png", 0,0, 80, 40 };
+	Sprite corona{ "bin/imagenes/corona.png", 0, 0, 80, 40 };
 
 public:
 	
 	Pintar(Tablero* ptrTab) : tablero(ptrTab) {}
 
-	void pintarCorona();
+	
 	void setPos(float x, float y);
 	void draw();
+
 	casilla restringirCasilla(int x, int y);
+
 	void pintarCuadricula();
 	void pintarPiezasTablero();
-
+	//void pintarCasillaElegida();
+	void pintarCorona();
+	void pintarError();
 
 };

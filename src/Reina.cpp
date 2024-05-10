@@ -6,6 +6,7 @@
 Reina::Reina(tipo t, color c) :Pieza(t, c) {}
 
 bool Reina::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
+    
     // Determinar la dirección del movimiento
     int movX = ((destino.x- origen.x)==0) ? 0 : ((destino.x - origen.x) / abs(destino.x - origen.x));  // 0, 1 o -1
     int movY = ((destino.y - origen.y)==0) ? 0 : ((destino.y - origen.y) / abs(destino.y - origen.y));  // 0, 1 o -1
@@ -14,8 +15,8 @@ bool Reina::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max
     int x = origen.x + movX;
     int y = origen.y + movY;
     while (x != destino.x || y != destino.y) {
-        if (tablero[y][x] != nullptr) {  // Verifica si hay una pieza en el camino
-            return false;
+        if (tablero[y][x] != nullptr) {  
+            return false;   // Hay una pieza en el camino
         }
         x += movX;
         y += movY;

@@ -6,14 +6,16 @@ Peon::Peon(tipo t, color c) :Pieza(t, c) {
 }
 
 bool Peon::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
-    //Solo avanza en vertical, 2 casillas si es su primer movimiento, 1 el resto de veces
-    //Diferencia de columnas
+    // Solo avanza en vertical, 2 casillas si es su primer movimiento, 1 el resto de veces
+    
+    // Diferencia de columnas y filas 
     int movX = destino.x - origen.x;
     int movY = destino.y - origen.y;
 
+    // Blancos
     if (tablero[origen.y][origen.x]->getColor() == color::blanco) {
         if (movX == 0 && movY != 0) {
-            if (movY == 2 && origen.y == 1) {
+            if (movY == 2 && origen.y == 1) {        // Primer movimiento
                 return true;
             }
             else if (movY == 1) {
@@ -24,9 +26,10 @@ bool Peon::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_
             }
         }
     } 
+    // Negros
     else if (tablero[origen.y][origen.x]->getColor() == color::negro) {
         if (movX == 0 && movY != 0) {
-            if (movY == -2 && origen.y == 6) {
+            if (movY == -2 && origen.y == 6) {      // Primer movimiento
                 return true;
             }
             else if (movY == -1) {

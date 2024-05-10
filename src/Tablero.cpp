@@ -55,7 +55,7 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
 			bool mov_valido = false;
 			//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
-			while (!mov_valido) {
+			while (!mov_valido && p != nullptr) {
 				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
 					mov_valido = moverPieza(cas_origen, cas_destino);
 					std::cout << mov_valido << std::endl;
@@ -75,6 +75,10 @@ bool Tablero::getTurno() {
 	return turno;
 }
 
+bool Tablero::getFlagMovValido() {
+	return flagMovInvalido;
+}
+
 bool Tablero::moverPieza(casilla origen, casilla destino) {
 
 	// Mover la pieza
@@ -84,11 +88,14 @@ bool Tablero::moverPieza(casilla origen, casilla destino) {
 		tablero[destino.y][destino.x] = piezaMovida; // Colocar la pieza en la casilla de destino
 		tablero[origen.y][origen.x] = nullptr; // Dejar la casilla de origen vacía
 		std::cout << "Movimiento realizado de (" << origen.x << ", " << origen.y << ") a (" << destino.x << ", " << destino.y << ")" << std::endl;
-
+		flagMovInvalido = false;
 		return true;
 	}
-	else
+	else {
+		
+		flagMovInvalido = true;
 		return false;
+	}
 }
 
 bool Tablero::checkCasillaOcupada(int x, int y) {

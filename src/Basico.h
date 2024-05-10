@@ -13,11 +13,6 @@ struct casilla {
 };
 
 
-struct movimiento {
-	casilla origen;
-	casilla destino;
-};
-
 // Sobrecarga del operador <<
 inline std::ostream& operator<<(std::ostream& os, const casilla& c) {
 	os << "(" << c.x << ", " << c.y << ")";

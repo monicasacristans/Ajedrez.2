@@ -432,6 +432,7 @@ void Usuario::dibuja() {
 		glutPostRedisplay();
 		miPintura.pintarCuadricula();
 		miPintura.pintarCorona();
+		miPintura.pintarError();
 	}
 
 	if (estado == OP) {
