@@ -2,7 +2,7 @@
 #include <iostream>
 
 enum class direcciones { arriba, diag_sup_dcha, derecha, diag_inf_dcha, abajo, diag_inf_izq, izquierda, diag_sup_izq };
-enum class color { ninguno, blanco, negro };
+enum class color {ninguno,blanco, negro };
 enum class tipo { vacio, peon, torre, caballo, canciller, arzobispo, alfil, rey, reina };
 //                 0	  1		2		 3		  4			  5		   6	 7		8
 

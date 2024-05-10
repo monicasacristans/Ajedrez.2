@@ -19,7 +19,7 @@ bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y
         (movX == 1 && movY == 1)) {         // Movimiento diagonal
         // Verificar si hay una pieza en el destino y es del color opuesto
         if (tablero[destino.y][destino.x] != nullptr) {
-            if (tablero[destino.y][destino.x]->getColor() != getColor()) {
+            if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
                 return true; // Movimiento válido (comer pieza del oponente)
             }
             else {

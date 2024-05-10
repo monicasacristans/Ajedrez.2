@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "src\\Pintar.h",
               "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\Ajedrez.2\\src\\Pintar.h",
               "RelativeToolTip": "src\\Pintar.h",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAABoAAAABAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAxwBoAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-29T16:26:53.89Z",
               "EditorCaption": ""
@@ -47,8 +47,7 @@
               "RelativeToolTip": "src\\Pieza.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-29T16:26:50.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-29T16:26:50.224Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,7 @@
               "RelativeToolTip": "src\\Pintar.cpp",
               "ViewState": "AQIAAI0AAAAAAAAAAAAAAJQAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-29T16:26:29.844Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-29T16:26:29.844Z"
             }
           ]
         }

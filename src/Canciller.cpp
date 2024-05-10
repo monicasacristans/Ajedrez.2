@@ -16,7 +16,7 @@ bool Canciller::movimientoValido(casilla origen, casilla destino, Pieza* tablero
 		if (origen.x == destino.x) {
 			//Asegurarnos que no se puede comer una pieza del mismo color que el suyo
 			if (tablero[destino.y][destino.x] != nullptr) {
-				if (tablero[destino.y][destino.x]->getColor() != getColor()) {
+				if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
 					// Verificar si hay una pieza en el destino y es del color opuesto
 					int movY = (destino.y > origen.y) ? 1 : -1;
 					for (int i = origen.y + movY; i != destino.y; i += movY) {
@@ -35,7 +35,7 @@ bool Canciller::movimientoValido(casilla origen, casilla destino, Pieza* tablero
 		else if (origen.y == destino.y) {
 			// Asegurarnos que no se puede comer una pieza del mismo color que el suyo
 			if (tablero[destino.y][destino.x] != nullptr) {
-				if (tablero[destino.y][destino.x]->getColor() != getColor()) {
+				if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
 					// Verificar si hay una pieza en el destino y es del color opuesto
 					int movX = (destino.x > origen.x) ? 1 : -1;
 					for (int j = origen.x + movX; j != destino.x; j += movX) {
@@ -55,7 +55,7 @@ bool Canciller::movimientoValido(casilla origen, casilla destino, Pieza* tablero
 	//2(Si el caballo se mueve dos casillas a la derecha/izquierda y una arriba/abajo)
 	else if ((movX == 1 && movY == 2) || (movX == 2 && movY == 1)) {
 		if (tablero[destino.y][destino.x] != nullptr) {
-			if (tablero[destino.y][destino.x]->getColor() != getColor()) {
+			if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
 				return true;//Puede comer
 			}
 			else
