@@ -25,25 +25,25 @@ bool Arzobispo::movimientoValido(casilla origen, casilla destino, Pieza* tablero
 			else
 				return false;//No puede comer, pieza del mismo color
 		}
-	}
-	else {
-		return false;
+		else {
+			return true;
+		}
 	}
 
 	//MOVIMIENTO ALFIL
-	if (abs(destino.x - origen.x) == abs(destino.y - origen.y)) {
-		if (tablero[destino.y][destino.x] != nullptr) {
-			if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
-				while (x != destino.x && y != destino.y) {
-					if (tablero[y][x] != nullptr) {
-						return false; // Hay una pieza en el camino
+	else if (abs(destino.x - origen.x) == abs(destino.y - origen.y)) {
+			if (tablero[destino.y][destino.x] != nullptr) {
+				if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
+					while (x != destino.x && y != destino.y) {
+						if (tablero[y][x] != nullptr) {
+							return false; // Hay una pieza en el camino
 					}
-					x += movXAlfil;
-					y += movYAlfil;
+						x += movXAlfil;
+						y += movYAlfil;
+					}
 				}
 			}
-		}
-		return true; // El movimiento no es en diagonal
+			return true; // El movimiento no es en diagonal
 	}
 	else {
 		return false;
