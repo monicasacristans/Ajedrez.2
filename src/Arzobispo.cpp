@@ -41,8 +41,10 @@ bool Arzobispo::movimientoValido(casilla origen, casilla destino, Pieza* tablero
 						y += movYAlfil;
 					}
 				}
-			}
-			return true;
+				else
+					return false;
+			}else 
+				return true;
 	}
 	else {
 		return false;

@@ -28,6 +28,8 @@ bool Alfil::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max
 				y += movY;
 			}
 		}
+		else
+			return false;
 	}
 
 	return true;

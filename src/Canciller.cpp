@@ -59,10 +59,10 @@ bool Canciller::movimientoValido(casilla origen, casilla destino, Pieza* tablero
 			else
 				return false;	// No puede comer, pieza del mismo color
 		}
+		else
+			return true;
 	}
 	else {
 		return false;
 	}
-
-	return true;
 }

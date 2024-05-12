@@ -48,6 +48,4 @@ bool Torre::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max
 			}
 		}
 	}
-
-	return true;
 }

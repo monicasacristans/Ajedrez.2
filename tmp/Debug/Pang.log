@@ -1,2 +1,6 @@
-﻿  Tablero.cpp
-  Pang.vcxproj -> C:\I.Electronica I\6\Informática industrial\Ajedrez.2\bin\Pang.exe
+﻿  Arzobispo.cpp
+  Canciller.cpp
+  Generating Code...
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Canciller.cpp(68): warning C4715: 'Canciller::movimientoValido': not all control paths return a value
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Arzobispo.cpp(52): warning C4715: 'Arzobispo::movimientoValido': not all control paths return a value
+  Pang.vcxproj -> C:\Users\cesar\Documents\GitHub\Ajedrez.2\bin\Pang.exe
