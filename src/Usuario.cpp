@@ -58,6 +58,7 @@ Usuario::Usuario() {
 	n_inst = 0;
 	n_texto_a = 0;
 	n_texto_ins = 0;
+	coronar = C;
 }
 
 Usuario:: ~Usuario() {}
@@ -176,11 +177,43 @@ void Usuario::raton(int button, int state, int x, int y) {
 	}
 
 	if (estado == MODOJUEGO) {
-		
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-			
-		tablero.definirCoordenadasTablero(button, state, x, y);
-			
+			tablero.definirCoordenadasTablero(button, state, x, y);
+			if (estadodejuego == TURNO) {
+				///////turno acabado para el jugador negro
+				if (tablero.getTurno() == false) {
+					if (tablero.jaque(color::negro) == true || tablero.jaque_mate(color::blanco) == true) {
+						if (tablero.jaque(color::negro) == true) {
+							ganador = 1; //NEGRO GANA SI ESTA EN JAQUE
+						}
+						else if (tablero.jaque_mate(color::blanco) == true) { ganador = 0; }
+						i = 0;
+						estadodejuego = JAQUE_MATE;
+						return;
+					}
+					else if (tablero.jaque(color::blanco) == true) {
+						estadodejuego = JAQUE;
+						i = 0;
+						return;
+					}
+				}
+
+				//////turno acabado para el jugador blanco
+				if (tablero.getTurno() == true) {
+					if (tablero.jaque(color::blanco) == true || tablero.jaque_mate(color::negro) == true) {
+						if (tablero.jaque_mate(color::negro) == true) { ganador = 1; }
+						else if (tablero.jaque(color::blanco) == true) { ganador = 0; }
+						i = 0;
+						estadodejuego = JAQUE_MATE;
+						return;
+					}
+					else if (tablero.jaque(color::negro) == true) {
+						estadodejuego = JAQUE;
+						i = 0;
+						return;
+					}
+				}
+			}
 		}
 	}
 	if (estado == OP) {

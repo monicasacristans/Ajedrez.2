@@ -22,6 +22,12 @@ public:
 
 	int getEstado();
 
+	//VARIABLES JAQUE Y JAQUE MATE
+	int i = 0;
+	int ganador; //blancas (0) negras(1) tablas(2)
+	int final; 
+
+
 	int n_ayuda;
 	int n_inst;
 	int n_texto_a;
@@ -31,7 +37,7 @@ public:
 	enum Estado { INICIO, MODOJUEGO, OP, AYU, INST, TEXTO_A, TEXTO_IN};
 	Estado estado;
 
-	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS};
+	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS, PAUSA, BLANCAS_CORONACION, NEGRAS_CORONACION};
 	EstadodeJuego estadodejuego;
 
 	int seleccion_ini = 0;
@@ -39,6 +45,9 @@ public:
 
 	enum Opcion { O, AYUDA, INSTRUCCIONES, A_OPCION };
 	Opcion opcion;
+
+	enum Coronar{C, REINA, TORRE, ALFIL, CABALLO};
+	Coronar coronar;
 
 	enum Ayuda_texto { H, TEXTO };
 	Ayuda_texto menu_ayuda;

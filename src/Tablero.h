@@ -33,6 +33,17 @@ public:
 	bool checkCasillaOcupada(int x, int y);
 	Pieza* checkPiezaEnCasilla(casilla pos);
 
+	//jaque 
+
+	bool jaque(color col);
+
+	//Jaque Mate
+	bool piezaAmenazada(casilla pos, color col);
+	bool jaque_mate(color col);
+	casilla encontrarPosicionRey(color col);
+	bool estaEnJaque(color col);
+
+	bool sinMovimientos(color col);
 	virtual bool moverPieza(casilla origen, casilla destino);
 
 	void dibujar();
