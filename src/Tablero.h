@@ -32,7 +32,8 @@ public:
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	bool checkCasillaOcupada(int x, int y);
 	Pieza* checkPiezaEnCasilla(casilla pos);
-
+	std::vector<casilla> calcularCasillasLegales();
+	bool esCasillaValida(const casilla& casilla) const;
 	//jaque 
 
 	bool jaque(color col);

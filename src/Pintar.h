@@ -12,7 +12,7 @@ class Pintar {
 	// Dimensiones del tablero
 	int anchoTablero = 10 * 80;
 	int altoTablero = 8 * 80;
-
+	Sprite casilla_legal{ "bin/imagenes/casilla_legal.png", 0,0, 60,60 };
 	Sprite peon_b{ "bin/imagenes/peon_b.png", 0, 0, 60,60 };
 	Sprite peon_n{ "bin/imagenes/peon_n.png", 0, 0, 60,60 };
 	Sprite torre_b{ "bin/imagenes/torre_b.png", 0, 0, 60,60 };
@@ -36,7 +36,13 @@ public:
 	
 	Pintar(Tablero* ptrTab) : tablero(ptrTab) {}
 
-	
+
+	/////CASILLA LEGAL///////
+	int calcularCoordenadaX(int casillaX) const;
+	int calcularCoordenadaY(int casillaX) const;
+	void pintarCasillaLegal();
+
+
 	void setPos(float x, float y);
 	void draw();
 

@@ -214,6 +214,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 			}
+			//miPintura.pintarCasillaLegal();
 		}
 	}
 	if (estado == OP) {
@@ -462,6 +463,11 @@ void Usuario::dibuja() {
 		}
 
 		miPintura.pintarPiezasTablero();
+		///////////////CASILLA LEGAL/////////////////
+
+		//miPintura.pintarCasillaLegal();
+
+
 		glutPostRedisplay();
 		miPintura.pintarCuadricula();
 		miPintura.pintarCorona();

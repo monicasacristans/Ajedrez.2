@@ -182,6 +182,42 @@ bool Tablero::jaque_mate(color col) {
 	return true; // No hay movimientos legales disponibles para evitar el jaque mate
 }
 
+///////////////CASILLA LEGAL/////////////////
+
+
+//std::vector<casilla> Tablero::calcularCasillasLegales() {
+//	std::vector<casilla> casillasLegales;
+//
+//	// Recorre todo el tablero
+//	for (int y = 0; y < max_y; ++y) {
+//		for (int x = 0; x < max_x; ++x) {
+//			Pieza* piezaActual = tablero[y][x];
+//
+//			if (piezaActual != nullptr) {
+//				// Obtén las casillas legales para la pieza actual
+//				casilla origen = { x, y };
+//
+//				// Recorre todas las casillas del tablero para verificar movimientos legales
+//				for (int j = 0; j < max_y; ++j) {
+//					for (int i = 0; i < max_x; ++i) {
+//						casilla destino = { i, j };
+//
+//						if (piezaActual->movimientoValido(origen, destino, tablero)) {
+//							casillasLegales.push_back(destino);
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
+//
+//	return casillasLegales;
+//}
+
+
+bool Tablero::esCasillaValida(const casilla& casilla) const {
+	return (casilla.x >= 0 && casilla.x < max_x&& casilla.y >= 0 && casilla.y < max_y);
+}
 
 
 bool Tablero::getTurno() {
