@@ -29,8 +29,6 @@ public:
 
 	Tablero();
 
-	//void ratonTablero(int button, int state, int x, int y);
-
 	void set_tablero();
 	bool getTurno();
 	bool getFlagMovValido();
@@ -38,11 +36,8 @@ public:
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	bool checkCasillaOcupada(int x, int y);
 	Pieza* checkPiezaEnCasilla(casilla pos);
-	//std::vector<casilla> calcularCasillasLegales();
+	
 	bool esCasillaValida(const casilla& casilla) const;
 
-	//bool sinMovimientos(color col);
 	virtual bool moverPieza(casilla origen, casilla destino);
-
-	//void dibujar();
 };

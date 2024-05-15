@@ -1,5 +1,6 @@
 #pragma once
 #include "Pieza.h"
+#include "Tablero.h"
 
 class GestionJugadas {
 	Pieza* tablero[max_y][max_x];
@@ -14,4 +15,6 @@ public:
 	bool jaque_mate(color col);
 	casilla encontrarPosicionRey(color col);
 	//bool estaEnJaque(color col);
+	
+	
 };

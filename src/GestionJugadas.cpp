@@ -2,11 +2,12 @@
 
 using namespace std;
 
+
 //en un turno, has de comprobar si puedes hacer jaque al rival
 bool GestionJugadas::jaque(color col) {
 	//el tablero esta realizado desde 0 a mayores osea que significa que es como si 
 	//el rey no estuviera encontrado o se encuentre fuera de los limites
-	int rey_x, rey_y = -1;
+	int rey_x=-1, rey_y = -1;
 
 	// Encuentra la posición del rey del color dado
 	for (int y = 0; y < max_y; ++y) {

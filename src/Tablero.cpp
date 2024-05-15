@@ -48,7 +48,7 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			while (!mov_valido && p != nullptr) {
 				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
 					mov_valido = moverPieza(cas_origen, cas_destino);
-					cout << mov_valido << endl;
+					//cout << mov_valido << endl;
 					if (!mov_valido) {
 						cout << "Movimiento no valido, intenta de nuevo." << endl;
 						break;
@@ -56,7 +56,10 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 					else 
 						turno = !turno; //Cambia el turno despues del movimiento
 				}
-				break;
+				else {
+					break;
+				}
+			
 			}
 		}
 	}
