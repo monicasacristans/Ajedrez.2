@@ -23,6 +23,7 @@
     <ClCompile Include="src\Arzobispo.cpp" />
     <ClCompile Include="src\Caballo.cpp" />
     <ClCompile Include="src\Canciller.cpp" />
+    <ClCompile Include="src\GestionJugadas.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Peon.cpp" />
     <ClCompile Include="src\Pieza.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="src\Basico.h" />
     <ClInclude Include="src\Caballo.h" />
     <ClInclude Include="src\Canciller.h" />
+    <ClInclude Include="src\GestionJugadas.h" />
     <ClInclude Include="src\Peon.h" />
     <ClInclude Include="src\Pieza.h" />
     <ClInclude Include="src\Pintar.h" />

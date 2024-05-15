@@ -1,8 +1,6 @@
-#include <iostream>
-#include "Usuario.h"
-#include "Tablero.h"
 #include "Pintar.h"
-#include "freeglut.h"
+#include "GestionJugadas.h"
+
   /* 1 - Crear un una nueva varibale de tipo OPCION(la estructura)
    2-Ir al mouse primero y seguir el primer caso
    3- Ir al raton y seguir la estructura. 
@@ -11,6 +9,7 @@
 
 */
 
+GestionJugadas jugada;
 Tablero tablero;
 Pintar miPintura(&tablero);
 bool juegoInicializado = false;
@@ -182,16 +181,16 @@ void Usuario::raton(int button, int state, int x, int y) {
 			if (estadodejuego == TURNO) {
 				///////turno acabado para el jugador negro
 				if (tablero.getTurno() == false) {
-					if (tablero.jaque(color::negro) == true || tablero.jaque_mate(color::blanco) == true) {
-						if (tablero.jaque(color::negro) == true) {
+					if (jugada.jaque(color::negro) == true || jugada.jaque_mate(color::blanco) == true) {
+						if (jugada.jaque(color::negro) == true) {
 							ganador = 1; //NEGRO GANA SI ESTA EN JAQUE
 						}
-						else if (tablero.jaque_mate(color::blanco) == true) { ganador = 0; }
+						else if (jugada.jaque_mate(color::blanco) == true) { ganador = 0; }
 						i = 0;
 						estadodejuego = JAQUE_MATE;
 						return;
 					}
-					else if (tablero.jaque(color::blanco) == true) {
+					else if (jugada.jaque(color::blanco) == true) {
 						estadodejuego = JAQUE;
 						i = 0;
 						return;
@@ -200,14 +199,14 @@ void Usuario::raton(int button, int state, int x, int y) {
 
 				//////turno acabado para el jugador blanco
 				if (tablero.getTurno() == true) {
-					if (tablero.jaque(color::blanco) == true || tablero.jaque_mate(color::negro) == true) {
-						if (tablero.jaque_mate(color::negro) == true) { ganador = 1; }
-						else if (tablero.jaque(color::blanco) == true) { ganador = 0; }
+					if (jugada.jaque(color::blanco) == true || jugada.jaque_mate(color::negro) == true) {
+						if (jugada.jaque_mate(color::negro) == true) { ganador = 1; }
+						else if (jugada.jaque(color::blanco) == true) { ganador = 0; }
 						i = 0;
 						estadodejuego = JAQUE_MATE;
 						return;
 					}
-					else if (tablero.jaque(color::negro) == true) {
+					else if (jugada.jaque(color::negro) == true) {
 						estadodejuego = JAQUE;
 						i = 0;
 						return;

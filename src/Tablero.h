@@ -1,8 +1,14 @@
 #pragma once
 #include "Pieza.h"
-#include <vector>
-
-
+#include "Usuario.h"
+#include "Peon.h"
+#include "Torre.h"
+#include "Arzobispo.h"
+#include "Caballo.h"
+#include "Canciller.h"
+#include "Alfil.h"
+#include "Reina.h"
+#include "Rey.h"
 
 #define max_x 10//columnas
 #define max_y 8//filas
@@ -23,7 +29,7 @@ public:
 
 	Tablero();
 
-	void ratonTablero(int button, int state, int x, int y);
+	//void ratonTablero(int button, int state, int x, int y);
 
 	void set_tablero();
 	bool getTurno();
@@ -32,20 +38,11 @@ public:
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	bool checkCasillaOcupada(int x, int y);
 	Pieza* checkPiezaEnCasilla(casilla pos);
-	std::vector<casilla> calcularCasillasLegales();
+	//std::vector<casilla> calcularCasillasLegales();
 	bool esCasillaValida(const casilla& casilla) const;
-	//jaque 
 
-	bool jaque(color col);
-
-	//Jaque Mate
-	bool piezaAmenazada(casilla pos, color col);
-	bool jaque_mate(color col);
-	casilla encontrarPosicionRey(color col);
-	bool estaEnJaque(color col);
-
-	bool sinMovimientos(color col);
+	//bool sinMovimientos(color col);
 	virtual bool moverPieza(casilla origen, casilla destino);
 
-	void dibujar();
+	//void dibujar();
 };
