@@ -9,6 +9,7 @@
 #include "Alfil.h"
 #include "Reina.h"
 #include "Rey.h"
+#include "GestionJugadas.h"
 
 #define max_x 10//columnas
 #define max_y 8//filas

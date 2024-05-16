@@ -2,42 +2,35 @@
 
 using namespace std;
 
+casilla GestionJugadas::encontrarPosicionRey(color col) {
+	// Buscar la posición del rey del color dado en el tablero
+	for (int y = 0; y < max_y; y++) {
+		for (int x = 0; x < max_x; x++) {
+			if (tablero[y][x] != nullptr && tablero[y][x]->getTipo() == tipo::rey && tablero[y][x]->getColor() == col) {
+				return { x, y };
+			}
+		}
+	}
+	return { -1, -1 }; // Retornar posición inválida si no se encuentra el rey
+}
 
 //en un turno, has de comprobar si puedes hacer jaque al rival
 bool GestionJugadas::jaque(color col) {
-	//el tablero esta realizado desde 0 a mayores osea que significa que es como si 
-	//el rey no estuviera encontrado o se encuentre fuera de los limites
-	int rey_x=-1, rey_y = -1;
+	//ENCONTRAR AL REY 
+	casilla posRey = encontrarPosicionRey(col);
 
-	// Encuentra la posición del rey del color dado
-	for (int y = 0; y < max_y; ++y) {
-		for (int x = 0; x < max_x; ++x) {
-			Pieza* pieza = tablero[y][x];
-			if (pieza != nullptr && pieza->getTipo() == tipo::rey && pieza->getColor() == col) {
-				//si lo encontramos se actualizan las coordenadas correctas del rey
-				rey_x = x;
-				rey_y = y;
-				break;
-			}
-		}
-		if (rey_x != -1 && rey_y != -1) {
-
-			break;
-		}
-	}
-
-	if (rey_x == -1 || rey_y == -1) {
-
+	// Verifica si el rey fue encontrado
+	if (posRey.x == -1 && posRey.y == -1) {
 		return false; // No se encontró el rey del color dado
 	}
 
 	// Verifica si alguna pieza del oponente puede atacar al rey
-	for (int y = 0; y < max_y; ++y) {
-		for (int x = 0; x < max_x; ++x) {
+	for (int y = 0; y < max_y; y++) {
+		for (int x = 0; x < max_x; x++) {
 			Pieza* pieza = tablero[y][x];
 			if (pieza != nullptr && pieza->getColor() != col) {
 				casilla origen = { x, y };
-				casilla destino = { rey_x, rey_y };
+				casilla destino = { posRey.x, posRey.y };
 				if (pieza->movimientoValido(origen, destino, tablero)) {
 					cout << "REY EN JAQUE" << endl;
 					return true; // El rey está en jaque
@@ -47,18 +40,6 @@ bool GestionJugadas::jaque(color col) {
 	}
 
 	return false; // El rey no está en jaque
-}
-
-casilla GestionJugadas::encontrarPosicionRey(color col) {
-	// Buscar la posición del rey del color dado en el tablero
-	for (int y = 0; y < max_y; ++y) {
-		for (int x = 0; x < max_x; ++x) {
-			if (tablero[y][x] != nullptr && tablero[y][x]->getTipo() == tipo::rey && tablero[y][x]->getColor() == col) {
-				return { x, y };
-			}
-		}
-	}
-	return { -1, -1 }; // Retornar posición inválida si no se encuentra el rey
 }
 
 bool GestionJugadas::jaque_mate(color col) {

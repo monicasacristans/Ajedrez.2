@@ -2,6 +2,8 @@
 
 using namespace std;
 
+GestionJugadas jugada;
+
 Tablero::Tablero() {
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
@@ -44,22 +46,33 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			click = 1;
 
 			bool mov_valido = false;
+			bool flagJaque = jugada.jaque(p->getColor());
 			//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
-			while (!mov_valido && p != nullptr) {
-				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
-					mov_valido = moverPieza(cas_origen, cas_destino);
-					//cout << mov_valido << endl;
-					if (!mov_valido) {
-						cout << "Movimiento no valido, intenta de nuevo." << endl;
-						break;
+			while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
+				if (flagJaque == false) {
+					if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
+						mov_valido = moverPieza(cas_origen, cas_destino);
+						if (!mov_valido) {
+							cout << "Movimiento no valido, intenta de nuevo." << endl;
+							break;
+						}
+						else
+							turno = !turno; //Cambia el turno despues del movimiento
 					}
-					else 
-						turno = !turno; //Cambia el turno despues del movimiento
 				}
 				else {
-					break;
+					if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
+						//JAQUE: EL REY ES OBLIGADO A MOVERSE
+						mov_valido = moverPieza(jugada.encontrarPosicionRey(p->getColor()), cas_destino);
+						if (!mov_valido) {
+							cout << "Movimiento no valido, intenta de nuevo." << endl;
+							break;
+						}
+						else
+							turno = !turno; //Cambia el turno despues del movimiento
+					}
 				}
-			
+				break;
 			}
 		}
 	}
