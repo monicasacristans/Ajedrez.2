@@ -214,3 +214,12 @@ void Pintar::pintarError() {
         printxy("MUEVE OTRA VEZ", 60, 580);
     }  
 }
+
+void Pintar::pintarJaque() {
+
+    if (tablero->getFlagJaque() == true) {   
+        setTextColor(255, 0, 0);
+        setFont("bin/fuentes/Bitwise.ttf", 40);
+        printxy("JAQUE", 60, 620);
+    }
+}

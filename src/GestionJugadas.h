@@ -3,15 +3,14 @@
 #include "Tablero.h"
 
 class GestionJugadas {
-	Pieza* tablero[max_y][max_x];
 public:
 	GestionJugadas(){};
 	//JAQUE 
-	bool jaque(color col);
+	bool jaque(color col, Pieza* tablero[max_y][max_x]);
 	//JAQUE MATE
 	//bool piezaAmenazada(casilla pos, color col);
-	bool jaque_mate(color col);
-	casilla encontrarPosicionRey(color col);
+	bool jaque_mate(color col, Pieza* tablero[max_y][max_x]);
+	casilla encontrarPosicionRey(color col, Pieza* tablero[max_y][max_x]);
 	//bool estaEnJaque(color col);
 
 		//promocion
