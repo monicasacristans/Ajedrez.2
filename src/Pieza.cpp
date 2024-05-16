@@ -16,6 +16,13 @@ void Pieza::setPos(int x, int y) {
 	pos.y = y;
 }
 
+int Pieza::getFila() {
+	return fila;
+}
+
+int Pieza::getColumna() {
+	return columna;
+}
 
 // Métodos para controlar el estado de movimientos
 bool Pieza::haSidoMovido() {

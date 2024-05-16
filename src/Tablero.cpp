@@ -12,6 +12,35 @@ Tablero::Tablero() {
 	}
 }
 
+Tablero::~Tablero(){
+	delete[]tablero;
+	
+}
+
+bool Tablero::eliminarPiezaT(int x, int y) {
+	if (x < 0 || x >= max_x || y < 0 || y >= max_y) {
+		std::cout << "Posición fuera de los límites del tablero." << std::endl;
+		return false;
+	}
+
+	// Obtener la pieza en la posición (x, y)
+	Pieza* piezaEliminada = tablero[y][x];
+
+	if (piezaEliminada == nullptr) {
+		std::cout << "No hay ninguna pieza en la posición especificada." << std::endl;
+		return false;
+	}
+
+	// Eliminar la pieza del tablero (asignar nullptr a la casilla)
+	tablero[y][x] = nullptr;
+
+	// Agregar la pieza eliminada a la lista de piezas eliminadas
+	piezaseliminadas.push_back(piezaEliminada);
+
+	std::cout << "Pieza eliminada del tablero y agregada a la lista de piezas eliminadas." << std::endl;
+	return true;
+}
+
 void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
 	Pieza* p = checkPiezaEnCasilla(cas_origen);
@@ -185,15 +214,19 @@ void Tablero::set_tablero() {
 	tablero[0][7] = new Canciller(tipo::canciller, color::blanco);
 	tablero[0][8] = new Caballo(tipo::caballo, color::blanco);
 	tablero[0][9] = new Torre(tipo::torre, color::blanco);
-	
 	//Peones blancos 
 	for (int i = 0; i < 10; i++) {
 		tablero[1][i] = new Peon(tipo::peon, color::blanco);
+		piezasB.push_back(tablero[0][i]);
+		piezasB.push_back(tablero[1][i]);
 	}
+
+	
 
 	//Peones negros
 	for (int i = 0; i < 10; i++) {
 		tablero[6][i] = new Peon(tipo::peon, color::negro);
+		piezasN.push_back(tablero[6][i]);
 	}
 
 	//Piezas negras
@@ -208,6 +241,8 @@ void Tablero::set_tablero() {
 	tablero[7][8] = new Caballo(tipo::caballo, color::negro);
 	tablero[7][9] = new Torre(tipo::torre, color::negro);
 
+	for (int i = 0; i < 10; i++) {
+		piezasN.push_back(tablero[7][i]);
+	}
 
 }
-

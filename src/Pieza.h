@@ -15,10 +15,15 @@ class Pieza {
 	tipo tipoPieza;
 	bool haMovido; //controlar que la pieza se ha movido
 
+protected:
+	int fila;
+	int columna;
 public:
 
 	// Constructor por defecto para inicializar una casilla vacía.
-	Pieza() : tipoPieza(tipo::vacio), colorPieza(color::ninguno), haMovido(false){} // Valor por defecto, puedes ajustarlo como desees.
+	Pieza() : tipoPieza(tipo::vacio), colorPieza(color::ninguno), haMovido(false){
+		fila = pos.x; columna = pos.y;
+	} // Valor por defecto, puedes ajustarlo como desees.
 	virtual void dibuja();
 	// Constructor para crear una pieza con tipo y color específicos.
 	Pieza(tipo t, color c) : tipoPieza(t), colorPieza(c) {}
@@ -35,7 +40,8 @@ public:
 	void marcarComoMovido();
 	void reiniciarMovimiento();
 
-
+	int getFila();
+	int getColumna();
 	bool getEnroque();
 	virtual bool movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) = 0;
 };

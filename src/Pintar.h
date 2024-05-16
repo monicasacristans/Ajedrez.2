@@ -12,6 +12,8 @@ class Pintar {
 	// Dimensiones del tablero
 	int anchoTablero = 10 * 80;
 	int altoTablero = 8 * 80;
+
+	Sprite promocion{ "bin/imagenes/coronacion.png", 0,0, 60,60 };
 	Sprite casilla_legal{ "bin/imagenes/casilla_legal.png", 0,0, 60,60 };
 	Sprite peon_b{ "bin/imagenes/peon_b.png", 0, 0, 60,60 };
 	Sprite peon_n{ "bin/imagenes/peon_n.png", 0, 0, 60,60 };
@@ -47,6 +49,8 @@ public:
 	void draw();
 
 	casilla restringirCasilla(int x, int y);
+
+	void pintarPromocion();
 
 	void pintarCuadricula();
 	void pintarPiezasTablero();

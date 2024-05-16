@@ -2,6 +2,7 @@
 
 using namespace std;
 
+
 casilla GestionJugadas::encontrarPosicionRey(color col) {
 	// Buscar la posición del rey del color dado en el tablero
 	for (int y = 0; y < max_y; y++) {
@@ -13,6 +14,9 @@ casilla GestionJugadas::encontrarPosicionRey(color col) {
 	}
 	return { -1, -1 }; // Retornar posición inválida si no se encuentra el rey
 }
+
+
+
 
 //en un turno, has de comprobar si puedes hacer jaque al rival
 bool GestionJugadas::jaque(color col) {
@@ -41,6 +45,8 @@ bool GestionJugadas::jaque(color col) {
 
 	return false; // El rey no está en jaque
 }
+
+
 
 bool GestionJugadas::jaque_mate(color col) {
 	// Verificar primero si el rey está en jaque
@@ -84,3 +90,67 @@ bool GestionJugadas::jaque_mate(color col) {
 	cout << "REY EN JAQUE MATE" << endl;
 	return true; // No hay movimientos legales disponibles para evitar el jaque mate
 }
+
+
+bool GestionJugadas::getPromocion(color col) {
+	for (int i = 0; i < max_y; i++) {
+		for (int j = 0; j < max_x; j++) {
+			if (tablero[i][j]->getTipo() == tipo::peon && tablero[i][j]->getColor() == col) {
+				if (col == color::negro) {
+					if (j == 0) {
+						return true;
+					}
+				}
+				if (col == color::blanco) {
+					if (j == 9) {
+						return true;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+void GestionJugadas::setPromocion(tipo t) {
+	int pos_x_peon = 0;
+	int pos_y_peon = 0;
+	color col = color::negro;
+	for (int i = 0; i < max_y; i++) {
+		for (int j = 0; j < max_x; j++) {
+			if (tablero[i][j]->getTipo() == tipo::peon && (j == 9 || j == 0)) {
+				if (j == 0) {
+					col = color::negro;
+					pos_x_peon = i;
+					pos_y_peon = j;
+				}
+				if (j == 9) {
+					col = color::blanco;
+					pos_x_peon = i;
+					pos_y_peon = j;
+				}
+			}
+		}
+	}
+	//delete[]tablero;
+
+	//~Tablero(tablero[pos_x_peon][pos_y_peon]);
+	
+
+	if (t == tipo::alfil) {
+		
+		tablero[pos_x_peon][pos_y_peon] = new Alfil(tipo::alfil, col);
+	}
+	if (t == tipo::caballo) {
+		tablero[pos_x_peon][pos_y_peon] = new Caballo(tipo::caballo, col);
+	}
+	if (t == tipo::torre) {
+		tablero[pos_x_peon][pos_y_peon] = new Torre(tipo::torre, col);
+	}
+	if (t == tipo::reina) {
+		tablero[pos_x_peon][pos_y_peon] = new Reina(tipo::reina, col);
+	}
+}
+
+
+
