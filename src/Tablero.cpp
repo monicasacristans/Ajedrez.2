@@ -79,12 +79,29 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
 			while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
 				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
-					mov_valido = moverPieza(cas_origen, cas_destino);
+					
+					//primero compruebo el enroque
+					if (p->getTipo() == tipo::rey && abs(cas_destino.x - cas_origen.x) == 2) {
+					mov_valido = jugada.enroque(cas_origen, cas_destino, tablero);
 					if (!mov_valido) {
-						cout << "Movimiento no valido, intenta de nuevo." << endl;
+						flagEnroque = true;
+						cout << "ENROQUE NO VALIDO INTENTA DE NUEVO" << endl;
 						break;
 					}
-					else{
+					else {
+						flagEnroque = false;
+						cout << "ENROQUE REALIZADO CORRECTAMENTE" << endl;
+					}
+					turno = !turno; //cambiar turno despues del movimiento
+					}
+					else {
+						mov_valido = moverPieza(cas_origen, cas_destino);
+						if (!mov_valido) {
+							cout << "Movimiento no valido, intenta de nuevo." << endl;
+							break;
+						}
+					}
+					if(mov_valido){
 						//Comprobar el jaque
 						color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
 						if (jugada.jaque(colOponente, tablero)) {
@@ -170,6 +187,11 @@ bool Tablero::getFlagMovValido() {
 bool Tablero::getFlagJaque() {
 	return flagJaque;
 }
+
+bool Tablero::getFlagEnroque() {
+	return flagEnroque;
+}
+
 
 bool Tablero::checkCasillaOcupada(int x, int y) {
 	if (x >= 0 && x < max_x && y >= 0 && y < max_y) {  //Comprueba que estamos dentro del tablero

@@ -62,5 +62,6 @@ public:
 	void pintarCorona();
 	void pintarError();
 	void pintarJaque();
+	void pintarEnroque();
 
 };

@@ -12,7 +12,7 @@ public:
 	bool jaque_mate(color col, Pieza* tablero[max_y][max_x]);
 	casilla encontrarPosicionRey(color col, Pieza* tablero[max_y][max_x]);
 	//bool estaEnJaque(color col);
-
+	bool enroque(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]);
 		//promocion
 	bool getPromocion(color col);
 	void setPromocion(tipo t);

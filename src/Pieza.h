@@ -31,7 +31,7 @@ public:
 	tipo getTipo();
 	color getColor();
 	bool enroque = false;
-
+	bool movimiento1 = false;
 	void setPos(int x, int y);
 	void setEnroque(bool x);
 

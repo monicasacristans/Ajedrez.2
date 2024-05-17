@@ -235,3 +235,11 @@ void Pintar::pintarJaque() {
         printxy("JAQUE", 60, 620);
     }
 }
+
+void Pintar::pintarEnroque() {
+    if (tablero->getFlagEnroque() == true) {
+        setTextColor(255, 0, 0);
+        setFont("bin/fuentes/Bitwise.ttf", 40);
+        printxy("ENROQUE", 60, 620);
+    }
+}
