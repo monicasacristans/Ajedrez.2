@@ -11,7 +11,7 @@ class Usuario {
 public:
 	Usuario();
 	virtual ~Usuario();
-
+	void teclado(unsigned char key);
 	void mouse(int x, int y);
 	void raton(int button, int state, int x, int y);
 	void dibuja();

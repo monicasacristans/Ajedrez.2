@@ -203,6 +203,18 @@ void Pintar::pintarCorona() {
     }
 }
 
+void Pintar::pintarPantalla() {
+    pantalla.setPos(680, 380);
+    pantalla.draw();
+}
+
+void Pintar::pintarPause() {
+
+    pausa.setPos(1192,100);
+    pausa.draw();
+   
+}
+
 
 void Pintar::pintarError() {
 

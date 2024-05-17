@@ -27,7 +27,9 @@ bool GestionJugadas::jaque(color col) {
 	if (posRey.x == -1 && posRey.y == -1) {
 		return false; // No se encontró el rey del color dado
 	}
-
+	if (tablero == nullptr) {
+		return false;
+	}
 	// Verifica si alguna pieza del oponente puede atacar al rey
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
