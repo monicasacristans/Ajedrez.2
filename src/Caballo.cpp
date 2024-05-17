@@ -1,6 +1,4 @@
 #include "Caballo.h"
-#include <iostream>
-#include <math.h>
 
 
 Caballo::Caballo(tipo t, color c) :Pieza(t, c) {}

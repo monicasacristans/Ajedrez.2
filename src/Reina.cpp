@@ -1,5 +1,4 @@
 #include "Reina.h"
-#include <iostream>
 
 
 

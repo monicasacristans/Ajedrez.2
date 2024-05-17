@@ -1,6 +1,6 @@
 #pragma once
-#include "Pieza.h"
 #include "Tablero.h"
+#include "Pieza.h"
 
 class GestionJugadas {
 public:

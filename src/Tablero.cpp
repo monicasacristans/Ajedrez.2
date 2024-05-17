@@ -121,43 +121,6 @@ bool Tablero::moverPieza(casilla origen, casilla destino) {
 		return false;
 	}
 }
-///////////////CASILLA LEGAL/////////////////
-
-
-//std::vector<casilla> Tablero::calcularCasillasLegales() {
-//	std::vector<casilla> casillasLegales;
-//
-//	// Recorre todo el tablero
-//	for (int y = 0; y < max_y; ++y) {
-//		for (int x = 0; x < max_x; ++x) {
-//			Pieza* piezaActual = tablero[y][x];
-//
-//			if (piezaActual != nullptr) {
-//				// Obtén las casillas legales para la pieza actual
-//				casilla origen = { x, y };
-//
-//				// Recorre todas las casillas del tablero para verificar movimientos legales
-//				for (int j = 0; j < max_y; ++j) {
-//					for (int i = 0; i < max_x; ++i) {
-//						casilla destino = { i, j };
-//
-//						if (piezaActual->movimientoValido(origen, destino, tablero)) {
-//							casillasLegales.push_back(destino);
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
-//
-//	return casillasLegales;
-//}
-
-
-bool Tablero::esCasillaValida(const casilla& casilla) const {
-	return (casilla.x >= 0 && casilla.x < max_x&& casilla.y >= 0 && casilla.y < max_y);
-}
-
 
 bool Tablero::getTurno() {
 	return turno;
@@ -169,18 +132,6 @@ bool Tablero::getFlagMovValido() {
 
 bool Tablero::getFlagJaque() {
 	return flagJaque;
-}
-
-bool Tablero::checkCasillaOcupada(int x, int y) {
-	if (x >= 0 && x < max_x && y >= 0 && y < max_y) {  //Comprueba que estamos dentro del tablero
-		
-		Pieza *mipieza = tablero[y][x]; //Obtiene la pieza que hay en la casilla
-
-		if (mipieza != nullptr) {
-			return true; //casilla ocupada
-		}
-	}
-	return false; //casilla vacía
 }
 
 Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
@@ -245,3 +196,34 @@ void Tablero::set_tablero() {
 	}
 
 }
+///////////////CASILLA LEGAL/////////////////
+
+
+//std::vector<casilla> Tablero::calcularCasillasLegales() {
+//	std::vector<casilla> casillasLegales;
+//
+//	// Recorre todo el tablero
+//	for (int y = 0; y < max_y; ++y) {
+//		for (int x = 0; x < max_x; ++x) {
+//			Pieza* piezaActual = tablero[y][x];
+//
+//			if (piezaActual != nullptr) {
+//				// Obtén las casillas legales para la pieza actual
+//				casilla origen = { x, y };
+//
+//				// Recorre todas las casillas del tablero para verificar movimientos legales
+//				for (int j = 0; j < max_y; ++j) {
+//					for (int i = 0; i < max_x; ++i) {
+//						casilla destino = { i, j };
+//
+//						if (piezaActual->movimientoValido(origen, destino, tablero)) {
+//							casillasLegales.push_back(destino);
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
+//
+//	return casillasLegales;
+//}

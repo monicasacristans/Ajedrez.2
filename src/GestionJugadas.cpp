@@ -36,7 +36,6 @@ bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 				casilla origen = { x, y };
 				casilla destino = { posRey.x, posRey.y };
 				if (pieza->movimientoValido(origen, destino, tablero) == true) {
-					//cout << "REY EN JAQUE" << endl;
 					return true; // El rey está en jaque
 				}
 			}
@@ -48,14 +47,13 @@ bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 
 
 bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
+
+	casilla posRey = encontrarPosicionRey(col, tablero);
+
 	// Verificar primero si el rey está en jaque
-	if (!jaque(col, tablero)) {
+	if (jaque(col, tablero)==false) {
 		return false; // El rey no está en jaque, por lo tanto no hay jaque mate
 	}
-	//ENCONTRAR AL REY 
-	casilla posRey = encontrarPosicionRey(col,tablero);
-	// Iterar sobre todas las piezas del color dado
-
 
 	for (int y = 0; y < max_y; ++y) {
 		for (int x = 0; x < max_x; ++x) {

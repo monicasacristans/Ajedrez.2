@@ -453,8 +453,6 @@ void Usuario::dibuja() {
 		if (!juegoInicializado) {
 
 			tablero.set_tablero();
-			cout << tablero.checkCasillaOcupada(1, 1);
-			cout << tablero.checkCasillaOcupada(2, 4);
 
 			juegoInicializado = true;
 		}

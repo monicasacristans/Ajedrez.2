@@ -16,16 +16,14 @@ public:
 	void raton(int button, int state, int x, int y);
 	void dibuja();
 	void dibujaFondo();
-	void setMenuInicio(int x);
-	void setOpciones(int x);
 	void setReshape(float x, float y);
 
 	int getEstado();
 
 	//VARIABLES JAQUE Y JAQUE MATE
-	int i = 0;
-	int ganador; //blancas (0) negras(1) tablas(2)
-	int final; 
+	//int i = 0;
+	//int ganador; //blancas (0) negras(1) tablas(2)
+	//int final; 
 
 
 	int n_ayuda;

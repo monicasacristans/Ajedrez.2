@@ -1,5 +1,4 @@
 #include "Peon.h"
-#include <iostream>
 
 using namespace std;
 Peon::Peon(tipo t, color c) :Pieza(t, c) {
