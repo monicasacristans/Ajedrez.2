@@ -3,7 +3,7 @@
 using namespace std;
 
 
-casilla GestionJugadas::encontrarPosicionRey(color col) {
+casilla GestionJugadas::encontrarPosicionRey(color col, Pieza* tablero[max_y][max_x]) {
 	// Buscar la posición del rey del color dado en el tablero
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
@@ -19,9 +19,9 @@ casilla GestionJugadas::encontrarPosicionRey(color col) {
 
 
 //en un turno, has de comprobar si puedes hacer jaque al rival
-bool GestionJugadas::jaque(color col) {
+bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 	//ENCONTRAR AL REY 
-	casilla posRey = encontrarPosicionRey(col);
+	casilla posRey = encontrarPosicionRey(col, tablero);
 
 	// Verifica si el rey fue encontrado
 	if (posRey.x == -1 && posRey.y == -1) {
@@ -37,26 +37,25 @@ bool GestionJugadas::jaque(color col) {
 			if (pieza != nullptr && pieza->getColor() != col) {
 				casilla origen = { x, y };
 				casilla destino = { posRey.x, posRey.y };
-				if (pieza->movimientoValido(origen, destino, tablero)) {
-					cout << "REY EN JAQUE" << endl;
+				if (pieza->movimientoValido(origen, destino, tablero) == true) {
+					//cout << "REY EN JAQUE" << endl;
 					return true; // El rey está en jaque
 				}
 			}
 		}
 	}
-
 	return false; // El rey no está en jaque
 }
 
 
 
-bool GestionJugadas::jaque_mate(color col) {
+bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 	// Verificar primero si el rey está en jaque
-	if (!jaque(col)) {
+	if (!jaque(col, tablero)) {
 		return false; // El rey no está en jaque, por lo tanto no hay jaque mate
 	}
 	//ENCONTRAR AL REY 
-	casilla posRey = encontrarPosicionRey(col);
+	casilla posRey = encontrarPosicionRey(col,tablero);
 	// Iterar sobre todas las piezas del color dado
 
 
@@ -74,7 +73,7 @@ bool GestionJugadas::jaque_mate(color col) {
 							tablero[destY][destX] = tablero[y][x];
 							tablero[y][x] = nullptr;
 
-							bool sigueEnJaque = jaque(col);
+							bool sigueEnJaque = jaque(col,tablero);
 
 							// Deshacer el movimiento
 							tablero[y][x] = tablero[destY][destX];
@@ -94,65 +93,65 @@ bool GestionJugadas::jaque_mate(color col) {
 }
 
 
-bool GestionJugadas::getPromocion(color col) {
-	for (int i = 0; i < max_y; i++) {
-		for (int j = 0; j < max_x; j++) {
-			if (tablero[i][j]->getTipo() == tipo::peon && tablero[i][j]->getColor() == col) {
-				if (col == color::negro) {
-					if (j == 0) {
-						return true;
-					}
-				}
-				if (col == color::blanco) {
-					if (j == 9) {
-						return true;
-					}
-				}
-			}
-		}
-	}
-}
-
-
-void GestionJugadas::setPromocion(tipo t) {
-	int pos_x_peon = 0;
-	int pos_y_peon = 0;
-	color col = color::negro;
-	for (int i = 0; i < max_y; i++) {
-		for (int j = 0; j < max_x; j++) {
-			if (tablero[i][j]->getTipo() == tipo::peon && (j == 9 || j == 0)) {
-				if (j == 0) {
-					col = color::negro;
-					pos_x_peon = i;
-					pos_y_peon = j;
-				}
-				if (j == 9) {
-					col = color::blanco;
-					pos_x_peon = i;
-					pos_y_peon = j;
-				}
-			}
-		}
-	}
-	//delete[]tablero;
-
-	//~Tablero(tablero[pos_x_peon][pos_y_peon]);
-	
-
-	if (t == tipo::alfil) {
-		
-		tablero[pos_x_peon][pos_y_peon] = new Alfil(tipo::alfil, col);
-	}
-	if (t == tipo::caballo) {
-		tablero[pos_x_peon][pos_y_peon] = new Caballo(tipo::caballo, col);
-	}
-	if (t == tipo::torre) {
-		tablero[pos_x_peon][pos_y_peon] = new Torre(tipo::torre, col);
-	}
-	if (t == tipo::reina) {
-		tablero[pos_x_peon][pos_y_peon] = new Reina(tipo::reina, col);
-	}
-}
-
-
+//bool GestionJugadas::getPromocion(color col) {
+//	for (int i = 0; i < max_y; i++) {
+//		for (int j = 0; j < max_x; j++) {
+//			if (tablero[i][j]->getTipo() == tipo::peon && tablero[i][j]->getColor() == col) {
+//				if (col == color::negro) {
+//					if (j == 0) {
+//						return true;
+//					}
+//				}
+//				if (col == color::blanco) {
+//					if (j == 9) {
+//						return true;
+//					}
+//				}
+//			}
+//		}
+//	}
+//}
+//
+//
+//void GestionJugadas::setPromocion(tipo t) {
+//	int pos_x_peon = 0;
+//	int pos_y_peon = 0;
+//	color col = color::negro;
+//	for (int i = 0; i < max_y; i++) {
+//		for (int j = 0; j < max_x; j++) {
+//			if (tablero[i][j]->getTipo() == tipo::peon && (j == 9 || j == 0)) {
+//				if (j == 0) {
+//					col = color::negro;
+//					pos_x_peon = i;
+//					pos_y_peon = j;
+//				}
+//				if (j == 9) {
+//					col = color::blanco;
+//					pos_x_peon = i;
+//					pos_y_peon = j;
+//				}
+//			}
+//		}
+//	}
+//	//delete[]tablero;
+//
+//	//~Tablero(tablero[pos_x_peon][pos_y_peon]);
+//	
+//
+//	if (t == tipo::alfil) {
+//		
+//		tablero[pos_x_peon][pos_y_peon] = new Alfil(tipo::alfil, col);
+//	}
+//	if (t == tipo::caballo) {
+//		tablero[pos_x_peon][pos_y_peon] = new Caballo(tipo::caballo, col);
+//	}
+//	if (t == tipo::torre) {
+//		tablero[pos_x_peon][pos_y_peon] = new Torre(tipo::torre, col);
+//	}
+//	if (t == tipo::reina) {
+//		tablero[pos_x_peon][pos_y_peon] = new Reina(tipo::reina, col);
+//	}
+//}
+//
+//
 

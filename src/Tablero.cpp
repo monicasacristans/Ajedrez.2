@@ -75,30 +75,26 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			click = 1;
 
 			bool mov_valido = false;
-			bool flagJaque = jugada.jaque(p->getColor());
+
 			//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
 			while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
-				if (flagJaque == false) {
-					if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
-						mov_valido = moverPieza(cas_origen, cas_destino);
-						if (!mov_valido) {
-							cout << "Movimiento no valido, intenta de nuevo." << endl;
-							break;
-						}
-						else
-							turno = !turno; //Cambia el turno despues del movimiento
+				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
+					mov_valido = moverPieza(cas_origen, cas_destino);
+					if (!mov_valido) {
+						cout << "Movimiento no valido, intenta de nuevo." << endl;
+						break;
 					}
-				}
-				else {
-					if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
-						//JAQUE: EL REY ES OBLIGADO A MOVERSE
-						mov_valido = moverPieza(jugada.encontrarPosicionRey(p->getColor()), cas_destino);
-						if (!mov_valido) {
-							cout << "Movimiento no valido, intenta de nuevo." << endl;
-							break;
+					else{
+						//Comprobar el jaque
+						color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
+						if (jugada.jaque(colOponente, tablero)) {
+							std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
+							flagJaque = true; // Actualizar la flag de jaque
 						}
-						else
-							turno = !turno; //Cambia el turno despues del movimiento
+						else {
+							flagJaque = false; // Si no hay jaque, resetear la flag
+						}
+						turno = !turno; //Cambia el turno despues del movimiento
 					}
 				}
 				break;
@@ -107,6 +103,24 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 	}
 }
 
+bool Tablero::moverPieza(casilla origen, casilla destino) {
+
+	// Mover la pieza
+	Pieza* piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
+
+	if (piezaMovida->movimientoValido(origen, destino, tablero) == true) {
+		tablero[destino.y][destino.x] = piezaMovida; // Colocar la pieza en la casilla de destino
+		tablero[origen.y][origen.x] = nullptr; // Dejar la casilla de origen vacía
+		cout << "Movimiento realizado de (" << origen.x << ", " << origen.y << ") a (" << destino.x << ", " << destino.y << ")" << endl;
+		flagMovInvalido = false;
+		return true;
+	}
+	else {
+
+		flagMovInvalido = true;
+		return false;
+	}
+}
 ///////////////CASILLA LEGAL/////////////////
 
 
@@ -153,23 +167,8 @@ bool Tablero::getFlagMovValido() {
 	return flagMovInvalido;
 }
 
-bool Tablero::moverPieza(casilla origen, casilla destino) {
-
-	// Mover la pieza
-	Pieza *piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
-
-	if (piezaMovida->movimientoValido(origen, destino, tablero) == true) {
-		tablero[destino.y][destino.x] = piezaMovida; // Colocar la pieza en la casilla de destino
-		tablero[origen.y][origen.x] = nullptr; // Dejar la casilla de origen vacía
-		cout << "Movimiento realizado de (" << origen.x << ", " << origen.y << ") a (" << destino.x << ", " << destino.y << ")" << endl;
-		flagMovInvalido = false;
-		return true;
-	}
-	else {
-		
-		flagMovInvalido = true;
-		return false;
-	}
+bool Tablero::getFlagJaque() {
+	return flagJaque;
 }
 
 bool Tablero::checkCasillaOcupada(int x, int y) {

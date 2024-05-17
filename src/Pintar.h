@@ -61,5 +61,6 @@ public:
 	//void pintarCasillaElegida();
 	void pintarCorona();
 	void pintarError();
+	void pintarJaque();
 
 };

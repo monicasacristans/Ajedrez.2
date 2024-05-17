@@ -1,57 +1,124 @@
-﻿  Usuario.cpp
+﻿  Alfil.cpp
+  Arzobispo.cpp
+  Caballo.cpp
+  Canciller.cpp
+  GestionJugadas.cpp
+  Main.cpp
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(63,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(66,2): warning C4551: la llamada a la función no tiene lista de argumentos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(94,19): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(102,3): warning C4551: la llamada a la función no tiene lista de argumentos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(111,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(127,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Main.cpp(127,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Peon.cpp
+  Pieza.cpp
+  Pintar.cpp
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(26,50): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(26,32): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(27,50): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(27,32): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(28,56): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(28,32): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(29,56): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(29,32): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(113,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(113,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(117,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(117,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(121,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(121,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(125,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(125,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(129,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(129,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(133,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(133,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(137,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(137,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(141,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(141,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(145,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(145,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(149,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(149,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(153,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(153,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(157,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(157,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(161,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(161,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(165,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(165,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(169,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(169,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(173,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(173,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Pintar.cpp(187,54): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  Reina.cpp
+  Rey.cpp
+  Tablero.cpp
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Tablero.cpp(16,17): warning C4154: eliminación de una expresión de matriz; suministrada una conversión a puntero
+  Torre.cpp
+  Usuario.cpp
 C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(464,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(473,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(473,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(517,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(517,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(532,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(532,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(542,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(551,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(551,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(565,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(577,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(577,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(585,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(601,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(601,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(610,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(625,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(625,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(634,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(647,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(647,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(657,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(668,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(668,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(677,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(689,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(689,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(699,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(710,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(710,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(718,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(730,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(730,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(744,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(753,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(753,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(764,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(774,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(774,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(783,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(799,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(799,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(808,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(821,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(821,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(831,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(842,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(842,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(851,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(866,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(866,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(874,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(889,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(889,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(543,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(543,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(553,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(562,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(562,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(576,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(588,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(588,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(596,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(612,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(612,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(621,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(636,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(636,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(645,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(658,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(658,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(668,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(679,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(679,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(688,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(700,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(700,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(710,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(721,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(721,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(729,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(741,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(741,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(755,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(764,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(764,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(775,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(785,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(785,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(794,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(810,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(810,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(819,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(832,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(832,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(842,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(853,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(853,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(862,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(877,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(877,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(885,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(900,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Usuario.cpp(900,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Generando código...
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Torre.cpp(51): warning C4715: 'Torre::movimientoValido': no todas las rutas de acceso de control devuelven un valor
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Peon.cpp(66): warning C4715: 'Peon::movimientoValido': no todas las rutas de acceso de control devuelven un valor
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Canciller.cpp(68): warning C4715: 'Canciller::movimientoValido': no todas las rutas de acceso de control devuelven un valor
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Arzobispo.cpp(52): warning C4715: 'Arzobispo::movimientoValido': no todas las rutas de acceso de control devuelven un valor
   Pang.vcxproj -> C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\bin\Pang.exe

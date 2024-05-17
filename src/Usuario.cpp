@@ -519,6 +519,17 @@ void Usuario::dibuja() {
 				}
 			}
 		}
+		miPintura.pintarPiezasTablero();
+		///////////////CASILLA LEGAL/////////////////
+
+		//miPintura.pintarCasillaLegal();
+
+
+		glutPostRedisplay();
+		miPintura.pintarCuadricula();
+		miPintura.pintarCorona();
+		miPintura.pintarError();
+		miPintura.pintarJaque();
 	}
 
 	if (estado == OP) {

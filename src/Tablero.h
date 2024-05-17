@@ -27,6 +27,7 @@ class Tablero {
 	color c_eliminada;
 	bool flag = false;
 	bool flagMovInvalido = false;
+	bool flagJaque = false;
 	//bool flagCasElegida = false;
 
 	casilla cas_origen{ -1 , -1 };
@@ -39,6 +40,7 @@ public:
 	void set_tablero();
 	bool getTurno();
 	bool getFlagMovValido();
+	bool getFlagJaque();
 	
 
 	///////ELIMINAR PIEZA
