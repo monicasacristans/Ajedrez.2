@@ -39,10 +39,11 @@ public:
 	bool getFlagJaque();
 
 	void definirCoordenadasTablero(int button, int state, int x, int y);
+	void realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino);
 	Pieza* checkPiezaEnCasilla(casilla pos);
 
 	//ELIMINAR PIEZA
-	bool eliminarPiezaT(int x, int y);
+	void eliminarPieza(casilla origen, casilla destino);
 
 	virtual bool moverPieza(casilla origen, casilla destino);
 };

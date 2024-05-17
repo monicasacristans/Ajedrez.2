@@ -12,42 +12,35 @@ Tablero::Tablero() {
 	}
 }
 
-Tablero::~Tablero(){
-	delete[]tablero;
-	
-}
+Tablero::~Tablero(){}
 
-bool Tablero::eliminarPiezaT(int x, int y) {
-	if (x < 0 || x >= max_x || y < 0 || y >= max_y) {
-		std::cout << "Posición fuera de los límites del tablero." << std::endl;
-		return false;
-	}
-
-	// Obtener la pieza en la posición (x, y)
-	Pieza* piezaEliminada = tablero[y][x];
-
-	if (piezaEliminada == nullptr) {
-		std::cout << "No hay ninguna pieza en la posición especificada." << std::endl;
-		return false;
-	}
-
-	// Eliminar la pieza del tablero (asignar nullptr a la casilla)
-	tablero[y][x] = nullptr;
-
-	// Agregar la pieza eliminada a la lista de piezas eliminadas
-	piezaseliminadas.push_back(piezaEliminada);
-
-	std::cout << "Pieza eliminada del tablero y agregada a la lista de piezas eliminadas." << std::endl;
-	return true;
-}
-
+//bool Tablero::eliminarPiezaT(int x, int y) {
+//	if (x < 0 || x >= max_x || y < 0 || y >= max_y) {
+//		std::cout << "Posición fuera de los límites del tablero." << std::endl;
+//		return false;
+//	}
+//
+//	// Obtener la pieza en la posición (x, y)
+//	Pieza* piezaEliminada = tablero[y][x];
+//
+//	if (piezaEliminada == nullptr) {
+//		std::cout << "No hay ninguna pieza en la posición especificada." << std::endl;
+//		return false;
+//	}
+//
+//	// Eliminar la pieza del tablero (asignar nullptr a la casilla)
+//	tablero[y][x] = nullptr;
+//
+//	// Agregar la pieza eliminada a la lista de piezas eliminadas
+//	piezaseliminadas.push_back(piezaEliminada);
+//
+//	std::cout << "Pieza eliminada del tablero y agregada a la lista de piezas eliminadas." << std::endl;
+//	return true;
+//}
 void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
 	Pieza* p = checkPiezaEnCasilla(cas_origen);
 	static int click = 0;
-
-	int screenX = x;
-	int screenY = y;
 
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
 		// Calcular la columna y fila en función de las coordenadas x e y
@@ -64,42 +57,48 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			flag = true;
 			cout << "Casilla de origen: (" << cas_origen.x << ", " << cas_origen.y << ")" << endl;
 		}
-		else if(click == 3){
+		else if (click == 3) {
 			cas_destino = { columna, fila };
 			if (cas_origen.x == cas_destino.x && cas_origen.y == cas_destino.y) {
-				cout << "Origen y destino son iguales, seleccione otra casilla." <<endl;
+				cout << "Origen y destino son iguales, seleccione otra casilla." << endl;
 				cas_destino = { -1, -1 }; // Reiniciar casilla destino si es igual al origen
 			}
 			cout << "Casilla de destino: (" << cas_destino.x << ", " << cas_destino.y << ")" << endl;
 			flag = false;
 			click = 1;
 
-			bool mov_valido = false;
-
-			//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
-			while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
-				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
-					mov_valido = moverPieza(cas_origen, cas_destino);
-					if (!mov_valido) {
-						cout << "Movimiento no valido, intenta de nuevo." << endl;
-						break;
-					}
-					else{
-						//Comprobar el jaque
-						color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
-						if (jugada.jaque(colOponente, tablero)) {
-							std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
-							flagJaque = true; // Actualizar la flag de jaque
-						}
-						else {
-							flagJaque = false; // Si no hay jaque, resetear la flag
-						}
-						turno = !turno; //Cambia el turno despues del movimiento
-					}
-				}
+			realizarMovimiento(p, cas_origen, cas_destino); // Llama a la función para realizar el movimiento deseado
+		}
+	}
+}
+void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino) {
+	bool mov_valido = false;
+	
+	cout << piezasB.size() << " , " << piezasN.size() << endl;
+	//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
+	while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
+		if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
+			mov_valido = moverPieza(cas_origen, cas_destino);
+			eliminarPieza(cas_origen, cas_destino);
+			cout << piezasB.size() << " , " << piezasN.size() << endl;
+			if (!mov_valido) {
+				cout << "Movimiento no valido, intenta de nuevo." << endl;
 				break;
 			}
+			else {
+				//Comprobar el jaque
+				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
+				if (jugada.jaque(colOponente, tablero)) {
+					std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
+					flagJaque = true; // Actualizar la flag de jaque
+				}
+				else {
+					flagJaque = false; // Si no hay jaque, resetear la flag
+				}
+				turno = !turno; //Cambia el turno despues del movimiento
+			}
 		}
+		break;
 	}
 }
 
@@ -120,13 +119,15 @@ bool Tablero::moverPieza(casilla origen, casilla destino) {
 		flagMovInvalido = true;
 		return false;
 	}
+
+	//comer
 }
 
 bool Tablero::getTurno() {
 	return turno;
 }
 
-bool Tablero::getFlagMovValido() {
+bool Tablero::getFlagMovValido() { //Flag para pintar los avisos
 	return flagMovInvalido;
 }
 
@@ -176,7 +177,6 @@ void Tablero::set_tablero() {
 	//Peones negros
 	for (int i = 0; i < 10; i++) {
 		tablero[6][i] = new Peon(tipo::peon, color::negro);
-		piezasN.push_back(tablero[6][i]);
 	}
 
 	//Piezas negras
@@ -192,38 +192,27 @@ void Tablero::set_tablero() {
 	tablero[7][9] = new Torre(tipo::torre, color::negro);
 
 	for (int i = 0; i < 10; i++) {
+		piezasN.push_back(tablero[6][i]);
 		piezasN.push_back(tablero[7][i]);
 	}
 
 }
-///////////////CASILLA LEGAL/////////////////
 
+void Tablero::eliminarPieza(casilla origen, casilla destino) {
 
-//std::vector<casilla> Tablero::calcularCasillasLegales() {
-//	std::vector<casilla> casillasLegales;
-//
-//	// Recorre todo el tablero
-//	for (int y = 0; y < max_y; ++y) {
-//		for (int x = 0; x < max_x; ++x) {
-//			Pieza* piezaActual = tablero[y][x];
-//
-//			if (piezaActual != nullptr) {
-//				// Obtén las casillas legales para la pieza actual
-//				casilla origen = { x, y };
-//
-//				// Recorre todas las casillas del tablero para verificar movimientos legales
-//				for (int j = 0; j < max_y; ++j) {
-//					for (int i = 0; i < max_x; ++i) {
-//						casilla destino = { i, j };
-//
-//						if (piezaActual->movimientoValido(origen, destino, tablero)) {
-//							casillasLegales.push_back(destino);
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
-//
-//	return casillasLegales;
-//}
+	if (tablero[origen.y][origen.x]!=nullptr && tablero[origen.y][origen.x]->movimientoValido(origen,destino, tablero) == true) {
+		if (tablero[destino.y][destino.x] != nullptr) {
+
+			auto& listapiezas = (tablero[destino.y][destino.x]->getColor() == color::blanco) ? piezasB : piezasN;
+
+			auto p = std::find(listapiezas.begin(), listapiezas.end(), tablero[destino.y][destino.x]);
+
+			if (p != listapiezas.end()) {
+				listapiezas.erase(p);
+				piezaseliminadas.push_back(*p);
+			}
+		}
+	
+		delete[] tablero[destino.y][destino.x];
+	}
+}
