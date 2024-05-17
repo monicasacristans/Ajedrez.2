@@ -199,13 +199,16 @@ void Tablero::set_tablero() {
 }
 
 void Tablero::eliminarPieza(casilla origen, casilla destino) {
+	// Mover la pieza
+	Pieza* piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
+	Pieza* piezaComida = tablero[destino.y][destino.x];
 
-	if (tablero[origen.y][origen.x]!=nullptr && tablero[origen.y][origen.x]->movimientoValido(origen,destino, tablero) == true) {
-		if (tablero[destino.y][destino.x] != nullptr) {
+	if (piezaMovida!=nullptr && (piezaMovida->movimientoValido(origen,destino, tablero))== true) {
+		if (piezaComida != nullptr) {
 
-			auto& listapiezas = (tablero[destino.y][destino.x]->getColor() == color::blanco) ? piezasB : piezasN;
+			auto& listapiezas = (piezaComida->getColor() == color::blanco) ? piezasB : piezasN;
 
-			auto p = std::find(listapiezas.begin(), listapiezas.end(), tablero[destino.y][destino.x]);
+			auto p = std::find(listapiezas.begin(), listapiezas.end(), piezaComida);
 
 			if (p != listapiezas.end()) {
 				listapiezas.erase(p);
