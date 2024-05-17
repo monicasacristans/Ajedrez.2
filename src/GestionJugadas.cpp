@@ -45,7 +45,49 @@ bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 }
 
 
+bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
+	// Primero, verificar si el rey esta en jaque
+	if (jaque(col, tablero) == false) {
+		return false; // Si no esta en jaque, no puede estar en jaque mate
+	}
 
+	// Encontrar la posicion del rey
+	casilla posRey = encontrarPosicionRey(col, tablero);
+
+	// Verificar todas las casillas alrededor del rey para ver si puede moverse a una casilla segura
+	std::vector<casilla> movimientosRey = {
+		{posRey.x, posRey.y + 1}, {posRey.x, posRey.y - 1}, {posRey.x + 1, posRey.y},
+		{posRey.x - 1, posRey.y}, {posRey.x + 1, posRey.y + 1}, {posRey.x + 1, posRey.y - 1},
+		{posRey.x - 1, posRey.y + 1}, {posRey.x - 1, posRey.y - 1}
+	};
+
+	for (const auto& movimiento : movimientosRey) {
+		if (movimiento.x >= 0 && movimiento.x < max_x && movimiento.y >= 0 && movimiento.y < max_y && (tablero[movimiento.y][movimiento.x] == nullptr || tablero[movimiento.y][movimiento.x]->getColor() != col)) {
+			// Mover temporalmente al rey para verificar si sale del jaque
+			Pieza* piezaDestino = tablero[movimiento.y][movimiento.x];
+			tablero[movimiento.y][movimiento.x] = tablero[posRey.y][posRey.x];
+			tablero[posRey.y][posRey.x] = nullptr;
+
+			if (jaque(col, tablero) == false) {
+				// Restaurar el movimiento y retornar falso
+				tablero[posRey.y][posRey.x] = tablero[movimiento.y][movimiento.x];
+				tablero[movimiento.y][movimiento.x] = piezaDestino;
+				return false; // El rey puede salir del jaque, no es jaque mate
+			}
+
+			// Restaurar el movimiento
+			tablero[posRey.y][posRey.x] = tablero[movimiento.y][movimiento.x];
+			tablero[movimiento.y][movimiento.x] = piezaDestino;
+		}
+	}
+
+	// Si todas las casillas alrededor del rey estan en jaque o fuera del tablero, es jaque mate
+	return true;
+
+}
+
+
+/*
 bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 
 	casilla posRey = encontrarPosicionRey(col, tablero);
@@ -87,7 +129,7 @@ bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 	cout << "REY EN JAQUE MATE" << endl;
 	return true; // No hay movimientos legales disponibles para evitar el jaque mate
 }
-
+*/
 
 //bool GestionJugadas::getPromocion(color col) {
 //	for (int i = 0; i < max_y; i++) {
