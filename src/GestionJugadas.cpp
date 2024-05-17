@@ -47,50 +47,88 @@ bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 	return false; // El rey no está en jaque
 }
 
-
-
 bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
-	// Verificar primero si el rey está en jaque
-	if (!jaque(col, tablero)) {
-		return false; // El rey no está en jaque, por lo tanto no hay jaque mate
-	}
-	//ENCONTRAR AL REY 
-	casilla posRey = encontrarPosicionRey(col,tablero);
-	// Iterar sobre todas las piezas del color dado
+    // Primero, verificar si el rey esta en jaque
+    if (jaque(col, tablero) == false) {
+        return false; // Si no esta en jaque, no puede estar en jaque mate
+    }
 
+    // Encontrar la posicion del rey
+    casilla posRey = encontrarPosicionRey(col, tablero);
 
-	for (int y = 0; y < max_y; ++y) {
-		for (int x = 0; x < max_x; ++x) {
-			if (tablero[y][x] != nullptr && tablero[y][x]->getColor() == col) {
-				// Obtener los movimientos válidos de la pieza actual
-				casilla origen = { x, y };
-				for (int destY = 0; destY < max_y; ++destY) {
-					for (int destX = 0; destX < max_x; ++destX) {
-						casilla destino = { destX, destY };
-						if (tablero[y][x]->movimientoValido(origen, destino, tablero)) {
-							// Intentar mover la pieza y verificar si el rey sigue en jaque
-							Pieza* piezaTemporal = tablero[destY][destX];
-							tablero[destY][destX] = tablero[y][x];
-							tablero[y][x] = nullptr;
+    // Verificar todas las casillas alrededor del rey para ver si puede moverse a una casilla segura
+    std::vector<casilla> movimientosRey = {
+        {posRey.x, posRey.y + 1}, {posRey.x, posRey.y - 1}, {posRey.x + 1, posRey.y},
+        {posRey.x - 1, posRey.y}, {posRey.x + 1, posRey.y + 1}, {posRey.x + 1, posRey.y - 1},
+        {posRey.x - 1, posRey.y + 1}, {posRey.x - 1, posRey.y - 1}
+    };
 
-							bool sigueEnJaque = jaque(col,tablero);
+    for (const auto& movimiento : movimientosRey) {
+        if (movimiento.x >= 0 && movimiento.x < max_x && movimiento.y >= 0 && movimiento.y < max_y && (tablero[movimiento.y][movimiento.x] == nullptr || tablero[movimiento.y][movimiento.x]->getColor() != col)) {
+            // Mover temporalmente al rey para verificar si sale del jaque
+            Pieza* piezaDestino = tablero[movimiento.y][movimiento.x];
+            tablero[movimiento.y][movimiento.x] = tablero[posRey.y][posRey.x];
+            tablero[posRey.y][posRey.x] = nullptr;
 
-							// Deshacer el movimiento
-							tablero[y][x] = tablero[destY][destX];
-							tablero[destY][destX] = piezaTemporal;
+            if (jaque(col, tablero) == false) {
+                // Restaurar el movimiento y retornar falso
+                tablero[posRey.y][posRey.x] = tablero[movimiento.y][movimiento.x];
+                tablero[movimiento.y][movimiento.x] = piezaDestino;
+                return false; // El rey puede salir del jaque, no es jaque mate
+            }
 
-							if (!sigueEnJaque) {
-								return false; // Hay al menos un movimiento legal que evita el jaque mate
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	cout << "REY EN JAQUE MATE" << endl;
-	return true; // No hay movimientos legales disponibles para evitar el jaque mate
+            // Restaurar el movimiento
+            tablero[posRey.y][posRey.x] = tablero[movimiento.y][movimiento.x];
+            tablero[movimiento.y][movimiento.x] = piezaDestino;
+        }
+    }
+
+    // Si todas las casillas alrededor del rey estan en jaque o fuera del tablero, es jaque mate
+    return true;
 }
+
+//bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
+//	// Verificar primero si el rey está en jaque
+//	if (!jaque(col, tablero)) {
+//		return false; // El rey no está en jaque, por lo tanto no hay jaque mate
+//	}
+//	//ENCONTRAR AL REY 
+//	casilla posRey = encontrarPosicionRey(col,tablero);
+//	// Iterar sobre todas las piezas del color dado
+//
+//
+//	for (int y = 0; y < max_y; ++y) {
+//		for (int x = 0; x < max_x; ++x) {
+//			if (tablero[y][x] != nullptr && tablero[y][x]->getColor() == col) {
+//				// Obtener los movimientos válidos de la pieza actual
+//				casilla origen = { x, y };
+//				for (int destY = 0; destY < max_y; ++destY) {
+//					for (int destX = 0; destX < max_x; ++destX) {
+//						casilla destino = { destX, destY };
+//						if (tablero[y][x]->movimientoValido(origen, destino, tablero)) {
+//							// Intentar mover la pieza y verificar si el rey sigue en jaque
+//							Pieza* piezaTemporal = tablero[destY][destX];
+//							tablero[destY][destX] = tablero[y][x];
+//							tablero[y][x] = nullptr;
+//
+//							bool sigueEnJaque = jaque(col,tablero);
+//
+//							// Deshacer el movimiento
+//							tablero[y][x] = tablero[destY][destX];
+//							tablero[destY][destX] = piezaTemporal;
+//
+//							if (!sigueEnJaque) {
+//								return false; // Hay al menos un movimiento legal que evita el jaque mate
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
+//	cout << "REY EN JAQUE MATE" << endl;
+//	return true; // No hay movimientos legales disponibles para evitar el jaque mate
+//}
 
 bool GestionJugadas::enroque(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
     Pieza* rey = tablero[origen.y][origen.x];

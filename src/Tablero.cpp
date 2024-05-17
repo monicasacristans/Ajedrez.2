@@ -79,37 +79,29 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
 			while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
 				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
-					
-					//primero compruebo el enroque
-					if (p->getTipo() == tipo::rey && abs(cas_destino.x - cas_origen.x) == 2) {
-					mov_valido = jugada.enroque(cas_origen, cas_destino, tablero);
+					mov_valido = moverPieza(cas_origen, cas_destino);
 					if (!mov_valido) {
-						flagEnroque = true;
-						cout << "ENROQUE NO VALIDO INTENTA DE NUEVO" << endl;
+						cout << "Movimiento no valido, intenta de nuevo." << endl;
 						break;
 					}
 					else {
-						flagEnroque = false;
-						cout << "ENROQUE REALIZADO CORRECTAMENTE" << endl;
-					}
-					turno = !turno; //cambiar turno despues del movimiento
-					}
-					else {
-						mov_valido = moverPieza(cas_origen, cas_destino);
-						if (!mov_valido) {
-							cout << "Movimiento no valido, intenta de nuevo." << endl;
-							break;
-						}
-					}
-					if(mov_valido){
-						//Comprobar el jaque
+						// Comprobar el jaque
 						color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
 						if (jugada.jaque(colOponente, tablero)) {
 							std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
 							flagJaque = true; // Actualizar la flag de jaque
+
+							// Comprobar el jaque mate
+							if (jugada.jaque_mate(colOponente, tablero)) {
+								std::cout << "JAQUE MATE al rey " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
+								flagJaqueM = true; // Actualizar la flag de jaque
+								// Aquí se puede manejar el fin del juego
+							}else
+								flagJaqueM = false;
 						}
 						else {
 							flagJaque = false; // Si no hay jaque, resetear la flag
+							flagJaqueM = false;// Si no hay jaque mate, resetear la flag
 						}
 						turno = !turno; //Cambia el turno despues del movimiento
 					}
@@ -188,6 +180,10 @@ bool Tablero::getFlagJaque() {
 	return flagJaque;
 }
 
+bool Tablero::getFlagJaqueM() {
+	return flagJaqueM;
+}
+
 bool Tablero::getFlagEnroque() {
 	return flagEnroque;
 }
@@ -229,8 +225,8 @@ void Tablero::set_tablero() {
 	tablero[0][1] = new Caballo(tipo::caballo, color::blanco);
 	tablero[0][2] = new Arzobispo(tipo::arzobispo, color::blanco);
 	tablero[0][3] = new Alfil(tipo::alfil, color::blanco);
-	tablero[0][4] = new Rey(tipo::rey, color::blanco);
-	tablero[0][5] = new Reina(tipo::reina, color::blanco);
+	tablero[0][4] = new Reina(tipo::reina, color::blanco);
+	tablero[0][5] = new Rey(tipo::rey, color::blanco);
 	tablero[0][6] = new Alfil(tipo::alfil, color::blanco);
 	tablero[0][7] = new Canciller(tipo::canciller, color::blanco);
 	tablero[0][8] = new Caballo(tipo::caballo, color::blanco);
@@ -255,8 +251,8 @@ void Tablero::set_tablero() {
 	tablero[7][1] = new Caballo(tipo::caballo, color::negro);
 	tablero[7][2] = new Arzobispo(tipo::arzobispo, color::negro);
 	tablero[7][3] = new Alfil(tipo::alfil, color::negro);
-	tablero[7][4] = new Rey(tipo::rey, color::negro);
-	tablero[7][5] = new Reina(tipo::reina, color::negro);
+	tablero[7][4] = new Reina(tipo::reina, color::negro);
+	tablero[7][5] = new Rey(tipo::rey, color::negro);
 	tablero[7][6] = new Alfil(tipo::alfil, color::negro);
 	tablero[7][7] = new Canciller(tipo::canciller, color::negro);
 	tablero[7][8] = new Caballo(tipo::caballo, color::negro);
