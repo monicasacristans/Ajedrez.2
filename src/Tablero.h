@@ -12,14 +12,15 @@
 #include "Reina.h"
 #include "Rey.h"
 
-
+class GestionJugadas; // Declaración anticipada
 
 class Tablero {
 
 	Pieza *tablero[max_y][max_x];
 	std::vector<Pieza*> piezasB;
 	std::vector<Pieza*> piezasN;
-	std::vector<Pieza*> piezaseliminadas;
+	std::vector<Pieza*> piezasEliminadasB;
+	std::vector<Pieza*> piezasEliminadasN;
 
 	bool turno = true; //true BLANCAS,  false NEGRAS
 	bool flag = false;
@@ -39,6 +40,13 @@ public:
 	bool getFlagMovValido();
 	bool getFlagJaque();
 	bool getFlagJaqueM();
+
+	const std::vector<Pieza*>& getPiezasEliminadasB() const {
+		return piezasEliminadasB;
+	}
+	const std::vector<Pieza*>& getPiezasEliminadasN() const {
+		return piezasEliminadasN;
+	}
 
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	void realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino);

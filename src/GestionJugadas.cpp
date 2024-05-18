@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 casilla GestionJugadas::encontrarPosicionRey(color col, Pieza* tablero[max_y][max_x]) {
 	// Buscar la posición del rey del color dado en el tablero
 	for (int y = 0; y < max_y; y++) {
@@ -125,110 +124,45 @@ bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 
 }
 
+color GestionJugadas::peonFinal(casilla origen,Pieza* tablero[max_y][max_x]) {
 
-/*
-bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
-
-	casilla posRey = encontrarPosicionRey(col, tablero);
-
-	// Verificar primero si el rey está en jaque
-	if (jaque(col, tablero)==false) {
-		return false; // El rey no está en jaque, por lo tanto no hay jaque mate
-	}
-
-	for (int y = 0; y < max_y; ++y) {
-		for (int x = 0; x < max_x; ++x) {
-			if (tablero[y][x] != nullptr && tablero[y][x]->getColor() == col) {
-				// Obtener los movimientos válidos de la pieza actual
-				casilla origen = { x, y };
-				for (int destY = 0; destY < max_y; ++destY) {
-					for (int destX = 0; destX < max_x; ++destX) {
-						casilla destino = { destX, destY };
-						if (tablero[y][x]->movimientoValido(origen, destino, tablero)) {
-							// Intentar mover la pieza y verificar si el rey sigue en jaque
-							Pieza* piezaTemporal = tablero[destY][destX];
-							tablero[destY][destX] = tablero[y][x];
-							tablero[y][x] = nullptr;
-
-							bool sigueEnJaque = jaque(col,tablero);
-
-							// Deshacer el movimiento
-							tablero[y][x] = tablero[destY][destX];
-							tablero[destY][destX] = piezaTemporal;
-
-							if (!sigueEnJaque) {
-								return false; // Hay al menos un movimiento legal que evita el jaque mate
-							}
-						}
-					}
-				}
-			}
+	//for (int y = 0; y < max_y; y++) {
+		if (tablero[origen.y][7] != nullptr && tablero[origen.y][7]->getColor() == color::blanco && tablero[origen.y][7]->getTipo() == tipo::peon) {
+			return color::blanco;
 		}
-	}
-	cout << "REY EN JAQUE MATE" << endl;
-	return true; // No hay movimientos legales disponibles para evitar el jaque mate
-}
-*/
+	//}
 
-//bool GestionJugadas::getPromocion(color col) {
-//	for (int i = 0; i < max_y; i++) {
-//		for (int j = 0; j < max_x; j++) {
-//			if (tablero[i][j]->getTipo() == tipo::peon && tablero[i][j]->getColor() == col) {
-//				if (col == color::negro) {
-//					if (j == 0) {
-//						return true;
-//					}
-//				}
-//				if (col == color::blanco) {
-//					if (j == 9) {
-//						return true;
-//					}
-//				}
-//			}
-//		}
-//	}
-//}
-//
-//
-//void GestionJugadas::setPromocion(tipo t) {
-//	int pos_x_peon = 0;
-//	int pos_y_peon = 0;
-//	color col = color::negro;
-//	for (int i = 0; i < max_y; i++) {
-//		for (int j = 0; j < max_x; j++) {
-//			if (tablero[i][j]->getTipo() == tipo::peon && (j == 9 || j == 0)) {
-//				if (j == 0) {
-//					col = color::negro;
-//					pos_x_peon = i;
-//					pos_y_peon = j;
-//				}
-//				if (j == 9) {
-//					col = color::blanco;
-//					pos_x_peon = i;
-//					pos_y_peon = j;
-//				}
-//			}
-//		}
-//	}
-//	//delete[]tablero;
-//
-//	//~Tablero(tablero[pos_x_peon][pos_y_peon]);
-//	
-//
-//	if (t == tipo::alfil) {
-//		
-//		tablero[pos_x_peon][pos_y_peon] = new Alfil(tipo::alfil, col);
-//	}
-//	if (t == tipo::caballo) {
-//		tablero[pos_x_peon][pos_y_peon] = new Caballo(tipo::caballo, col);
-//	}
-//	if (t == tipo::torre) {
-//		tablero[pos_x_peon][pos_y_peon] = new Torre(tipo::torre, col);
-//	}
-//	if (t == tipo::reina) {
-//		tablero[pos_x_peon][pos_y_peon] = new Reina(tipo::reina, col);
-//	}
-//}
-//
-//
+	//for (int y = 0; y < max_y; y++) {
+		if (tablero[origen.y][0] != nullptr && tablero[origen.y][0]->getColor() == color::negro && tablero[origen.y][0]->getTipo() == tipo::peon) {
+			return color::negro;
+			//break; 
+		}
+	//}
+
+	return color::ninguno;
+
+
+}
+
+
+
+bool GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
+	
+	/*const std::vector<Pieza*>& negras = tablero->getPiezasEliminadasN();
+	const std::vector<Pieza*>& blancas = tab->getPiezasEliminadasB();*/
+	//casilla cas;
+	//Tablero* tab = nullptr;
+
+	if(peonFinal(cas, tablero) != color::ninguno) {
+		
+		for (auto a : tab->getPiezasEliminadasB()) {
+			cout << a << endl;
+		}
+		return true;
+	}
+	
+
+}
+
+
 

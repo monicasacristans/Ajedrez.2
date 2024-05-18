@@ -53,10 +53,12 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 	bool mov_valido = false;
 	
 	cout << piezasB.size() << " , " << piezasN.size() << endl;
+	//cout << piezaseliminadas.size() << endl;
 	//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
 	while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
 		if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
 			mov_valido = moverPieza(cas_origen, cas_destino);
+			cout << jugada.promocion(cas_origen,tablero);
 			if (!mov_valido) {
 				cout << "Movimiento no valido, intenta de nuevo." << endl;
 				break;
@@ -87,6 +89,7 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				if (flagJaque == true && jugada.sacardeJaque(colOponente, tablero) == true) {
 					break;
 				}
+				
 			}
 		}
 		break;
@@ -195,9 +198,13 @@ void Tablero::eliminarPieza(casilla destino) {
 
 		auto p = std::find(listapiezas.begin(), listapiezas.end(), piezaComida);
 
-		if (p != listapiezas.end()) {
+		if (p != listapiezas.end() && listapiezas ==piezasB) {
 			listapiezas.erase(p);
-			piezaseliminadas.push_back(piezaComida);
+			piezasEliminadasB.push_back(piezaComida);
+		}
+		else if (p != listapiezas.end() && listapiezas == piezasN) {
+			listapiezas.erase(p);
+			piezasEliminadasN.push_back(piezaComida);
 		}
 
 		delete piezaComida; // Eliminar la pieza del destino
@@ -205,23 +212,3 @@ void Tablero::eliminarPieza(casilla destino) {
 	}
 }
 
-//void Tablero::eliminarPieza(casilla origen, casilla destino) {
-//	// Mover la pieza
-//	Pieza* piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
-//	Pieza* piezaComida = tablero[destino.y][destino.x];
-//
-//	if (piezaMovida!=nullptr && (piezaMovida->movimientoValido(origen,destino, tablero))== true) {
-//		if (piezaComida != nullptr) {
-//
-//			auto& listapiezas = (piezaComida->getColor() == color::blanco) ? piezasB : piezasN;
-//
-//			auto p = std::find(listapiezas.begin(), listapiezas.end(), piezaComida);
-//
-//			if (p != listapiezas.end()) {
-//				listapiezas.erase(p);
-//				piezaseliminadas.push_back(piezaComida);
-//			}
-//		}
-//		delete[] tablero[destino.y][destino.x];
-//	}
-//}
