@@ -1,6 +1,5 @@
 #include "Pieza.h"
 
-
 tipo Pieza::getTipo() {
 	return tipoPieza;
 }
@@ -8,7 +7,6 @@ tipo Pieza::getTipo() {
 color Pieza::getColor() {
 	return colorPieza;
 }
-
 
 int Pieza::getFila() {
 	return fila;

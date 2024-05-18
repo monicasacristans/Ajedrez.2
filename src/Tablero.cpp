@@ -14,29 +14,6 @@ Tablero::Tablero() {
 
 Tablero::~Tablero(){}
 
-//bool Tablero::eliminarPiezaT(int x, int y) {
-//	if (x < 0 || x >= max_x || y < 0 || y >= max_y) {
-//		std::cout << "Posición fuera de los límites del tablero." << std::endl;
-//		return false;
-//	}
-//
-//	// Obtener la pieza en la posición (x, y)
-//	Pieza* piezaEliminada = tablero[y][x];
-//
-//	if (piezaEliminada == nullptr) {
-//		std::cout << "No hay ninguna pieza en la posición especificada." << std::endl;
-//		return false;
-//	}
-//
-//	// Eliminar la pieza del tablero (asignar nullptr a la casilla)
-//	tablero[y][x] = nullptr;
-//
-//	// Agregar la pieza eliminada a la lista de piezas eliminadas
-//	piezaseliminadas.push_back(piezaEliminada);
-//
-//	std::cout << "Pieza eliminada del tablero y agregada a la lista de piezas eliminadas." << std::endl;
-//	return true;
-//}
 void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
 	Pieza* p = checkPiezaEnCasilla(cas_origen);
@@ -72,7 +49,6 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 	}
 }
 
-
 void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino) {
 	bool mov_valido = false;
 	
@@ -88,13 +64,13 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 			else {
 				// Comprobar el jaque
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
-				if (jugada.jaque(colOponente, tablero)) {
+				if (jugada.jaque(colOponente, tablero) == true) {
 					std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
 					flagJaque = true; // Actualizar la flag de jaque
-
+		
 					// Comprobar el jaque mate
-					if (jugada.jaque_mate(colOponente, tablero)) {
-						std::cout << "JAQUE MATE al rey " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
+					if (jugada.jaque_mate(colOponente, tablero) == true) {
+						std::cout << "JAQUE MATE" << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
 						flagJaqueM = true; // Actualizar la flag de jaque
 						// Aquí se puede manejar el fin del juego
 					}
@@ -106,10 +82,14 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					flagJaqueM = false;// Si no hay jaque mate, resetear la flag
 				}
 				turno = !turno; //Cambia el turno despues del movimiento
+
+				//Comprobar si se saca del jaque al rey
+				if (flagJaque == true && jugada.sacardeJaque(colOponente, tablero) == true) {
+					break;
+				}
 			}
 		}
 		break;
-
 	}
 }
 
@@ -119,6 +99,7 @@ bool Tablero::moverPieza(casilla origen, casilla destino) {
 	Pieza* piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
 
 	if (piezaMovida->movimientoValido(origen, destino, tablero) == true) {
+		eliminarPieza(destino);
 		tablero[destino.y][destino.x] = piezaMovida; // Colocar la pieza en la casilla de destino
 		tablero[origen.y][origen.x] = nullptr; // Dejar la casilla de origen vacía
 		cout << "Movimiento realizado de (" << origen.x << ", " << origen.y << ") a (" << destino.x << ", " << destino.y << ")" << endl;
@@ -130,8 +111,6 @@ bool Tablero::moverPieza(casilla origen, casilla destino) {
 		flagMovInvalido = true;
 		return false;
 	}
-
-	//comer
 }
 
 bool Tablero::getTurno() {
@@ -146,6 +125,10 @@ bool Tablero::getFlagJaque() {
 	return flagJaque;
 }
 
+bool Tablero::getFlagJaqueM() {
+	return flagJaqueM;
+}
+
 Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
 
 	if (pos.x >= 0 && pos.x < max_x && pos.y >= 0 && pos.y < max_y) { //Comprueba que estamos dentro del tablero
@@ -158,7 +141,6 @@ Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
 }
 
 void Tablero::set_tablero() {
-
 	//Iniciar todo el tablero a nullptr
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
@@ -182,9 +164,6 @@ void Tablero::set_tablero() {
 		piezasB.push_back(tablero[0][i]);
 		piezasB.push_back(tablero[1][i]);
 	}
-
-	
-
 	//Peones negros
 	for (int i = 0; i < 10; i++) {
 		tablero[6][i] = new Peon(tipo::peon, color::negro);
@@ -206,26 +185,43 @@ void Tablero::set_tablero() {
 		piezasN.push_back(tablero[6][i]);
 		piezasN.push_back(tablero[7][i]);
 	}
-
 }
 
-void Tablero::eliminarPieza(casilla origen, casilla destino) {
-	// Mover la pieza
-	Pieza* piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
+void Tablero::eliminarPieza(casilla destino) {
 	Pieza* piezaComida = tablero[destino.y][destino.x];
 
-	if (piezaMovida!=nullptr && (piezaMovida->movimientoValido(origen,destino, tablero))== true) {
-		if (piezaComida != nullptr) {
+	if (piezaComida != nullptr) {
+		auto& listapiezas = (piezaComida->getColor() == color::blanco) ? piezasB : piezasN;
 
-			auto& listapiezas = (piezaComida->getColor() == color::blanco) ? piezasB : piezasN;
+		auto p = std::find(listapiezas.begin(), listapiezas.end(), piezaComida);
 
-			auto p = std::find(listapiezas.begin(), listapiezas.end(), piezaComida);
-
-			if (p != listapiezas.end()) {
-				listapiezas.erase(p);
-				piezaseliminadas.push_back(*p);
-			}
+		if (p != listapiezas.end()) {
+			listapiezas.erase(p);
+			piezaseliminadas.push_back(piezaComida);
 		}
-		delete[] tablero[destino.y][destino.x];
+
+		delete piezaComida; // Eliminar la pieza del destino
+		tablero[destino.y][destino.x] = nullptr; // Marcar la casilla de destino como vacía
 	}
 }
+
+//void Tablero::eliminarPieza(casilla origen, casilla destino) {
+//	// Mover la pieza
+//	Pieza* piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
+//	Pieza* piezaComida = tablero[destino.y][destino.x];
+//
+//	if (piezaMovida!=nullptr && (piezaMovida->movimientoValido(origen,destino, tablero))== true) {
+//		if (piezaComida != nullptr) {
+//
+//			auto& listapiezas = (piezaComida->getColor() == color::blanco) ? piezasB : piezasN;
+//
+//			auto p = std::find(listapiezas.begin(), listapiezas.end(), piezaComida);
+//
+//			if (p != listapiezas.end()) {
+//				listapiezas.erase(p);
+//				piezaseliminadas.push_back(piezaComida);
+//			}
+//		}
+//		delete[] tablero[destino.y][destino.x];
+//	}
+//}

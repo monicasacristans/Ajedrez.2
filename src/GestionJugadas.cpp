@@ -44,6 +44,45 @@ bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 	return false; // El rey no está en jaque
 }
 
+bool GestionJugadas::sacardeJaque(color col, Pieza* tablero[max_y][max_x]) {
+	if (jaque(col, tablero) == true) {
+		//Recorre todas las piezas del tablero
+		for (int y = 0; y < max_y; y++) {
+			for (int x = 0; x < max_x; x++) {
+				Pieza* pieza = tablero[y][x];
+				if (pieza != nullptr && pieza->getColor() == col) {
+					casilla origen = { x, y };
+
+					// Verificar si la pieza puede moverse a una casilla para proteger al rey
+					for (int yDest = 0; yDest < max_y; yDest++) {
+						for (int xDest = 0; xDest < max_x; xDest++) {
+							casilla destino = { xDest, yDest };
+							if (pieza->movimientoValido(origen, destino, tablero)) {
+								// Simular el movimiento para comprobar si saca al rey del jaque
+								Pieza* piezaDestino = tablero[yDest][xDest];
+								tablero[yDest][xDest] = pieza;
+								tablero[y][x] = nullptr;
+
+								if (jaque(col, tablero) == false) {
+									// Restaurar el estado original del tablero
+									tablero[y][x] = pieza;
+									tablero[yDest][xDest] = piezaDestino;
+									return true; // Se encontró una pieza que puede sacar al rey de jaque
+								}
+
+								// Restaurar el estado original del tablero
+								tablero[y][x] = pieza;
+								tablero[yDest][xDest] = piezaDestino;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	return false;
+}
+
 
 bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 	// Primero, verificar si el rey esta en jaque

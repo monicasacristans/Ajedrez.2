@@ -468,6 +468,7 @@ void Usuario::dibuja() {
 		miPintura.pintarCorona();
 		miPintura.pintarError();
 		miPintura.pintarJaque();
+		miPintura.pintarJaqueM();
 	}
 
 	if (estado == OP) {

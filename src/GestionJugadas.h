@@ -7,6 +7,7 @@ public:
 	GestionJugadas(){};
 	//JAQUE 
 	bool jaque(color col, Pieza* tablero[max_y][max_x]);
+	bool sacardeJaque(color col, Pieza* tablero[max_y][max_x]);
 	//JAQUE MATE
 	//bool piezaAmenazada(casilla pos, color col);
 	bool jaque_mate(color col, Pieza* tablero[max_y][max_x]);

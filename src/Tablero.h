@@ -38,13 +38,15 @@ public:
 	bool getTurno();
 	bool getFlagMovValido();
 	bool getFlagJaque();
+	bool getFlagJaqueM();
 
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	void realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino);
 	Pieza* checkPiezaEnCasilla(casilla pos);
 
 	//ELIMINAR PIEZA
-	void eliminarPieza(casilla origen, casilla destino);
+	//void eliminarPieza(casilla origen, casilla destino);
+	void eliminarPieza(casilla destino);
 
 	virtual bool moverPieza(casilla origen, casilla destino);
 };

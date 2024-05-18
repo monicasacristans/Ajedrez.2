@@ -58,5 +58,5 @@ public:
 	void pintarCorona();
 	void pintarError();
 	void pintarJaque();
-
+	void pintarJaqueM();
 };

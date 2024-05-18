@@ -50,51 +50,6 @@ casilla Pintar::restringirCasilla(int x, int y) {
 
     return pix;
 }
-/////////////////CASILLA LEGAL/////////////////
-//void Pintar::pintarCasillaLegal() {
-//    // Obtener las casillas legales desde el tablero
-//    vector<casilla> casillasLegales = tablero->calcularCasillasLegales();
-//
-//    // Iterar sobre las casillas legales y dibujar la imagen en cada una
-//    for (const auto& casilla : casillasLegales) {
-//        // Calcular las coordenadas de la casilla en la pantalla
-//        int angx = calcularCoordenadaX(casilla.x);
-//        int angy = calcularCoordenadaY(casilla.y);
-//
-//        // Dibujar la imagen de casilla_legal en la posición (x, y)
-//        casilla_legal.setPos(angx, angy);
-//        casilla_legal.draw();  // Ajusta el método draw según tu implementación
-//    }
-//}
-//
-//
-/////////////////CASILLA LEGAL/////////////////
-//int Pintar::calcularCoordenadaX(int casillaX) const {
-//    // Tamaño de cada casilla en la pantalla (en píxeles)
-//    int tamanoCasilla = 81; // Este valor debe ajustarse según tu implementación
-//
-//    // Desplazamiento inicial en X (posición de la esquina superior izquierda del tablero en la pantalla)
-//    int offsetX = 320; // Ajusta este valor según tu diseño de la pantalla
-//
-//    // Calcula la coordenada X en la pantalla para la casilla con coordenada X = casillaX
-//    int coordenadaX = offsetX + casillaX * tamanoCasilla;
-//
-//    return coordenadaX;
-//}
-/////////////////CASILLA LEGAL/////////////////
-//int Pintar::calcularCoordenadaY(int casillaY) const {
-//    // Tamaño de cada casilla en la pantalla (en píxeles)
-//    int tamanoCasilla = 81; // Este valor debe ajustarse según tu implementación
-//
-//    // Desplazamiento inicial en X (posición de la esquina superior izquierda del tablero en la pantalla)
-//    int offsetY = 100; // Ajusta este valor según tu diseño de la pantalla
-//
-//    // Calcula la coordenada X en la pantalla para la casilla con coordenada X = casillaX
-//    int coordenadaY = offsetY + casillaY * tamanoCasilla;
-//
-//    return coordenadaY;
-//}
-
 
 void Pintar::pintarPiezasTablero() {
 
@@ -203,7 +158,6 @@ void Pintar::pintarCorona() {
     }
 }
 
-
 void Pintar::pintarError() {
 
     if (tablero->getFlagMovValido() == true) {    //Si es 1, el mov no es valido, salta error
@@ -223,3 +177,14 @@ void Pintar::pintarJaque() {
         printxy("JAQUE", 60, 620);
     }
 }
+
+void Pintar::pintarJaqueM() {
+
+    if (tablero->getFlagJaqueM() == true) {
+        setTextColor(255, 0, 0);
+        setFont("bin/fuentes/Bitwise.ttf", 40);
+        printxy("JAQUE", 60, 620);
+        printxy("MATE", 68, 570);
+    }
+}
+
