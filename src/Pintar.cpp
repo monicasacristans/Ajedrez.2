@@ -236,6 +236,16 @@ void Pintar::pintarJaque() {
     }
 }
 
+void Pintar::pintarJaqueM() {
+
+    if (tablero->getFlagJaqueM() == true) {
+        setTextColor(255, 0, 0);
+        setFont("bin/fuentes/Bitwise.ttf", 40);
+        printxy("JAQUE", 60, 620);
+        printxy("MATE", 60, 620);
+    }
+}
+
 void Pintar::pintarEnroque() {
     if (tablero->getFlagEnroque()==true) {
         setTextColor(255, 0, 0);
