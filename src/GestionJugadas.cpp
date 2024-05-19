@@ -140,9 +140,9 @@ bool GestionJugadas::peonFinal(casilla origen) {
 void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
 	
 	Pieza* p = tablero[cas.y][cas.x];
-	auto& listapiezas = (p->getColor() == color::blanco) ? tab->getPiezasEliminadasN() : tab->getPiezasEliminadasB();
+	auto& listapiezas = (p->getColor() == color::blanco) ? tab->getPiezasEliminadasB() : tab->getPiezasEliminadasN();
 
-	cout << tab->getPiezasEliminadasB().size();
+	cout << tab->getPiezasEliminadasN().size();
 	// Solicitar al usuario que elija una pieza para la promoción
 	std::cout << "Piezas disponibles para la promoción: " << std::endl;
 	int i = 1;
@@ -155,7 +155,7 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
 		cout << "Elige una nueva pieza para la promocion del peon:" << endl;
 		cout << "1-Reina\n 2-Torre\n 3-Alfil\n 4-Caballo\n 5-Canciller\n6-Arzobispo\n";
 		Pieza* nuevaPieza = nullptr;
-
+		cin >> eleccion;
 		switch (eleccion) {
 		case 1:
 			nuevaPieza = new Reina(tipo::reina, p->getColor());
