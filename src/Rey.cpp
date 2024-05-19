@@ -11,7 +11,8 @@ bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y
 
     if ((movX == 1 && movY == 0) ||         // Movimiento vertical
         (movX == 0 && movY == 1) ||         // Movimiento horizontal
-        (movX == 1 && movY == 1)) {         // Movimiento diagonal
+        (movX == 1 && movY == 1)||// Movimiento diagonal
+        (movX == 0 && movY == 0)) {         // posicion actual sin moverse
         
         if (tablero[destino.y][destino.x] != nullptr) {
             if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
@@ -22,11 +23,11 @@ bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y
                 return false; // Movimiento inválido (pieza del mismo color en el destino)
             }
         }
+        else {
+            marcarComoMovido();
+            return true;
+        }
     }
 
-    else {
-        return false;
-    }
-
-    return true; 
+    return false;
 }

@@ -3,6 +3,7 @@
 #include "Tablero.h"
 
 class GestionJugadas {
+
 public:
 	GestionJugadas(){};
 	//JAQUE 
@@ -16,4 +17,8 @@ public:
 		//promocion
 	bool getPromocion(color col);
 	void setPromocion(tipo t);
+
+	
+	
+	
 };

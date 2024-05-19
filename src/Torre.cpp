@@ -16,36 +16,50 @@ bool Torre::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max
 
 	//Movimiento horizontal
 	if (origen.x == destino.x) {
-		
-		if (tablero[destino.y][destino.x] != nullptr) {
-			if(tablero[destino.y][destino.x]->getColor() != this->getColor()){
-				
+	//	
+	//	if (tablero[destino.y][destino.x] != nullptr) {
+	//		if(tablero[destino.y][destino.x]->getColor() != this->getColor()){
+	//			
 				for (int i = origen.y + movY; i != destino.y; i += movY) {
-					if (tablero[i][origen.x] != nullptr) {
-						return false;	// Hay una pieza en el camino
+				if (tablero[i][origen.x] != nullptr) {
+					return false;	// Hay una pieza en el camino
 					}
-				}
 			}
-			else {
-				return false;
 			}
-		}
-	}
+	//		else {
+	//			return false;
+	//		}
+	//	}
+	//}
 	//Movimiento vertical
 	else if (origen.y == destino.y) {
 
-		if (tablero[destino.y][destino.x] != nullptr) {
-			if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
-				
+	//	if (tablero[destino.y][destino.x] != nullptr) {
+	//		if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
+	//			
 				for (int j = origen.x + movX; j != destino.x; j += movX) {
 					if (tablero[origen.y][j] != nullptr) {
 						return false;	// Hay una pieza en el camino
 					}
 				}
 			}
-			else {
-				return false;
-			}
+
+	// Verificar la casilla de destino
+	if (tablero[destino.y][destino.x] != nullptr) {
+		if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
+			return true; // Comer pieza del oponente
+		}
+		else {
+			return false; // Movimiento inválido (pieza del mismo color en el destino)
 		}
 	}
+
+	return true; // Movimiento válido (casilla vacía)
+	//		else {
+	//			return false;
+	//		}
+	//	}
+	//}
 }
+
+

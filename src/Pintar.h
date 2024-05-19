@@ -8,7 +8,6 @@ using namespace ETSIDI;
 class Pintar {
 
 	Tablero* tablero = nullptr;
-
 	// Dimensiones del tablero
 	int anchoTablero = 10 * 80;
 	int altoTablero = 8 * 80;

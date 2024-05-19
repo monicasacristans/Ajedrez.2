@@ -41,6 +41,72 @@ bool Tablero::eliminarPiezaT(int x, int y) {
 	return true;
 }
 
+
+
+//void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
+//	Pieza* p = checkPiezaEnCasilla(cas_origen);
+//	static int click = 0;
+//
+//	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+//		int columna = (x - 283) / 80;
+//		int fila = (y - 64) / 80;
+//		click++;
+//
+//		if (columna < 0 || columna >= 10 || fila < 0 || fila >= 8) {
+//			cout << "Clic fuera de los limites del tablero." << endl;
+//			click = 0;
+//			return;
+//		}
+//
+//		if (!flag && click == 1) {
+//			cas_origen = { columna, fila };
+//			flag = true;
+//			cout << "Casilla de origen: (" << cas_origen.x << ", " << cas_origen.y << ")" << endl;
+//		}
+//		else if (click == 2) {
+//			cas_destino = { columna, fila };
+//			cout << "Casilla de destino: (" << cas_destino.x << ", " << cas_destino.y << ")" << endl;
+//			flag = false;
+//			click = 0;
+//
+//			bool mov_valido = false;
+//			Pieza* p = checkPiezaEnCasilla(cas_origen);
+//
+//			if (p != nullptr && ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false))) {
+//				if (p->getTipo() == tipo::rey && abs(cas_destino.x - cas_origen.x) == 4) {
+//					mov_valido = jugada.enroque(cas_origen, cas_destino, tablero);
+//					if (mov_valido) {
+//						flagEnroque = true;
+//						cout << "ENROQUE REALIZADO CORRECTAMENTE" << endl;
+//					}
+//					else {
+//						flagEnroque = false;
+//						cout << "ENROQUE NO VALIDO INTENTA DE NUEVO" << endl;
+//					}
+//				}
+//				else {
+//					mov_valido = moverPieza(cas_origen, cas_destino);
+//					if (!mov_valido) {
+//						cout << "Movimiento no valido, intenta de nuevo." << endl;
+//					}
+//				}
+//
+//				if (mov_valido) {
+//					color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
+//					if (jugada.jaque(colOponente, tablero)) {
+//						cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << endl;
+//						flagJaque = true;
+//					}
+//					else {
+//						flagJaque = false;
+//					}
+//					turno = !turno;
+//				}
+//			}
+//		}
+//	}
+//}
+
 void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
 	Pieza* p = checkPiezaEnCasilla(cas_origen);
@@ -64,7 +130,7 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			flag = true;
 			cout << "Casilla de origen: (" << cas_origen.x << ", " << cas_origen.y << ")" << endl;
 		}
-		else if(click == 3){
+		else if(click == 3){ 
 			cas_destino = { columna, fila };
 			if (cas_origen.x == cas_destino.x && cas_origen.y == cas_destino.y) {
 				cout << "Origen y destino son iguales, seleccione otra casilla." <<endl;
@@ -81,7 +147,7 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
 					
 					//primero compruebo el enroque
-					if (p->getTipo() == tipo::rey && abs(cas_destino.x - cas_origen.x) == 2) {
+					if (p->getTipo() == tipo::rey && abs(cas_destino.x - cas_origen.x) == 4) {
 					mov_valido = jugada.enroque(cas_origen, cas_destino, tablero);
 					if (!mov_valido) {
 						flagEnroque = true;

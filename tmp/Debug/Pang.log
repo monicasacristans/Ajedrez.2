@@ -1,1 +1,3 @@
-﻿  Pang.vcxproj -> C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\bin\Pang.exe
+﻿  Tablero.cpp
+C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\src\Tablero.cpp(16,17): warning C4154: eliminación de una expresión de matriz; suministrada una conversión a puntero
+  Pang.vcxproj -> C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\bin\Pang.exe
