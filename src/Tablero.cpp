@@ -66,7 +66,7 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				break;
 			}
 			else {
-				//comprobar promocion if (jugada.peonFinal(cas_origen) == true) {
+				//comprobar promocion 
 				if(jugada.peonFinal(cas_destino)==true && p->getTipo()==tipo::peon){
 					mijugada.promocion(cas_destino, tablero);
 					break;
@@ -75,28 +75,33 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
 				if (jugada.jaque(colOponente, tablero) == true) {
 					std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
-					flagJaque = true; // Actualizar la flag de jaque
-		
-					// Comprobar el jaque mate
+					flagJaque = true;
+
+					// Verificar jaque mate
 					if (jugada.jaque_mate(colOponente, tablero) == true) {
-						std::cout << "JAQUE MATE" << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
-						flagJaqueM = true; // Actualizar la flag de jaque
-						// Aquí se puede manejar el fin del juego
+						std::cout << "JAQUE MATE " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
+						flagJaqueM = true;
+						// Manejar el fin del juego
 					}
-					else
+					else {
 						flagJaqueM = false;
+					}
 				}
 				else {
-					flagJaque = false; // Si no hay jaque, resetear la flag
-					flagJaqueM = false;// Si no hay jaque mate, resetear la flag
+					flagJaque = false;
 				}
-				turno = !turno; //Cambia el turno despues del movimiento
 
-				//Comprobar si se saca del jaque al rey
-				if (flagJaque == true && jugada.sacardeJaque(colOponente, tablero) == true) {
-					break;
+				// Verificar si se saca al rey del jaque
+				if (flagJaque == true && jugada.sacardeJaque(colOponente, tablero) == false) {
+					cout << "Movimiento no valido, el rey sigue en jaque." << endl;
+					//// Revertir el movimiento
+					tablero[cas_origen.y][cas_origen.x] = p;
+					tablero[cas_destino.y][cas_destino.x] = nullptr;
+					return;
 				}
-				
+
+				// Si el movimiento es válido y saca al rey del jaque, cambiar el turno
+				turno = !turno;
 			}
 		}
 		break;

@@ -435,7 +435,7 @@ void Usuario::dibuja() {
 
 		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 		setFont("bin/fuentes/Bitwise.ttf", 80);
-		printxy("CHEST GAME", 300, 525);
+		printxy("CHESS GAME", 300, 525);
 		setTextColor(1, 1, 1);
 		setFont("bin/fuentes/Bitwise.ttf", 60);
 

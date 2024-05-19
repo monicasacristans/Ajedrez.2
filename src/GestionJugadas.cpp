@@ -14,9 +14,6 @@ casilla GestionJugadas::encontrarPosicionRey(color col, Pieza* tablero[max_y][ma
 	return { -1, -1 }; // Retornar posición inválida si no se encuentra el rey
 }
 
-
-
-
 //en un turno, has de comprobar si puedes hacer jaque al rival
 bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 	//ENCONTRAR AL REY 
@@ -56,22 +53,21 @@ bool GestionJugadas::sacardeJaque(color col, Pieza* tablero[max_y][max_x]) {
 					for (int yDest = 0; yDest < max_y; yDest++) {
 						for (int xDest = 0; xDest < max_x; xDest++) {
 							casilla destino = { xDest, yDest };
-							if (pieza->movimientoValido(origen, destino, tablero)) {
+							if (pieza->movimientoValido(origen, destino, tablero) == true) {
 								// Simular el movimiento para comprobar si saca al rey del jaque
 								Pieza* piezaDestino = tablero[yDest][xDest];
 								tablero[yDest][xDest] = pieza;
 								tablero[y][x] = nullptr;
 
-								if (jaque(col, tablero) == false) {
-									// Restaurar el estado original del tablero
-									tablero[y][x] = pieza;
-									tablero[yDest][xDest] = piezaDestino;
-									return true; // Se encontró una pieza que puede sacar al rey de jaque
-								}
+								bool estaEnJaque = jaque(col, tablero);
 
 								// Restaurar el estado original del tablero
 								tablero[y][x] = pieza;
 								tablero[yDest][xDest] = piezaDestino;
+
+								if (!estaEnJaque) {
+									return true; // Se encontró una pieza que puede sacar al rey de jaque
+								}
 							}
 						}
 					}
@@ -106,7 +102,7 @@ bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 			tablero[movimiento.y][movimiento.x] = tablero[posRey.y][posRey.x];
 			tablero[posRey.y][posRey.x] = nullptr;
 
-			if (jaque(col, tablero) == false) {
+			if (jaque(col, tablero) == true) {
 				// Restaurar el movimiento y retornar falso
 				tablero[posRey.y][posRey.x] = tablero[movimiento.y][movimiento.x];
 				tablero[movimiento.y][movimiento.x] = piezaDestino;
