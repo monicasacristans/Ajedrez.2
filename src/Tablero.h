@@ -48,6 +48,15 @@ public:
 		return piezasEliminadasN;
 	}
 
+	std::vector<Pieza*>& inicializarvector() {
+
+		for (int pieza = 0; pieza < 20; pieza++) {
+			piezasEliminadasB[pieza] = nullptr;
+		}
+		for (int pieza = 0; pieza < 20; pieza++) {
+			piezasEliminadasN[pieza] = nullptr;
+		}
+	}
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	void realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino);
 	Pieza* checkPiezaEnCasilla(casilla pos);

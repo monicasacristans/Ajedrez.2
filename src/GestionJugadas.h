@@ -9,6 +9,7 @@ class GestionJugadas {
 	Tablero* tab = nullptr ;
 public:
 	//GestionJugadas(Tablero *miTablero):tab(miTablero){};
+	GestionJugadas() {};
 	GestionJugadas(Tablero *miTablero):tab(miTablero) {};
 	
 	//JAQUE 
@@ -21,8 +22,8 @@ public:
 	//bool estaEnJaque(color col);
 
 	//promocion
-	color peonFinal(casilla origen, Pieza* tablero[max_y][max_x]);
-	bool promocion(casilla cas, Pieza* tablero[max_y][max_x]);
+	bool peonFinal(casilla origen);
+	void promocion(casilla cas, Pieza* tablero[max_y][max_x]);
 
 	friend class Tablero;
 };

@@ -124,45 +124,70 @@ bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 
 }
 
-color GestionJugadas::peonFinal(casilla origen,Pieza* tablero[max_y][max_x]) {
+bool GestionJugadas::peonFinal(casilla origen) {
 
-	//for (int y = 0; y < max_y; y++) {
-		if (tablero[origen.y][7] != nullptr && tablero[origen.y][7]->getColor() == color::blanco && tablero[origen.y][7]->getTipo() == tipo::peon) {
-			return color::blanco;
-		}
-	//}
-
-	//for (int y = 0; y < max_y; y++) {
-		if (tablero[origen.y][0] != nullptr && tablero[origen.y][0]->getColor() == color::negro && tablero[origen.y][0]->getTipo() == tipo::peon) {
-			return color::negro;
-			//break; 
-		}
-	//}
-
-	return color::ninguno;
-
-
-}
-
-
-
-bool GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
-	
-	/*const std::vector<Pieza*>& negras = tablero->getPiezasEliminadasN();
-	const std::vector<Pieza*>& blancas = tab->getPiezasEliminadasB();*/
-	//casilla cas;
-	//Tablero* tab = nullptr;
-
-	if(peonFinal(cas, tablero) != color::ninguno) {
-		
-		for (auto a : tab->getPiezasEliminadasB()) {
-			cout << a << endl;
-		}
+	if (origen.y == 7 ||origen.y == 0) {
 		return true;
 	}
+	else {
+		return false;
+	}
 	
-
 }
+
+
+
+void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
+	
+	Pieza* p = tablero[cas.y][cas.x];
+	auto& listapiezas = (p->getColor() == color::blanco) ? tab->getPiezasEliminadasN() : tab->getPiezasEliminadasB();
+
+	cout << tab->getPiezasEliminadasB().size();
+	// Solicitar al usuario que elija una pieza para la promoción
+	std::cout << "Piezas disponibles para la promoción: " << std::endl;
+	int i = 1;
+		for (Pieza* pieza: listapiezas) {
+			std::cout <<i<<": "<< pieza << " , " << std::endl;
+			i++;
+		}
+
+		int eleccion = 0;
+		cout << "Elige una nueva pieza para la promocion del peon:" << endl;
+		cout << "1-Reina\n 2-Torre\n 3-Alfil\n 4-Caballo\n 5-Canciller\n6-Arzobispo\n";
+		Pieza* nuevaPieza = nullptr;
+
+		switch (eleccion) {
+		case 1:
+			nuevaPieza = new Reina(tipo::reina, p->getColor());
+			break;
+		case 2:
+			nuevaPieza = new Torre(tipo::torre, p->getColor());
+			break;
+		case 3:
+			nuevaPieza = new Alfil(tipo::alfil, p->getColor());
+			break;
+		case 4:
+			nuevaPieza = new Caballo(tipo::caballo, p->getColor());
+			break;
+		case 5:
+			nuevaPieza = new Canciller(tipo::canciller, p->getColor());
+			break;
+		case 6:
+			nuevaPieza = new Arzobispo(tipo::arzobispo, p->getColor());
+			break;
+		default:
+			break;
+		}
+
+		if (nuevaPieza != NULL) {
+			tablero[cas.y][cas.x] = nuevaPieza;
+			delete p; //elimino el peon
+		}
+		
+	
+}
+
+
 
 
 

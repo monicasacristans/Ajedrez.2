@@ -51,19 +51,26 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
 void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino) {
 	bool mov_valido = false;
-	
+	Tablero tab;
+	GestionJugadas mijugada(&tab);
+
 	cout << piezasB.size() << " , " << piezasN.size() << endl;
 	//cout << piezaseliminadas.size() << endl;
 	//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
 	while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
 		if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
 			mov_valido = moverPieza(cas_origen, cas_destino);
-			cout << jugada.promocion(cas_origen,tablero);
+			cout << piezasEliminadasB.size() << ", " << piezasEliminadasN.size() << endl;	
 			if (!mov_valido) {
 				cout << "Movimiento no valido, intenta de nuevo." << endl;
 				break;
 			}
 			else {
+				//comprobar promocion if (jugada.peonFinal(cas_origen) == true) {
+				if(jugada.peonFinal(cas_destino)==true && p->getTipo()==tipo::peon){
+					mijugada.promocion(cas_destino, tablero);
+					break;
+				}
 				// Comprobar el jaque
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
 				if (jugada.jaque(colOponente, tablero) == true) {
