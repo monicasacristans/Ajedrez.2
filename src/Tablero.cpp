@@ -75,45 +75,37 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					flagPromocion = true;
 					//break;
 				}
-				// Comprobar el jaque
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
+				// Verificar jaque mate
 				if (mijugada.jaque(colOponente, tablero) == true) {
-					std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
+					std::cout <<  "REY" << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
 					flagJaque = true;
+					return;
 
-					while(mijugada.piezaSacaReyDeJaque(colOponente, tablero) == false) {
-						cout << "Movimiento no valido, el rey sigue en jaque." << endl;
-						mov_valido = moverPieza(cas_origen, cas_destino);
-						flagJaque = true;
-						break;
-					}
-
-					// Verificar jaque mate
 					if (mijugada.jaque_mate(colOponente, tablero) == true) {
-						std::cout << "JAQUE MATE " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
-						flagJaqueM = true;
-						// Manejar el fin del juego
-					}
-					
-					else {
-						flagJaqueM = false;
+						// Verificar jaque 
+						std::cout << "JAQUE MATE AL REY" << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
+						flagJaqueM = true;// Fin del juego
 					}
 				}
 				else {
 					flagJaque = false;
 					flagJaqueM = false;
 				}
-
-				// Verificar si se saca al rey del jaque
-				//if (flagJaque == true && mijugada.piezaSacaReyDeJaque(colOponente, tablero) == false) {
-				//	cout << "Movimiento no valido, el rey sigue en jaque." << endl;
-				//	
-				//	return;
-				//}
-
-				// Si el movimiento es válido y saca al rey del jaque, cambiar el turno
-				turno = !turno;
+					
+				// Verificar si el movimiento saca al rey del jaque
+				color colJugador = p->getColor();
+				if (mijugada.jaque(colJugador, tablero) == true) {
+					if (mijugada.piezaSacaReyDeJaque(colJugador, tablero) == false) {
+						cout << "Movimiento no valido, el rey sigue en jaque." << endl;
+						// Revertir el movimiento
+						tablero[cas_origen.y][cas_origen.x] = p;
+						tablero[cas_destino.y][cas_destino.x] = nullptr;
+					}
+				}
 			}
+
+			turno = !turno;
 		}
 		break;
 	}

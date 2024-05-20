@@ -61,14 +61,17 @@ bool GestionJugadas::piezaSacaReyDeJaque(color col, Pieza* tablero[max_y][max_x]
 								tablero[yDest][xDest] = pieza;
 								tablero[y][x] = nullptr;
 
-								bool estaEnJaque = jaque(col, tablero);
+								bool estaEnJaque = !jaque(col, tablero);
 
 								// Restaurar el estado original del tablero
 								tablero[y][x] = pieza;
 								tablero[yDest][xDest] = piezaDestino;
 
-								if (!estaEnJaque) {
+								if (estaEnJaque) {
 									return true; // Se encontró una pieza que puede sacar al rey de jaque
+								}
+								else {
+									return false;// No se encontró una pieza que puede sacar al rey de jaque
 								}
 							}
 						}
@@ -77,7 +80,6 @@ bool GestionJugadas::piezaSacaReyDeJaque(color col, Pieza* tablero[max_y][max_x]
 			}
 		}
 	}
-	return false;
 }
 
 //Lo hago yo (moni), mañana martes está
@@ -88,7 +90,7 @@ bool GestionJugadas::reySaleDeJaque() {
 
 
 bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
-	// Primero, verificar si el rey esta en jaque
+	//Primero, verificar si el rey esta en jaque
 	if (jaque(col, tablero) == false) {
 		return false; // Si no esta en jaque, no puede estar en jaque mate
 	}
