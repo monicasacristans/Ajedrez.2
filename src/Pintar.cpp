@@ -189,16 +189,19 @@ void Pintar::pintarJaqueM() {
 }
 
 //Lo hago yo (moni), mañana martes está
-/*
+
 void Pintar::pintarPromocion() {
 
     if (tablero->getFlagPromocion() == true) {
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+        
+        glColor3f(1.0f, 0.0f, 0.0f);
         glBegin(GL_POLYGON);
-        glVertex2f(offsetX + 80 * i, offsetY + 80 * j); // Ajusta las coordenadas para centrar el tablero
-        glVertex2f(offsetX + 80 * i, offsetY + 80 * (j + 1));
-        glVertex2f(offsetX + 80 * (i + 1), offsetY + 80 * (j + 1));
-        glVertex2f(offsetX + 80 * (i + 1), offsetY + 80 * j);
+        glVertex2f(26.0f, 680.0f);  // Esquina superior derecha
+        glVertex2f(246.0f, 680.0f); // Esquina superior izquierda
+        glVertex2f(246.0f, 300.0f); // Esquina inferior izquierda
+        glVertex2f(26.0f, 300.0f);  // Esquina inferior derecha
         glEnd();
     }
 }
-*/

@@ -14,13 +14,11 @@ public:
 	
 	//JAQUE 
 	bool jaque(color col, Pieza* tablero[max_y][max_x]);
-	bool piezaSacaReyDeJaque(color col, Pieza* tablero[max_y][max_x]);
-	bool reySaleDeJaque();
+	bool reySaleDeJaque(color col, Pieza* tablero[max_y][max_x]);
+
 	//JAQUE MATE
-	//bool piezaAmenazada(casilla pos, color col);
 	bool jaque_mate(color col, Pieza* tablero[max_y][max_x]);
 	casilla encontrarPosicionRey(color col, Pieza* tablero[max_y][max_x]);
-	//bool estaEnJaque(color col);
 
 	//promocion
 	bool peonFinal(casilla origen);
