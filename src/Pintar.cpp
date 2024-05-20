@@ -188,3 +188,17 @@ void Pintar::pintarJaqueM() {
     }
 }
 
+//Lo hago yo (moni), mañana martes está
+/*
+void Pintar::pintarPromocion() {
+
+    if (tablero->getFlagPromocion() == true) {
+        glBegin(GL_POLYGON);
+        glVertex2f(offsetX + 80 * i, offsetY + 80 * j); // Ajusta las coordenadas para centrar el tablero
+        glVertex2f(offsetX + 80 * i, offsetY + 80 * (j + 1));
+        glVertex2f(offsetX + 80 * (i + 1), offsetY + 80 * (j + 1));
+        glVertex2f(offsetX + 80 * (i + 1), offsetY + 80 * j);
+        glEnd();
+    }
+}
+*/

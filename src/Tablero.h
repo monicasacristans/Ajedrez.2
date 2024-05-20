@@ -27,9 +27,11 @@ class Tablero {
 	bool flagMovInvalido = false;
 	bool flagJaque = false;
 	bool flagJaqueM = false;
+	bool flagPromocion = true;
 
 	casilla cas_origen{ -1 , -1 };
 	casilla cas_destino{ - 1, -1 };
+
 
 public:
 	Tablero();
@@ -40,6 +42,7 @@ public:
 	bool getFlagMovValido();
 	bool getFlagJaque();
 	bool getFlagJaqueM();
+	bool getFlagPromocion();
 
 	const std::vector<Pieza*>& getPiezasEliminadasB() const {
 		return piezasEliminadasB;

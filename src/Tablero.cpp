@@ -2,7 +2,10 @@
 
 using namespace std;
 
-GestionJugadas jugada;
+
+
+//GestionJugadas jugada;
+
 
 Tablero::Tablero() {
 	for (int y = 0; y < max_y; y++) {
@@ -67,38 +70,46 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 			}
 			else {
 				//comprobar promocion 
-				if(jugada.peonFinal(cas_destino)==true && p->getTipo()==tipo::peon){
+				if(mijugada.peonFinal(cas_destino)==true && p->getTipo()==tipo::peon){
 					mijugada.promocion(cas_destino, tablero);
-					break;
+					flagPromocion = true;
+					//break;
 				}
 				// Comprobar el jaque
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
-				if (jugada.jaque(colOponente, tablero) == true) {
+				if (mijugada.jaque(colOponente, tablero) == true) {
 					std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
 					flagJaque = true;
 
+					while(mijugada.piezaSacaReyDeJaque(colOponente, tablero) == false) {
+						cout << "Movimiento no valido, el rey sigue en jaque." << endl;
+						mov_valido = moverPieza(cas_origen, cas_destino);
+						flagJaque = true;
+						break;
+					}
+
 					// Verificar jaque mate
-					if (jugada.jaque_mate(colOponente, tablero) == true) {
+					if (mijugada.jaque_mate(colOponente, tablero) == true) {
 						std::cout << "JAQUE MATE " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
 						flagJaqueM = true;
 						// Manejar el fin del juego
 					}
+					
 					else {
 						flagJaqueM = false;
 					}
 				}
 				else {
 					flagJaque = false;
+					flagJaqueM = false;
 				}
 
 				// Verificar si se saca al rey del jaque
-				if (flagJaque == true && jugada.sacardeJaque(colOponente, tablero) == false) {
-					cout << "Movimiento no valido, el rey sigue en jaque." << endl;
-					//// Revertir el movimiento
-					tablero[cas_origen.y][cas_origen.x] = p;
-					tablero[cas_destino.y][cas_destino.x] = nullptr;
-					return;
-				}
+				//if (flagJaque == true && mijugada.piezaSacaReyDeJaque(colOponente, tablero) == false) {
+				//	cout << "Movimiento no valido, el rey sigue en jaque." << endl;
+				//	
+				//	return;
+				//}
 
 				// Si el movimiento es válido y saca al rey del jaque, cambiar el turno
 				turno = !turno;
@@ -142,6 +153,10 @@ bool Tablero::getFlagJaque() {
 
 bool Tablero::getFlagJaqueM() {
 	return flagJaqueM;
+}
+
+bool Tablero::getFlagPromocion() {
+	return flagPromocion;
 }
 
 Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {

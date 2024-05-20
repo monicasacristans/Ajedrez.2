@@ -177,42 +177,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 	if (estado == MODOJUEGO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
 			tablero.definirCoordenadasTablero(button, state, x, y);
-			//if (estadodejuego == TURNO) {
-			//	///////turno acabado para el jugador negro
-			//	if (tablero.getTurno() == false) {
-			//		if (jugada.jaque(color::negro) == true || jugada.jaque_mate(color::blanco) == true) {
-			//			if (jugada.jaque(color::negro) == true) {
-			//				ganador = 1; //NEGRO GANA SI ESTA EN JAQUE
-			//			}
-			//			else if (jugada.jaque_mate(color::blanco) == true) { ganador = 0; }
-			//			i = 0;
-			//			estadodejuego = JAQUE_MATE;
-			//			return;
-			//		}
-			//		else if (jugada.jaque(color::blanco) == true) {
-			//			estadodejuego = JAQUE;
-			//			i = 0;
-			//			return;
-			//		}
-			//	}
 
-			//	//////turno acabado para el jugador blanco
-			//	if (tablero.getTurno() == true) {
-			//		if (jugada.jaque(color::blanco) == true || jugada.jaque_mate(color::negro) == true) {
-			//			if (jugada.jaque_mate(color::negro) == true) { ganador = 1; }
-			//			else if (jugada.jaque(color::blanco) == true) { ganador = 0; }
-			//			i = 0;
-			//			estadodejuego = JAQUE_MATE;
-			//			return;
-			//		}
-			//		else if (jugada.jaque(color::negro) == true) {
-			//			estadodejuego = JAQUE;
-			//			i = 0;
-			//			return;
-			//		}
-			//	}
-			//}
-			//miPintura.pintarCasillaLegal();
 		}
 	}
 	if (estado == OP) {

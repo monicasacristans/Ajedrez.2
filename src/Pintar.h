@@ -50,7 +50,6 @@ public:
 
 	casilla restringirCasilla(int x, int y);
 
-	void pintarPromocion();
 
 	void pintarCuadricula();
 	void pintarPiezasTablero();
@@ -59,4 +58,5 @@ public:
 	void pintarError();
 	void pintarJaque();
 	void pintarJaqueM();
+	void pintarPromocion();
 };

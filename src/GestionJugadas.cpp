@@ -2,6 +2,8 @@
 
 using namespace std;
 
+
+
 casilla GestionJugadas::encontrarPosicionRey(color col, Pieza* tablero[max_y][max_x]) {
 	// Buscar la posición del rey del color dado en el tablero
 	for (int y = 0; y < max_y; y++) {
@@ -40,7 +42,7 @@ bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 	return false; // El rey no está en jaque
 }
 
-bool GestionJugadas::sacardeJaque(color col, Pieza* tablero[max_y][max_x]) {
+bool GestionJugadas::piezaSacaReyDeJaque(color col, Pieza* tablero[max_y][max_x]) {
 	if (jaque(col, tablero) == true) {
 		//Recorre todas las piezas del tablero
 		for (int y = 0; y < max_y; y++) {
@@ -78,6 +80,12 @@ bool GestionJugadas::sacardeJaque(color col, Pieza* tablero[max_y][max_x]) {
 	return false;
 }
 
+//Lo hago yo (moni), mañana martes está
+bool GestionJugadas::reySaleDeJaque() {
+	return true;
+}
+
+
 
 bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 	// Primero, verificar si el rey esta en jaque
@@ -102,7 +110,7 @@ bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 			tablero[movimiento.y][movimiento.x] = tablero[posRey.y][posRey.x];
 			tablero[posRey.y][posRey.x] = nullptr;
 
-			if (jaque(col, tablero) == true) {
+			if (jaque(col, tablero) == false) {
 				// Restaurar el movimiento y retornar falso
 				tablero[posRey.y][posRey.x] = tablero[movimiento.y][movimiento.x];
 				tablero[movimiento.y][movimiento.x] = piezaDestino;
@@ -179,7 +187,6 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
 			tablero[cas.y][cas.x] = nuevaPieza;
 			delete p; //elimino el peon
 		}
-		
 	
 }
 
