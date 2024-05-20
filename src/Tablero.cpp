@@ -97,11 +97,13 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				//Verificar si el movimiento saca al rey del jaque
 				color colJugador = p->getColor();
 				if (mijugada.jaque(colJugador, tablero) == true) {
-					if (mijugada.reySaleDeJaque(colJugador, tablero) == false) {
+					if (mijugada.reySaleDeJaque(colJugador, tablero) == true) {
 						cout << "Movimiento no valido, el rey sigue en jaque." << endl;
 						// Revertir el movimiento
-						/*tablero[cas_origen.y][cas_origen.x] = p;
-						tablero[cas_destino.y][cas_destino.x] = nullptr;*/
+						tablero[cas_origen.y][cas_origen.x] = p;
+						tablero[cas_destino.y][cas_destino.x] = nullptr;
+						flagJaque = true;
+						continue;
 					}
 				}
 			}

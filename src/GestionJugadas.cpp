@@ -54,7 +54,7 @@ bool GestionJugadas::reySaleDeJaque(color col, Pieza* tablero[max_y][max_x]) {
 
 	for (const auto& movimiento : movimientosRey) {
 		if (movimiento.x >= 0 && movimiento.x < max_x && movimiento.y >= 0 && movimiento.y < max_y &&
-			(tablero[movimiento.y][movimiento.x] == nullptr || tablero[movimiento.y][movimiento.x]->getColor() != col)) {
+			(tablero[movimiento.y][movimiento.x] == nullptr || tablero[movimiento.y][movimiento.x]->getColor() == col)) {
 
 			// Simular el movimiento del rey
 			Pieza* piezaDestino = tablero[movimiento.y][movimiento.x];
@@ -62,14 +62,17 @@ bool GestionJugadas::reySaleDeJaque(color col, Pieza* tablero[max_y][max_x]) {
 			tablero[posRey.y][posRey.x] = nullptr;
 
 			// Verificar si el rey sigue en jaque
-			bool sigueEnJaque = jaque(col, tablero);
+			bool estaEnJaque = !jaque(col, tablero);
 
 			// Restaurar el estado original del tablero
 			tablero[posRey.y][posRey.x] = tablero[movimiento.y][movimiento.x];
 			tablero[movimiento.y][movimiento.x] = piezaDestino;
 
-			if (!sigueEnJaque) {
-				return true; // El rey puede moverse a una casilla segura
+			if (estaEnJaque == true) {
+				return true; // Se encontró una pieza que puede sacar al rey de jaque
+			}
+			else {
+				return false;// No se encontró una pieza que puede sacar al rey de jaque
 			}
 		}
 	}
