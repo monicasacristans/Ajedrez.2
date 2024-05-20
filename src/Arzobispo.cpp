@@ -8,7 +8,7 @@ bool Arzobispo::movimientoValido(casilla origen, casilla destino, Pieza* tablero
 	int movXAlfil = (destino.x > origen.x) ? 1 : -1;
 	int movYAlfil = (destino.y > origen.y) ? 1 : -1;
 
-	int movXCaballo = abs(destino.x - origen.x); 
+	int movXCaballo = abs(destino.x - origen.x);
 	int movYCaballo = abs(destino.y - origen.y);
 
 	int x = origen.x + movXAlfil;
@@ -30,22 +30,28 @@ bool Arzobispo::movimientoValido(casilla origen, casilla destino, Pieza* tablero
 
 	//MOVIMIENTO ALFIL
 	else if (abs(destino.x - origen.x) == abs(destino.y - origen.y)) {
-			if (tablero[destino.y][destino.x] != nullptr) {
-				if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
-					while (x != destino.x && y != destino.y) {
-						if (tablero[y][x] != nullptr) {
-							return false; // Hay una pieza en el camino
-					}
-						x += movXAlfil;
-						y += movYAlfil;
-					}
-				}
-				else
-					return false;
-			}else 
-				return true;
+		int x = origen.x + movXAlfil;
+		int y = origen.y + movYAlfil;
+		while (x != destino.x && y != destino.y) {
+			if (tablero[y][x] != nullptr) {
+				return false; // Hay una pieza en el camino
+			}
+			x += movXAlfil;
+			y += movYAlfil;
+		}
+
+		// Verificar la casilla de destino
+		if (tablero[destino.y][destino.x] != nullptr) {
+			if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
+				return true; // Puede comer
+			}
+			else {
+				return false; // No puede comer, pieza del mismo color
+			}
+		}
+		else {
+			return true; // Casilla vacía, movimiento válido
+		}
 	}
-	else {
-		return false;
-	}
+	return false; // Movimiento inválido
 }
