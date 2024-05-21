@@ -26,6 +26,7 @@ OPCION MENU_INI[]{ {401,390,561,60,1,"MODO JUEGO"},{455,230,404,60,2, "OPCIONES"
 OPCION MENU_OPC[]{ {478,500,561,60,1,"AYUDA"} ,{320,350,561,60,2,"INSTRUCCIONES"} ,{478,200,561,60,3,"ATRAS"} };
 //  x inicial, y inicila, ancho de las letras, altura de las letras, numero de selección, texto
 
+OPCION MENU_PAUSA[]{ {538,470,561,60,1,"VOLVER A LA PARTIDA"} ,{560,400,561,60,2,"REINICIAR PARTIDA"} ,{600,330,561,60,3,"ABANDONAR"} };
 OPCION MENU_AYUDA[]{ {520,550,561,60,1,"Torre"} ,{529,487,561,60,2,"Peon"} ,{489,424,561,60,3,"Caballo"} ,{554,360,561,60,4,"Alfil"} ,{551,294,561,60,5,"Rey"} ,{515,230,561,60,6,"Reina"},{440,168,561,60,7,"Arzobispo"},{480,100,561,60,8,"Canciller"},{110,60,261,20,9,"atras"} };
 OPCION TEXTOTORRE[]{ {110,60,261,20,1,"atras"} }; //0
 OPCION TEXTOPEON[]{ {110,60,261,20,1,"atras"} }; //1
@@ -56,6 +57,8 @@ Usuario::Usuario() {
 	n_inst = 0;
 	n_texto_a = 0;
 	n_texto_ins = 0;
+	menu_ayuda = H;
+	menu_instrucciones = INS;
 	coronar = C;
 }
 
@@ -67,6 +70,14 @@ void Usuario::mouse(int x, int y) {
 		for (auto m : MENU_INI)
 			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//modo de juego
 	}
+
+	if (estado == MODOJUEGO) {
+		if (estadodejuego == PAUSA) {
+			for (auto m : MENU_PAUSA)
+				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//pausa
+		}
+	}
+
 	if (estado == OP) {
 		for (auto m : MENU_OPC)
 			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//opciones
@@ -104,7 +115,7 @@ void Usuario::mouse(int x, int y) {
 			for (auto m : TEXTOARZOBISPO)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//arzobispo
 		}
-		if (n_ayuda == 6) {
+		if (n_ayuda == 7) {
 			for (auto m : TEXTOCANCILLER)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//canciller
 		}
@@ -150,6 +161,15 @@ int Usuario::getEstado() {
 	return estado;
 }
 
+
+void Usuario::teclado(unsigned char key) {
+	if (estado == MODOJUEGO) {
+		if (estadodejuego == TURNO) {
+			if (key == 'p' || key == 'P') { estadodejuego = PAUSA; }
+		}
+	}
+}
+
 void Usuario::raton(int button, int state, int x, int y) {
 	int screenX = x;
 	int screenY = y;
@@ -176,8 +196,20 @@ void Usuario::raton(int button, int state, int x, int y) {
 
 	if (estado == MODOJUEGO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-			tablero.definirCoordenadasTablero(button, state, x, y);
-
+			if (estadodejuego == TURNO) {
+				tablero.definirCoordenadasTablero(button, state, x, y);
+			}
+			if (estadodejuego == PAUSA) {
+				for (auto m : MENU_PAUSA) {
+					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+						for (int i = INICIO; i <= TEXTO_IN; i++) {
+							if (m.sel == 1) estadodejuego = TURNO;
+							if (m.sel == 2) estadodejuego = TURNO;
+							if (m.sel == 3) estado = INICIO;
+						}
+					}
+				}
+			}
 		}
 	}
 	if (estado == OP) {
@@ -187,8 +219,8 @@ void Usuario::raton(int button, int state, int x, int y) {
 			for (auto m : MENU_OPC) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
-						if (m.sel == 1) estado = AYU;
-						if (m.sel == 2) estado = INST;
+						if (m.sel == 1) estado = AYU; menu_ayuda = H;
+						if (m.sel == 2) estado = INST; menu_instrucciones = INS;
 						if (m.sel == 3) estado = INICIO;
 					}
 				}
@@ -201,14 +233,14 @@ void Usuario::raton(int button, int state, int x, int y) {
 			for (auto m : MENU_AYUDA) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
-						if (m.sel == 1)  estado = TEXTO_A; n_ayuda = 0;
-						if (m.sel == 2)   estado = TEXTO_A; n_ayuda = 1;
-						if (m.sel == 3)  estado = TEXTO_A;  n_ayuda = 2;
-						if (m.sel == 4) estado = TEXTO_A;  n_ayuda = 3;
-						if (m.sel == 5)   estado = TEXTO_A; n_ayuda = 4;
-						if (m.sel == 6)  estado = TEXTO_A; n_ayuda = 5;
-						if (m.sel == 7)  estado = TEXTO_A; n_ayuda = 6;
-						if (m.sel == 8) estado = TEXTO_A; n_ayuda = 7;
+						if (m.sel == 1)  n_ayuda = 0; estado = TEXTO_A;
+						if (m.sel == 2) n_ayuda = 1;   estado = TEXTO_A;
+						if (m.sel == 3) n_ayuda = 2;  estado = TEXTO_A;
+						if (m.sel == 4) n_ayuda = 3; estado = TEXTO_A;
+						if (m.sel == 5) n_ayuda = 4;   estado = TEXTO_A;
+						if (m.sel == 6) n_ayuda = 5;  estado = TEXTO_A;
+						if (m.sel == 7) n_ayuda = 6;  estado = TEXTO_A;
+						if (m.sel == 8) n_ayuda = 7; estado = TEXTO_A;
 						if (m.sel == 9)  estado = OP;
 					}
 				}
@@ -416,26 +448,51 @@ void Usuario::dibuja() {
 
 	}
 	if (estado == MODOJUEGO) {
-		if (!juegoInicializado) {
+		if (estadodejuego == TURNO) {
+			if (!juegoInicializado) {
 
-			tablero.set_tablero();
+				tablero.set_tablero();
 
-			juegoInicializado = true;
+				juegoInicializado = true;
+			}
+
+			miPintura.pintarPiezasTablero();
+			///////////////CASILLA LEGAL/////////////////
+
+			//miPintura.pintarCasillaLegal();
+
+
+			glutPostRedisplay();
+			miPintura.pintarPause();
+			miPintura.pintarCuadricula();
+			miPintura.pintarCorona();
+			miPintura.pintarError();
+			miPintura.pintarJaque();
+			miPintura.pintarJaqueM();
+			miPintura.pintarPromocion();
+			miPintura.pintarEnroque();
 		}
+		if (estadodejuego == PAUSA) {
+			miPintura.pintarPantalla();
+			miPintura.pintarCorona();
+			for (auto m : MENU_PAUSA) {
+				printxy(m.texto, m.x, m.y);
+				if (m.sel == seleccion_ini) {
+					corona.setPos(m.x - 60, m.y + 25);
+					corona.draw();
+				}
+			}
+			miPintura.pintarPiezasTablero();
+			glutPostRedisplay();
+			miPintura.pintarPause();
+			miPintura.pintarCuadricula();
+			miPintura.pintarError();
+			miPintura.pintarJaque();
+			miPintura.pintarJaqueM();
+			miPintura.pintarPromocion();
+			miPintura.pintarEnroque();
 
-		miPintura.pintarPiezasTablero();
-		///////////////CASILLA LEGAL/////////////////
-
-		//miPintura.pintarCasillaLegal();
-
-
-		glutPostRedisplay();
-		miPintura.pintarCuadricula();
-		miPintura.pintarCorona();
-		miPintura.pintarError();
-		miPintura.pintarJaque();
-		miPintura.pintarJaqueM();
-		miPintura.pintarPromocion();
+		}
 	}
 
 	if (estado == OP) {
@@ -481,12 +538,12 @@ void Usuario::dibuja() {
 			dibujaFondo();
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("TORRE", -15, 20);
+			printxy("TORRE", 483, 600);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("Las torres pueden moverse tantas casillas como", -60, 10);
-			printxy("quieran, pero en sentido vertical y horizontal, es", -61.5, 3);
-			printxy("decir, arriba, abajo, derecha e izquierda", -53, -4);
+			printxy("Las torres pueden moverse tantas casillas como", 180, 472);
+			printxy("quieran, pero en sentido vertical y horizontal, es", 169, 407);
+			printxy("decir, arriba, abajo, derecha e izquierda", 220, 342);
 
 			for (auto m : TEXTOTORRE) {
 				printxy(m.texto, m.x, m.y);
@@ -501,15 +558,15 @@ void Usuario::dibuja() {
 			dibujaFondo();
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("PEON", -15, 20);
+			printxy("PEON", 510, 600);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("Los peones tienen diferentes tipos de movimientos", -60, 10);
-			printxy("y capturas, pero ambos obligan a moverse hacia adelante.", -69.5, 3);
-			printxy("Solo pueden moverse una casilla hacia delante,", -55, -4);
-			printxy("excepto el primer movimiento, que puede ser de dos casillas", -73, -11);
-			printxy("La captura es en diagonal y deben estar frente a ellos.", -66, -18);
-			printxy("Si una pieza esta frente a ellos no podran avanzar", -61, -25);
+			printxy("Los peones tienen diferentes tipos de movimientos", 150, 537);
+			printxy("y capturas, pero ambos obligan a moverse hacia adelante.", 100, 472);
+			printxy("Solo pueden moverse una casilla hacia delante,", 170, 407);
+			printxy("excepto el primer movimiento, que puede ser de dos casillas", 70, 342);
+			printxy("La captura es en diagonal y deben estar frente a ellos.", 100, 277);
+			printxy("Si una pieza esta frente a ellos no podran avanzar", 130, 212);
 			setFont("bin/fuentes/Bitwise.ttf", 45);
 
 			for (auto m : TEXTOPEON) {
@@ -526,14 +583,14 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("CABALLO", -25, 20);
+			printxy("CABALLO", 480, 579);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("Los caballos se mueven de la manera mas particular", -70, 10);
-			printxy("Avanza dos cuadrados en una direccion, luego uno", -70, 3);
-			printxy("mas en un angulo de 90 grados, dibujando la letra L", -70, -4);
-			printxy("Estas piezas son las unicas que pueden saltar", -65, -11);
-			printxy("sobre otras piezas", -20, -18);
+			printxy("Los caballos se mueven de la manera mas particular", 110, 472);
+			printxy("Avanza dos cuadrados en una direccion, luego uno", 117, 407);
+			printxy("mas en un angulo de 90 grados, dibujando la letra L", 110, 342);
+			printxy("Estas piezas son las unicas que pueden saltar", 130, 277);
+			printxy("sobre otras piezas", 450, 212);
 			setFont("bin/fuentes/Bitwise.ttf", 45);
 
 			for (auto m : TEXTOCABALLO) {
@@ -550,13 +607,13 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("ALFIL", -15, 20);
+			printxy("ALFIL", 550, 570);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("Los alfiles pueden moverse tantas casillas como", -60, 10);
-			printxy("quieran, pero solo en diagonal, lo que significa que", -62, 3);
-			printxy("permanecen en el mismo color de la casilla inicial", -60, -4);
-			printxy("durante toda la partida", -35, -11);
+			printxy("Los alfiles pueden moverse tantas casillas como", 170, 472);
+			printxy("quieran, pero solo en diagonal, lo que significa que", 155, 407);
+			printxy("permanecen en el mismo color de la casilla inicial", 160, 342);
+			printxy("durante toda la partida", 390, 277);
 			setFont("bin/fuentes/Bitwise.ttf", 45);
 			for (auto m : TEXTOALFIL) {
 				printxy(m.texto, m.x, m.y);
@@ -573,11 +630,11 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("REY", -12.5, 20);
+			printxy("REY", 550, 550);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("El rey puede moverse solo una casilla", -45, 10);
-			printxy("pero en cualquier direccion", -33, 0);
+			printxy("El rey puede moverse solo una casilla", 230, 472);
+			printxy("pero en cualquier direccion", 300, 407);
 
 			for (auto m : TEXTOREY) {
 				printxy(m.texto, m.x, m.y);
@@ -593,12 +650,12 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("REINA", -15, 20);
+			printxy("REINA", 530, 550);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("La reina puede moverse tantas casillas como", -60, 10);
-			printxy("quiera, incluso en cualquier direccion sin saltar", -62, 3);
-			printxy("sobre las piezas de su mismo color", -46, -4);
+			printxy("La reina puede moverse tantas casillas como", 220, 472);
+			printxy("quiera, incluso en cualquier direccion sin saltar", 210, 407);
+			printxy("sobre las piezas de su mismo color", 270, 342);
 
 			for (auto m : TEXTOREINA) {
 				printxy(m.texto, m.x, m.y);
@@ -612,9 +669,42 @@ void Usuario::dibuja() {
 		case 6:
 
 			dibujaFondo();
+
+			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
+			setFont("bin/fuentes/Bitwise.ttf", 50);
+			printxy("ARZOBISPO", 483, 550);
+			setTextColor(1, 1, 1);
+			setFont("bin/fuentes/Bitwise.ttf", 30);
+			printxy("Se mueve como Alfil y como Caballo", 300, 472);
+
+
+			for (auto m : TEXTOARZOBISPO) {
+				printxy(m.texto, m.x, m.y);
+				if (m.sel == seleccion_ini) {
+					corona.setPos(m.x - 60, m.y + 25);
+					corona.draw();
+				}
+			}
 			break;
 		case 7:
 			dibujaFondo();
+
+			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
+			setFont("bin/fuentes/Bitwise.ttf", 50);
+			printxy("CANCILLER", 480, 559);
+			setTextColor(1, 1, 1);
+			setFont("bin/fuentes/Bitwise.ttf", 30);
+			printxy("Combina lo poderes de la torre y el caballo", 200, 472);
+			printxy("Mueve una casilla en diagonal hacia adelante,", 180, 407);
+			printxy("pero captura moviendo una casilla hacia adelante", 160, 342);
+
+			for (auto m : TEXTOCANCILLER) {
+				printxy(m.texto, m.x, m.y);
+				if (m.sel == seleccion_ini) {
+					corona.setPos(m.x - 60, m.y + 25);
+					corona.draw();
+				}
+			}
 			break;
 
 		default:
@@ -647,10 +737,10 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("OBJETIVO", 444, 579);
+			printxy("OBJETIVO", 480, 579);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("Dar Jaque Mate al rey contrario", 283, 497);
+			printxy("Dar Jaque Mate al rey contrario", 320, 497);
 
 			for (auto m : TEXTOOBJETIVO) {
 				printxy(m.texto, m.x, m.y);
@@ -666,16 +756,16 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("ENROQUE", 483, 620);
+			printxy("ENROQUE", 483, 600);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("Este movimiento deja colocar al rey en una posicion mas segura", 2, 537);
-			printxy("y sacar la torre de la esquina. El rey se mueve dos casillas", 18, 472);
-			printxy("lateralmente y la torre se sitúa al lado opuesto del rey", 73, 407);
+			printxy("Este movimiento deja colocar al rey en una posicion mas segura", 10, 537);
+			printxy("y sacar la torre de la esquina. El rey se mueve dos casillas", 28, 472);
+			printxy("lateralmente y la torre se sitúa al lado opuesto del rey", 100, 407);
 			printxy("Condiciones:", 500, 342);
 			printxy("1.- Debe ser el primer movimiento de ambas figuras", 90, 277);
 			printxy("2.- No puede haber piezas entre el rey y la torre", 90, 212);
-			printxy("No puede estar en jaque ni pasar por una casilla amenazada", 18, 147);
+			printxy("No puede estar en jaque ni pasar por una casilla amenazada", 38, 147);
 
 			for (auto m : TEXTOENROQUE) {
 				printxy(m.texto, m.x, m.y);
@@ -714,12 +804,12 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("CORONACION", 379, 577);
+			printxy("CORONACION", 400, 577);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 27);
-			printxy("Cuando un peon llega a la ultima fila ha de ser cambiado por", 50, 497);
-			printxy("un caballo, alfil, torre o dama, aunque el jugador ya posea esa pieza", 2, 432);
-			printxy("Esta sustitucion esta incluida en el mismo turno del peon", 82, 367);
+			printxy("Cuando un peon llega a la ultima fila ha de ser cambiado por", 90, 497);
+			printxy("un caballo, alfil, torre o dama, aunque el jugador ya posea esa pieza", 29, 432);
+			printxy("Esta sustitucion esta incluida en el mismo turno del peon", 99, 367);
 			for (auto m : TEXTOCORONACION) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
@@ -734,16 +824,16 @@ void Usuario::dibuja() {
 
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("CAPTURA AL PASO", 325, 658);
+			printxy("CAPTURA AL PASO", 325, 600);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 23);
-			printxy("Forma adicional de un PEON para capturar peones enemigos:", 225, 577);
-			printxy("El peon original debe estar en su quinta fila", 5, 512);
-			printxy("El peon rival debe estar en su posicion inicial en una columna adyacente", 5, 447);
-			printxy("El rival debe mover su peón dos pasos para que ambos peones queden en la misma fila", 5, 382);
-			printxy("En ese momento, puede capturar al enemigo como si solo se hubiera movido", 5, 317);
-			printxy("una casilla desplazando el propio en diagonal a la fila siguiente y", 5, 252);
-			printxy("retirando  al capturado", 5, 187);
+			printxy("Forma adicional de un PEON para capturar peones enemigos:", 225, 512);
+			printxy("El peon original debe estar en su quinta fila", 310, 447);
+			printxy("El peon rival debe estar en su posicion inicial en una columna adyacente", 110, 382);
+			printxy("El rival debe mover su peón dos pasos para que ambos peones queden en la misma fila", 20, 317);
+			printxy("En ese momento, puede capturar al enemigo como si solo se hubiera movido", 105, 252);
+			printxy("una casilla desplazando el propio en diagonal a la fila siguiente y", 210, 187);
+			printxy("retirando  al capturado", 470, 122);
 			for (auto m : TEXTOCAPTURAPASO) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
@@ -757,16 +847,16 @@ void Usuario::dibuja() {
 			dibujaFondo();
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 50);
-			printxy("TABLAS", 487, 659);
+			printxy("TABLAS", 487, 609);
 			setTextColor(1, 1, 1);
 			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("Posibilidades:", 499, 576);
-			printxy("Un jugador que no esta en jaque no puede mover en su turno", 9, 511);
-			printxy("Por mutuo acuerdo", 9, 446);
-			printxy("Se ha producido la repeticion de la misma posicion 3 veces", 9, 381);
-			printxy("No hay suficientes piezas de ningún bando para hacer jaque mate", 9, 316);
-			printxy("Se produce una secuencia de 50 jugadas de cada bando", 9, 251);
-			printxy("sin captura o movimiento del peon", 9, 186);
+			printxy("Posibilidades:", 499, 542);
+			printxy("Un jugador que no esta en jaque no puede mover en su turno", 25, 477);
+			printxy("Por mutuo acuerdo", 470, 412);
+			printxy("Se ha producido la repeticion de la misma posicion 3 veces", 45, 347);
+			printxy("No hay suficientes piezas de ningún bando para hacer jaque mate", 15, 282);
+			printxy("Se produce una secuencia de 50 jugadas de cada bando", 39, 217);
+			printxy("sin captura o movimiento del peon", 280, 152);
 			for (auto m : TEXTOTABLAS) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {

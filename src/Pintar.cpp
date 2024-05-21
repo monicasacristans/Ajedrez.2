@@ -158,6 +158,19 @@ void Pintar::pintarCorona() {
     }
 }
 
+
+void Pintar::pintarPantalla() {
+    pantalla.setPos(680, 380);
+    pantalla.draw();
+}
+
+void Pintar::pintarPause() {
+
+    pausa.setPos(1192, 100);
+    pausa.draw();
+
+}
+
 void Pintar::pintarError() {
 
     if (tablero->getFlagMovValido() == true) {    //Si es 1, el mov no es valido, salta error
@@ -188,6 +201,13 @@ void Pintar::pintarJaqueM() {
     }
 }
 
+void Pintar::pintarEnroque() {
+    if (tablero->getFlagEnroque() == true) {
+        setTextColor(255, 0, 0);
+        setFont("bin/fuentes/Bitwise.ttf", 40);
+        printxy("ENROQUE", 60, 620);
+    }
+}
 //Lo hago yo (moni), mañana martes está
 
 void Pintar::pintarPromocion() {

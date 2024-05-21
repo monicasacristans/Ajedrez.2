@@ -13,6 +13,8 @@ class Pintar {
 	int anchoTablero = 10 * 80;
 	int altoTablero = 8 * 80;
 
+	Sprite pausa{ "bin/imagenes/pausa.png" , 0,0, 60,60 };
+	Sprite pantalla{ "bin/imagenes/pantalla.png", 0,0, 600,400 };
 	Sprite promocion{ "bin/imagenes/coronacion.png", 0,0, 60,60 };
 	Sprite casilla_legal{ "bin/imagenes/casilla_legal.png", 0,0, 60,60 };
 	Sprite peon_b{ "bin/imagenes/peon_b.png", 0, 0, 60,60 };
@@ -50,7 +52,8 @@ public:
 
 	casilla restringirCasilla(int x, int y);
 
-
+	void pintarPantalla();
+	void pintarPause();
 	void pintarCuadricula();
 	void pintarPiezasTablero();
 	//void pintarCasillaElegida();
@@ -59,4 +62,5 @@ public:
 	void pintarJaque();
 	void pintarJaqueM();
 	void pintarPromocion();
+	void pintarEnroque();
 };

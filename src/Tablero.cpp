@@ -70,12 +70,38 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 			}
 			else {
 				//comprobar promocion 
-				if(mijugada.peonFinal(cas_destino)==true && p->getTipo()==tipo::peon){
+				if (mijugada.peonFinal(cas_destino) == true && p->getTipo() == tipo::peon) {
 					mijugada.promocion(cas_destino, tablero);
 					flagPromocion = true;
 					//break;
 				}
+
+			/*	if (p->getTipo() == tipo::rey && abs(cas_destino.x - cas_origen.x) == 4) {
+					mov_valido = mijugada.enroque(cas_origen, cas_destino, tablero);
+					if (!mov_valido) {
+						flagEnroque = true;
+						cout << "ENROQUE NO VALIDO INTENTA DE NUEVO" << endl;
+						break;
+					}
+
+					else {
+						flagEnroque = false;
+						cout << "ENROQUE REALIZADO CORRECTAMENTE" << endl;
+					}*/
+
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
+				color colJug = (p->getColor() == color::blanco) ? color::blanco : color::negro;
+
+				//comprobar enroque
+			
+					if (mijugada.verificarEnroque(colJug, tablero) == true) {
+						std::cout << "ENROQUE ENTRE REY Y TORRE" << (colOponente == color::blanco ? "NEGROS" : "BLANCOS") << std::endl;
+						flagEnroque = true;
+					}
+					else {
+						flagEnroque = false;
+					}
+				
 				// Verificar jaque mate
 				if (mijugada.jaque(colOponente, tablero) == true) {
 					std::cout <<  "REY" << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
@@ -153,6 +179,11 @@ bool Tablero::getFlagJaqueM() {
 bool Tablero::getFlagPromocion() {
 	return flagPromocion;
 }
+
+bool Tablero::getFlagEnroque() {
+	return flagEnroque;
+}
+
 
 Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
 

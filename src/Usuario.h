@@ -12,6 +12,7 @@ public:
 	Usuario();
 	virtual ~Usuario();
 
+	void teclado(unsigned char key);
 	void mouse(int x, int y);
 	void raton(int button, int state, int x, int y);
 	void dibuja();
@@ -22,8 +23,8 @@ public:
 
 	//VARIABLES JAQUE Y JAQUE MATE
 	//int i = 0;
-	//int ganador; //blancas (0) negras(1) tablas(2)
-	//int final; 
+	int ganador; //blancas (0) negras(1) tablas(2)
+	int final; 
 
 
 	int n_ayuda;
@@ -32,7 +33,7 @@ public:
 	int n_texto_ins;
 	float shapx, shapy;
 
-	enum Estado { INICIO, MODOJUEGO, OP, AYU, INST, TEXTO_A, TEXTO_IN};
+	enum Estado { INICIO, MODOJUEGO, OP, AYU, INST, TEXTO_A, TEXTO_IN, FINAL};
 	Estado estado;
 
 	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS, PAUSA, BLANCAS_CORONACION, NEGRAS_CORONACION};

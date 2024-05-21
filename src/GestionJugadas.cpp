@@ -41,6 +41,129 @@ bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 }
 
 
+bool::GestionJugadas::verificarEnroque(color jugador, Pieza* tablero[max_y][max_x]) {
+	// Verificar si la pieza en la casilla de origen es un Rey
+	int reyY = (jugador == color::blanco) ? 0 : max_y - 1;
+	int reyX = 5;
+
+	Rey* rey = dynamic_cast<Rey*>(tablero[reyY][reyX]);
+	if (rey == nullptr || !(rey->haSidoMovido())) {
+		return false; // No es un rey o ya se ha movido
+	}
+
+	//comprobamos que es una torre y que no ha sido movido
+	//ENROQUE CORTO
+	int torreX_dcha = max_x - 1;
+	Torre* torre_derecha = dynamic_cast<Torre*>(tablero[reyY][torreX_dcha]);
+	bool enroqueDerechaPosible = (torre_derecha != nullptr && torre_derecha->haSidoMovido()); 
+	
+	if (enroqueDerechaPosible) {
+		for (int x = reyX + 1; x < torreX_dcha; x++) {
+			if (tablero[reyY][x] != nullptr) {
+				enroqueDerechaPosible = false; // Hay una pieza en el camino
+				break;
+			}
+		}
+	}
+
+	//ENROQUE LARGO
+	int torreX_izqd = 0;
+	Torre* torre_izquierda = dynamic_cast<Torre*>(tablero[reyY][torreX_izqd]);
+	bool enroqueIzquierdaPosible = (torre_izquierda != nullptr && torre_izquierda->haSidoMovido());
+	if (enroqueIzquierdaPosible) {
+		for (int x = reyX - 1; x > torreX_izqd; x--) {
+			if (tablero[reyY][x] != nullptr) {
+				enroqueIzquierdaPosible = false; // Hay una pieza en el camino
+				break;
+			}
+		}
+	}
+	return enroqueDerechaPosible || enroqueIzquierdaPosible;
+}
+
+/////////CLICKANDO PRIMERO REY Y DESPUES TORRE SE HACE EL ENROQUE
+//bool GestionJugadas::enroque(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
+//	Pieza* rey = tablero[origen.y][origen.x];
+//	if (rey == nullptr || rey->getTipo() != tipo::rey) {
+//		return false; // No hay rey en la posición de origen
+//	}
+//
+//	// Diferencia de columnas entre origen y destino
+//	int movX = destino.x - origen.x;
+//
+//	// Verificar enroque corto (movimiento a la derecha del rey)
+//	if (movX == 5 && rey->getColor() == color::blanco && rey->haSidoMovido() == false) {
+//		if (tablero[origen.y][origen.x + 1] == nullptr && tablero[origen.y][origen.x + 2] == nullptr && tablero[origen.y][origen.x + 3] == nullptr && tablero[origen.y][origen.x + 4] == nullptr) {
+//			Pieza* torre = tablero[origen.y][origen.x + 5];
+//			if (torre != nullptr && torre->getTipo() == tipo::torre && torre->haSidoMovido() == false) {
+//				// Realizar el movimiento del enroque
+//				tablero[origen.y][origen.x + 2] = rey;
+//				tablero[origen.y][origen.x] = nullptr;
+//				tablero[origen.y][origen.x + 3] = torre;
+//				tablero[origen.y][origen.x + 5] = nullptr;
+//				rey->marcarComoMovido();
+//				torre->marcarComoMovido();
+//
+//				return true;
+//			}
+//		}
+//	}
+//	// Verificar enroque largo (movimiento a la izquierda del rey)
+//	else if (movX == -4 && rey->getColor() == color::blanco && rey->haSidoMovido() == false) {
+//		if (tablero[origen.y][origen.x - 1] == nullptr && tablero[origen.y][origen.x - 2] == nullptr && tablero[origen.y][origen.x - 3] == nullptr) {
+//			Pieza* torre = tablero[origen.y][origen.x - 4];
+//			if (torre != nullptr && torre->getTipo() == tipo::torre && torre->haSidoMovido() == false) {
+//				// Realizar el movimiento del enroque
+//				tablero[origen.y][origen.x - 2] = rey;
+//				tablero[origen.y][origen.x] = nullptr;
+//				tablero[origen.y][origen.x - 1] = torre;
+//				tablero[origen.y][origen.x - 4] = nullptr;
+//				rey->marcarComoMovido();
+//				torre->marcarComoMovido();
+//
+//				return true;
+//			}
+//		}
+//	}
+//
+//	// Enroque para el rey negro
+//	if (movX == -4 && rey->getColor() == color::negro && rey->haSidoMovido() == false) {
+//		if (tablero[origen.y][origen.x - 1] == nullptr && tablero[origen.y][origen.x - 2] == nullptr && tablero[origen.y][origen.x - 3] == nullptr) {
+//			Pieza* torre = tablero[origen.y][origen.x - 4];
+//			if (torre != nullptr && torre->getTipo() == tipo::torre && torre->haSidoMovido() == false) {
+//				// Realizar el movimiento del enroque
+//				tablero[origen.y][origen.x - 2] = rey;
+//				tablero[origen.y][origen.x] = nullptr;
+//				tablero[origen.y][origen.x - 1] = torre;
+//				tablero[origen.y][origen.x - 4] = nullptr;
+//				rey->marcarComoMovido();
+//				torre->marcarComoMovido();
+//
+//				return true;
+//			}
+//		}
+//	}
+//	// Verificar enroque largo (movimiento a la derecha del rey)
+//	else if (movX == 5 && rey->getColor() == color::negro && rey->haSidoMovido() == false) {
+//		if (tablero[origen.y][origen.x + 1] == nullptr && tablero[origen.y][origen.x + 2] == nullptr && tablero[origen.y][origen.x + 3] == nullptr && tablero[origen.y][origen.x + 4] == nullptr) {
+//			Pieza* torre = tablero[origen.y][origen.x + 5];
+//			if (torre != nullptr && torre->getTipo() == tipo::torre && torre->haSidoMovido() == false) {
+//				// Realizar el movimiento del enroque
+//				tablero[origen.y][origen.x + 2] = rey;
+//				tablero[origen.y][origen.x] = nullptr;
+//				tablero[origen.y][origen.x + 3] = torre;
+//				tablero[origen.y][origen.x + 5] = nullptr;
+//				rey->marcarComoMovido();
+//				torre->marcarComoMovido();
+//
+//				return true;
+//			}
+//		}
+//	}
+//
+//	return false;
+//}
+
 bool GestionJugadas::reySaleDeJaque(color col, Pieza* tablero[max_y][max_x]) {
 	// Encontrar la posicion del rey
 	casilla posRey = encontrarPosicionRey(col, tablero);
