@@ -132,7 +132,7 @@ bool Tablero::moverPieza(casilla origen, casilla destino) {
 		return true;
 	}
 	else {
-
+		ETSIDI::play("bin/sonidos/error.mp3");
 		flagMovInvalido = true;
 		return false;
 	}
@@ -200,6 +200,7 @@ void Tablero::eliminarPieza(casilla destino) {
 	Pieza* piezaComida = tablero[destino.y][destino.x];
 
 	if (piezaComida != nullptr) {
+		ETSIDI::play("bin/sonidos/comer.mp3");
 		auto& listapiezas = (piezaComida->getColor() == color::blanco) ? piezasB : piezasN;
 
 		auto p = std::find(listapiezas.begin(), listapiezas.end(), piezaComida);
@@ -215,6 +216,7 @@ void Tablero::eliminarPieza(casilla destino) {
 
 		delete piezaComida; // Eliminar la pieza del destino
 		tablero[destino.y][destino.x] = nullptr; // Marcar la casilla de destino como vacía
+	
 	}
 }
 

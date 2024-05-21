@@ -56,6 +56,7 @@ int main(int argc, char* argv[])
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
 
+
 	return 0;
 }
 
@@ -84,7 +85,6 @@ void OnDraw(void)
 
 	glLoadIdentity();
 	usuario.dibuja();
-
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
 }
@@ -124,5 +124,5 @@ void OnTimer(int value)
 void reshape(int width, int height)
 {
 	usuario.setReshape(width, height);
-
+	ETSIDI::playMusica("bin/sonidos/musica_fondo2.mp3", true);
 }

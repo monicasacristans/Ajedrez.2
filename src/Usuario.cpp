@@ -395,7 +395,7 @@ void Usuario::dibuja() {
 
 	if (estado == INICIO) {
 
-
+		
 		dibujaFondo();
 
 		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
@@ -404,23 +404,28 @@ void Usuario::dibuja() {
 		setTextColor(1, 1, 1);
 		setFont("bin/fuentes/Bitwise.ttf", 60);
 
+	
 		for (auto m : MENU_INI) {
 			printxy(m.texto, m.x, m.y);
 			if (m.sel == seleccion_ini) {
 				corona.setPos(m.x - 60, m.y + 25);
 				corona.draw();
 			}
+	
 		}
 
 
 
 	}
 	if (estado == MODOJUEGO) {
+
+		ETSIDI::stopMusica();
+
 		if (!juegoInicializado) {
-
+		
 			tablero.set_tablero();
-
 			juegoInicializado = true;
+
 		}
 
 		miPintura.pintarPiezasTablero();
