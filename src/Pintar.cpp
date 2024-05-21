@@ -153,7 +153,7 @@ void Pintar::pintarCorona() {
         corona.draw();
     }
     else if (tablero->getTurno() == false) {
-        corona.setPos(1192, 541);
+        corona.setPos(1151, 664);
         corona.draw();
     }
 }
@@ -195,13 +195,45 @@ void Pintar::pintarPromocion() {
     if (tablero->getFlagPromocion() == true) {
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-        
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glBegin(GL_POLYGON);
-        glVertex2f(26.0f, 680.0f);  // Esquina superior derecha
-        glVertex2f(246.0f, 680.0f); // Esquina superior izquierda
-        glVertex2f(246.0f, 300.0f); // Esquina inferior izquierda
-        glVertex2f(26.0f, 300.0f);  // Esquina inferior derecha
+      
+        // Dibujar el rectángulo
+        glColor3ub(0, 191, 255);
+        glLineWidth(9);
+        glBegin(GL_LINE_LOOP);
+        glVertex2i(1095, 546);
+        glVertex2i(1345, 546);
+        glVertex2i(1345, 80);
+        glVertex2i(1095, 80);
         glEnd();
+
+        glColor3ub(255, 0, 128);
+        glLineWidth(5);
+        glBegin(GL_LINE_LOOP);
+        glVertex2i(1105, 536);
+        glVertex2i(1335, 536);
+        glVertex2i(1335, 90);
+        glVertex2i(1105, 90);
+        glEnd();
+
+        setTextColor(255, 0, 128);
+        setFont("bin/fuentes/Bitwise.ttf", 30);
+        printxy("Seleccione", 1120, 490);
+        printxy("pieza",1165, 460);
+        setTextColor(255, 255, 255);
+        setFont("bin/fuentes/Bitwise.ttf", 23);
+        printxy("1-Reina", 1140, 400);
+        printxy("2-Torre", 1140, 353);
+        printxy("3-Alfil", 1140, 306);
+        printxy("4-Caballo", 1140, 259);
+        printxy("5-Canciller", 1140, 212);
+        printxy("6-Arzobispo", 1140, 165);
+
+ 
+
+        setTextColor(0, 191, 255);
+        setFont("bin/fuentes/Bitwise.ttf", 30);
+        printxy("PROMOCION", 15, 620);
+        printxy("DEL PEON", 20, 570);
+
     }
 }

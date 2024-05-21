@@ -435,6 +435,7 @@ void Usuario::dibuja() {
 		miPintura.pintarError();
 		miPintura.pintarJaque();
 		miPintura.pintarJaqueM();
+		miPintura.pintarPromocion();
 	}
 
 	if (estado == OP) {

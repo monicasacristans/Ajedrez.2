@@ -27,7 +27,7 @@ class Tablero {
 	bool flagMovInvalido = false;
 	bool flagJaque = false;
 	bool flagJaqueM = false;
-	bool flagPromocion = true;
+	bool flagPromocion = false;
 
 	casilla cas_origen{ -1 , -1 };
 	casilla cas_destino{ - 1, -1 };
