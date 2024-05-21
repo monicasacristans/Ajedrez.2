@@ -9,6 +9,9 @@ void Pintar::pintarCuadricula() {
     int offsetX = (1366 - anchoTablero) / 2; // Desplazamiento horizontal para centrar el tablero
     int offsetY = (768 - altoTablero) / 2; // Desplazamiento vertical para centrar el tablero
 
+    //Almacena la casilla de origen elegida
+    casilla casillaOrigen = tablero->getCasillaOrigen();
+
     // Cambia a la matriz de modelo-vista
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -16,7 +19,10 @@ void Pintar::pintarCuadricula() {
     // Dibuja la cuadrícula
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 8; j++) {
-            if ((i + j) % 2 == 0) {
+            if (casillaOrigen.x == i && casillaOrigen.y == j && casillaOrigen.x != -1 && casillaOrigen.y != -1) {
+                glColor3ub(153, 255, 255); // azul pastel
+            }
+            else if ((i + j) % 2 == 0) {
                 glColor3ub(240, 240, 240); // gris claro
             }
             else {

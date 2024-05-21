@@ -38,11 +38,13 @@ public:
 	~Tablero();
 
 	void set_tablero();
-	bool getTurno();
-	bool getFlagMovValido();
-	bool getFlagJaque();
-	bool getFlagJaqueM();
-	bool getFlagPromocion();
+	bool getTurno() { return turno; }
+	bool getFlagMovValido(){ return flagMovInvalido; }//Flag para pintar los avisos
+	bool getFlagJaque(){ return flagJaque; }
+	bool getFlagJaqueM(){ return flagJaqueM; }
+	bool getFlagPromocion(){ return flagPromocion; }
+
+	casilla getCasillaOrigen() const { return cas_origen; }
 
 	const std::vector<Pieza*>& getPiezasEliminadasB() const {
 		return piezasEliminadasB;

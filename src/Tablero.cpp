@@ -48,6 +48,10 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			click = 1;
 
 			realizarMovimiento(p, cas_origen, cas_destino); // Llama a la función para realizar el movimiento deseado
+
+			//Después de mover se reinicia la casilla origen
+			cas_origen = { -1,-1 };
+			flag = false;
 		}
 	}
 }
@@ -132,26 +136,6 @@ bool Tablero::moverPieza(casilla origen, casilla destino) {
 		flagMovInvalido = true;
 		return false;
 	}
-}
-
-bool Tablero::getTurno() {
-	return turno;
-}
-
-bool Tablero::getFlagMovValido() { //Flag para pintar los avisos
-	return flagMovInvalido;
-}
-
-bool Tablero::getFlagJaque() {
-	return flagJaque;
-}
-
-bool Tablero::getFlagJaqueM() {
-	return flagJaqueM;
-}
-
-bool Tablero::getFlagPromocion() {
-	return flagPromocion;
 }
 
 Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
