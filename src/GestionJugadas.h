@@ -7,6 +7,8 @@ class Tablero;
 
 class GestionJugadas {
 	Tablero* tab = nullptr ;
+	//EstadoTablero estadoTablero;
+
 public:
 	//GestionJugadas(Tablero *miTablero):tab(miTablero){};
 	GestionJugadas() {};

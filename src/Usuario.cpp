@@ -14,7 +14,6 @@ GestionJugadas mijugada(&tablero);
 bool juegoInicializado = false;
 bool clicInicializado = false;
 
-
 struct OPCION {
 	int x, y, w, h;
 	int sel;
@@ -166,20 +165,24 @@ int Usuario::getEstado() {
 	return estado;
 }
 
-bool Usuario::getenroqueActivado() {
-	return enroqueActivado;
-}
-
 void Usuario::teclado(unsigned char key) {
 	if (estado == MODOJUEGO) {
 		if (estadodejuego == TURNO) {
 			if (key == 'p' || key == 'P') { estadodejuego = PAUSA; }
 			if (key == 'E' || key == 'e') { 
-				enroqueActivado = true; 
+				//tablero.setEnroqueActivado(true);
+				enroqueActivado = true;
+
 				std::cout << "enroque activado" << std::endl;
+			
 			}
+			
 		}
 	}
+}
+
+bool Usuario::getenroqueActivado() {
+	return enroqueActivado;
 }
 
 void Usuario::raton(int button, int state, int x, int y) {

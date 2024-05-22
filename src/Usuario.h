@@ -7,7 +7,6 @@ class Usuario {
 
 	Sprite fondo{ "bin/imagenes/fondo.png", 0, 0, 220, 140 };
 	Sprite corona{ "bin/imagenes/corona.png", 0,0, 80, 40 };
-	bool enroqueActivado = false;
 public:
 	Usuario();
 	virtual ~Usuario();
@@ -26,7 +25,7 @@ public:
 	int ganador; //blancas (0) negras(1) tablas(2)
 	int final; 
 
-
+	bool enroqueActivado;
 	int n_ayuda;
 	int n_inst;
 	int n_texto_a;

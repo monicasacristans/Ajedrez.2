@@ -31,7 +31,7 @@ class Tablero {
 	bool flagJaqueM = false;
 	bool flagPromocion = false;
 	bool flagEnroque = false;
-
+	bool enroqueActivado=false;
 	casilla cas_origen{ -1 , -1 };
 	casilla cas_destino{ - 1, -1 };
 
@@ -41,6 +41,7 @@ public:
 	~Tablero();
 
 	void getTablero(Pieza* tableroActual[max_y][max_x]);
+	void setEnroqueActivado(bool estado);
 
 	void set_tablero();
 
@@ -50,7 +51,6 @@ public:
 	bool getFlagJaqueM();
 	bool getFlagPromocion();
 	bool getFlagEnroque();
-
 
 	//turnos
 

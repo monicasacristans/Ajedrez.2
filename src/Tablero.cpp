@@ -111,14 +111,18 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					if (mijugada.verificarEnroque(colJug, tablero) == true) {
 						std::cout << "ENROQUE ENTRE REY Y TORRE" << (colOponente == color::blanco ? "NEGROS" : "BLANCOS") << std::endl;
 						flagEnroque = true;
+
 						if (usuario.getenroqueActivado()) {
 							mijugada.realizarEnroque(colJug, tablero);
-							std::cout << "realizando enroque" << std::endl;
+							//setEnroqueActivado(false);
+							std::cout << "enroque desactivado" << std::endl;
+							flagEnroque = false;
 						}
 					}
 					else {
 						flagEnroque = false;
 					}
+
 				// Verificar jaque mate
 				if (mijugada.jaque(colOponente, tablero) == true) {
 					std::cout <<  "REY" << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
@@ -149,13 +153,6 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						continue;
 					}
 				}
-
-				//verificar si el movimiento saca al rey del enroque
-				/*if (!getTurno() && mijugada.verificarEnroque(colJug, tablero) == true) {
-					if (p->getTipo() == tipo::rey) {
-					//	mijugada.realizarEnroque(cas_origen, cas_destino, tablero);
-					}
-				}*/
 			}
 
 			turno = !turno;
@@ -193,6 +190,14 @@ bool Tablero::getFinTurnoB() {
 		return !finturnob;
 	}
 }
+
+
+
+void Tablero::setEnroqueActivado(bool estado) {
+	enroqueActivado = estado;
+}
+
+
 
 bool Tablero::getFinTurnoN() {
 	if (turno == true) {

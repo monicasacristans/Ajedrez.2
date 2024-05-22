@@ -100,28 +100,33 @@ void GestionJugadas::realizarEnroque(color jugador, Pieza* tablero[max_y][max_x]
 	if (verificarEnroque(jugador, tablero)==true) {
 			torre = torre_derecha;
 			torreX = torreX_dcha;
-			nuevoReyX = reyX + 4;
-			nuevaTorreX = reyX + 3;
+			nuevoReyX = reyX + 3;
+			nuevaTorreX = reyX + 2;
+			
 	}
 	// ENROQUE LARGO
+	else {
 	int torreX_izqd = 0;
 	Torre* torre_izquierda = dynamic_cast<Torre*>(tablero[reyY][torreX_izqd]);
-	if (verificarEnroque(jugador, tablero)==true) {
+	
+		if (verificarEnroque(jugador, tablero) == true) {
 			torre = torre_izquierda;
 			torreX = torreX_izqd;
-			nuevoReyX = reyX - 5;
-			nuevaTorreX = reyX - 4;
+			nuevoReyX = reyX - 3;
+			nuevaTorreX = reyX - 2;
 		}
+	}
 	// Si un enroque es posible, mover las piezas
 	if (torre != nullptr) {
 		// Mover el rey
 		tablero[reyY][nuevoReyX] = rey;
 		tablero[reyY][reyX] = nullptr;
 		rey->marcarComoMovido();
+		
 
 		// Mover la torre
 		tablero[reyY][nuevaTorreX] = torre;
-		//tablero[reyY][torreX] = nullptr;
+		tablero[reyY][torreX] = nullptr;
 		torre->marcarComoMovido();
 	}
 }
