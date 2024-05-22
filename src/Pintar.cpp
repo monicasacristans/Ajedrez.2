@@ -169,9 +169,9 @@ void Pintar::pintarError() {
     if (tablero->getFlagMovValido() == true) {    //Si es 1, el mov no es valido, salta error
         setTextColor(255, 0, 0);
         setFont("bin/fuentes/Bitwise.ttf", 40);
-        printxy("ERROR", 60, 620);
+        printxy("ERROR", 60, 500);
         setFont("bin/fuentes/Bitwise.ttf", 15);
-        printxy("MUEVE OTRA VEZ", 60, 580);
+        printxy("MUEVE OTRA VEZ", 60, 460);
     }  
 }
 
@@ -193,8 +193,6 @@ void Pintar::pintarJaqueM() {
         printxy("MATE", 68, 570);
     }
 }
-
-//Lo hago yo (moni), mañana martes está
 
 void Pintar::pintarPromocion() {
 

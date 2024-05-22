@@ -93,11 +93,13 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						std::cout << "JAQUE MATE AL REY" << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
 						flagJaqueM = true;// Fin del juego
 					}
+					else {
+						flagJaqueM = false;
+					}
 					
 				}
 				else {
 					flagJaque = false;
-					flagJaqueM = false;
 				}
 					
 				//Verificar si el movimiento saca al rey del jaque
@@ -110,6 +112,9 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						tablero[cas_destino.y][cas_destino.x] = nullptr;
 						flagJaque = true;
 						continue;
+					}
+					else{
+						flagJaque = false;
 					}
 				}
 			}
