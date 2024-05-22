@@ -1,6 +1,9 @@
 #include "Tablero.h"
+#include "Usuario.h"
+
 
 using namespace std;
+extern Usuario usuario;
 
 
 
@@ -8,9 +11,18 @@ using namespace std;
 
 
 Tablero::Tablero() {
+
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
 			tablero[y][x] = nullptr; //Pieza crea una pieza vacia 
+		}
+	}
+}
+
+void Tablero::getTablero(Pieza* tableroActual[max_y][max_x]) {
+	for (int y = 0; y < max_y; y++) {
+		for (int x = 0; x < max_x; x++) {
+			tableroActual[y][x] = this->tablero[y][x];  // Asume que `this->tablero` es tu matriz de piezas actual
 		}
 	}
 }
@@ -62,6 +74,8 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 	//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
 	while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
 		if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
+
+			
 			mov_valido = moverPieza(cas_origen, cas_destino);
 			cout << piezasEliminadasB.size() << ", " << piezasEliminadasN.size() << endl;	
 			if (!mov_valido) {
@@ -97,11 +111,14 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					if (mijugada.verificarEnroque(colJug, tablero) == true) {
 						std::cout << "ENROQUE ENTRE REY Y TORRE" << (colOponente == color::blanco ? "NEGROS" : "BLANCOS") << std::endl;
 						flagEnroque = true;
+						if (usuario.getenroqueActivado()) {
+							mijugada.realizarEnroque(colJug, tablero);
+							std::cout << "realizando enroque" << std::endl;
+						}
 					}
 					else {
 						flagEnroque = false;
 					}
-				
 				// Verificar jaque mate
 				if (mijugada.jaque(colOponente, tablero) == true) {
 					std::cout <<  "REY" << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
@@ -132,6 +149,13 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						continue;
 					}
 				}
+
+				//verificar si el movimiento saca al rey del enroque
+				/*if (!getTurno() && mijugada.verificarEnroque(colJug, tablero) == true) {
+					if (p->getTipo() == tipo::rey) {
+					//	mijugada.realizarEnroque(cas_origen, cas_destino, tablero);
+					}
+				}*/
 			}
 
 			turno = !turno;
@@ -157,6 +181,25 @@ bool Tablero::moverPieza(casilla origen, casilla destino) {
 
 		flagMovInvalido = true;
 		return false;
+	}
+}
+
+
+bool Tablero::getFinTurnoB() {
+	if (turno == true) {
+		return finturnob;
+	}
+	else {
+		return !finturnob;
+	}
+}
+
+bool Tablero::getFinTurnoN() {
+	if (turno == true) {
+		return !finturnon;
+	}
+	else {
+		return finturnon;
 	}
 }
 

@@ -202,12 +202,18 @@ void Pintar::pintarJaqueM() {
 }
 
 void Pintar::pintarEnroque() {
+   
     if (tablero->getFlagEnroque() == true) {
         setTextColor(255, 0, 0);
-        setFont("bin/fuentes/Bitwise.ttf", 40);
-        printxy("ENROQUE", 60, 620);
+        
+            setFont("bin/fuentes/Bitwise.ttf", 30);
+            printxy("ENROQUE", 10, 620);
+            setFont("bin/fuentes/Bitwise.ttf", 20);
+            printxy("Para realizar el", 10, 580);
+            printxy("enroque pulse 'E' ", 10, 540);
+        }
+    
     }
-}
 //Lo hago yo (moni), mañana martes está
 
 void Pintar::pintarPromocion() {

@@ -7,7 +7,7 @@ class Usuario {
 
 	Sprite fondo{ "bin/imagenes/fondo.png", 0, 0, 220, 140 };
 	Sprite corona{ "bin/imagenes/corona.png", 0,0, 80, 40 };
-
+	bool enroqueActivado = false;
 public:
 	Usuario();
 	virtual ~Usuario();
@@ -18,7 +18,7 @@ public:
 	void dibuja();
 	void dibujaFondo();
 	void setReshape(float x, float y);
-
+	bool getenroqueActivado();
 	int getEstado();
 
 	//VARIABLES JAQUE Y JAQUE MATE

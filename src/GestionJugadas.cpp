@@ -81,6 +81,61 @@ bool::GestionJugadas::verificarEnroque(color jugador, Pieza* tablero[max_y][max_
 	return enroqueDerechaPosible || enroqueIzquierdaPosible;
 }
 
+
+void GestionJugadas::realizarEnroque(color jugador, Pieza* tablero[max_y][max_x]) {
+	int reyY = (jugador == color::blanco) ? 0 : max_y - 1;
+	int reyX = 5;
+
+	Rey* rey = dynamic_cast<Rey*>(tablero[reyY][reyX]);
+
+	// Variables para la torre y las nuevas posiciones del rey y la torre
+	Torre* torre = nullptr;
+	int torreX = 0;
+	int nuevoReyX = 0;
+	int nuevaTorreX = 0;
+
+	// ENROQUE CORTO
+	int torreX_dcha = max_x - 1;
+	Torre* torre_derecha = dynamic_cast<Torre*>(tablero[reyY][torreX_dcha]);
+	if (verificarEnroque(jugador, tablero)==true) {
+			torre = torre_derecha;
+			torreX = torreX_dcha;
+			nuevoReyX = reyX + 4;
+			nuevaTorreX = reyX + 3;
+	}
+	// ENROQUE LARGO
+	int torreX_izqd = 0;
+	Torre* torre_izquierda = dynamic_cast<Torre*>(tablero[reyY][torreX_izqd]);
+	if (verificarEnroque(jugador, tablero)==true) {
+			torre = torre_izquierda;
+			torreX = torreX_izqd;
+			nuevoReyX = reyX - 5;
+			nuevaTorreX = reyX - 4;
+		}
+	// Si un enroque es posible, mover las piezas
+	if (torre != nullptr) {
+		// Mover el rey
+		tablero[reyY][nuevoReyX] = rey;
+		tablero[reyY][reyX] = nullptr;
+		rey->marcarComoMovido();
+
+		// Mover la torre
+		tablero[reyY][nuevaTorreX] = torre;
+		//tablero[reyY][torreX] = nullptr;
+		torre->marcarComoMovido();
+	}
+}
+
+/*void GestionJugadas::realizarEnroque(Pieza& torre, Pieza& rey, tipo t) {
+	auto& _rey = rey;
+	int _fila = torre.getFila(); 
+	int inicio = 2, fin = 4; //enroque largo
+	if(t == tipo::)
+}*/
+
+
+
+
 /////////CLICKANDO PRIMERO REY Y DESPUES TORRE SE HACE EL ENROQUE
 //bool GestionJugadas::enroque(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
 //	Pieza* rey = tablero[origen.y][origen.x];

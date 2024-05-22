@@ -27,7 +27,8 @@ public:
 	//Enroque
 	//bool enroque(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]);
 	bool verificarEnroque(color jugador, Pieza* tablero[max_y][max_x]);
-	void realizarEnroque(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]);
+	void realizarEnroque(color jugador, Pieza* tablero[max_y][max_x]);
+
 
 
 	friend class Tablero;

@@ -23,6 +23,8 @@ class Tablero {
 	std::vector<Pieza*> piezasEliminadasN;
 
 	bool turno = true; //true BLANCAS,  false NEGRAS
+	bool finturnon=false;
+	bool finturnob=false;
 	bool flag = false;
 	bool flagMovInvalido = false;
 	bool flagJaque = false;
@@ -38,13 +40,22 @@ public:
 	Tablero();
 	~Tablero();
 
+	void getTablero(Pieza* tableroActual[max_y][max_x]);
+
 	void set_tablero();
+
 	bool getTurno();
 	bool getFlagMovValido();
 	bool getFlagJaque();
 	bool getFlagJaqueM();
 	bool getFlagPromocion();
 	bool getFlagEnroque();
+
+
+	//turnos
+
+	bool getFinTurnoN();
+	bool getFinTurnoB();
 
 	const std::vector<Pieza*>& getPiezasEliminadasB() const {
 		return piezasEliminadasB;
