@@ -43,6 +43,7 @@ public:
 	bool getFlagJaque(){ return flagJaque; }
 	bool getFlagJaqueM(){ return flagJaqueM; }
 	bool getFlagPromocion(){ return flagPromocion; }
+	/*bool set_promocion(casilla c, Pieza* p);*/
 
 	casilla getCasillaOrigen() const { return cas_origen; }
 

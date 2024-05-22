@@ -10,7 +10,7 @@
 
 Tablero tablero;
 Pintar miPintura(&tablero);
-GestionJugadas mijugada(&tablero);
+
 bool juegoInicializado = false;
 bool clicInicializado = false;
 

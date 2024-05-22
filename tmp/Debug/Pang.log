@@ -1,9 +1,3 @@
-﻿  Main.cpp
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(64,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(67,2): warning C4551: la llamada a la función no tiene lista de argumentos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(94,19): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(102,3): warning C4551: la llamada a la función no tiene lista de argumentos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(110,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(126,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(126,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+﻿  Torre.cpp
+C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Torre.cpp(37): warning C4715: 'Torre::movimientoValido': no todas las rutas de acceso de control devuelven un valor
   Pang.vcxproj -> C:\Users\Cristina\Documents\GitHub\Ajedrez.2\bin\Pang.exe

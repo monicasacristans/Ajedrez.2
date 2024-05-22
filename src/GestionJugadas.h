@@ -10,7 +10,7 @@ class GestionJugadas {
 public:
 	//GestionJugadas(Tablero *miTablero):tab(miTablero){};
 	GestionJugadas() {};
-	GestionJugadas(Tablero *miTablero):tab(miTablero) {};
+	//GestionJugadas(Tablero *miTablero):tab(miTablero) {};
 	
 	//JAQUE 
 	bool jaque(color col, Pieza* tablero[max_y][max_x]);
