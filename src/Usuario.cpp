@@ -169,21 +169,11 @@ void Usuario::teclado(unsigned char key) {
 	if (estado == MODOJUEGO) {
 		if (estadodejuego == TURNO) {
 			if (key == 'p' || key == 'P') { estadodejuego = PAUSA; }
-			if (key == 'E' || key == 'e') { 
-				//tablero.setEnroqueActivado(true);
-				enroqueActivado = true;
-
-				std::cout << "enroque activado" << std::endl;
-			
-			}
 			
 		}
 	}
 }
 
-bool Usuario::getenroqueActivado() {
-	return enroqueActivado;
-}
 
 void Usuario::raton(int button, int state, int x, int y) {
 	int screenX = x;

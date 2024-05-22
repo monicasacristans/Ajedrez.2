@@ -74,8 +74,22 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 	//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
 	while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
 		if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
+			// Comprobar si el movimiento es un enroque
+			if (p->getTipo() == tipo::rey && (abs(cas_destino.x - cas_origen.x) == 3 || (abs(cas_destino.x - cas_origen.x) == -3))) {
+				mijugada.realizarEnroque(p->getColor(), tablero);
+				if (!mov_valido) {
+					turno = !turno;
+					std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
+					flagEnroque = false;
+					break;
+				}
+				else {
+					std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
+					//turno = !turno;
+					break;
+				}
+			}
 
-			
 			mov_valido = moverPieza(cas_origen, cas_destino);
 			cout << piezasEliminadasB.size() << ", " << piezasEliminadasN.size() << endl;	
 			if (!mov_valido) {
@@ -90,38 +104,8 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					//break;
 				}
 
-			/*	if (p->getTipo() == tipo::rey && abs(cas_destino.x - cas_origen.x) == 4) {
-					mov_valido = mijugada.enroque(cas_origen, cas_destino, tablero);
-					if (!mov_valido) {
-						flagEnroque = true;
-						cout << "ENROQUE NO VALIDO INTENTA DE NUEVO" << endl;
-						break;
-					}
-
-					else {
-						flagEnroque = false;
-						cout << "ENROQUE REALIZADO CORRECTAMENTE" << endl;
-					}*/
-
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
 				color colJug = (p->getColor() == color::blanco) ? color::blanco : color::negro;
-
-				//comprobar enroque
-			
-					if (mijugada.verificarEnroque(colJug, tablero) == true || mijugada.verificarEnroqueIzquierda(colJug, tablero)) {
-						std::cout << "ENROQUE ENTRE REY Y TORRE" << (colOponente == color::blanco ? "NEGROS" : "BLANCOS") << std::endl;
-						flagEnroque = true;
-
-						if (usuario.getenroqueActivado()) {
-							mijugada.realizarEnroque(colJug, tablero);
-							//setEnroqueActivado(false);
-							std::cout << "enroque desactivado" << std::endl;
-							flagEnroque = false;
-						}
-					}
-					else {
-						flagEnroque = false;
-					}
 
 				// Verificar jaque mate
 				if (mijugada.jaque(colOponente, tablero) == true) {

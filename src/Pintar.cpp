@@ -208,9 +208,6 @@ void Pintar::pintarEnroque() {
         
             setFont("bin/fuentes/Bitwise.ttf", 30);
             printxy("ENROQUE", 10, 620);
-            setFont("bin/fuentes/Bitwise.ttf", 20);
-            printxy("Para realizar el", 10, 580);
-            printxy("enroque pulse 'E' ", 10, 540);
         }
     
     }

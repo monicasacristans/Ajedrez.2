@@ -17,7 +17,6 @@ public:
 	void dibuja();
 	void dibujaFondo();
 	void setReshape(float x, float y);
-	bool getenroqueActivado();
 	int getEstado();
 
 	//VARIABLES JAQUE Y JAQUE MATE
