@@ -40,7 +40,31 @@ bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 	return false; // El rey no está en jaque
 }
 
+bool::GestionJugadas::verificarEnroqueIzquierda(color jugador, Pieza* tablero[max_y][max_x]) {
+	// Verificar si la pieza en la casilla de origen es un Rey
+	int reyY = (jugador == color::blanco) ? 0 : max_y - 1;
+	int reyX = 5;
 
+	Rey* rey = dynamic_cast<Rey*>(tablero[reyY][reyX]);
+	if (rey == nullptr || !(rey->haSidoMovido())) {
+		return false; // No es un rey o ya se ha movido
+	}
+	//ENROQUE LARGO
+	int torreX_izqd = 0;
+	Torre* torre_izquierda = dynamic_cast<Torre*>(tablero[reyY][torreX_izqd]);
+	bool enroqueIzquierdaPosible = (torre_izquierda != nullptr && torre_izquierda->haSidoMovido());
+	if (enroqueIzquierdaPosible) {
+		for (int x = reyX - 1; x > torreX_izqd; x--) {
+			if (tablero[reyY][x] != nullptr) {
+				enroqueIzquierdaPosible = false; // Hay una pieza en el camino
+				break;
+			}
+		}
+	}
+
+	return enroqueIzquierdaPosible;
+
+}
 bool::GestionJugadas::verificarEnroque(color jugador, Pieza* tablero[max_y][max_x]) {
 	// Verificar si la pieza en la casilla de origen es un Rey
 	int reyY = (jugador == color::blanco) ? 0 : max_y - 1;
@@ -66,19 +90,19 @@ bool::GestionJugadas::verificarEnroque(color jugador, Pieza* tablero[max_y][max_
 		}
 	}
 
-	//ENROQUE LARGO
-	int torreX_izqd = 0;
-	Torre* torre_izquierda = dynamic_cast<Torre*>(tablero[reyY][torreX_izqd]);
-	bool enroqueIzquierdaPosible = (torre_izquierda != nullptr && torre_izquierda->haSidoMovido());
-	if (enroqueIzquierdaPosible) {
-		for (int x = reyX - 1; x > torreX_izqd; x--) {
-			if (tablero[reyY][x] != nullptr) {
-				enroqueIzquierdaPosible = false; // Hay una pieza en el camino
-				break;
-			}
-		}
-	}
-	return enroqueDerechaPosible || enroqueIzquierdaPosible;
+	////ENROQUE LARGO
+	//int torreX_izqd = 0;
+	//Torre* torre_izquierda = dynamic_cast<Torre*>(tablero[reyY][torreX_izqd]);
+	//bool enroqueIzquierdaPosible = (torre_izquierda != nullptr && torre_izquierda->haSidoMovido());
+	//if (enroqueIzquierdaPosible) {
+	//	for (int x = reyX - 1; x > torreX_izqd; x--) {
+	//		if (tablero[reyY][x] != nullptr) {
+	//			enroqueIzquierdaPosible = false; // Hay una pieza en el camino
+	//			break;
+	//		}
+	//	}
+	//}
+	return enroqueDerechaPosible;
 }
 
 
@@ -97,7 +121,8 @@ void GestionJugadas::realizarEnroque(color jugador, Pieza* tablero[max_y][max_x]
 	// ENROQUE CORTO
 	int torreX_dcha = max_x - 1;
 	Torre* torre_derecha = dynamic_cast<Torre*>(tablero[reyY][torreX_dcha]);
-	if (verificarEnroque(jugador, tablero)==true) {
+
+	if ((verificarEnroque(jugador, tablero)==true)) {
 			torre = torre_derecha;
 			torreX = torreX_dcha;
 			nuevoReyX = reyX + 3;
@@ -109,7 +134,7 @@ void GestionJugadas::realizarEnroque(color jugador, Pieza* tablero[max_y][max_x]
 	int torreX_izqd = 0;
 	Torre* torre_izquierda = dynamic_cast<Torre*>(tablero[reyY][torreX_izqd]);
 	
-		if (verificarEnroque(jugador, tablero) == true) {
+		if (verificarEnroqueIzquierda(jugador, tablero) == true) {
 			torre = torre_izquierda;
 			torreX = torreX_izqd;
 			nuevoReyX = reyX - 3;

@@ -108,7 +108,7 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 
 				//comprobar enroque
 			
-					if (mijugada.verificarEnroque(colJug, tablero) == true) {
+					if (mijugada.verificarEnroque(colJug, tablero) == true || mijugada.verificarEnroqueIzquierda(colJug, tablero)) {
 						std::cout << "ENROQUE ENTRE REY Y TORRE" << (colOponente == color::blanco ? "NEGROS" : "BLANCOS") << std::endl;
 						flagEnroque = true;
 
