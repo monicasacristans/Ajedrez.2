@@ -139,10 +139,6 @@ void Pintar::pintarPiezasTablero() {
     }
 }
 
-//void Pintar::pintarCasillaElegida() {
-//
-//}
-
 void Pintar::pintarCorona() {
     //Texto para cada jugador
     setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
@@ -240,4 +236,17 @@ void Pintar::pintarPromocion() {
         printxy("DEL PEON", 20, 570);
 
     }
+}
+
+void Pintar::pintarEnroque() {
+    if (tablero->getFlagEnroque() == true) {
+        setTextColor(255, 0, 0);
+        setFont("bin/fuentes/Bitwise.ttf", 30);
+        printxy("ENROQUE", 10, 620);
+    }
+}
+
+void Pintar::pintarPantallaFinal() {
+    pantalla.setPos(689, 380);
+    pantalla.draw();
 }

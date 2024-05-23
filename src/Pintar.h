@@ -13,8 +13,6 @@ class Pintar {
 	int anchoTablero = 10 * 80;
 	int altoTablero = 8 * 80;
 
-	Sprite promocion{ "bin/imagenes/coronacion.png", 0,0, 60,60 };
-	Sprite casilla_legal{ "bin/imagenes/casilla_legal.png", 0,0, 60,60 };
 	Sprite peon_b{ "bin/imagenes/peon_b.png", 0, 0, 60,60 };
 	Sprite peon_n{ "bin/imagenes/peon_n.png", 0, 0, 60,60 };
 	Sprite torre_b{ "bin/imagenes/torre_b.png", 0, 0, 60,60 };
@@ -33,19 +31,13 @@ class Pintar {
 	Sprite arzobispo_n{ "bin/imagenes/arzobispo_n.png", 0, 0, 60,60 };
 
 	Sprite corona{ "bin/imagenes/corona.png", 0, 0, 80, 40 };
+	Sprite pantalla{ "bin/imagenes/pantalla.png", 0, 0, 600, 400 };
 
 public:
 	
 	Pintar(Tablero* ptrTab) : tablero(ptrTab) {}
 
-
-	/////CASILLA LEGAL///////
-	int calcularCoordenadaX(int casillaX) const;
-	int calcularCoordenadaY(int casillaX) const;
-	void pintarCasillaLegal();
-
-
-	void setPos(float x, float y);
+	//void setPos(float x, float y);
 	void draw();
 
 	casilla restringirCasilla(int x, int y);
@@ -53,10 +45,11 @@ public:
 
 	void pintarCuadricula();
 	void pintarPiezasTablero();
-	//void pintarCasillaElegida();
 	void pintarCorona();
 	void pintarError();
 	void pintarJaque();
 	void pintarJaqueM();
 	void pintarPromocion();
+	void pintarEnroque();
+	void pintarPantallaFinal();
 };

@@ -1,8 +1,7 @@
 #include "Tablero.h"
 
 using namespace std;
-
-
+extern Usuario usuario;
 
 GestionJugadas jugada;
 
@@ -58,8 +57,8 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 
 void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino) {
 	bool mov_valido = false;
+	
 	//GestionJugadas mijugada(this);
-
 	//cout << piezasB.size() << " , " << piezasN.size() << endl;
 	//cout << piezaseliminadas.size() << endl;
 	//Si el movimiento realizado es incorrecto no cambia de turno hasta que el movimiento sea valido
@@ -104,7 +103,7 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					
 				//Verificar si el movimiento saca al rey del jaque
 				color colJugador = p->getColor();
-				if (jugada.jaque(colJugador, tablero) == true) {
+				if (jugada.jaque(colJugador, tablero) == true || jugada.jaque_mate(colJugador, tablero) == true) {
 					if (jugada.reySaleDeJaque(colJugador, tablero) == true) {
 						cout << "Movimiento no valido, el rey sigue en jaque." << endl;
 						// Revertir el movimiento
@@ -115,6 +114,7 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					}
 					else{
 						flagJaque = false;
+						flagJaqueM = false;
 					}
 				}
 
@@ -134,9 +134,12 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					}
 				}
 			}
-
 			turno = !turno;
 		}
+		flagJaque = false;
+		flagJaqueM = false;
+		flagPromocion = false;
+		flagEnroque = false;
 		break;
 	}
 }
@@ -224,6 +227,14 @@ void Tablero::set_tablero() {
 	for (int i = 0; i < 10; i++) {
 		piezasN.push_back(tablero[6][i]);
 		piezasN.push_back(tablero[7][i]);
+	}
+}
+
+void Tablero::getTablero(Pieza* tableroActual[max_y][max_x]) {
+	for (int y = 0; y < max_y; y++) {
+		for (int x = 0; x < max_x; x++) {
+			tableroActual[y][x] = this->tablero[y][x];  // Asume que `this->tablero` es tu matriz de piezas actual
+		}
 	}
 }
 

@@ -44,8 +44,9 @@ public:
 	~Tablero();
 
 	void set_tablero();
+	void getTablero(Pieza* tableroActual[max_y][max_x]);
 	bool getTurno() { return turno; }
-	//void set_turno(bool t) { turno = t; }
+	void set_turno(bool t) { turno = t; }
 	void setEnroqueActivado(bool estado) { enroqueActivado = estado; }
 
 	bool getFlagMovValido(){ return flagMovInvalido; }//Flag para pintar los avisos
@@ -57,19 +58,19 @@ public:
 
 	casilla getCasillaOrigen() const { return cas_origen; }
 
-	////Turnos
-	//bool getFinTurnoN() {
-	//	if (turno == true)
-	//		return !finturnon;
-	//	else
-	//		return finturnon;
-	//}
-	//bool getFinTurnoB() {
-	//	if (turno == true)
-	//		return finturnob;
-	//	else
-	//		return !finturnob;
-	//}
+	//Turnos
+	bool getFinTurnoN() {
+		if (turno == true)
+			return !finturnon;
+		else
+			return finturnon;
+	}
+	bool getFinTurnoB() {
+		if (turno == true)
+			return finturnob;
+		else
+			return !finturnob;
+	}
 
 	const std::vector<Pieza*>& getPiezasEliminadasB() const {
 		return piezasEliminadasB;

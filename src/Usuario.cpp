@@ -1,15 +1,8 @@
 #include "Pintar.h"
 
-  /* 1 - Crear un una nueva varibale de tipo OPCION(la estructura)
-   2-Ir al mouse primero y seguir el primer caso
-   3- Ir al raton y seguir la estructura. 
-
-   los shapx,y desaparecen
-
-*/
-
 Tablero tablero;
 Pintar miPintura(&tablero);
+GestionJugadas mijugada(&tablero);
 
 bool juegoInicializado = false;
 bool clicInicializado = false;
@@ -45,10 +38,13 @@ OPCION TEXTOCORONACION[]{ {110,60,261,20,1,"atras"} }; //3
 OPCION TEXTOCAPTURAPASO[]{ {110,60,261,20,1,"atras"} }; //4
 OPCION TEXTOTABLAS[]{ {110,60,261,20,1,"atras"} }; //5 
 
+OPCION M_FINAL[]{ 590,400,561,60,1,"REVANCHA" ,570,330,561,60,2,"ABANDONAR" };
+
 
 Usuario::Usuario() {
 
 	estado = INICIO;
+	estadodejuego = TURNO;
 	seleccion_ini = 0;
 	seleccion_estado = estado;
 	opcion = O;
@@ -56,7 +52,6 @@ Usuario::Usuario() {
 	n_inst = 0;
 	n_texto_a = 0;
 	n_texto_ins = 0;
-	coronar = C;
 }
 
 Usuario:: ~Usuario() {}
@@ -139,15 +134,10 @@ void Usuario::mouse(int x, int y) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//TABLAS
 		}
 	}
-}
-
-void Usuario::setReshape(float x, float y) {
-	shapx = x;
-	shapy = y;
-}
-
-int Usuario::getEstado() {
-	return estado;
+	if (estado == FINAL) {
+		for (auto m : M_FINAL)
+			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//Final
+	}
 }
 
 void Usuario::raton(int button, int state, int x, int y) {
@@ -159,10 +149,8 @@ void Usuario::raton(int button, int state, int x, int y) {
 	std::cout << "Coordenadas del raton en la pantalla: (" << screenX << ", " << screenY << ")" << std::endl;
 
 	//tablero.definirCoordenadasTablero(button, state, x, y);
-
-	if (estado == INICIO) {
-		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-		{
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
+		if (estado == INICIO) {
 			for (auto m : MENU_INI) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
@@ -172,18 +160,31 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 		}
-	}
 
-	if (estado == MODOJUEGO) {
-		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-			tablero.definirCoordenadasTablero(button, state, x, y);
+		if (estado == MODOJUEGO) {
+			if (estadodejuego == TURNO) {
+				tablero.definirCoordenadasTablero(button, state, x, y);
 
+				Pieza* tableroActual[max_y][max_x];
+				tablero.getTablero(tableroActual);
+				if (tablero.getFinTurnoN() == true) {
+					if (mijugada.jaque_mate(color::blanco, tableroActual) == true) {
+						ganador = false;//Ganan negras
+						estado = FINAL;
+						return;
+					}
+				}
+				else if (tablero.getFinTurnoB() == true) {
+					if (mijugada.jaque_mate(color::negro, tableroActual) == true) {
+						ganador = true;//Ganan blancas
+						estado = FINAL;
+						return;
+					}
+				}
+			}
 		}
-	}
-	if (estado == OP) {
-		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-		{
 
+		if (estado == OP) {
 			for (auto m : MENU_OPC) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
@@ -194,10 +195,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 		}
-	}
-	if (estado == AYU) {
-		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-		{
+		if (estado == AYU) {
 			for (auto m : MENU_AYUDA) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
@@ -214,10 +212,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 		}
-	}
-	if (estado == TEXTO_A) {
-		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-		{
+		if (estado == TEXTO_A) {
 			if (n_ayuda == 0) {
 				for (auto m : TEXTOTORRE) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
@@ -290,12 +285,8 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 		}
-	}
 
-	if (estado == INST) {
-		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-		{
-
+		if (estado == INST) {
 			for (auto m : MENU_INST) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
@@ -311,11 +302,8 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 		}
-	}
 
-	if (estado == TEXTO_IN) {
-		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-		{
+		if (estado == TEXTO_IN) {
 			if (n_inst == 0) {
 				for (auto m : TEXTOOBJETIVO) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
@@ -371,10 +359,28 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 		}
+		if (estado == FINAL) {
+			if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+			{
+				for (auto m : M_FINAL) {
+					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+						for (int i = INICIO; i <= TEXTO_IN; i++) {
+							if (m.sel == 1) estado = MODOJUEGO;
+							//Reiniciar el tablero
+							tablero.set_tablero();
+							tablero.set_turno(true);
+
+							if (m.sel == 2) estado = INICIO;
+							tablero.set_tablero();
+							tablero.set_turno(true);
+						}
+					}
+				}
+
+			}
+		}
 	}
 }
-
-
 
 void Usuario::dibujaFondo() {
 	glEnable(GL_TEXTURE_2D);
@@ -394,7 +400,6 @@ void Usuario::dibujaFondo() {
 void Usuario::dibuja() {
 
 	if (estado == INICIO) {
-
 		
 		dibujaFondo();
 
@@ -411,43 +416,29 @@ void Usuario::dibuja() {
 				corona.setPos(m.x - 60, m.y + 25);
 				corona.draw();
 			}
-	
 		}
-
-
-
 	}
 	if (estado == MODOJUEGO) {
-
 		ETSIDI::stopMusica();
+		if (estadodejuego == TURNO) {
+			if (!juegoInicializado) {
+				tablero.set_tablero();
+				juegoInicializado = true;
+			}
+			miPintura.pintarPiezasTablero();
 
-		if (!juegoInicializado) {
-		
-			tablero.set_tablero();
-			juegoInicializado = true;
-
+			glutPostRedisplay();
+			miPintura.pintarCuadricula();
+			miPintura.pintarCorona();
+			miPintura.pintarError();
+			miPintura.pintarJaque();
+			miPintura.pintarJaqueM();
+			miPintura.pintarPromocion();
 		}
-
-		miPintura.pintarPiezasTablero();
-		///////////////CASILLA LEGAL/////////////////
-
-		//miPintura.pintarCasillaLegal();
-
-
-		glutPostRedisplay();
-		miPintura.pintarCuadricula();
-		miPintura.pintarCorona();
-		miPintura.pintarError();
-		miPintura.pintarJaque();
-		miPintura.pintarJaqueM();
-		miPintura.pintarPromocion();
 	}
 
 	if (estado == OP) {
-
 		dibujaFondo();
-
-
 		for (auto m : MENU_OPC) {
 			printxy(m.texto, m.x, m.y);
 			if (m.sel == seleccion_ini) {
@@ -476,8 +467,6 @@ void Usuario::dibuja() {
 		}
 
 	}
-
-
 
 	if (estado == TEXTO_A) {
 		switch (n_ayuda) {
@@ -785,6 +774,47 @@ void Usuario::dibuja() {
 		default:
 			break;
 		}
+	}
+	if (estado == FINAL) {
+		miPintura.pintarPantallaFinal();
+
+		if (getGanador() == true) {
+			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
+			setFont("bin/fuentes/Bitwise.ttf", 30);
+			printxy("GANADOR BLANCO", 480, 480);
+			setFont("bin/fuentes/Bitwise.ttf", 22);
+			setTextColor(1, 1, 1);
+			for (auto m : M_FINAL) {
+				printxy(m.texto, m.x, m.y);
+				if (m.sel == seleccion_ini) {
+					corona.setPos(m.x - 60, m.y + 25);
+					corona.draw();
+				}
+			}
+		}
+		else if (getGanador() == false) {
+			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
+			setFont("bin/fuentes/Bitwise.ttf", 30);
+			printxy("GANADOR NEGRO", 480, 480);
+			setFont("bin/fuentes/Bitwise.ttf", 22);
+			setTextColor(1, 1, 1);
+			for (auto m : M_FINAL) {
+				printxy(m.texto, m.x, m.y);
+				if (m.sel == seleccion_ini) {
+					corona.setPos(m.x - 60, m.y + 25);
+					corona.draw();
+				}
+			}
+		}
+
+		miPintura.pintarPiezasTablero();
+		glutPostRedisplay();
+		miPintura.pintarCuadricula();
+		miPintura.pintarError();
+		miPintura.pintarJaque();
+		miPintura.pintarJaqueM();
+		miPintura.pintarPromocion();
+		miPintura.pintarEnroque();
 	}
 }
 
