@@ -181,6 +181,9 @@ void Tablero::setEnroqueActivado(bool estado) {
 	enroqueActivado = estado;
 }
 
+void Tablero::set_turno(bool t) {
+	turno = t;
+}
 
 
 bool Tablero::getFinTurnoN() {

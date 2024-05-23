@@ -21,8 +21,10 @@ public:
 
 	//VARIABLES JAQUE Y JAQUE MATE
 	//int i = 0;
-	int ganador; //blancas (0) negras(1) tablas(2)
+	bool ganador; //blancas (0) negras(1)
 	int final; 
+	bool getganador();
+
 
 	bool enroqueActivado;
 	int n_ayuda;

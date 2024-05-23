@@ -44,6 +44,7 @@ public:
 	void setEnroqueActivado(bool estado);
 
 	void set_tablero();
+	void set_turno(bool t);
 
 	bool getTurno();
 	bool getFlagMovValido();
