@@ -84,13 +84,13 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
 				// Verificar jaque mate
 				if (jugada.jaque(colOponente, tablero) == true) {
-					std::cout <<  "REY" << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
+					std::cout <<  "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
 					flagJaque = true;
 					//return;
 
 					if (jugada.jaque_mate(colOponente, tablero) == true) {
 						// Verificar jaque 
-						std::cout << "JAQUE MATE AL REY" << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
+						std::cout << "JAQUE MATE AL REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
 						flagJaqueM = true;// Fin del juego
 					}
 					else {
@@ -115,6 +115,22 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					}
 					else{
 						flagJaque = false;
+					}
+				}
+
+				// Comprobar si el movimiento es un enroque
+				if (p->getTipo() == tipo::rey && (abs(cas_destino.x - cas_origen.x) == 3 || (abs(cas_destino.x - cas_origen.x) == -3))) {
+					jugada.realizarEnroque(p->getColor(), tablero);
+					if (!mov_valido) {
+						//turno = !turno;
+						std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
+						flagEnroque = false;
+						//break;
+					}
+					else {
+						std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
+						//turno = !turno;
+						//break;
 					}
 				}
 			}
