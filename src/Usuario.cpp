@@ -1,18 +1,9 @@
-#include "Pintar.h"
-
-  /* 1 - Crear un una nueva varibale de tipo OPCION(la estructura)
-   2-Ir al mouse primero y seguir el primer caso
-   3- Ir al raton y seguir la estructura. 
-
-   los shapx,y desaparecen
-
-*/
+ï»¿#include "Pintar.h"
 
 Tablero tablero;
 Pintar miPintura(&tablero);
-GestionJugadas mijugada(&tablero);
+
 bool juegoInicializado = false;
-bool clicInicializado = false;
 
 struct OPCION {
 	int x, y, w, h;
@@ -20,10 +11,10 @@ struct OPCION {
 	const char* texto;
 };
 OPCION MENU_INI[]{ {401,390,561,60,1,"MODO JUEGO"},{455,230,404,60,2, "OPCIONES"} };
-				//  x inicial, y inicila, ancho de las letras, altura de las letras, numero de selección, texto
+				//  x inicial, y inicila, ancho de las letras, altura de las letras, numero de selecciÃ³n, texto
 
 OPCION MENU_OPC[]{ {478,500,561,60,1,"AYUDA"} ,{320,350,561,60,2,"INSTRUCCIONES"} ,{478,200,561,60,3,"ATRAS"} };
-//  x inicial, y inicila, ancho de las letras, altura de las letras, numero de selección, texto
+//  x inicial, y inicila, ancho de las letras, altura de las letras, numero de selecciÃ³n, texto
 
 OPCION MENU_PAUSA[]{ {538,470,561,60,1,"VOLVER A LA PARTIDA"} ,{560,400,561,60,2,"REINICIAR PARTIDA"} ,{600,330,561,60,3,"ABANDONAR"} };
 OPCION MENU_AYUDA[]{ {520,550,561,60,1,"Torre"} ,{529,487,561,60,2,"Peon"} ,{489,424,561,60,3,"Caballo"} ,{554,360,561,60,4,"Alfil"} ,{551,294,561,60,5,"Rey"} ,{515,230,561,60,6,"Reina"},{440,168,561,60,7,"Arzobispo"},{480,100,561,60,8,"Canciller"},{110,60,261,20,9,"atras"} };
@@ -157,19 +148,6 @@ void Usuario::mouse(int x, int y) {
 	}
 }
 
-void Usuario::setReshape(float x, float y) {
-	shapx = x;
-	shapy = y;
-}
-
-int Usuario::getEstado() {
-	return estado;
-}
-
-bool Usuario::getganador() {
-	return ganador;
-}
-
 void Usuario::teclado(unsigned char key) {
 	if (estado == MODOJUEGO) {
 		if (estadodejuego == TURNO) {
@@ -178,7 +156,6 @@ void Usuario::teclado(unsigned char key) {
 		}
 	}
 }
-
 
 void Usuario::raton(int button, int state, int x, int y) {
 	int screenX = x;
@@ -206,70 +183,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 
 	if (estado == MODOJUEGO) {
 		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-			if (estadodejuego == TURNO) {
-				tablero.definirCoordenadasTablero(button, state, x, y);
-
-				Pieza* tableroActual[max_y][max_x];
-				tablero.getTablero(tableroActual);
-				if (tablero.getFinTurnoN() == true) {
-					if (mijugada.jaque_mate(color::blanco, tableroActual) == true) {
-						{ ganador = true;
-						estado = FINAL;
-						}
-
-						return;
-					}
-				}
-
-				if (tablero.getFinTurnoB() == true) {
-					if (mijugada.jaque_mate(color::negro, tableroActual) == true) {
-						{ ganador = false;
-						estado = FINAL;
-						}
-						return;
-					}
-				}
-			}
-			if (estadodejuego == PAUSA) {
-				for (auto m : MENU_PAUSA) {
-					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
-						for (int i = INICIO; i <= TEXTO_IN; i++) {
-							if (m.sel == 1) { estadodejuego = TURNO; }
-							if (m.sel == 2) {
-								estado = MODOJUEGO; estadodejuego = TURNO;
-								tablero.set_tablero();
-								tablero.set_turno(true);
-							}
-							if (m.sel == 3) {
-								estado = INICIO;
-								tablero.set_tablero();
-								tablero.set_turno(true);
-							}
-						}
-					}
-				}
-			}
-			
-		}
-	}
-	if (estado == FINAL) {
-		if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-		{
-			for (auto m : M_FINAL) {
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
-					for (int i = INICIO; i <= TEXTO_IN; i++) {
-						if (m.sel == 1) estado = MODOJUEGO; 
-						//reiniciar el tablero
-						tablero.set_tablero();
-						tablero.set_turno(true);
-
-						if (m.sel == 2) estado = INICIO;
-						tablero.set_tablero();
-						tablero.set_turno(true);
-					}
-				}
-			}
-
+			tablero.definirCoordenadasTablero(button, state, x, y);
 		}
 	}
 	if (estado == OP) {
@@ -486,8 +400,6 @@ void Usuario::dibujaFondo() {
 void Usuario::dibuja() {
 
 	if (estado == INICIO) {
-
-
 		dibujaFondo();
 
 		setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
@@ -503,100 +415,28 @@ void Usuario::dibuja() {
 				corona.draw();
 			}
 		}
-
-
-
 	}
+
 	if (estado == MODOJUEGO) {
-		if (estadodejuego == TURNO) {
-			if (!juegoInicializado) {
 
-				tablero.set_tablero();
+		ETSIDI::stopMusica();
 
-				juegoInicializado = true;
-			}
+		if (!juegoInicializado) {
 
-			miPintura.pintarPiezasTablero();
-			///////////////CASILLA LEGAL/////////////////
-
-			//miPintura.pintarCasillaLegal();
-
-
-			glutPostRedisplay();
-			miPintura.pintarPause();
-			miPintura.pintarCuadricula();
-			miPintura.pintarCorona();
-			miPintura.pintarError();
-			miPintura.pintarJaque();
-			miPintura.pintarJaqueM();
-			miPintura.pintarPromocion();
-			miPintura.pintarEnroque();
-		}
-		if (estadodejuego == PAUSA) {
-			miPintura.pintarPantalla();
-			miPintura.pintarCorona();
-			for (auto m : MENU_PAUSA) {
-				printxy(m.texto, m.x, m.y);
-				if (m.sel == seleccion_ini) {
-					corona.setPos(m.x - 60, m.y + 25);
-					corona.draw();
-				}
-			}
-			miPintura.pintarPiezasTablero();
-			glutPostRedisplay();
-			miPintura.pintarPause();
-			miPintura.pintarCuadricula();
-			miPintura.pintarError();
-			miPintura.pintarJaque();
-			miPintura.pintarJaqueM();
-			miPintura.pintarPromocion();
-			miPintura.pintarEnroque();
+			tablero.set_tablero();
+			juegoInicializado = true;
 
 		}
-	}
-	if (estado == FINAL) {
-		miPintura.pintarPantalla();
-		miPintura.pintarCorona();
 
-
-		if (getganador()==true) {
-			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("GANADOR BLANCO", 480, 480);
-			setFont("bin/fuentes/Bitwise.ttf", 22);
-			setTextColor(1, 1, 1);
-			for (auto m : M_FINAL) {
-				printxy(m.texto, m.x, m.y);
-				if (m.sel == seleccion_ini) {
-					corona.setPos(m.x - 60, m.y + 25);
-					corona.draw();
-				}
-			}
-		}
-		else if (getganador()==false) {
-			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("GANADOR NEGRO", 480, 480);
-			setFont("bin/fuentes/Bitwise.ttf", 22);
-			setTextColor(1, 1, 1);
-			for (auto m : M_FINAL) {
-				printxy(m.texto, m.x, m.y);
-				if (m.sel == seleccion_ini) {
-					corona.setPos(m.x - 60, m.y + 25);
-					corona.draw();
-				}
-
-			}
-		}
 		miPintura.pintarPiezasTablero();
+
 		glutPostRedisplay();
-		miPintura.pintarPause();
 		miPintura.pintarCuadricula();
+		miPintura.pintarCorona();
 		miPintura.pintarError();
 		miPintura.pintarJaque();
 		miPintura.pintarJaqueM();
 		miPintura.pintarPromocion();
-		miPintura.pintarEnroque();
 
 	}
 	if (estado == OP) {
@@ -865,7 +705,7 @@ void Usuario::dibuja() {
 			setFont("bin/fuentes/Bitwise.ttf", 30);
 			printxy("Este movimiento deja colocar al rey en una posicion mas segura", 10, 537);
 			printxy("y sacar la torre de la esquina. El rey se mueve dos casillas", 28, 472);
-			printxy("lateralmente y la torre se sitúa al lado opuesto del rey", 100, 407);
+			printxy("lateralmente y la torre se sitÃºa al lado opuesto del rey", 100, 407);
 			printxy("Condiciones:", 500, 342);
 			printxy("1.- Debe ser el primer movimiento de ambas figuras", 90, 277);
 			printxy("2.- No puede haber piezas entre el rey y la torre", 90, 212);
@@ -934,7 +774,7 @@ void Usuario::dibuja() {
 			printxy("Forma adicional de un PEON para capturar peones enemigos:", 225, 512);
 			printxy("El peon original debe estar en su quinta fila", 310, 447);
 			printxy("El peon rival debe estar en su posicion inicial en una columna adyacente", 110, 382);
-			printxy("El rival debe mover su peón dos pasos para que ambos peones queden en la misma fila", 20, 317);
+			printxy("El rival debe mover su peÃ³n dos pasos para que ambos peones queden en la misma fila", 20, 317);
 			printxy("En ese momento, puede capturar al enemigo como si solo se hubiera movido", 105, 252);
 			printxy("una casilla desplazando el propio en diagonal a la fila siguiente y", 210, 187);
 			printxy("retirando  al capturado", 470, 122);
@@ -958,7 +798,7 @@ void Usuario::dibuja() {
 			printxy("Un jugador que no esta en jaque no puede mover en su turno", 25, 477);
 			printxy("Por mutuo acuerdo", 470, 412);
 			printxy("Se ha producido la repeticion de la misma posicion 3 veces", 45, 347);
-			printxy("No hay suficientes piezas de ningún bando para hacer jaque mate", 15, 282);
+			printxy("No hay suficientes piezas de ningÃºn bando para hacer jaque mate", 15, 282);
 			printxy("Se produce una secuencia de 50 jugadas de cada bando", 39, 217);
 			printxy("sin captura o movimiento del peon", 280, 152);
 			for (auto m : TEXTOTABLAS) {

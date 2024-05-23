@@ -25,38 +25,50 @@ class Tablero {
 	bool turno = true; //true BLANCAS,  false NEGRAS
 	bool finturnon=false;
 	bool finturnob=false;
+
 	bool flag = false;
 	bool flagMovInvalido = false;
 	bool flagJaque = false;
 	bool flagJaqueM = false;
 	bool flagPromocion = false;
 	bool flagEnroque = false;
-	bool enroqueActivado=false;
+	bool enroqueActivado = false;
+
 	casilla cas_origen{ -1 , -1 };
 	casilla cas_destino{ - 1, -1 };
-
 
 public:
 	Tablero();
 	~Tablero();
 
 	void getTablero(Pieza* tableroActual[max_y][max_x]);
-	void setEnroqueActivado(bool estado);
 
 	void set_tablero();
-	void set_turno(bool t);
+	void set_turno(bool t) {turno = t;}
+	void setEnroqueActivado(bool estado) {enroqueActivado = estado;}
 
-	bool getTurno();
-	bool getFlagMovValido();
-	bool getFlagJaque();
-	bool getFlagJaqueM();
-	bool getFlagPromocion();
-	bool getFlagEnroque();
+	bool getTurno() { return turno; }
+	bool getFlagMovValido() { return flagMovInvalido; }//Flag para pintar los avisos
+	bool getFlagJaque() { return flagJaque; }
+	bool getFlagJaqueM() { return flagJaqueM; }
+	bool getFlagPromocion() { return flagPromocion; }
+	bool getFlagEnroque() {return flagEnroque;}
 
-	//turnos
+	//Turnos
+	bool getFinTurnoN() {
+		if (turno == true)
+			return !finturnon;
+		else
+			return finturnon;
+	}
+	bool getFinTurnoB() {
+		if (turno == true)
+			return finturnob;
+		else
+			return !finturnob;
+	}
 
-	bool getFinTurnoN();
-	bool getFinTurnoB();
+	casilla getCasillaOrigen() const { return cas_origen; }
 
 	const std::vector<Pieza*>& getPiezasEliminadasB() const {
 		return piezasEliminadasB;
@@ -74,12 +86,12 @@ public:
 			piezasEliminadasN[pieza] = nullptr;
 		}
 	}
+
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	void realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino);
 	Pieza* checkPiezaEnCasilla(casilla pos);
 
 	//ELIMINAR PIEZA
-	//void eliminarPieza(casilla origen, casilla destino);
 	void eliminarPieza(casilla destino);
 
 	virtual bool moverPieza(casilla origen, casilla destino);

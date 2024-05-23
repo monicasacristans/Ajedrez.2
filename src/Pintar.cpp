@@ -9,6 +9,9 @@ void Pintar::pintarCuadricula() {
     int offsetX = (1366 - anchoTablero) / 2; // Desplazamiento horizontal para centrar el tablero
     int offsetY = (768 - altoTablero) / 2; // Desplazamiento vertical para centrar el tablero
 
+    //Guarda la casilla de origen elegida
+    casilla casillaOrigen = tablero->getCasillaOrigen();
+
     // Cambia a la matriz de modelo-vista
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -16,6 +19,9 @@ void Pintar::pintarCuadricula() {
     // Dibuja la cuadrícula
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 8; j++) {
+            if (casillaOrigen.x == i && casillaOrigen.y == j && casillaOrigen.x == -1 && casillaOrigen.y == -1) {
+                glColor3ub(153, 255, 255); // azul pastel
+            }
             if ((i + j) % 2 == 0) {
                 glColor3ub(240, 240, 240); // gris claro
             }
@@ -133,10 +139,6 @@ void Pintar::pintarPiezasTablero() {
     }
 }
 
-//void Pintar::pintarCasillaElegida() {
-//
-//}
-
 void Pintar::pintarCorona() {
     //Texto para cada jugador
     setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
@@ -158,17 +160,14 @@ void Pintar::pintarCorona() {
     }
 }
 
-
 void Pintar::pintarPantalla() {
     pantalla.setPos(680, 380);
     pantalla.draw();
 }
 
 void Pintar::pintarPause() {
-
     pausa.setPos(1192, 100);
     pausa.draw();
-
 }
 
 void Pintar::pintarError() {

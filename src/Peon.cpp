@@ -5,9 +5,6 @@ Peon::Peon(tipo t, color c) :Pieza(t, c) {
 }
 
 bool Peon::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
-
-
-    
     // Solo avanza en vertical, 2 casillas si es su primer movimiento, 1 el resto de veces
     
     // Diferencia de columnas y filas 
