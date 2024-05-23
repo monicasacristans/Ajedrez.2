@@ -1,7 +1,7 @@
 #include "Tablero.h"
 #include "Usuario.h"
 using namespace std;
-extern Usuario usuario;
+//extern Usuario usuario;
 
 GestionJugadas jugada;
 
@@ -116,6 +116,9 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						flagJaque = true;
 						continue;
 					}
+					else {
+						flagJaque = false;
+					}
 				}
 
 				// Comprobar si el movimiento es un enroque
@@ -125,12 +128,12 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						turno = !turno;
 						std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
 						flagEnroque = false;
-						break;
+						//break;
 					}
 					else {
 						std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
 						//turno = !turno;
-						break;
+						//break;
 					}
 				}
 			}

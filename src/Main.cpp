@@ -107,7 +107,7 @@ void mouseClick(int button, int state, int x, int y)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-	usuario.teclado(key);
+	//usuario.teclado(key);
 	y_t = usuario.shapy - y_t;
 	glutPostRedisplay();
 }

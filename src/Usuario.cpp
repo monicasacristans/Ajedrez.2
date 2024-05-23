@@ -48,10 +48,7 @@ Usuario::Usuario() {
 	n_inst = 0;
 	n_texto_a = 0;
 	n_texto_ins = 0;
-	menu_ayuda = H;
-	menu_instrucciones = INS;
 	coronar = C;
-	final = 0;
 }
 
 Usuario:: ~Usuario() {}
@@ -63,16 +60,16 @@ void Usuario::mouse(int x, int y) {
 			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//modo de juego
 	}
 
-	if (estado == MODOJUEGO) {
-		if (estadodejuego == PAUSA) {
-			for (auto m : MENU_PAUSA)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//pausa
-		}
-	}
-	if (estado == FINAL) {
-		for (auto m : M_FINAL)
-			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//final
-	}
+	//if (estado == MODOJUEGO) {
+	//	if (estadodejuego == PAUSA) {
+	//		for (auto m : MENU_PAUSA)
+	//			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//pausa
+	//	}
+	//}
+	//if (estado == FINAL) {
+	//	for (auto m : M_FINAL)
+	//		if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//final
+	//}
 	
 	if (estado == OP) {
 		for (auto m : MENU_OPC)
@@ -148,14 +145,14 @@ void Usuario::mouse(int x, int y) {
 	}
 }
 
-void Usuario::teclado(unsigned char key) {
-	if (estado == MODOJUEGO) {
-		if (estadodejuego == TURNO) {
-			if (key == 'p' || key == 'P') { estadodejuego = PAUSA; }
-			
-		}
-	}
-}
+//void Usuario::teclado(unsigned char key) {
+//	if (estado == MODOJUEGO) {
+//		if (estadodejuego == TURNO) {
+//			if (key == 'p' || key == 'P') { estadodejuego = PAUSA; }
+//			
+//		}
+//	}
+//}
 
 void Usuario::raton(int button, int state, int x, int y) {
 	int screenX = x;
@@ -429,14 +426,14 @@ void Usuario::dibuja() {
 		}
 
 		miPintura.pintarPiezasTablero();
-
-		glutPostRedisplay();
 		miPintura.pintarCuadricula();
 		miPintura.pintarCorona();
 		miPintura.pintarError();
 		miPintura.pintarJaque();
 		miPintura.pintarJaqueM();
 		miPintura.pintarPromocion();
+
+		glutPostRedisplay();
 
 	}
 	if (estado == OP) {
