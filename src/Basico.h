@@ -10,12 +10,10 @@ enum class color {ninguno,blanco, negro };
 enum class tipo { vacio, peon, torre, caballo, canciller, arzobispo, alfil, rey, reina };
 //                 0	  1		2		 3		  4			  5		   6	 7		8
 
-
 struct casilla {
 	int x; //columna
 	int y; //fila
 };
-
 
 // Sobrecarga del operador <<
 inline std::ostream& operator<<(std::ostream& os, const casilla& c) {

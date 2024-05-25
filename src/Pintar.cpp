@@ -192,7 +192,7 @@ void Pintar::pintarJaqueM() {
 
 void Pintar::pintarPromocion() {
 
-    if (tablero->getFlagPromocion() == true) {
+    if (mijugada->getFlagPromocion() == true) {
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
       

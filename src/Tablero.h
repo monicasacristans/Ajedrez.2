@@ -30,7 +30,7 @@ class Tablero {
 	bool flagMovInvalido = false;
 	bool flagJaque = false;
 	bool flagJaqueM = false;
-	bool flagPromocion = false;
+	//bool flagPromocion = false;
 	bool flagEnroque = false;
 	bool enroqueActivado = false;
 
@@ -52,7 +52,9 @@ public:
 	bool getFlagMovValido(){ return flagMovInvalido; }//Flag para pintar los avisos
 	bool getFlagJaque(){ return flagJaque; }
 	bool getFlagJaqueM(){ return flagJaqueM; }
-	bool getFlagPromocion(){ return flagPromocion; }
+	//bool getFlagPromocion(){ return flagPromocion; }
+	//void setFlagPromocion(bool prom) { flagPromocion= prom; }
+
 	bool getFlagEnroque() { return flagEnroque; }
 	/*bool set_promocion(casilla c, Pieza* p);*/
 
@@ -92,8 +94,6 @@ public:
 	void realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino);
 	Pieza* checkPiezaEnCasilla(casilla pos);
 
-	//ELIMINAR PIEZA
-	//void eliminarPieza(casilla origen, casilla destino);
 	void eliminarPieza(casilla destino);
 
 	virtual bool moverPieza(casilla origen, casilla destino);

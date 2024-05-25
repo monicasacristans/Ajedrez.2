@@ -179,6 +179,7 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
 		if (nuevaPieza != NULL) {
 			tablero[cas.y][cas.x] = nuevaPieza;
 			delete p; //elimino el peon
+			
 		}
 			
 }

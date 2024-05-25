@@ -1,8 +1,8 @@
 #include "Pintar.h"
 
 Tablero tablero;
-Pintar miPintura(&tablero);
-GestionJugadas mijugada(&tablero);
+GestionJugadas miJugada(&tablero);
+Pintar miPintura(&tablero, &miJugada);
 
 bool juegoInicializado = false;
 bool clicInicializado = false;
@@ -168,14 +168,14 @@ void Usuario::raton(int button, int state, int x, int y) {
 				Pieza* tableroActual[max_y][max_x];
 				tablero.getTablero(tableroActual);
 				if (tablero.getFinTurnoN() == true) {
-					if (mijugada.jaque_mate(color::blanco, tableroActual) == true) {
+					if (miJugada.jaque_mate(color::blanco, tableroActual) == true) {
 						ganador = false;//Ganan negras
 						estado = FINAL;
 						return;
 					}
 				}
 				else if (tablero.getFinTurnoB() == true) {
-					if (mijugada.jaque_mate(color::negro, tableroActual) == true) {
+					if (miJugada.jaque_mate(color::negro, tableroActual) == true) {
 						ganador = true;//Ganan blancas
 						estado = FINAL;
 						return;
