@@ -72,11 +72,11 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				//comprobar promocion 
 				if (mijugada.peonFinal(cas_destino) == true && p->getTipo() == tipo::peon) {
 					//flagPromocion = true;
-					mijugada.setFlagPromocion(true);
+					//mijugada.setFlagPromocion(true);
 					mijugada.promocion(cas_destino, tablero);
 					//break;
 				}
-				mijugada.setFlagPromocion(false);
+				//mijugada.setFlagPromocion(false);
 				//flagPromocion = false;
 				
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
