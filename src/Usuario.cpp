@@ -68,6 +68,15 @@ void Usuario::mouse(int x, int y) {
 		for (auto m : MENU_OPC)
 			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//opciones
 	}
+
+	if (estado == MODOJUEGO) {
+		if (estadodejuego == PAUSA) {
+			for (auto m : MENU_PAUSA)
+				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//pausa
+		}
+	}
+
+
 	if (estado == AYU) {
 		for (auto m : MENU_AYUDA)
 			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//ayuda		
@@ -174,9 +183,10 @@ void Usuario::raton(int button, int state, int x, int y) {
 		}
 
 		if (estado == MODOJUEGO) {
+
+			tablero.definirCoordenadasTablero(button, state, x, y);
 			if (estadodejuego == TURNO) {
 				tablero.definirCoordenadasTablero(button, state, x, y);
-
 				Pieza* tableroActual[max_y][max_x];
 				tablero.getTablero(tableroActual);
 				if (tablero.getFinTurnoN() == true) {
@@ -191,6 +201,18 @@ void Usuario::raton(int button, int state, int x, int y) {
 						ganador = true;//Ganan blancas
 						estado = FINAL;
 						return;
+					}
+				}
+			}
+
+			if (estadodejuego == PAUSA) {
+				for (auto m : MENU_PAUSA) {
+					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+						for (int i = INICIO; i <= TEXTO_IN; i++) {
+							if (m.sel == 1) estado = MODOJUEGO;
+							if (m.sel == 2) estado = MODOJUEGO;
+							if (m.sel == 3) estado = INICIO;
+						}
 					}
 				}
 			}
@@ -446,6 +468,19 @@ void Usuario::dibuja() {
 			miPintura.pintarJaque();
 			miPintura.pintarJaqueM();
 			miPintura.pintarPromocion();
+			miPintura.pintarPause();
+		}
+		if (estadodejuego == PAUSA) {
+			miPintura.pintarPiezasTablero();
+
+			glutPostRedisplay();
+			miPintura.pintarCuadricula();
+			miPintura.pintarCorona();
+			miPintura.pintarError();
+			miPintura.pintarJaque();
+			miPintura.pintarJaqueM();
+			miPintura.pintarPromocion();
+			miPintura.pintarPause();
 		}
 	}
 
