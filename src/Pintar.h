@@ -14,6 +14,7 @@ class Pintar {
 	int anchoTablero = 10 * 80;
 	int altoTablero = 8 * 80;
 
+	Sprite pausa{ "bin/imagenes/pausa.png", 0, 0, 60,60 };
 	Sprite peon_b{ "bin/imagenes/peon_b.png", 0, 0, 60,60 };
 	Sprite peon_n{ "bin/imagenes/peon_n.png", 0, 0, 60,60 };
 	Sprite torre_b{ "bin/imagenes/torre_b.png", 0, 0, 60,60 };
@@ -41,7 +42,7 @@ public:
 	void draw();
 
 	casilla restringirCasilla(int x, int y);
-
+	void pintarPause();
 	void pintarCuadricula();
 	void pintarPiezasTablero();
 	void pintarCorona();

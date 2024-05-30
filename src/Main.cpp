@@ -108,6 +108,7 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
 	y_t = usuario.shapy - y_t;
+	usuario.teclado(key);
 	glutPostRedisplay();
 }
 
@@ -115,6 +116,7 @@ void OnTimer(int value)
 {
 	//no borrar estas lineas
 	glutTimerFunc(100, OnTimer, 0);
+	
 	glutPostRedisplay();
 }
 

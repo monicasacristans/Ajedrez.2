@@ -180,6 +180,12 @@ void Pintar::pintarJaque() {
     }
 }
 
+
+void Pintar::pintarPause() {
+    pausa.setPos(1192, 100);
+    pausa.draw();
+}
+
 void Pintar::pintarJaqueM() {
 
     if (tablero->getFlagJaqueM() == true) {

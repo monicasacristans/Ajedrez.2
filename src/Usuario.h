@@ -17,7 +17,7 @@ public:
 	void dibuja();
 	void dibujaFondo();
 	void setReshape(float x, float y) { shapx = x; shapy = y; }
-
+	void teclado(unsigned char key);
 	int getEstado() { return estado; }
 
 	bool ganador; //blancas TRUE, negras FALSE 
