@@ -148,7 +148,6 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
 	
 	std::cout << "Piezas disponibles para la promoción: " << std::endl;
 	
-	setFlagPromocion(true);
 
 		int eleccion = 0;
 		cout << "Elige una nueva pieza para la promocion del peon:" << endl;
@@ -180,7 +179,7 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
 		if (nuevaPieza != NULL) {
 			tablero[cas.y][cas.x] = nuevaPieza;
 			delete p; //elimino el peon
-			setFlagPromocion(false);
+			
 		}
 			
 }
