@@ -184,7 +184,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 
 		if (estado == MODOJUEGO) {
 
-			tablero.definirCoordenadasTablero(button, state, x, y);
+			//tablero.definirCoordenadasTablero(button, state, x, y);
 			if (estadodejuego == TURNO) {
 				tablero.definirCoordenadasTablero(button, state, x, y);
 				Pieza* tableroActual[max_y][max_x];

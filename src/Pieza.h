@@ -1,6 +1,6 @@
 #pragma once
 #include "Basico.h"
-
+#include <vector>
 
 class Pieza {
 
@@ -10,10 +10,13 @@ class Pieza {
 
 	bool haMovido; //controlar que la pieza se ha movido
 
+	
+
 protected:
 
 	int fila;
 	int columna;
+	std::vector<casilla> casillasValidas;
 
 public:
 
@@ -27,6 +30,10 @@ public:
 
 	tipo getTipo();
 	color getColor();
+
+	std::vector<casilla> movDiagonal(casilla origen, Pieza* tablero[max_y][max_x]);
+	std::vector<casilla> movCruz(casilla origen, Pieza* tablero[max_y][max_x]);
+	std::vector<casilla> movCuadrado(casilla origen,  Pieza* tablero[max_y][max_x]);
 
 	virtual bool movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) = 0;
 
