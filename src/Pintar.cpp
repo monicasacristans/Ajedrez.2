@@ -180,21 +180,10 @@ void Pintar::pintarJaque() {
     }
 }
 
-
-void Pintar::pintarPause() {
-    pausa.setPos(1192, 100);
-    pausa.draw();
-}
-
-void Pintar::pintarJaqueM() {
-
-    if (tablero->getFlagJaqueM() == true) {
-        setTextColor(255, 0, 0);
-        setFont("bin/fuentes/Bitwise.ttf", 40);
-        printxy("JAQUE", 60, 620);
-        printxy("MATE", 68, 570);
-    }
-}
+//void Pintar::pintarPause() {
+//    pausa.setPos(1192, 100);
+//    pausa.draw();
+//}
 
 void Pintar::pintarPromocion() {
 
