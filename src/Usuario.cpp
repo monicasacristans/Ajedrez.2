@@ -19,8 +19,6 @@ OPCION MENU_INI[]{ {401,390,561,60,1,"MODO JUEGO"},{455,230,404,60,2, "OPCIONES"
 OPCION MENU_OPC[]{ {478,500,561,60,1,"AYUDA"} ,{320,350,561,60,2,"INSTRUCCIONES"} ,{478,200,561,60,3,"ATRAS"} };
 //  x inicial, y inicila, ancho de las letras, altura de las letras, numero de selección, texto
 
-
-OPCION MENU_PAUSA[]{ {538,470,561,60,1,"VOLVER A LA PARTIDA"} ,{560,400,561,60,2,"REINICIAR PARTIDA"} ,{600,330,561,60,3,"ABANDONAR"} };
 OPCION MENU_AYUDA[]{ {520,550,561,60,1,"Torre"} ,{529,487,561,60,2,"Peon"} ,{489,424,561,60,3,"Caballo"} ,{554,360,561,60,4,"Alfil"} ,{551,294,561,60,5,"Rey"} ,{515,230,561,60,6,"Reina"},{440,168,561,60,7,"Arzobispo"},{480,100,561,60,8,"Canciller"},{110,60,261,20,9,"atras"} };
 OPCION TEXTOTORRE[]{ {110,60,261,20,1,"atras"} }; //0
 OPCION TEXTOPEON[]{ {110,60,261,20,1,"atras"} }; //1
@@ -70,10 +68,6 @@ void Usuario::mouse(int x, int y) {
 	}
 
 	if (estado == MODOJUEGO) {
-		if (estadodejuego == PAUSA) {
-			for (auto m : MENU_PAUSA)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//pausa
-		}
 	}
 
 
@@ -154,21 +148,10 @@ void Usuario::mouse(int x, int y) {
 
 void Usuario::teclado(unsigned char key) {
 	if (estado == MODOJUEGO) {
-		if (estadodejuego == TURNO) {
-			if (key == 'p' || key == 'P') { estadodejuego = PAUSA; }
-			
-		}
 		if (estadodejuego == PROMOCION) {
-
-			/*int tipoPieza = key - '0';
-			glutMainLoop();*/
 
 			if (key>='1' && key<='6') { // Verificar que la tecla sea un número válido para la promoción
 				int tipoPieza = key - '0'; // Convertir el char a int restando '0'
-
-
-				/*Pieza* tableroActual[max_y][max_x];
-				tablero.getTablero(tableroActual);*/
 
 				miJugada.promocion(tablero.getCasillaDestino(), tablero.tablero, tipoPieza);
 				estadodejuego = TURNO; // Volver al estado de turno después de la promoción
@@ -185,7 +168,6 @@ void Usuario::raton(int button, int state, int x, int y) {
 	// Actualizar las coordenadas del objeto en el juego
 	std::cout << "Coordenadas del raton en la pantalla: (" << screenX << ", " << screenY << ")" << std::endl;
 
-	//tablero.definirCoordenadasTablero(button, state, x, y);
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
 		if (estado == INICIO) {
 			for (auto m : MENU_INI) {
@@ -200,16 +182,11 @@ void Usuario::raton(int button, int state, int x, int y) {
 
 		if (estado == MODOJUEGO) {
 
-			//tablero.definirCoordenadasTablero(button, state, x, y);
 			if (estadodejuego == TURNO) {
 				tablero.definirCoordenadasTablero(button, state, x, y);
 				Pieza* tableroActual[max_y][max_x];
 				tablero.getTablero(tableroActual);
 
-				/*if (miJugada.peonFinal(tablero.getCasillaOrigen()) == true) {
-					estadodejuego = PROMOCION;
-					return;
-				}*/
 				if (tablero.getFinTurnoN() == true) {
 					if (miJugada.jaque_mate(color::blanco, tableroActual) == true) {
 						ganador = false;//Ganan negras
@@ -228,17 +205,6 @@ void Usuario::raton(int button, int state, int x, int y) {
 			if (estadodejuego == PROMOCION) {
 				teclado(tipoPieza);
 				
-			}
-			if (estadodejuego == PAUSA) {
-				for (auto m : MENU_PAUSA) {
-					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
-						for (int i = INICIO; i <= TEXTO_IN; i++) {
-							if (m.sel == 1) estado = MODOJUEGO;
-							if (m.sel == 2) estado = MODOJUEGO;
-							if (m.sel == 3) estado = INICIO;
-						}
-					}
-				}
 			}
 		}
 
@@ -491,21 +457,8 @@ void Usuario::dibuja() {
 			miPintura.pintarError();
 			miPintura.pintarJaque();
 			miPintura.pintarJaqueM();
-			//miPintura.pintarPromocion();
-			miPintura.pintarPause();
 		}
-		if (estadodejuego == PAUSA) {
-			miPintura.pintarPiezasTablero();
 
-			glutPostRedisplay();
-			miPintura.pintarCuadricula();
-			miPintura.pintarCorona();
-			miPintura.pintarError();
-			miPintura.pintarJaque();
-			miPintura.pintarJaqueM();
-			//miPintura.pintarPromocion();
-			miPintura.pintarPause();
-		}
 		if (estadodejuego == PROMOCION) {
 			miPintura.pintarPiezasTablero();
 
@@ -516,7 +469,6 @@ void Usuario::dibuja() {
 			miPintura.pintarJaque();
 			miPintura.pintarJaqueM();
 			miPintura.pintarPromocion();
-			miPintura.pintarPause();
 		}
 	}
 

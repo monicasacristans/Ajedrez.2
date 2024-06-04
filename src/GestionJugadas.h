@@ -8,7 +8,6 @@ class GestionJugadas {
 	Tablero* tab = nullptr;
 	bool flagPromocion = false;
 
-	Tablero* tableroObj = nullptr;
 
 public:
 
@@ -28,19 +27,15 @@ public:
 
 	//promocion
 
-
 	bool peonFinal(casilla origen);
-	//void setCoronacion(casilla cas,Pieza* tablero[max_y][max_x], int tipoficha);
-	//bool getCoronacion(color col);
 	void promocion(casilla cas, Pieza* tablero[max_y][max_x], int tipo);
 	bool getFlagPromocion() { return flagPromocion; }
 	void setFlagPromocion(bool prom) { flagPromocion = prom; };
+	Pieza* crearPieza(tipo t, color col);
 
 	//ENROQUE
-	//bool enroque(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]);
 	bool verificarEnroque(color jugador, Pieza* tablero[max_y][max_x]);
 	bool verificarEnroqueIzquierda(color jugador, Pieza* tablero[max_y][max_x]);
 	void realizarEnroque(color jugador, Pieza* tablero[max_y][max_x]);
-	Pieza* crearPieza(tipo t,color col);
 	friend class Tablero;
 };

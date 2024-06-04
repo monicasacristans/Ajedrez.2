@@ -189,10 +189,6 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x], int ti
 		cout << "Elige una nueva pieza para la promocion del peon:" << endl;
 		cout << "1-Reina\n 2-Torre\n 3-Alfil\n 4-Caballo\n 5-Canciller\n6-Arzobispo\n";
 		Pieza* nuevaPieza = nullptr;
-
-		//usuario.teclado(eleccion);
-
-		//cin >> eleccion;
 		switch (tipo) {
 		case 1:
 
@@ -219,9 +215,6 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x], int ti
 		if (nuevaPieza != NULL) {
 			delete p; //elimino el peon
 			tablero[cas.y][cas.x] = nuevaPieza;
-			//tab->dibujarPromocion(tablero);
-			//dibujarPromocion(tablero[cas.y][cas.x]);
-			//nuevaPieza.push_back(tablero[cas.y][cas.x]);
 			
 		}
 			

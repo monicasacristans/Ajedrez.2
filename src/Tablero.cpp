@@ -77,7 +77,6 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					//return;
 				}
 						mijugada.setFlagPromocion(false);
-						//flagPromocion = false;
 
 							color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
 							// Verificar jaque mate
@@ -142,15 +141,7 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					break;
 				}
 			}
-//bool Tablero::set_promocion(casilla c, Pieza* p) {
-//	if (jugada.peonFinal(c) == true && p->getTipo() == tipo::peon) {
-//		bool flagPromocion = true;
-//		return true;
-//	}
-//	else {
-//		return false;
-//	}
-//}
+
 bool Tablero::moverPieza(casilla origen, casilla destino) {
 
 	// Mover la pieza
@@ -230,21 +221,6 @@ void Tablero::set_tablero() {
 		piezasN.push_back(tablero[7][i]);
 	}
 }
-
-/*void Tablero::dibujarPromocion(Pieza* tableroActual[max_y][max_x]) {
-	for (int y = 0; y < max_y; y++) {
-		for (int x = 0; x < max_x; x++) {
-
-			if (tableroActual[y][x]->getColor() == color::negro) {
-
-				piezasN.push_back(tableroActual[y][x]);
-			}
-			else if (tableroActual[y][x]->getColor() == color::blanco) {
-				piezasB.push_back(tableroActual[y][x]);
-			}
-		}
-	}
-}*/
 
 void Tablero::getTablero(Pieza* tableroActual[max_y][max_x]) {
 	for (int y = 0; y < max_y; y++) {
