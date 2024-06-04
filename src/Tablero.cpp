@@ -74,7 +74,6 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					//flagPromocion = true;
 					mijugada.setFlagPromocion(true);
 					mijugada.promocion(cas_destino, tablero);
-					//break;
 				}
 				mijugada.setFlagPromocion(false);
 				//flagPromocion = false;
@@ -84,19 +83,19 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				if (mijugada.jaque(colOponente, tablero) == true) {
 					std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
 					flagJaque = true;
-					//return;
+
+					if (mijugada.jaque_mate(colOponente, tablero) == true) {
+						// Verificar jaque 
+						std::cout << "JAQUE MATE AL REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
+						flagJaque = false;
+						flagJaqueM = true;// Fin del juego
+					}
+					else {
+						flagJaqueM = false;
+					}
 				}
 				else {
 					flagJaque = false;
-				}
-
-				if (mijugada.jaque_mate(colOponente, tablero) == true) {
-					// Verificar jaque 
-					std::cout << "JAQUE MATE AL REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
-					flagJaqueM = true;// Fin del juego
-				}
-				else {
-					flagJaqueM = false;
 				}
 					
 				//Verificar si el movimiento saca al rey del jaque
@@ -108,11 +107,8 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						tablero[cas_origen.y][cas_origen.x] = p;
 						tablero[cas_destino.y][cas_destino.x] = nullptr;
 						flagJaque = true;
-						continue;
-					}
-					else{
-						flagJaque = false;
 						flagJaqueM = false;
+						continue;
 					}
 				}
 
@@ -123,21 +119,15 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						//turno = !turno;
 						std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
 						flagEnroque = false;
-						//break;
 					}
 					else {
 						std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
 						//turno = !turno;
-						//break;
 					}
 				}
 			}
 			turno = !turno;
 		}
-		flagJaque = false;
-		flagJaqueM = false;
-		//flagPromocion = false;
-		flagEnroque = false;
 		break;
 	}
 }

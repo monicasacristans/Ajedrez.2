@@ -89,9 +89,7 @@ bool GestionJugadas::piezaPuedeProteger(color col, Pieza* tablero[max_y][max_x])
 
 	// Verificar si alguna pieza del mismo color puede proteger al rey
 	for (const auto& movimiento : movimientosRey) {
-		if (movimiento.x >= 0 && movimiento.x < max_x && movimiento.y >= 0 && movimiento.y < max_y &&
-			(tablero[movimiento.y][movimiento.x] == nullptr || tablero[movimiento.y][movimiento.x]->getColor() != col)) {
-
+		if (movimiento.x >= 0 && movimiento.x < max_x && movimiento.y >= 0 && movimiento.y < max_y && tablero[movimiento.y][movimiento.x] == nullptr) {
 			for (int y = 0; y < max_y; y++) {
 				for (int x = 0; x < max_x; x++) {
 					Pieza* pMiColor = tablero[y][x];
@@ -120,7 +118,7 @@ bool GestionJugadas::piezaPuedeProteger(color col, Pieza* tablero[max_y][max_x])
 			}
 		}
 	}
-	return false; // No se encontró ninguna forma de sacar al rey del jaque
+	return false; // No se encontró forma de sacar al rey del jaque
 }
 
 bool GestionJugadas::reySaleDeJaque(color col, Pieza* tablero[max_y][max_x]) {
@@ -139,10 +137,10 @@ bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 		return false; // Si no esta en jaque, no puede estar en jaque mate, y si sale del jaque tampoco
 	}
 	else if (reySaleDeJaque(col, tablero) == false) {
-		return true;
+		return false;
 	}
 	else 
-		return false;
+		return true;
 }
 
 

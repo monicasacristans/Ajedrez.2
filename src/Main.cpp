@@ -103,12 +103,10 @@ void mouseClick(int button, int state, int x, int y)
 	}
 }
 
-
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
 	y_t = usuario.shapy - y_t;
-	usuario.teclado(key);
 	glutPostRedisplay();
 }
 
@@ -119,7 +117,6 @@ void OnTimer(int value)
 	
 	glutPostRedisplay();
 }
-
 
 //Especifica como se debe ajustar la ventana cuando se redimensiona
 // w y h representan los nuevos valores de ancho y alto

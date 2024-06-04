@@ -17,7 +17,6 @@ public:
 	void dibuja();
 	void dibujaFondo();
 	void setReshape(float x, float y) { shapx = x; shapy = y; }
-	void teclado(unsigned char key);
 	int getEstado() { return estado; }
 
 	bool ganador; //blancas TRUE, negras FALSE 
@@ -35,7 +34,7 @@ public:
 	enum Estado { INICIO, MODOJUEGO, OP, AYU, INST, TEXTO_A, TEXTO_IN, FINAL};
 	Estado estado;
 
-	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS, PAUSA, BLANCAS_CORONACION, NEGRAS_CORONACION};
+	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS, BLANCAS_CORONACION, NEGRAS_CORONACION};
 	EstadodeJuego estadodejuego;
 
 	enum Opcion { O, AYUDA, INSTRUCCIONES, A_OPCION };
