@@ -198,7 +198,7 @@ void Pintar::pintarJaqueM() {
 
 void Pintar::pintarPromocion() {
 
-    if (mijugada->getFlagPromocion() == true) {
+   // if (mijugada->getFlagPromocion() == true) {
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
       
@@ -241,7 +241,7 @@ void Pintar::pintarPromocion() {
         printxy("PROMOCION", 15, 620);
         printxy("DEL PEON", 20, 570);
 
-    }
+    //}
 }
 
 void Pintar::pintarEnroque() {

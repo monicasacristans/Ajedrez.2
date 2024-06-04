@@ -158,6 +158,22 @@ void Usuario::teclado(unsigned char key) {
 			if (key == 'p' || key == 'P') { estadodejuego = PAUSA; }
 			
 		}
+		if (estadodejuego == PROMOCION) {
+
+			/*int tipoPieza = key - '0';
+			glutMainLoop();*/
+
+			if (key>='1' && key<='6') { // Verificar que la tecla sea un número válido para la promoción
+				int tipoPieza = key - '0'; // Convertir el char a int restando '0'
+
+
+				/*Pieza* tableroActual[max_y][max_x];
+				tablero.getTablero(tableroActual);*/
+
+				miJugada.promocion(tablero.getCasillaDestino(), tablero.tablero, tipoPieza);
+				estadodejuego = TURNO; // Volver al estado de turno después de la promoción
+			}
+		}
 	}
 }
 
@@ -189,6 +205,11 @@ void Usuario::raton(int button, int state, int x, int y) {
 				tablero.definirCoordenadasTablero(button, state, x, y);
 				Pieza* tableroActual[max_y][max_x];
 				tablero.getTablero(tableroActual);
+
+				/*if (miJugada.peonFinal(tablero.getCasillaOrigen()) == true) {
+					estadodejuego = PROMOCION;
+					return;
+				}*/
 				if (tablero.getFinTurnoN() == true) {
 					if (miJugada.jaque_mate(color::blanco, tableroActual) == true) {
 						ganador = false;//Ganan negras
@@ -204,7 +225,10 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 			}
-
+			if (estadodejuego == PROMOCION) {
+				teclado(tipoPieza);
+				
+			}
 			if (estadodejuego == PAUSA) {
 				for (auto m : MENU_PAUSA) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
@@ -467,10 +491,22 @@ void Usuario::dibuja() {
 			miPintura.pintarError();
 			miPintura.pintarJaque();
 			miPintura.pintarJaqueM();
-			miPintura.pintarPromocion();
+			//miPintura.pintarPromocion();
 			miPintura.pintarPause();
 		}
 		if (estadodejuego == PAUSA) {
+			miPintura.pintarPiezasTablero();
+
+			glutPostRedisplay();
+			miPintura.pintarCuadricula();
+			miPintura.pintarCorona();
+			miPintura.pintarError();
+			miPintura.pintarJaque();
+			miPintura.pintarJaqueM();
+			//miPintura.pintarPromocion();
+			miPintura.pintarPause();
+		}
+		if (estadodejuego == PROMOCION) {
 			miPintura.pintarPiezasTablero();
 
 			glutPostRedisplay();

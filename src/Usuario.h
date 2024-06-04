@@ -11,7 +11,7 @@ class Usuario {
 public:
 	Usuario();
 	virtual ~Usuario();
-
+	
 	void mouse(int x, int y);
 	void raton(int button, int state, int x, int y);
 	void dibuja();
@@ -28,6 +28,7 @@ public:
 	int n_texto_a;
 	int n_texto_ins;
 	float shapx, shapy;
+	unsigned char tipoPieza;
 
 	int seleccion_ini = 0;
 	int seleccion_estado = 0;
@@ -35,9 +36,10 @@ public:
 	enum Estado { INICIO, MODOJUEGO, OP, AYU, INST, TEXTO_A, TEXTO_IN, FINAL};
 	Estado estado;
 
-	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS, PAUSA, BLANCAS_CORONACION, NEGRAS_CORONACION};
+	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS, PAUSA, PROMOCION};
 	EstadodeJuego estadodejuego;
 
+	void setEstadoJuego(EstadodeJuego nuevoestado) { estadodejuego = nuevoestado; }
 	enum Opcion { O, AYUDA, INSTRUCCIONES, A_OPCION };
 	Opcion opcion;
 

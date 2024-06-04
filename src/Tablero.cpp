@@ -3,7 +3,6 @@
 using namespace std;
 extern Usuario usuario;
 
-
 Tablero::Tablero() {
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
@@ -71,77 +70,78 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 			else {
 				//comprobar promocion 
 				if (mijugada.peonFinal(cas_destino) == true && p->getTipo() == tipo::peon) {
-					//flagPromocion = true;
 					mijugada.setFlagPromocion(true);
-					mijugada.promocion(cas_destino, tablero);
-					//break;
-				}
-				mijugada.setFlagPromocion(false);
-				//flagPromocion = false;
-				
-				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
-				// Verificar jaque mate
-				if (mijugada.jaque(colOponente, tablero) == true) {
-					std::cout <<  "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
-					flagJaque = true;
+					usuario.setEstadoJuego(Usuario::PROMOCION);
+					setCasillaDestino(cas_destino);
+					usuario.teclado(tipoPromocion);
 					//return;
-
-					if (mijugada.jaque_mate(colOponente, tablero) == true) {
-						// Verificar jaque 
-						std::cout << "JAQUE MATE AL REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
-						flagJaqueM = true;// Fin del juego
-					}
-					else {
-						flagJaqueM = false;
-					}
-					
 				}
-				else {
+						mijugada.setFlagPromocion(false);
+						//flagPromocion = false;
+
+							color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
+							// Verificar jaque mate
+							if (mijugada.jaque(colOponente, tablero) == true) {
+								std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
+								flagJaque = true;
+								//return;
+
+								if (mijugada.jaque_mate(colOponente, tablero) == true) {
+									// Verificar jaque 
+									std::cout << "JAQUE MATE AL REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
+									flagJaqueM = true;// Fin del juego
+								}
+								else {
+									flagJaqueM = false;
+								}
+
+							}
+							else {
+								flagJaque = false;
+							}
+
+							//Verificar si el movimiento saca al rey del jaque
+							color colJugador = p->getColor();
+							if (mijugada.jaque(colJugador, tablero) == true || mijugada.jaque_mate(colJugador, tablero) == true) {
+								if (mijugada.reySaleDeJaque(colJugador, tablero) == true) {
+									cout << "Movimiento no valido, el rey sigue en jaque." << endl;
+									// Revertir el movimiento
+									tablero[cas_origen.y][cas_origen.x] = p;
+									tablero[cas_destino.y][cas_destino.x] = nullptr;
+									flagJaque = true;
+									continue;
+								}
+								else {
+									flagJaque = false;
+									flagJaqueM = false;
+								}
+							}
+
+							// Comprobar si el movimiento es un enroque
+							if (p->getTipo() == tipo::rey && (abs(cas_destino.x - cas_origen.x) == 3 || (abs(cas_destino.x - cas_origen.x) == -3))) {
+								mijugada.realizarEnroque(p->getColor(), tablero);
+								if (!mov_valido) {
+									//turno = !turno;
+									std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
+									flagEnroque = false;
+									//break;
+								}
+								else {
+									std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
+									//turno = !turno;
+									//break;
+								}
+							}
+						}
+						turno = !turno;
+					}
 					flagJaque = false;
-				}
-					
-				//Verificar si el movimiento saca al rey del jaque
-				color colJugador = p->getColor();
-				if (mijugada.jaque(colJugador, tablero) == true || mijugada.jaque_mate(colJugador, tablero) == true) {
-					if (mijugada.reySaleDeJaque(colJugador, tablero) == true) {
-						cout << "Movimiento no valido, el rey sigue en jaque." << endl;
-						// Revertir el movimiento
-						tablero[cas_origen.y][cas_origen.x] = p;
-						tablero[cas_destino.y][cas_destino.x] = nullptr;
-						flagJaque = true;
-						continue;
-					}
-					else{
-						flagJaque = false;
-						flagJaqueM = false;
-					}
-				}
-
-				// Comprobar si el movimiento es un enroque
-				if (p->getTipo() == tipo::rey && (abs(cas_destino.x - cas_origen.x) == 3 || (abs(cas_destino.x - cas_origen.x) == -3))) {
-					mijugada.realizarEnroque(p->getColor(), tablero);
-					if (!mov_valido) {
-						//turno = !turno;
-						std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
-						flagEnroque = false;
-						//break;
-					}
-					else {
-						std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
-						//turno = !turno;
-						//break;
-					}
+					flagJaqueM = false;
+					flagPromocion = false;
+					flagEnroque = false;
+					break;
 				}
 			}
-			turno = !turno;
-		}
-		flagJaque = false;
-		flagJaqueM = false;
-		//flagPromocion = false;
-		flagEnroque = false;
-		break;
-	}
-}
 //bool Tablero::set_promocion(casilla c, Pieza* p) {
 //	if (jugada.peonFinal(c) == true && p->getTipo() == tipo::peon) {
 //		bool flagPromocion = true;
@@ -182,6 +182,7 @@ Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
 	}
 }
 
+
 void Tablero::set_tablero() {
 	//Iniciar todo el tablero a nullptr
 	for (int y = 0; y < max_y; y++) {
@@ -205,6 +206,7 @@ void Tablero::set_tablero() {
 		tablero[1][i] = new Peon(tipo::peon, color::blanco);
 		piezasB.push_back(tablero[0][i]);
 		piezasB.push_back(tablero[1][i]);
+
 	}
 	//Peones negros
 	for (int i = 0; i < 10; i++) {
@@ -228,6 +230,21 @@ void Tablero::set_tablero() {
 		piezasN.push_back(tablero[7][i]);
 	}
 }
+
+/*void Tablero::dibujarPromocion(Pieza* tableroActual[max_y][max_x]) {
+	for (int y = 0; y < max_y; y++) {
+		for (int x = 0; x < max_x; x++) {
+
+			if (tableroActual[y][x]->getColor() == color::negro) {
+
+				piezasN.push_back(tableroActual[y][x]);
+			}
+			else if (tableroActual[y][x]->getColor() == color::blanco) {
+				piezasB.push_back(tableroActual[y][x]);
+			}
+		}
+	}
+}*/
 
 void Tablero::getTablero(Pieza* tableroActual[max_y][max_x]) {
 	for (int y = 0; y < max_y; y++) {

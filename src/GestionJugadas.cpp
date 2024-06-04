@@ -1,6 +1,7 @@
 #include "GestionJugadas.h"
 
 using namespace std;
+extern Usuario usuario;
 
 casilla GestionJugadas::encontrarPosicionRey(color col, Pieza* tablero[max_y][max_x]) {
 	// Buscar la posición del rey del color dado en el tablero
@@ -140,8 +141,28 @@ bool GestionJugadas::peonFinal(casilla origen) {
 	
 }
 
+Pieza* GestionJugadas::crearPieza(tipo t, color col) {
+	switch (t) {
+	case tipo::reina:
+		return new Reina(tipo::reina, col);
+		std::cout << "Se ha creado una reina" << std::endl;
+	case tipo::torre:
+		return new Torre(tipo::torre, col);
+	case tipo::alfil:
+		return new Alfil(tipo::alfil, col);
+	case tipo::caballo:
+		return new Caballo(tipo::caballo, col);
+	case tipo::canciller:
+		return new Canciller(tipo::canciller, col);
+	case tipo::arzobispo:
+		return new Arzobispo(tipo::arzobispo, col);
+	default:
+		return nullptr;
+	}
+}
 
-void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
+
+void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x], int tipo ) {
 
 	
 	Pieza* p = tablero[cas.y][cas.x];
@@ -153,32 +174,39 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x] ) {
 		cout << "Elige una nueva pieza para la promocion del peon:" << endl;
 		cout << "1-Reina\n 2-Torre\n 3-Alfil\n 4-Caballo\n 5-Canciller\n6-Arzobispo\n";
 		Pieza* nuevaPieza = nullptr;
-		cin >> eleccion;
-		switch (eleccion) {
+
+		//usuario.teclado(eleccion);
+
+		//cin >> eleccion;
+		switch (tipo) {
 		case 1:
-			nuevaPieza = new Reina(tipo::reina, p->getColor());
+
+			nuevaPieza = crearPieza(tipo::reina, p->getColor());
 			break;
-		case 2:
-			nuevaPieza = new Torre(tipo::torre, p->getColor());
+		case 2:		
+			nuevaPieza = crearPieza(tipo::torre, p->getColor());
 			break;
-		case 3:
-			nuevaPieza = new Alfil(tipo::alfil, p->getColor());
+		case 3:			
+			nuevaPieza = crearPieza(tipo::alfil, p->getColor());
 			break;
 		case 4:
-			nuevaPieza = new Caballo(tipo::caballo, p->getColor());
+			nuevaPieza = crearPieza(tipo::caballo, p->getColor());
 			break;
-		case 5:
-			nuevaPieza = new Canciller(tipo::canciller, p->getColor());
+		case 5:	
+			nuevaPieza = crearPieza(tipo::canciller, p->getColor());
 			break;
-		case 6:
-			nuevaPieza = new Arzobispo(tipo::arzobispo, p->getColor());
+		case 6:			
+			nuevaPieza = crearPieza(tipo::arzobispo, p->getColor());
 			break;
 		default:
 			break;
 		}
 		if (nuevaPieza != NULL) {
-			tablero[cas.y][cas.x] = nuevaPieza;
 			delete p; //elimino el peon
+			tablero[cas.y][cas.x] = nuevaPieza;
+			//tab->dibujarPromocion(tablero);
+			//dibujarPromocion(tablero[cas.y][cas.x]);
+			//nuevaPieza.push_back(tablero[cas.y][cas.x]);
 			
 		}
 			

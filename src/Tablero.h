@@ -15,8 +15,9 @@
 class GestionJugadas; // Declaración anticipada
 
 class Tablero {
-
+public:
 	Pieza *tablero[max_y][max_x];
+private:
 	std::vector<Pieza*> piezasB;
 	std::vector<Pieza*> piezasN;
 	std::vector<Pieza*> piezasEliminadasB;
@@ -30,10 +31,11 @@ class Tablero {
 	bool flagMovInvalido = false;
 	bool flagJaque = false;
 	bool flagJaqueM = false;
-	//bool flagPromocion = false;
+	bool flagPromocion = false;
 	bool flagEnroque = false;
 	bool enroqueActivado = false;
 
+	unsigned char tipoPromocion;
 
 	casilla cas_origen{ -1 , -1 };
 	casilla cas_destino{ - 1, -1 };
@@ -43,23 +45,36 @@ public:
 	Tablero();
 	~Tablero();
 
+
+	std::vector<Pieza*> getVectorPiezasN() { return piezasN; }
+	void set_vectorPiezasN(std::vector<Pieza*> p) { piezasN = p; }
+	std::vector<Pieza*> getVectorPiezasB() { return piezasB; }
+	void set_vectorPiezasB(std::vector<Pieza*> p) { piezasN = p; }
+	
+
+
 	void set_tablero();
 	void getTablero(Pieza* tableroActual[max_y][max_x]);
+
+
 	bool getTurno() { return turno; }
 	void set_turno(bool t) { turno = t; }
 	void setEnroqueActivado(bool estado) { enroqueActivado = estado; }
 
+
 	bool getFlagMovValido(){ return flagMovInvalido; }//Flag para pintar los avisos
 	bool getFlagJaque(){ return flagJaque; }
 	bool getFlagJaqueM(){ return flagJaqueM; }
-	//bool getFlagPromocion(){ return flagPromocion; }
-	//void setFlagPromocion(bool prom) { flagPromocion= prom; }
-
+	bool getFlagPromocion(){ return flagPromocion; }
+	void setFlagPromocion(bool prom) { flagPromocion= prom; }
+	
 	bool getFlagEnroque() { return flagEnroque; }
-	/*bool set_promocion(casilla c, Pieza* p);*/
 
+
+
+	void setCasillaDestino(casilla cas) { cas_destino = cas; }
 	casilla getCasillaOrigen() const { return cas_origen; }
-
+	casilla getCasillaDestino() const { return cas_destino; }
 	//Turnos
 	bool getFinTurnoN() {
 		if (turno == true)
