@@ -82,27 +82,26 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
 				// Verificar jaque mate
 				if (mijugada.jaque(colOponente, tablero) == true) {
-					std::cout <<  "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
+					std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
 					flagJaque = true;
 					//return;
-
-					if (mijugada.jaque_mate(colOponente, tablero) == true) {
-						// Verificar jaque 
-						std::cout << "JAQUE MATE AL REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
-						flagJaqueM = true;// Fin del juego
-					}
-					else {
-						flagJaqueM = false;
-					}
-					
 				}
 				else {
 					flagJaque = false;
 				}
+
+				if (mijugada.jaque_mate(colOponente, tablero) == true) {
+					// Verificar jaque 
+					std::cout << "JAQUE MATE AL REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
+					flagJaqueM = true;// Fin del juego
+				}
+				else {
+					flagJaqueM = false;
+				}
 					
 				//Verificar si el movimiento saca al rey del jaque
 				color colJugador = p->getColor();
-				if (mijugada.jaque(colJugador, tablero) == true || mijugada.jaque_mate(colJugador, tablero) == true) {
+				if (mijugada.jaque(colJugador, tablero) == true) {
 					if (mijugada.reySaleDeJaque(colJugador, tablero) == true) {
 						cout << "Movimiento no valido, el rey sigue en jaque." << endl;
 						// Revertir el movimiento

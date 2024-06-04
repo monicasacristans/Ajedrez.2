@@ -186,15 +186,15 @@ void Pintar::pintarPause() {
     pausa.draw();
 }
 
-void Pintar::pintarJaqueM() {
-
-    if (tablero->getFlagJaqueM() == true) {
-        setTextColor(255, 0, 0);
-        setFont("bin/fuentes/Bitwise.ttf", 40);
-        printxy("JAQUE", 60, 620);
-        printxy("MATE", 68, 570);
-    }
-}
+//void Pintar::pintarJaqueM() {
+//
+//    if (tablero->getFlagJaqueM() == true) {
+//        setTextColor(255, 0, 0);
+//        setFont("bin/fuentes/Bitwise.ttf", 40);
+//        printxy("JAQUE", 60, 620);
+//        printxy("MATE", 68, 570);
+//    }
+//}
 
 void Pintar::pintarPromocion() {
 

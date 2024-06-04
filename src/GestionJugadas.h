@@ -17,6 +17,8 @@ public:
 	//JAQUE 
 	bool jaque(color col, Pieza* tablero[max_y][max_x]);
 	bool reySaleDeJaque(color col, Pieza* tablero[max_y][max_x]);
+	bool reyPuedeMoverse(color col, Pieza* tablero[max_y][max_x]);
+	bool piezaPuedeProteger(color col, Pieza* tablero[max_y][max_x]);
 
 	//JAQUE MATE
 	bool jaque_mate(color col, Pieza* tablero[max_y][max_x]);
