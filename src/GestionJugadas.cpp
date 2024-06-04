@@ -4,6 +4,7 @@ using namespace std;
 extern Usuario usuario;
 
 casilla GestionJugadas::encontrarPosicionRey(color col, Pieza* tablero[max_y][max_x]) {
+	
 	// Buscar la posición del rey del color dado en el tablero
 	for (int y = 0; y < max_y; y++) {
 		for (int x = 0; x < max_x; x++) {
@@ -41,7 +42,6 @@ bool GestionJugadas::jaque(color col, Pieza* tablero[max_y][max_x]) {
 	return false; // El rey no está en jaque
 }
 
-
 bool GestionJugadas::reyPuedeMoverse(color col, Pieza* tablero[max_y][max_x]) {
 	// Encontrar la posicion del rey
 	casilla posRey = encontrarPosicionRey(col, tablero);
@@ -54,8 +54,7 @@ bool GestionJugadas::reyPuedeMoverse(color col, Pieza* tablero[max_y][max_x]) {
 	};
 
 	for (const auto& movimiento : movimientosRey) {
-		if (movimiento.x >= 0 && movimiento.x < max_x && movimiento.y >= 0 && movimiento.y < max_y &&
-			(tablero[movimiento.y][movimiento.x] == nullptr || tablero[movimiento.y][movimiento.x]->getColor() != col)) {
+		if (movimiento.x >= 0 && movimiento.x < max_x && movimiento.y >= 0 && movimiento.y < max_y && tablero[movimiento.y][movimiento.x] == nullptr) {
 
 			// Simular el movimiento del rey
 			Pieza* piezaDestino = tablero[movimiento.y][movimiento.x];
@@ -77,6 +76,52 @@ bool GestionJugadas::reyPuedeMoverse(color col, Pieza* tablero[max_y][max_x]) {
 	return false; // No se encontró ninguna forma de sacar al rey del jaque
 }
 
+//bool GestionJugadas::piezaPuedeProteger(color col, Pieza* tablero[max_y][max_x]) {
+//	// Encontrar la posición del rey
+//	//casilla posRey = encontrarPosicionRey(col, tablero);
+//
+//	// Verificar si alguna pieza del mismo color puede proteger al rey
+//	for (int y = 0; y < max_y; y++) {
+//		for (int x = 0; x < max_x; x++) {
+//			Pieza* pMiColor = tablero[y][x];
+//			if (pMiColor != nullptr && pMiColor->getColor() == col && pMiColor->getTipo() != tipo::rey) {
+//				for (int dy = 0; dy < max_y; dy++) {
+//					for (int dx = 0; dx < max_x; dx++) {
+//						if (dy != y || dx != x) {
+//							casilla origen = { x, y };
+//							casilla destino = { dx, dy };
+//
+//							if (pMiColor->getTipo() == tipo::rey) {
+//								return false;
+//							}
+//							else if (pMiColor->movimientoValido(origen, destino, tablero) == true) {
+//								// Simular el movimiento para comprobar si saca al rey del jaque
+//								Pieza* piezaDestino = tablero[destino.y][destino.x];
+//								tablero[destino.y][destino.x] = pMiColor;
+//								tablero[origen.y][origen.x] = nullptr;
+//
+//								bool estaEnJaque = jaque(col, tablero);
+//
+//								// Restaurar el estado original del tablero
+//								tablero[origen.y][origen.x] = pMiColor;
+//								tablero[destino.y][destino.x] = piezaDestino;
+//
+//								if (estaEnJaque == false) {
+//									std::cout << "El rey puede moverse a (" << destino.x << ", " << destino.y << ")" << std::endl;
+//									//return true;
+//									return true; // Se encontró una pieza que puede sacar al rey de jaque
+//									//break;
+//								}
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
+//	return false; // No se encontró forma de sacar al rey del jaque
+//}
+
 bool GestionJugadas::piezaPuedeProteger(color col, Pieza* tablero[max_y][max_x]) {
 	// Encontrar la posicion del rey
 	casilla posRey = encontrarPosicionRey(col, tablero);
@@ -90,14 +135,13 @@ bool GestionJugadas::piezaPuedeProteger(color col, Pieza* tablero[max_y][max_x])
 
 	// Verificar si alguna pieza del mismo color puede proteger al rey
 	for (const auto& movimiento : movimientosRey) {
-		if (movimiento.x >= 0 && movimiento.x < max_x && movimiento.y >= 0 && movimiento.y < max_y && tablero[movimiento.y][movimiento.x] == nullptr) {
-			for (int y = 0; y < max_y; y++) {
-				for (int x = 0; x < max_x; x++) {
+		if (movimiento.x >= 0 && movimiento.x < max_x && movimiento.y >= 0 && movimiento.y < max_y && (tablero[movimiento.y][movimiento.x] == nullptr || tablero[movimiento.y][movimiento.x]->getColor() != col)) {
+			for (int y = 0; y < max_x; y++) {
+				for (int x = 0; x < max_y; x++) {
 					Pieza* pMiColor = tablero[y][x];
+					casilla origen = { x, y };
 
-					if (pMiColor != nullptr && pMiColor->getColor() == col) {
-						casilla origen = { x, y };
-
+					if (pMiColor != nullptr && pMiColor->getColor() == col && pMiColor->getTipo() != tipo::rey) {
 						if (pMiColor->movimientoValido(origen, movimiento, tablero)) {
 							// Simular el movimiento para comprobar si saca al rey del jaque
 							Pieza* piezaDestino = tablero[movimiento.y][movimiento.x];
@@ -111,7 +155,11 @@ bool GestionJugadas::piezaPuedeProteger(color col, Pieza* tablero[max_y][max_x])
 							tablero[movimiento.y][movimiento.x] = piezaDestino;
 
 							if (estaEnJaque == false) {
+								std::cout << origen.x << origen.y << "puede moverse a(" << movimiento.x << ", " << movimiento.y << ")" << std::endl;//01 puede moverse a 61?
 								return true; // Se encontró una pieza que puede sacar al rey de jaque
+							}
+							else {
+								return false;
 							}
 						}
 					}
@@ -131,19 +179,18 @@ bool GestionJugadas::reySaleDeJaque(color col, Pieza* tablero[max_y][max_x]) {
 	}
 }
 
-
 bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 	//Primero, verificar si el rey esta en jaque
 	if (jaque(col, tablero) == false){
 		return false; // Si no esta en jaque, no puede estar en jaque mate, y si sale del jaque tampoco
 	}
-	else if (reySaleDeJaque(col, tablero) == false) {
-		return false;
-	}
-	else 
+	if (reySaleDeJaque(col,tablero) == true) {
+		std::cout << "Jaque mate confirmado para el rey de color " << (col == color::blanco ? "blanco" : "negro") << std::endl;
 		return true;
+	}
+	std::cout << "No es jaque mate para el rey de color " << (col == color::blanco ? "blanco" : "negro") << std::endl;
+	return false;
 }
-
 
 bool GestionJugadas::peonFinal(casilla origen) {
 
@@ -153,7 +200,6 @@ bool GestionJugadas::peonFinal(casilla origen) {
 	else {
 		return false;
 	}
-	
 }
 
 Pieza* GestionJugadas::crearPieza(tipo t, color col) {
@@ -176,7 +222,6 @@ Pieza* GestionJugadas::crearPieza(tipo t, color col) {
 	}
 }
 
-
 void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x], int tipo ) {
 
 	
@@ -191,7 +236,6 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x], int ti
 		Pieza* nuevaPieza = nullptr;
 		switch (tipo) {
 		case 1:
-
 			nuevaPieza = crearPieza(tipo::reina, p->getColor());
 			break;
 		case 2:		
@@ -215,9 +259,8 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x], int ti
 		if (nuevaPieza != NULL) {
 			delete p; //elimino el peon
 			tablero[cas.y][cas.x] = nuevaPieza;
-			
+
 		}
-			
 }
 
 bool::GestionJugadas::verificarEnroqueIzquierda(color jugador, Pieza* tablero[max_y][max_x]) {
@@ -241,9 +284,7 @@ bool::GestionJugadas::verificarEnroqueIzquierda(color jugador, Pieza* tablero[ma
 			}
 		}
 	}
-
 	return enroqueIzquierdaPosible;
-
 }
 
 bool::GestionJugadas::verificarEnroque(color jugador, Pieza* tablero[max_y][max_x]) {

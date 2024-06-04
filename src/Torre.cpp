@@ -33,5 +33,8 @@ bool Torre::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max
 		}
 		return true; // Movimiento válido de torre
 	}
+	else {
+		return false;
+	}
 	
 }

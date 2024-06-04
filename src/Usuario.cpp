@@ -456,7 +456,6 @@ void Usuario::dibuja() {
 			miPintura.pintarCorona();
 			miPintura.pintarError();
 			miPintura.pintarJaque();
-			miPintura.pintarJaqueM();
 		}
 
 		if (estadodejuego == PROMOCION) {
@@ -467,7 +466,6 @@ void Usuario::dibuja() {
 			miPintura.pintarCorona();
 			miPintura.pintarError();
 			miPintura.pintarJaque();
-			miPintura.pintarJaqueM();
 			miPintura.pintarPromocion();
 		}
 	}
@@ -815,8 +813,9 @@ void Usuario::dibuja() {
 
 		if (getGanador() == true) {
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
-			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("GANADOR BLANCO", 480, 480);
+			setFont("bin/fuentes/Bitwise.ttf", 30); 
+			printxy("JAQUE MATE", 540, 525);
+			printxy("GANADOR BLANCO", 480, 470);
 			setFont("bin/fuentes/Bitwise.ttf", 22);
 			setTextColor(1, 1, 1);
 			for (auto m : M_FINAL) {
@@ -830,7 +829,8 @@ void Usuario::dibuja() {
 		else if (getGanador() == false) {
 			setTextColor(51 / 255.0, 202 / 255.0, 255 / 255.0);
 			setFont("bin/fuentes/Bitwise.ttf", 30);
-			printxy("GANADOR NEGRO", 480, 480);
+			printxy("JAQUE MATE", 540, 525);
+			printxy("GANADOR NEGRO", 490, 470);
 			setFont("bin/fuentes/Bitwise.ttf", 22);
 			setTextColor(1, 1, 1);
 			for (auto m : M_FINAL) {
@@ -845,11 +845,6 @@ void Usuario::dibuja() {
 		miPintura.pintarPiezasTablero();
 		glutPostRedisplay();
 		miPintura.pintarCuadricula();
-		miPintura.pintarError();
-		miPintura.pintarJaque();
-		miPintura.pintarJaqueM();
-		miPintura.pintarPromocion();
-		miPintura.pintarEnroque();
 	}
 }
 

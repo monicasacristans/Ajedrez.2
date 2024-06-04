@@ -180,17 +180,6 @@ void Pintar::pintarJaque() {
     }
 }
 
-void Pintar::pintarJaqueM() {
-
-    if (tablero->getFlagJaqueM()== true) {
-        setTextColor(255, 0, 0);
-        setFont("bin/fuentes/Bitwise.ttf", 40);
-        printxy("JAQUE MATE", 20, 620);
-    }
-}
-
-
-
 void Pintar::pintarPromocion() {
 
    // if (mijugada->getFlagPromocion() == true) {

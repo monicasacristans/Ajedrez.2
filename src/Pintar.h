@@ -45,7 +45,6 @@ public:
 	void pintarCorona();
 	void pintarError();
 	void pintarJaque();
-	void pintarJaqueM();
 	void pintarPromocion();
 	void pintarEnroque();
 	void pintarPantallaFinal();

@@ -1,2 +1,3 @@
-﻿  LINK : no se encontró C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\bin\Pang.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
-  Pang.vcxproj -> C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\bin\Pang.exe
+﻿  Caballo.cpp
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Caballo.cpp(27): warning C4715: 'Caballo::movimientoValido': not all control paths return a value
+  Pang.vcxproj -> C:\Users\cesar\Documents\GitHub\Ajedrez.2\bin\Pang.exe
