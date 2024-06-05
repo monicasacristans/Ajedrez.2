@@ -80,7 +80,7 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				}
 
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
-				// Verificar jaque mate
+				// Verificar jaque y jaque mate
 				if (mijugada.jaque(colOponente, tablero) == true) {
 					std::cout << "REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << " EN JAQUE" << std::endl;
 					flagJaque = true;
@@ -89,6 +89,8 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						// Verificar jaque 
 						std::cout << "JAQUE MATE AL REY " << (colOponente == color::blanco ? "BLANCO" : "NEGRO") << std::endl;
 						flagJaque = false;
+						flagPromocion = false;
+						flagEnroque = false;
 						flagJaqueM = true;// Fin del juego
 					}
 					else {
@@ -130,21 +132,15 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						//break;
 					}
 				}
-				//turno = !turno;
-			
 			}
 			turno = !turno;
 		}
-		flagJaque = false;
-		flagJaqueM = false;
-		flagPromocion = false;
-		flagEnroque = false;
+		//Aqui no puede ir ningun reset de flag que sino no aparecen
 		break;
 	}
 }
 
 bool Tablero::moverPieza(casilla origen, casilla destino) {
-
 	// Mover la pieza
 	Pieza* piezaMovida = tablero[origen.y][origen.x]; // Tomar la pieza en la casilla de origen
 
@@ -164,7 +160,6 @@ bool Tablero::moverPieza(casilla origen, casilla destino) {
 }
 
 Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
-
 	if (pos.x >= 0 && pos.x < max_x && pos.y >= 0 && pos.y < max_y) { //Comprueba que estamos dentro del tablero
 		return tablero[pos.y][pos.x];  //Devuelve la pieza que hay en la casilla
 	}
@@ -173,7 +168,6 @@ Pieza* Tablero::checkPiezaEnCasilla(casilla pos) {
 		return nullptr;
 	}
 }
-
 
 void Tablero::set_tablero() {
 	//Iniciar todo el tablero a nullptr

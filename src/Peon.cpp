@@ -59,5 +59,6 @@ bool Peon::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_
             return false; // No hay pieza enemiga en diagonal para capturar
         }
     }
+    return false;
 }
     
