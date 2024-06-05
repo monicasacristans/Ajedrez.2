@@ -63,9 +63,10 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 	while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
 		if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
 			mov_valido = moverPieza(cas_origen, cas_destino);
-
-			std::cout << "Movimiento no valido, intenta de nuevo." << endl;
-			break;
+			cout << piezasEliminadasB.size() << ", " << piezasEliminadasN.size() << endl;
+			if (!mov_valido) {
+				cout << "Movimiento no valido, intenta de nuevo." << endl;
+				break;
 			}
 			else {
 				//Comprobar promocion 
@@ -122,23 +123,22 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				if (p->getTipo() == tipo::rey && (abs(cas_destino.x - cas_origen.x) == 3 || (abs(cas_destino.x - cas_origen.x) == -3))) {
 					mijugada.realizarEnroque(p->getColor(), tablero);
 					if (!mov_valido) {
+						//turno = !turno;
 						std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
 						flagEnroque = false;
 					}
 					else {
 						std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
-						
+						//turno = !turno;
+						//break;
 					}
 				}
-				break;
 			}
 			turno = !turno;
-
+		}
+		//Aqui no puede ir ningun reset de flag sino no aparecen
+		break;
 	}
-	
-	//Aqui no puede ir ningun reset de flag sino no aparecen
-		
-	
 }
 
 bool Tablero::moverPieza(casilla origen, casilla destino) {
@@ -231,7 +231,19 @@ void Tablero::eliminarPieza(casilla destino) {
 
 	if (piezaComida != nullptr) {
 		ETSIDI::play("bin/sonidos/comer.mp3");
-		
+		auto& listapiezas = (piezaComida->getColor() == color::blanco) ? piezasB : piezasN;
+
+		auto p = std::find(listapiezas.begin(), listapiezas.end(), piezaComida);
+
+		if (p != listapiezas.end() && listapiezas ==piezasB) {
+			listapiezas.erase(p);
+			piezasEliminadasB.push_back(piezaComida);
+		}
+		else if (p != listapiezas.end() && listapiezas == piezasN) {
+			listapiezas.erase(p);
+			piezasEliminadasN.push_back(piezaComida);
+		}
+
 		delete piezaComida; // Eliminar la pieza del destino
 		tablero[destino.y][destino.x] = nullptr; // Marcar la casilla de destino como vacía
 	

@@ -73,7 +73,6 @@ public:
 	void setCasillaDestino(casilla cas) { cas_destino = cas; }
 	casilla getCasillaOrigen() const { return cas_origen; }
 	casilla getCasillaDestino() const { return cas_destino; }
-
 	//Turnos
 	bool getFinTurnoN() {
 		if (turno == true)
@@ -88,6 +87,22 @@ public:
 			return !finturnob;
 	}
 
+	const std::vector<Pieza*>& getPiezasEliminadasB() const {
+		return piezasEliminadasB;
+	}
+	const std::vector<Pieza*>& getPiezasEliminadasN() const {
+		return piezasEliminadasN;
+	}
+
+	std::vector<Pieza*>& inicializarvector() {
+
+		for (int pieza = 0; pieza < 20; pieza++) {
+			piezasEliminadasB[pieza] = nullptr;
+		}
+		for (int pieza = 0; pieza < 20; pieza++) {
+			piezasEliminadasN[pieza] = nullptr;
+		}
+	}
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	void realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino);
 	Pieza* checkPiezaEnCasilla(casilla pos);

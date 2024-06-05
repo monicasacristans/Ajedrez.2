@@ -390,7 +390,6 @@ void Usuario::raton(int button, int state, int x, int y) {
 			}
 		}
 		if (estado == FINAL) {
-			ETSIDI::play("bin/sonidos/ganador.mp3");
 			if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 			{
 				for (auto m : M_FINAL) {
