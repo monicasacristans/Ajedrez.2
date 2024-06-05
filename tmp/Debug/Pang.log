@@ -1,3 +1,2 @@
-﻿  GestionJugadas.cpp
-C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\GestionJugadas.cpp(131): warning C4715: 'GestionJugadas::reySaleDeJaque': not all control paths return a value
-  Pang.vcxproj -> C:\Users\cesar\Documents\GitHub\Ajedrez.2\bin\Pang.exe
+﻿  Tablero.cpp
+  Pang.vcxproj -> C:\Users\Cristina\Documents\GitHub\Ajedrez.2\bin\Pang.exe

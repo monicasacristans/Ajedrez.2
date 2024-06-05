@@ -172,40 +172,39 @@ Pieza* GestionJugadas::crearPieza(tipo t, color col) {
 void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x], int tipo ) {
 
 	Pieza* p = tablero[cas.y][cas.x];
-	cout << "Piezas disponibles para la promoción: " << endl;
-	
-		int eleccion = 0;
-		cout << "Elige una nueva pieza para la promocion del peon:" << endl;
-		cout << "1-Reina\n 2-Torre\n 3-Alfil\n 4-Caballo\n 5-Canciller\n6-Arzobispo\n";
-		Pieza* nuevaPieza = nullptr;
 
-		switch (tipo) {
-		case 1:
-			nuevaPieza = crearPieza(tipo::reina, p->getColor());
-			break;
-		case 2:		
-			nuevaPieza = crearPieza(tipo::torre, p->getColor());
-			break;
-		case 3:			
-			nuevaPieza = crearPieza(tipo::alfil, p->getColor());
-			break;
-		case 4:
-			nuevaPieza = crearPieza(tipo::caballo, p->getColor());
-			break;
-		case 5:	
-			nuevaPieza = crearPieza(tipo::canciller, p->getColor());
-			break;
-		case 6:			
-			nuevaPieza = crearPieza(tipo::arzobispo, p->getColor());
-			break;
-		default:
-			break;
-		}
-		if (nuevaPieza != NULL) {
-			delete p; //elimino el peon
-			tablero[cas.y][cas.x] = nuevaPieza;
+	int eleccion = 0;
+		
+	Pieza* nuevaPieza = nullptr;
 
-		}
+	switch (tipo) {
+	case 1:
+		nuevaPieza = crearPieza(tipo::reina, p->getColor());
+		break;
+	case 2:		
+		nuevaPieza = crearPieza(tipo::torre, p->getColor());
+		break;
+	case 3:			
+		nuevaPieza = crearPieza(tipo::alfil, p->getColor());
+		break;
+	case 4:
+		nuevaPieza = crearPieza(tipo::caballo, p->getColor());
+		break;
+	case 5:	
+		nuevaPieza = crearPieza(tipo::canciller, p->getColor());
+		break;
+	case 6:			
+		nuevaPieza = crearPieza(tipo::arzobispo, p->getColor());
+		break;
+	default:
+		break;
+	}
+
+	if (nuevaPieza != NULL) {
+		delete p; //elimino el peon
+		tablero[cas.y][cas.x] = nuevaPieza;
+
+	}
 }
 
 bool::GestionJugadas::verificarEnroqueIzquierda(color jugador, Pieza* tablero[max_y][max_x]) {
@@ -257,18 +256,6 @@ bool::GestionJugadas::verificarEnroque(color jugador, Pieza* tablero[max_y][max_
 		}
 	}
 
-	////ENROQUE LARGO
-	//int torreX_izqd = 0;
-	//Torre* torre_izquierda = dynamic_cast<Torre*>(tablero[reyY][torreX_izqd]);
-	//bool enroqueIzquierdaPosible = (torre_izquierda != nullptr && torre_izquierda->haSidoMovido());
-	//if (enroqueIzquierdaPosible) {
-	//	for (int x = reyX - 1; x > torreX_izqd; x--) {
-	//		if (tablero[reyY][x] != nullptr) {
-	//			enroqueIzquierdaPosible = false; // Hay una pieza en el camino
-	//			break;
-	//		}
-	//	}
-	//}
 	return enroqueDerechaPosible;
 }
 
