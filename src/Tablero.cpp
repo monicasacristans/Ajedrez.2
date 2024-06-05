@@ -1,6 +1,7 @@
 #include "Tablero.h"
 
 using namespace std;
+
 extern Usuario usuario;
 
 Tablero::Tablero() {
@@ -135,7 +136,7 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 			}
 			turno = !turno;
 		}
-		//Aqui no puede ir ningun reset de flag que sino no aparecen
+		//Aqui no puede ir ningun reset de flag sino no aparecen
 		break;
 	}
 }

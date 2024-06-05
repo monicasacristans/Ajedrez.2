@@ -23,9 +23,5 @@ public:
 	void marcarComoMovido() { haMovido = true; }
 	void reiniciarMovimiento() { haMovido = false; }
 
-	/*std::vector<casilla> movDiagonal(casilla origen, Pieza* tablero[max_y][max_x]);
-	std::vector<casilla> movCruz(casilla origen, Pieza* tablero[max_y][max_x]);
-	std::vector<casilla> movCuadrado(casilla origen,  Pieza* tablero[max_y][max_x]);*/
-
 	virtual bool movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) = 0;
 };

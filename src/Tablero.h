@@ -20,8 +20,6 @@ public:
 private:
 	std::vector<Pieza*> piezasB;
 	std::vector<Pieza*> piezasN;
-	std::vector<Pieza*> piezasEliminadasB;
-	std::vector<Pieza*> piezasEliminadasN;
 
 	bool turno = true; //true BLANCAS,  false NEGRASbool finturnon=false;
 	bool finturnon = false;

@@ -2,18 +2,6 @@
 
 Alfil::Alfil(tipo t, color c) :Pieza(t, c) {}
 
-//bool Alfil::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
-//
-//	std::vector<casilla> cas = movDiagonal(origen, tablero);
-//
-//	for (auto &a : cas) {
-//		if (a.x == destino.x && a.y == destino.y) {
-//			std::cout << a;
-//			return true;
-//		}
-//	}
-//	return false;
-//}
 
 bool Alfil::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
 
