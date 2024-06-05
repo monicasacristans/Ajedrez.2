@@ -130,9 +130,15 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						//break;
 					}
 				}
-				turno = !turno;
+				//turno = !turno;
+			
 			}
+			turno = !turno;
 		}
+		flagJaque = false;
+		flagJaqueM = false;
+		flagPromocion = false;
+		flagEnroque = false;
 		break;
 	}
 }

@@ -52,6 +52,8 @@ Usuario::Usuario() {
 	n_inst = 0;
 	n_texto_a = 0;
 	n_texto_ins = 0;
+	menu_ayuda = H;
+	menu_instrucciones = INS;
 }
 
 Usuario:: ~Usuario() {}
