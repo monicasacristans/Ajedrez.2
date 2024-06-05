@@ -27,7 +27,7 @@ public:
 	int n_inst;
 	int n_texto_a;
 	int n_texto_ins;
-	float shapx, shapy;
+	float shapx=0.0, shapy=0.0;
 	unsigned char tipoPieza;
 
 	int seleccion_ini = 0;

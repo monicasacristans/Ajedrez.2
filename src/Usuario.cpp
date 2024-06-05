@@ -61,11 +61,11 @@ Usuario:: ~Usuario() {}
 
 void Usuario::mouse(int x, int y) {
 	if (estado == INICIO) {
-		for (auto m : MENU_INI)
+		for (const auto& m : MENU_INI)
 			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//modo de juego
 	}
 	if (estado == OP) {
-		for (auto m : MENU_OPC)
+		for (const auto& m : MENU_OPC)
 			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//opciones
 	}
 
@@ -74,75 +74,75 @@ void Usuario::mouse(int x, int y) {
 
 
 	if (estado == AYU) {
-		for (auto m : MENU_AYUDA)
+		for (const auto &m : MENU_AYUDA)
 			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//ayuda		
 	}
 	if (estado == TEXTO_A) {
 		if (n_ayuda == 0) {
-			for (auto m : TEXTOTORRE)
+			for (const auto &m : TEXTOTORRE)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//torre
 		}
 		if (n_ayuda == 1) {
-			for (auto m : TEXTOPEON)
+			for (const auto &m : TEXTOPEON)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//peon
 		}
 		if (n_ayuda == 2) {
-			for (auto m : TEXTOCABALLO)
+			for (const auto &m : TEXTOCABALLO)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//caballo
 		}
 		if (n_ayuda == 3) {
-			for (auto m : TEXTOALFIL)
+			for (const auto &m : TEXTOALFIL)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//alfil
 		}
 		if (n_ayuda == 4) {
-			for (auto m : TEXTOREY)
+			for (const auto &m : TEXTOREY)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//rey
 		}
 		if (n_ayuda == 5) {
-			for (auto m : TEXTOREINA)
+			for (const auto &m : TEXTOREINA)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//reina
 		}
 		if (n_ayuda == 6) {
-			for (auto m : TEXTOARZOBISPO)
+			for (const auto &m : TEXTOARZOBISPO)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//arzobispo
 		}
 		if (n_ayuda == 6) {
-			for (auto m : TEXTOCANCILLER)
+			for (const auto &m : TEXTOCANCILLER)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//canciller
 		}
 	}
 	if (estado == INST) {
-		for (auto m : MENU_INST)
+		for (const auto& m : MENU_INST)
 			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//ayuda		
 	}
 	if (estado == TEXTO_IN) {
 		if (n_inst == 0) {
-			for (auto m : TEXTOOBJETIVO)
+			for (const auto& m : TEXTOOBJETIVO)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//objetivo
 		}
 		if (n_inst == 1) {
-			for (auto m : TEXTOENROQUE)
+			for (const auto& m : TEXTOENROQUE)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//enroque
 		}
 		if (n_inst == 2) {
-			for (auto m : TEXTOJAQUEMATE)
+			for (const auto& m : TEXTOJAQUEMATE)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//jaquemate
 		}
 		if (n_inst == 3) {
-			for (auto m : TEXTOCORONACION)
+			for (const auto& m : TEXTOCORONACION)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//coronacion
 		}
 		if (n_inst == 4) {
-			for (auto m : TEXTOCAPTURAPASO)
+			for (const auto& m : TEXTOCAPTURAPASO)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//capturapaso
 		}
 		if (n_inst == 5) {
-			for (auto m : TEXTOTABLAS)
+			for (const auto& m : TEXTOTABLAS)
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//TABLAS
 		}
 	}
 	if (estado == FINAL) {
-		for (auto m : M_FINAL)
+		for (const auto& m : M_FINAL)
 			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//Final
 	}
 }
@@ -172,7 +172,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
 		if (estado == INICIO) {
-			for (auto m : MENU_INI) {
+			for (const auto& m : MENU_INI) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
 						if (m.sel == 1) estado = MODOJUEGO;
@@ -191,6 +191,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 
 				if (tablero.getFinTurnoN() == true) {
 					if (miJugada.jaque_mate(color::blanco, tableroActual) == true) {
+						ETSIDI::play("bin/sonidos/ganador.mp3");
 						ganador = false;//Ganan negras
 						estado = FINAL;
 						return;
@@ -198,6 +199,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 				else if (tablero.getFinTurnoB() == true) {
 					if (miJugada.jaque_mate(color::negro, tableroActual) == true) {
+						ETSIDI::play("bin/sonidos/ganador.mp3");
 						ganador = true;//Ganan blancas
 						estado = FINAL;
 						return;
@@ -211,7 +213,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 		}
 
 		if (estado == OP) {
-			for (auto m : MENU_OPC) {
+			for (const auto& m : MENU_OPC) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
 						if (m.sel == 1) estado = AYU;
@@ -223,7 +225,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 		}
 		if (estado == AYU) {
 
-			for (auto m : MENU_AYUDA) {
+			for (const auto& m : MENU_AYUDA) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
 						if (m.sel == 1)  n_ayuda = 0; estado = TEXTO_A;
@@ -241,7 +243,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 		}
 		if (estado == TEXTO_A) {
 			if (n_ayuda == 0) {
-				for (auto m : TEXTOTORRE) {
+				for (const auto& m : TEXTOTORRE) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 						for (int i = INICIO; i <= TEXTO_IN; i++) {
 							if (m.sel == 1)  estado = AYU;
@@ -250,7 +252,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 			if (n_ayuda == 1) {
-				for (auto m : TEXTOPEON) {
+				for (const auto& m : TEXTOPEON) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 						for (int i = INICIO; i <= TEXTO_IN; i++) {
 							if (m.sel == 1)  estado = AYU;
@@ -259,7 +261,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 			if (n_ayuda == 2) {
-				for (auto m : TEXTOCABALLO) {
+				for (const auto& m : TEXTOCABALLO) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 						for (int i = INICIO; i <= TEXTO_IN; i++) {
 							if (m.sel == 1)  estado = AYU;
@@ -268,7 +270,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 			if (n_ayuda == 3) {
-				for (auto m : TEXTOALFIL) {
+				for (const auto& m : TEXTOALFIL) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 						for (int i = INICIO; i <= TEXTO_IN; i++) {
 							if (m.sel == 1)  estado = AYU;
@@ -277,7 +279,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 			if (n_ayuda == 4) {
-				for (auto m : TEXTOREY) {
+				for (const auto& m : TEXTOREY) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 						for (int i = INICIO; i <= TEXTO_IN; i++) {
 							if (m.sel == 1)  estado = AYU;
@@ -286,7 +288,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 			if (n_ayuda == 5) {
-				for (auto m : TEXTOREINA) {
+				for (const auto& m : TEXTOREINA) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 						for (int i = INICIO; i <= TEXTO_IN; i++) {
 							if (m.sel == 1)  estado = AYU;
@@ -295,7 +297,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 				}
 			}
 			if (n_ayuda == 6) {
-				for (auto m : TEXTOARZOBISPO) {
+				for (const auto& m : TEXTOARZOBISPO) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 						for (int i = INICIO; i <= TEXTO_IN; i++) {
 							if (m.sel == 1)  estado = AYU;
@@ -303,7 +305,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 			}if (n_ayuda == 7) {
-				for (auto m : TEXTOCANCILLER) {
+				for (const auto& m : TEXTOCANCILLER) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 						for (int i = INICIO; i <= TEXTO_IN; i++) {
 							if (m.sel == 1)  estado = AYU;
@@ -314,7 +316,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 		}
 
 		if (estado == INST) {
-			for (auto m : MENU_INST) {
+			for (const auto& m : MENU_INST) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
 						if (m.sel == 1) n_inst = 0;  estado = TEXTO_IN; 
@@ -334,7 +336,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 			if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 			{
 				if (n_inst == 0) {
-					for (auto m : TEXTOOBJETIVO) {
+					for (const auto& m : TEXTOOBJETIVO) {
 						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 							for (int i = INICIO; i <= TEXTO_IN; i++) {
 								if (m.sel == 1)  estado = INST;
@@ -343,7 +345,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 				if (n_inst == 1) {
-					for (auto m : TEXTOENROQUE) {
+					for (const auto& m : TEXTOENROQUE) {
 						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 							for (int i = INICIO; i <= TEXTO_IN; i++) {
 								if (m.sel == 1)  estado = INST;
@@ -352,7 +354,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 				if (n_inst == 2) {
-					for (auto m : TEXTOJAQUEMATE) {
+					for (const auto& m : TEXTOJAQUEMATE) {
 						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 							for (int i = INICIO; i <= TEXTO_IN; i++) {
 								if (m.sel == 1)  estado = INST;
@@ -361,7 +363,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 				if (n_inst == 3) {
-					for (auto m : TEXTOCORONACION) {
+					for (const auto& m : TEXTOCORONACION) {
 						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 							for (int i = INICIO; i <= TEXTO_IN; i++) {
 								if (m.sel == 1)  estado = INST;
@@ -370,7 +372,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 				if (n_inst == 4) {
-					for (auto m : TEXTOCAPTURAPASO) {
+					for (const auto& m : TEXTOCAPTURAPASO) {
 						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 							for (int i = INICIO; i <= TEXTO_IN; i++) {
 								if (m.sel == 1)  estado = INST;
@@ -379,7 +381,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 				if (n_inst == 5) {
-					for (auto m : TEXTOTABLAS) {
+					for (const auto& m : TEXTOTABLAS) {
 						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 							for (int i = INICIO; i <= TEXTO_IN; i++) {
 								if (m.sel == 1)  estado = INST;
@@ -392,7 +394,7 @@ void Usuario::raton(int button, int state, int x, int y) {
 		if (estado == FINAL) {
 			if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 			{
-				for (auto m : M_FINAL) {
+				for (const auto& m : M_FINAL) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 						for (int i = INICIO; i <= TEXTO_IN; i++) {
 							if (m.sel == 1) estado = MODOJUEGO;
@@ -440,7 +442,7 @@ void Usuario::dibuja() {
 		setFont("bin/fuentes/Bitwise.ttf", 60);
 
 	
-		for (auto m : MENU_INI) {
+		for (const auto& m : MENU_INI) {
 			printxy(m.texto, m.x, m.y);
 			if (m.sel == seleccion_ini) {
 				corona.setPos(m.x - 60, m.y + 25);
@@ -478,7 +480,7 @@ void Usuario::dibuja() {
 
 	if (estado == OP) {
 		dibujaFondo();
-		for (auto m : MENU_OPC) {
+		for (const auto& m : MENU_OPC) {
 			printxy(m.texto, m.x, m.y);
 			if (m.sel == seleccion_ini) {
 				corona.setPos(m.x - 60, m.y + 25);
@@ -497,7 +499,7 @@ void Usuario::dibuja() {
 		setTextColor(1, 1, 1);
 		setFont("bin/fuentes/Bitwise.ttf", 50);
 
-		for (auto m : MENU_AYUDA) {
+		for (const auto& m : MENU_AYUDA) {
 			printxy(m.texto, m.x, m.y);
 			if (m.sel == seleccion_ini) {
 				corona.setPos(m.x - 60, m.y + 25);
@@ -521,7 +523,7 @@ void Usuario::dibuja() {
 			printxy("quieran, pero en sentido vertical y horizontal, es", 169, 407);
 			printxy("decir, arriba, abajo, derecha e izquierda", 220, 342);
 
-			for (auto m : TEXTOTORRE) {
+			for (const auto& m : TEXTOTORRE) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -545,7 +547,7 @@ void Usuario::dibuja() {
 			printxy("Si una pieza esta frente a ellos no podran avanzar", 130, 212);
 			setFont("bin/fuentes/Bitwise.ttf", 45);
 
-			for (auto m : TEXTOPEON) {
+			for (const auto &m : TEXTOPEON) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -569,7 +571,7 @@ void Usuario::dibuja() {
 			printxy("sobre otras piezas", 450, 212);
 			setFont("bin/fuentes/Bitwise.ttf", 45);
 
-			for (auto m : TEXTOCABALLO) {
+			for (const auto& m : TEXTOCABALLO) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -591,7 +593,7 @@ void Usuario::dibuja() {
 			printxy("permanecen en el mismo color de la casilla inicial", 160, 342);
 			printxy("durante toda la partida", 390, 277);
 			setFont("bin/fuentes/Bitwise.ttf", 45);
-			for (auto m : TEXTOALFIL) {
+			for (const auto& m : TEXTOALFIL) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -612,7 +614,7 @@ void Usuario::dibuja() {
 			printxy("El rey puede moverse solo una casilla", 230, 472);
 			printxy("pero en cualquier direccion", 300, 407);
 
-			for (auto m : TEXTOREY) {
+			for (const auto& m : TEXTOREY) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -633,7 +635,7 @@ void Usuario::dibuja() {
 			printxy("quiera, incluso en cualquier direccion sin saltar", 210, 407);
 			printxy("sobre las piezas de su mismo color", 270, 342);
 
-			for (auto m : TEXTOREINA) {
+			for (const auto& m : TEXTOREINA) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -654,7 +656,7 @@ void Usuario::dibuja() {
 			printxy("Se mueve como Alfil y como Caballo", 300, 472);
 
 
-			for (auto m : TEXTOARZOBISPO) {
+			for (const auto& m : TEXTOARZOBISPO) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -674,7 +676,7 @@ void Usuario::dibuja() {
 			printxy("Mueve una casilla en diagonal hacia adelante,", 180, 407);
 			printxy("pero captura moviendo una casilla hacia adelante", 160, 342);
 
-			for (auto m : TEXTOCANCILLER) {
+			for (const auto& m : TEXTOCANCILLER) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -697,7 +699,7 @@ void Usuario::dibuja() {
 		setTextColor(1, 1, 1);
 		setFont("bin/fuentes/Bitwise.ttf", 50);
 
-		for (auto m : MENU_INST) {
+		for (const auto& m : MENU_INST) {
 			printxy(m.texto, m.x, m.y);
 			if (m.sel == seleccion_ini) {
 				corona.setPos(m.x - 60, m.y + 25);
@@ -718,7 +720,7 @@ void Usuario::dibuja() {
 			setFont("bin/fuentes/Bitwise.ttf", 30);
 			printxy("Dar Jaque Mate al rey contrario", 320, 497);
 
-			for (auto m : TEXTOOBJETIVO) {
+			for (const auto& m : TEXTOOBJETIVO) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -743,7 +745,7 @@ void Usuario::dibuja() {
 			printxy("2.- No puede haber piezas entre el rey y la torre", 90, 212);
 			printxy("No puede estar en jaque ni pasar por una casilla amenazada", 38, 147);
 
-			for (auto m : TEXTOENROQUE) {
+			for (const auto& m : TEXTOENROQUE) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -765,7 +767,7 @@ void Usuario::dibuja() {
 			printxy("capturarlo en el siguiente turno.", 323, 369);
 			printxy("Cuando el jugador no puede ejecutar ningun movimiento", 83, 304);
 			printxy("que lo resuelva, ha perdido la partida", 249, 239);
-			for (auto m : TEXTOJAQUEMATE) {
+			for (const auto& m : TEXTOJAQUEMATE) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -786,7 +788,7 @@ void Usuario::dibuja() {
 			printxy("Cuando un peon llega a la ultima fila ha de ser cambiado por", 90, 497);
 			printxy("un caballo, alfil, torre o dama, aunque el jugador ya posea esa pieza", 29, 432);
 			printxy("Esta sustitucion esta incluida en el mismo turno del peon", 99, 367);
-			for (auto m : TEXTOCORONACION) {
+			for (const auto& m : TEXTOCORONACION) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -810,7 +812,7 @@ void Usuario::dibuja() {
 			printxy("En ese momento, puede capturar al enemigo como si solo se hubiera movido", 105, 252);
 			printxy("una casilla desplazando el propio en diagonal a la fila siguiente y", 210, 187);
 			printxy("retirando  al capturado", 470, 122);
-			for (auto m : TEXTOCAPTURAPASO) {
+			for (const auto& m : TEXTOCAPTURAPASO) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -833,7 +835,7 @@ void Usuario::dibuja() {
 			printxy("No hay suficientes piezas de ningún bando para hacer jaque mate", 15, 282);
 			printxy("Se produce una secuencia de 50 jugadas de cada bando", 39, 217);
 			printxy("sin captura o movimiento del peon", 280, 152);
-			for (auto m : TEXTOTABLAS) {
+			for (const auto& m : TEXTOTABLAS) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -857,7 +859,7 @@ void Usuario::dibuja() {
 			printxy("GANADOR BLANCO", 480, 470);
 			setFont("bin/fuentes/Bitwise.ttf", 22);
 			setTextColor(1, 1, 1);
-			for (auto m : M_FINAL) {
+			for (const auto& m : M_FINAL) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);
@@ -872,7 +874,7 @@ void Usuario::dibuja() {
 			printxy("GANADOR NEGRO", 490, 470);
 			setFont("bin/fuentes/Bitwise.ttf", 22);
 			setTextColor(1, 1, 1);
-			for (auto m : M_FINAL) {
+			for (const auto& m : M_FINAL) {
 				printxy(m.texto, m.x, m.y);
 				if (m.sel == seleccion_ini) {
 					corona.setPos(m.x - 60, m.y + 25);

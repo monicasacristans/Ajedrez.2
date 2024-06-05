@@ -63,7 +63,6 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 	while (!mov_valido && tablero[cas_origen.y][cas_origen.x] != nullptr) {
 		if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
 			mov_valido = moverPieza(cas_origen, cas_destino);
-			cout << piezasEliminadasB.size() << ", " << piezasEliminadasN.size() << endl;
 			if (!mov_valido) {
 				cout << "Movimiento no valido, intenta de nuevo." << endl;
 				break;
@@ -232,17 +231,6 @@ void Tablero::eliminarPieza(casilla destino) {
 	if (piezaComida != nullptr) {
 		ETSIDI::play("bin/sonidos/comer.mp3");
 		auto& listapiezas = (piezaComida->getColor() == color::blanco) ? piezasB : piezasN;
-
-		auto p = std::find(listapiezas.begin(), listapiezas.end(), piezaComida);
-
-		if (p != listapiezas.end() && listapiezas ==piezasB) {
-			listapiezas.erase(p);
-			piezasEliminadasB.push_back(piezaComida);
-		}
-		else if (p != listapiezas.end() && listapiezas == piezasN) {
-			listapiezas.erase(p);
-			piezasEliminadasN.push_back(piezaComida);
-		}
 
 		delete piezaComida; // Eliminar la pieza del destino
 		tablero[destino.y][destino.x] = nullptr; // Marcar la casilla de destino como vacía

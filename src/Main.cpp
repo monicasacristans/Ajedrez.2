@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
 }
 
 void mouse(int x, int y) {
-	y = usuario.shapy -y;
+	y = (int)usuario.shapy -y;
 	usuario.mouse(x, y);
 	OnDraw();
 	glutPostRedisplay;
