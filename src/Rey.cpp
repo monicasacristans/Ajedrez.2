@@ -25,6 +25,8 @@ bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y
             return true;
         }
     }
+
+
     else {
         // Movimiento inválido para el rey
         return false;

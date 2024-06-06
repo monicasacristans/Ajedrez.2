@@ -1,3 +1,4 @@
+#include "Usuario.h"
 #include "Pintar.h"
 
 Tablero tablero;
@@ -60,95 +61,65 @@ Usuario:: ~Usuario() {}
 
 
 void Usuario::mouse(int x, int y) {
+	OPCION* menu = nullptr;
+	int menu_size = 0;
+
 	if (estado == INICIO) {
-		for (const auto& m : MENU_INI)
-			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//modo de juego
+		menu = MENU_INI;
+		menu_size = sizeof(MENU_INI) / sizeof(MENU_INI[0]);
 	}
-	if (estado == OP) {
-		for (const auto& m : MENU_OPC)
-			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//opciones
+	else if (estado == OP) {
+		menu = MENU_OPC;
+		menu_size = sizeof(MENU_OPC) / sizeof(MENU_OPC[0]);
+	}
+	else if (estado == AYU && menu_ayuda == H) {
+		menu = MENU_AYUDA;
+		menu_size = sizeof(MENU_AYUDA) / sizeof(MENU_AYUDA[0]);
+	}
+	else if (estado == AYU && menu_ayuda == TEXTO) {
+		switch (n_ayuda) {
+		case 0: menu = TEXTOTORRE; break;
+		case 1: menu = TEXTOPEON; break;
+		case 2: menu = TEXTOCABALLO; break;
+		case 3: menu = TEXTOALFIL; break;
+		case 4: menu = TEXTOREY; break;
+		case 5: menu = TEXTOREINA; break;
+		case 6: menu = TEXTOARZOBISPO; break;
+		case 7: menu = TEXTOCANCILLER; break;
+		}
+		menu_size = 1; // Solo hay una opción de "atras" en cada menú de texto
 	}
 
-	if (estado == MODOJUEGO) {
+	else if (estado == INST && menu_ayuda == INS) {
+		menu = MENU_INST;
+		menu_size = sizeof(MENU_INST) / sizeof(MENU_INST[0]);
 	}
 
+	else if (estado == INST && menu_ayuda == TEXTO_I) {
+		switch (n_inst) {
+		case 0: menu = TEXTOOBJETIVO; break;
+		case 1: menu = TEXTOENROQUE; break;
+		case 2: menu = TEXTOJAQUEMATE; break;
+		case 3: menu = TEXTOCORONACION; break;
+		case 4: menu = TEXTOCAPTURAPASO; break;
+		case 5: menu = TEXTOTABLAS; break;
+		}
+		menu_size = 1; // Solo hay una opción de "atras" en cada menú de texto
+	}
 
-	if (estado == AYU) {
-		for (const auto &m : MENU_AYUDA)
-			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//ayuda		
-	}
-	if (estado == TEXTO_A) {
-		if (n_ayuda == 0) {
-			for (const auto &m : TEXTOTORRE)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//torre
+	if (menu) {
+		for (int i = 0; i < menu_size; ++i) {
+			if (x < menu[i].x + menu[i].w && x > menu[i].x && y < menu[i].y + menu[i].h && y > menu[i].y) {
+				seleccion_ini = menu[i].sel;
+				break;
+			}
 		}
-		if (n_ayuda == 1) {
-			for (const auto &m : TEXTOPEON)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//peon
-		}
-		if (n_ayuda == 2) {
-			for (const auto &m : TEXTOCABALLO)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//caballo
-		}
-		if (n_ayuda == 3) {
-			for (const auto &m : TEXTOALFIL)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//alfil
-		}
-		if (n_ayuda == 4) {
-			for (const auto &m : TEXTOREY)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//rey
-		}
-		if (n_ayuda == 5) {
-			for (const auto &m : TEXTOREINA)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//reina
-		}
-		if (n_ayuda == 6) {
-			for (const auto &m : TEXTOARZOBISPO)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//arzobispo
-		}
-		if (n_ayuda == 6) {
-			for (const auto &m : TEXTOCANCILLER)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//canciller
-		}
-	}
-	if (estado == INST) {
-		for (const auto& m : MENU_INST)
-			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//ayuda		
-	}
-	if (estado == TEXTO_IN) {
-		if (n_inst == 0) {
-			for (const auto& m : TEXTOOBJETIVO)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//objetivo
-		}
-		if (n_inst == 1) {
-			for (const auto& m : TEXTOENROQUE)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//enroque
-		}
-		if (n_inst == 2) {
-			for (const auto& m : TEXTOJAQUEMATE)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//jaquemate
-		}
-		if (n_inst == 3) {
-			for (const auto& m : TEXTOCORONACION)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//coronacion
-		}
-		if (n_inst == 4) {
-			for (const auto& m : TEXTOCAPTURAPASO)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//capturapaso
-		}
-		if (n_inst == 5) {
-			for (const auto& m : TEXTOTABLAS)
-				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//TABLAS
-		}
-	}
-	if (estado == FINAL) {
-		for (const auto& m : M_FINAL)
-			if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y)seleccion_ini = m.sel;//Final
 	}
 }
 
 
 void Usuario::teclado(unsigned char key) {
+	
 	if (estado == MODOJUEGO) {
 		if (estadodejuego == PROMOCION) {
 
@@ -171,7 +142,8 @@ void Usuario::raton(int button, int state, int x, int y) {
 	std::cout << "Coordenadas del raton en la pantalla: (" << screenX << ", " << screenY << ")" << std::endl;
 
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
-		if (estado == INICIO) {
+		switch (estado) {
+		case INICIO:
 			for (const auto& m : MENU_INI) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
@@ -180,10 +152,9 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 			}
-		}
+			break;
 
-		if (estado == MODOJUEGO) {
-
+		case MODOJUEGO:
 			if (estadodejuego == TURNO) {
 				tablero.definirCoordenadasTablero(button, state, x, y);
 				Pieza* tableroActual[max_y][max_x];
@@ -208,11 +179,11 @@ void Usuario::raton(int button, int state, int x, int y) {
 			}
 			if (estadodejuego == PROMOCION) {
 				teclado(tipoPieza);
-				
-			}
-		}
 
-		if (estado == OP) {
+			}
+			break;
+
+		case OP:
 			for (const auto& m : MENU_OPC) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
@@ -222,9 +193,9 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 			}
-		}
-		if (estado == AYU) {
+			break;
 
+		case AYU:
 			for (const auto& m : MENU_AYUDA) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
@@ -240,8 +211,9 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 			}
-		}
-		if (estado == TEXTO_A) {
+			break;
+
+		case TEXTO_A:
 			if (n_ayuda == 0) {
 				for (const auto& m : TEXTOTORRE) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
@@ -313,104 +285,100 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 			}
-		}
+			break;
 
-		if (estado == INST) {
+		case INST:
 			for (const auto& m : MENU_INST) {
 				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 					for (int i = INICIO; i <= TEXTO_IN; i++) {
-						if (m.sel == 1) n_inst = 0;  estado = TEXTO_IN; 
-						if (m.sel == 2) n_inst = 1;  estado = TEXTO_IN;  
-						if (m.sel == 3) n_inst = 2; estado = TEXTO_IN;  
-						if (m.sel == 4) n_inst = 3;  estado = TEXTO_IN; 
+						if (m.sel == 1) n_inst = 0;  estado = TEXTO_IN;
+						if (m.sel == 2) n_inst = 1;  estado = TEXTO_IN;
+						if (m.sel == 3) n_inst = 2; estado = TEXTO_IN;
+						if (m.sel == 4) n_inst = 3;  estado = TEXTO_IN;
 						if (m.sel == 5) n_inst = 4;  estado = TEXTO_IN;
-						if (m.sel == 6) n_inst = 5;  estado = TEXTO_IN;  
+						if (m.sel == 6) n_inst = 5;  estado = TEXTO_IN;
 						if (m.sel == 7) estado = OP;
 
 					}
 				}
 			}
-		}
+			break;
 
-		if (estado == TEXTO_IN) {
-			if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-			{
-				if (n_inst == 0) {
-					for (const auto& m : TEXTOOBJETIVO) {
-						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
-							for (int i = INICIO; i <= TEXTO_IN; i++) {
-								if (m.sel == 1)  estado = INST;
-							}
-						}
-					}
-				}
-				if (n_inst == 1) {
-					for (const auto& m : TEXTOENROQUE) {
-						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
-							for (int i = INICIO; i <= TEXTO_IN; i++) {
-								if (m.sel == 1)  estado = INST;
-							}
-						}
-					}
-				}
-				if (n_inst == 2) {
-					for (const auto& m : TEXTOJAQUEMATE) {
-						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
-							for (int i = INICIO; i <= TEXTO_IN; i++) {
-								if (m.sel == 1)  estado = INST;
-							}
-						}
-					}
-				}
-				if (n_inst == 3) {
-					for (const auto& m : TEXTOCORONACION) {
-						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
-							for (int i = INICIO; i <= TEXTO_IN; i++) {
-								if (m.sel == 1)  estado = INST;
-							}
-						}
-					}
-				}
-				if (n_inst == 4) {
-					for (const auto& m : TEXTOCAPTURAPASO) {
-						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
-							for (int i = INICIO; i <= TEXTO_IN; i++) {
-								if (m.sel == 1)  estado = INST;
-							}
-						}
-					}
-				}
-				if (n_inst == 5) {
-					for (const auto& m : TEXTOTABLAS) {
-						if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
-							for (int i = INICIO; i <= TEXTO_IN; i++) {
-								if (m.sel == 1)  estado = INST;
-							}
-						}
-					}
-				}
-			}
-		}
-		if (estado == FINAL) {
-			if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-			{
-				for (const auto& m : M_FINAL) {
+		case TEXTO_IN:
+			if (n_inst == 0) {
+				for (const auto& m : TEXTOOBJETIVO) {
 					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
 						for (int i = INICIO; i <= TEXTO_IN; i++) {
-							if (m.sel == 1) estado = MODOJUEGO;
-							//Reiniciar el tablero
-							tablero.set_tablero();
-							tablero.set_turno(true);
-
-							if (m.sel == 2) estado = INICIO;
-							tablero.set_tablero();
-							tablero.set_turno(true);
+							if (m.sel == 1)  estado = INST;
 						}
 					}
 				}
-
 			}
+			if (n_inst == 1) {
+				for (const auto& m : TEXTOENROQUE) {
+					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+						for (int i = INICIO; i <= TEXTO_IN; i++) {
+							if (m.sel == 1)  estado = INST;
+						}
+					}
+				}
+			}
+			if (n_inst == 2) {
+				for (const auto& m : TEXTOJAQUEMATE) {
+					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+						for (int i = INICIO; i <= TEXTO_IN; i++) {
+							if (m.sel == 1)  estado = INST;
+						}
+					}
+				}
+			}
+			if (n_inst == 3) {
+				for (const auto& m : TEXTOCORONACION) {
+					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+						for (int i = INICIO; i <= TEXTO_IN; i++) {
+							if (m.sel == 1)  estado = INST;
+						}
+					}
+				}
+			}
+			if (n_inst == 4) {
+				for (const auto& m : TEXTOCAPTURAPASO) {
+					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+						for (int i = INICIO; i <= TEXTO_IN; i++) {
+							if (m.sel == 1)  estado = INST;
+						}
+					}
+				}
+			}
+			if (n_inst == 5) {
+				for (const auto& m : TEXTOTABLAS) {
+					if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+						for (int i = INICIO; i <= TEXTO_IN; i++) {
+							if (m.sel == 1)  estado = INST;
+						}
+					}
+				}
+			}
+			break;
+
+		case FINAL:
+			for (const auto& m : M_FINAL) {
+				if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+					for (int i = INICIO; i <= TEXTO_IN; i++) {
+						if (m.sel == 1) estado = MODOJUEGO;
+						//Reiniciar el tablero
+						tablero.set_tablero();
+						tablero.set_turno(true);
+
+						if (m.sel == 2) estado = INICIO;
+						tablero.set_tablero();
+						tablero.set_turno(true);
+					}
+				}
+			}
+			break;
 		}
+		
 	}
 }
 
