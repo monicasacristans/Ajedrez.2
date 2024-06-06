@@ -27,6 +27,15 @@ bool Peon::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_
                 return false;
             }
         }
+        // Verificar si el movimiento es en diagonal para capturar una pieza
+        if ((movX == 1 || movX == -1) && movY == 1) {
+            if (tablero[destino.y][destino.x] != nullptr && tablero[destino.y][destino.x]->getColor() != this->getColor()) {
+                return true; // Movimiento válido para capturar una pieza enemiga en diagonal
+            }
+            else {
+                return false; // No hay pieza enemiga en diagonal para capturar
+            }
+        }
     } 
     // Negros
     else if (tablero[origen.y][origen.x]->getColor() == color::negro) {
@@ -44,21 +53,21 @@ bool Peon::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_
                 return false;
             }
         }
+        // Verificar si el movimiento es en diagonal para capturar una pieza
+        if ((movX == 1 || movX == -1) && movY == -1) {
+            if (tablero[destino.y][destino.x] != nullptr && tablero[destino.y][destino.x]->getColor() != this->getColor()) {
+
+                return true; // Movimiento válido para capturar una pieza enemiga en diagonal
+            }
+            else {
+                return false; // No hay pieza enemiga en diagonal para capturar
+            }
+        }
     }
     else {
         return false;
     }
 
-    // Verificar si el movimiento es en diagonal para capturar una pieza
-    if (abs(movX) == 1 && abs(movY) == 1) {
-        if (tablero[destino.y][destino.x] != nullptr && tablero[destino.y][destino.x]->getColor() != this->getColor()) {
-
-            return true; // Movimiento válido para capturar una pieza enemiga en diagonal
-        }
-        else {
-            return false; // No hay pieza enemiga en diagonal para capturar
-        }
-    }
     return false;
 }
     
