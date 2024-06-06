@@ -20,7 +20,7 @@ bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y
     // Verificar si la casilla de destino está ocupada
         if (tablero[destino.y][destino.x] != nullptr) {
             if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
-                marcarComoMovido();
+                //marcarComoMovido();
                 return true; // Movimiento válido (comer pieza del oponente)
             }
             else {
@@ -29,7 +29,7 @@ bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y
             }
         }
         else {
-            marcarComoMovido();
+            //marcarComoMovido();
             return true;
         }
     }
