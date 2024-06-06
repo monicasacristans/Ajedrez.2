@@ -12,7 +12,10 @@ bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y
 
     if ((movX == 1 && movY == 0) ||         // Movimiento vertical
         (movX == 0 && movY == 1) ||         // Movimiento horizontal
-        (movX == 1 && movY == 1)) {         // Movimiento diagonal
+        (movX == 3 && movY == 0 )||
+        (movX == -3 && movY == 0)||
+        (movX == 1 && movY == 1)  )      //Movimiento diagonal
+        {         // Movimiento enroque
         
         // Verificar si la casilla de destino está ocupada
         if (tablero[destino.y][destino.x] != nullptr) {

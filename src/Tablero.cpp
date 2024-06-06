@@ -68,6 +68,22 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				break;
 			}
 			else {
+
+				// Comprobar si el movimiento es un enroque
+				if (p->getTipo() == tipo::rey && (abs(cas_destino.x - cas_origen.x) == 3 || (abs(cas_destino.x - cas_origen.x) == -3))) {
+					mijugada.realizarEnroque(p->getColor(), tablero);
+					if (!mov_valido) {
+						//turno = !turno;
+						std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
+						flagEnroque = false;
+					}
+					else {
+						std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
+						//turno = !turno;
+						//break;
+					}
+				}
+
 				//Comprobar promocion 
 				if (mijugada.peonFinal(cas_destino) == true && p->getTipo() == tipo::peon) {
 					mijugada.setFlagPromocion(true);
@@ -118,20 +134,20 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					}
 				}
 
-				// Comprobar si el movimiento es un enroque
-				if (p->getTipo() == tipo::rey && (abs(cas_destino.x - cas_origen.x) == 3 || (abs(cas_destino.x - cas_origen.x) == -3))) {
-					mijugada.realizarEnroque(p->getColor(), tablero);
-					if (!mov_valido) {
-						//turno = !turno;
-						std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
-						flagEnroque = false;
-					}
-					else {
-						std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
-						//turno = !turno;
-						//break;
-					}
-				}
+				//// Comprobar si el movimiento es un enroque
+				//if (p->getTipo() == tipo::rey && (abs(cas_destino.x - cas_origen.x) == 3 || (abs(cas_destino.x - cas_origen.x) == -3))) {
+				//	mijugada.realizarEnroque(p->getColor(), tablero);
+				//	if (!mov_valido) {
+				//		//turno = !turno;
+				//		std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
+				//		flagEnroque = false;
+				//	}
+				//	else {
+				//		std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
+				//		//turno = !turno;
+				//		//break;
+				//	}
+				//}
 			}
 			turno = !turno;
 		}
