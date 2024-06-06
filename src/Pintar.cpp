@@ -1,8 +1,6 @@
 #include "Pintar.h"
 
-
 void Pintar::draw() {}
-
 
 void Pintar::pintarCuadricula() {
     // Calcula las coordenadas para centrar el tablero
@@ -158,7 +156,7 @@ void Pintar::pintarCorona() {
         corona.draw();
     }
     else if (tablero->getTurno() == false) {
-        corona.setPos(1151, 664);
+        corona.setPos(1186, 540);
         corona.draw();
     }
 }

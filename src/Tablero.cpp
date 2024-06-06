@@ -112,27 +112,21 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				if (p->getTipo() == tipo::rey && (cas_destino.x - cas_origen.x) == 3) {
 					mijugada.realizarEnroqueDerecha(p->getColor(), tablero);
 					if (!mov_valido) {
-						//turno = !turno;
 						std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
 						flagEnroque = false;
 					}
 					else {
 						std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
-						//turno = !turno;
-						//break;
 					}
 				}
 				if (p->getTipo() == tipo::rey && (cas_destino.x - cas_origen.x) == -3) {
 					mijugada.realizarEnroqueIzquierda(p->getColor(), tablero);
 					if (!mov_valido) {
-						//turno = !turno;
 						std::cout << "ENROQUE REALIZADO CORRECTAMENTE" << std::endl;
 						flagEnroque = false;
 					}
 					else {
 						std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
-						//turno = !turno;
-						//break;
 					}
 				}
 
@@ -149,7 +143,6 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 			}
 			turno = !turno;
 		}
-		//Aqui no puede ir ningun reset de flag sino no aparecen
 		break;
 	}
 }

@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 #include "GestionJugadas.h"
 #include "Pieza.h"
 #include "Usuario.h"
@@ -19,7 +18,7 @@ public:
 	Pieza *tablero[max_y][max_x];
 private:
 
-	bool turno = true; //true BLANCAS,  false NEGRASbool finturnon=false;
+	bool turno = true; //true BLANCAS,  false NEGRAS
 	bool finturnon = false;
 	bool finturnob = false;
 
