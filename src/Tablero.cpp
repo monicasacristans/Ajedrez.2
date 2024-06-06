@@ -29,12 +29,12 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			cout << "Clic fuera de los limites del tablero." << endl;
 		}
 
-		if (!flag && click == 2) {
+		if (!flag && click == 1) {
 			cas_origen = { columna, fila };
 			flag = true;
 			cout << "Casilla de origen: (" << cas_origen.x << ", " << cas_origen.y << ")" << endl;
 		}
-		else if (click == 3) {
+		else if (click == 2) {
 			cas_destino = { columna, fila };
 			if (cas_origen.x == cas_destino.x && cas_origen.y == cas_destino.y) {
 				cout << "Origen y destino son iguales, seleccione otra casilla." << endl;
@@ -42,7 +42,7 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 			}
 			cout << "Casilla de destino: (" << cas_destino.x << ", " << cas_destino.y << ")" << endl;
 			flag = false;
-			click = 1;
+			click = 0;
 
 			realizarMovimiento(p, cas_origen, cas_destino); // Llama a la función para realizar el movimiento deseado
 

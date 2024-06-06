@@ -116,12 +116,17 @@ void Usuario::teclado(unsigned char key) {
 		if (estadodejuego == PROMOCION) {
 
 			if (key>='1' && key<='6') { // Verificar que la tecla sea un número válido para la promoción
-				int tipoPieza = key - '0'; // Convertir el char a int restando '0'
+				tipoPieza = key - '0'; // Convertir el char a int restando '0'
 
 				miJugada.promocion(tablero.getCasillaDestino(), tablero.tablero, tipoPieza);
 				estadodejuego = TURNO; // Volver al estado de turno después de la promoción
 			}
 		}
+		if (key == 'r'||key== 'R') {
+			estadodejuego = REINICIO;
+			glutPostRedisplay();
+		}
+
 	}
 }
 
@@ -139,7 +144,8 @@ void Usuario::raton(int button, int state, int x, int y) {
 			break;
 
 		case MODOJUEGO:
-			if (estadodejuego == TURNO) {
+			switch (estadodejuego) {
+			case TURNO:
 				tablero.definirCoordenadasTablero(button, state, x, y);
 				Pieza* tableroActual[max_y][max_x];
 				tablero.getTablero(tableroActual);
@@ -160,10 +166,44 @@ void Usuario::raton(int button, int state, int x, int y) {
 						return;
 					}
 				}
-			}
-			if (estadodejuego == PROMOCION) {
+				break;
+			case PROMOCION:
 				teclado(tipoPieza);
+				break;
+
+			case REINICIO:
+				//Reiniciar el tablero
+				estadodejuego = TURNO;
+				tablero.set_tablero();
+				tablero.set_turno(true);
+				estadodejuego = TURNO;
+				break;
 			}
+			//if (estadodejuego == TURNO) {
+			//	tablero.definirCoordenadasTablero(button, state, x, y);
+			//	Pieza* tableroActual[max_y][max_x];
+			//	tablero.getTablero(tableroActual);
+
+			//	if (tablero.getFinTurnoN() == true) {
+			//		if (miJugada.jaque_mate(color::blanco, tableroActual) == true) {
+			//			ETSIDI::play("bin/sonidos/ganador.mp3");
+			//			ganador = false;//Ganan negras
+			//			estado = FINAL;
+			//			return;
+			//		}
+			//	}
+			//	else if (tablero.getFinTurnoB() == true) {
+			//		if (miJugada.jaque_mate(color::negro, tableroActual) == true) {
+			//			ETSIDI::play("bin/sonidos/ganador.mp3");
+			//			ganador = true;//Ganan blancas
+			//			estado = FINAL;
+			//			return;
+			//		}
+			//	}
+			//}
+			//if (estadodejuego == PROMOCION) {
+			//	teclado(tipoPieza);
+			//}
 			break;
 
 		case OP:
@@ -231,7 +271,6 @@ void Usuario::dibuja() {
 			miPintura.pintarError();
 			miPintura.pintarJaque();
 		}
-
 		if (estadodejuego == PROMOCION) {
 			miPintura.pintarPiezasTablero();
 
@@ -773,7 +812,6 @@ void Usuario::textoSubpantallasInstrucciones() {
 				corona.draw();
 			}
 		}
-
 		break;
 
 	case 3:
@@ -794,7 +832,6 @@ void Usuario::textoSubpantallasInstrucciones() {
 				corona.draw();
 			}
 		}
-
 		break;
 	default:
 		break;

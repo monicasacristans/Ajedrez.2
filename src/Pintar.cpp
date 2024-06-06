@@ -34,6 +34,12 @@ void Pintar::pintarCuadricula() {
             glEnd();
         }
     }
+
+    // Dibujar seleccion atras
+    setTextColor(1, 1, 1);
+    setFont("bin/fuentes/Bitwise.ttf", 10);
+    printxy("Pulse R  para reiniciar", 70, 280);
+   
 }
 
 casilla Pintar::restringirCasilla(int x, int y) {
@@ -156,7 +162,7 @@ void Pintar::pintarCorona() {
         corona.draw();
     }
     else if (tablero->getTurno() == false) {
-        corona.setPos(1186, 540);
+        corona.setPos(1186, 670);
         corona.draw();
     }
 }
@@ -183,7 +189,6 @@ void Pintar::pintarJaque() {
 
 void Pintar::pintarPromocion() {
 
-   // if (mijugada->getFlagPromocion() == true) {
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
       
@@ -219,14 +224,11 @@ void Pintar::pintarPromocion() {
         printxy("5-Canciller", 1140, 212);
         printxy("6-Arzobispo", 1140, 165);
 
- 
-
         setTextColor(0, 191, 255);
         setFont("bin/fuentes/Bitwise.ttf", 30);
         printxy("PROMOCION", 15, 620);
         printxy("DEL PEON", 20, 570);
 
-    //}
 }
 
 void Pintar::pintarEnroque() {

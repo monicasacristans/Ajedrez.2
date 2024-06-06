@@ -10,6 +10,17 @@ class Usuario {
 	Sprite fondo{ "bin/imagenes/fondo.png", 0, 0, 220, 140 };
 	Sprite corona{ "bin/imagenes/corona.png", 0,0, 80, 40 };
 
+	int n_ayuda;
+	int n_inst;
+	int n_texto_a;
+	int n_texto_ins;
+	int seleccion_ini = 0;
+	int seleccion_estado = 0;
+	int tipoPieza;
+	char key;
+
+	bool ganador; //blancas TRUE, negras FALSE 
+
 public:
 	Usuario();
 	virtual ~Usuario();
@@ -20,25 +31,16 @@ public:
 	void dibujaFondo();
 	void setReshape(float x, float y) { shapx = x; shapy = y; }
 	void teclado(unsigned char key);
+	void tecleoReinicio(unsigned char key);
 	int getEstado() { return estado; }
-
-	bool ganador; //blancas TRUE, negras FALSE 
 	bool getGanador() {return ganador;}
 
-	int n_ayuda;
-	int n_inst;
-	int n_texto_a;
-	int n_texto_ins;
-	float shapx=0.0, shapy=0.0;
-	unsigned char tipoPieza;
-
-	int seleccion_ini = 0;
-	int seleccion_estado = 0;
+	float shapx = 0.0, shapy = 0.0;
 
 	enum Estado { INICIO, MODOJUEGO, OP, AYU, INST, TEXTO_A, TEXTO_IN, FINAL};
 	Estado estado;
 
-	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, PROMOCION};
+	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, PROMOCION, REINICIO};
 	EstadodeJuego estadodejuego;
 
 	void setEstadoJuego(EstadodeJuego nuevoestado) { estadodejuego = nuevoestado; }
