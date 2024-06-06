@@ -36,6 +36,7 @@ public:
 	//ENROQUE
 	bool verificarEnroque(color jugador, Pieza* tablero[max_y][max_x]);
 	bool verificarEnroqueIzquierda(color jugador, Pieza* tablero[max_y][max_x]);
-	void realizarEnroque(color jugador, Pieza* tablero[max_y][max_x]);
+	void realizarEnroqueIzquierda(color jugador, Pieza* tablero[max_y][max_x]);
+	void realizarEnroqueDerecha(color jugador, Pieza* tablero[max_y][max_x]);
 	friend class Tablero;
 };
