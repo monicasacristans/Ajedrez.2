@@ -8,7 +8,6 @@ using namespace ETSIDI;
 class Pintar {
 
 	Tablero* tablero = nullptr;
-	GestionJugadas* mijugada = nullptr;
 
 	// Dimensiones del tablero
 	int anchoTablero = 10 * 80;
@@ -35,11 +34,11 @@ class Pintar {
 	Sprite pantalla{ "bin/imagenes/pantalla.png", 0, 0, 600, 400 };
 
 public:
-	Pintar(Tablero* ptrTab, GestionJugadas* ptrGes) : tablero(ptrTab), mijugada(ptrGes) {}
+	Pintar(Tablero* ptrTab) : tablero(ptrTab){}
 	~Pintar() {};
+
 	casilla restringirCasilla(int x, int y);
 
-	//void pintarPause();
 	void pintarCuadricula();
 	void pintarPiezasTablero();
 	void pintarCorona();

@@ -141,6 +141,7 @@ bool GestionJugadas::jaque_mate(color col, Pieza* tablero[max_y][max_x]) {
 }
 
 bool GestionJugadas::peonFinal(casilla origen) {
+	//Comprobar que el peon ha llegado al otro lado del tablero
 	if (origen.y == 7 ||origen.y == 0) {
 		return true;
 	}
@@ -153,12 +154,11 @@ bool GestionJugadas::peonFinal(casilla origen) {
 void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x], int tipo ) {
 
 	Pieza* p = tablero[cas.y][cas.x];
-	
-		int eleccion = 0;
-		
-		Pieza* nuevaPieza = nullptr;
+	int eleccion = 0;	
+	Pieza* nuevaPieza = nullptr;
 
-		switch (tipo) {
+	//Creo una nueva pieza del tipo que haya seleccionado
+	switch (tipo) {
 		case 1:
 			nuevaPieza = new Reina(tipo::reina, p->getColor());
 			break;
@@ -179,13 +179,12 @@ void GestionJugadas::promocion(casilla cas, Pieza *tablero[max_y][max_x], int ti
 			break;
 		default:
 			break;
-		}
+	}
 
-		if (nuevaPieza != NULL) {
-			delete p; //elimino el peon
-			tablero[cas.y][cas.x] = nuevaPieza;
-
-		}
+	if (nuevaPieza != NULL) {
+		delete p; //Elimino el peon
+		tablero[cas.y][cas.x] = nuevaPieza; //Situo la nueva pieza deonde estaba el peon
+	}
 }
 
 bool::GestionJugadas::verificarEnroqueIzquierda(color jugador, Pieza* tablero[max_y][max_x]) {
@@ -222,7 +221,7 @@ bool::GestionJugadas::verificarEnroque(color jugador, Pieza* tablero[max_y][max_
 		return false; // No es un rey o ya se ha movido
 	}
 
-	//comprobamos que es una torre y que no ha sido movido
+	//Comprobamos que es una torre y que no ha sido movido
 	//ENROQUE CORTO
 	int torreX_dcha = max_x - 1;
 	Torre* torre_derecha = dynamic_cast<Torre*>(tablero[reyY][torreX_dcha]);
@@ -244,7 +243,6 @@ void GestionJugadas::realizarEnroqueIzquierda(color jugador, Pieza* tablero[max_
 	int reyY = (jugador == color::blanco) ? 0 : max_y - 1;
 	int reyX = 2;
 
-	//Pieza* rey = tablero[reyY][reyX];
 	Rey* rey = dynamic_cast<Rey*>(tablero[reyY][reyX]);
 	if (rey == nullptr)return;
 
@@ -272,7 +270,6 @@ void GestionJugadas::realizarEnroqueIzquierda(color jugador, Pieza* tablero[max_
 		tablero[reyY][5] = nullptr;
 		rey->marcarComoMovido();
 
-
 		// Mover la torre
 		tablero[reyY][nuevaTorreX] = torre;
 		tablero[reyY][torreX] = nullptr;
@@ -285,7 +282,6 @@ void GestionJugadas::realizarEnroqueDerecha(color jugador, Pieza* tablero[max_y]
 	int reyY = (jugador == color::blanco) ? 0 : max_y - 1;
 	int reyX = 8;
 
-	//Pieza* rey = tablero[reyY][reyX];
 	Rey* rey = dynamic_cast<Rey*>(tablero[reyY][reyX]);
 	if (rey == nullptr)return;
 
@@ -312,7 +308,6 @@ void GestionJugadas::realizarEnroqueDerecha(color jugador, Pieza* tablero[max_y]
 		tablero[reyY][nuevoReyX] = rey;
 		tablero[reyY][5] = nullptr;
 		rey->marcarComoMovido();
-
 
 		// Mover la torre
 		tablero[reyY][nuevaTorreX] = torre;

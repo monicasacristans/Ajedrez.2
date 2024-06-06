@@ -1,6 +1,115 @@
-﻿  Main.cpp
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(67,2): warning C4551: la llamada a la función no tiene lista de argumentos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(102,3): warning C4551: la llamada a la función no tiene lista de argumentos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(126,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Cristina\Documents\GitHub\Ajedrez.2\src\Main.cpp(126,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Pang.vcxproj -> C:\Users\Cristina\Documents\GitHub\Ajedrez.2\bin\Pang.exe
+﻿  Alfil.cpp
+  Arzobispo.cpp
+  Caballo.cpp
+  Canciller.cpp
+  GestionJugadas.cpp
+  Main.cpp
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(67,2): warning C4551: la llamada a la función no tiene lista de argumentos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(102,3): warning C4551: la llamada a la función no tiene lista de argumentos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(126,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Main.cpp(126,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Peon.cpp
+  Pieza.cpp
+  Pintar.cpp
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(32,50): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(32,32): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(33,50): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(33,32): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(34,56): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(34,32): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(35,56): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(35,32): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(77,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(77,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(81,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(81,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(85,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(85,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(89,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(89,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(93,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(93,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(97,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(97,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(101,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(101,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(105,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(105,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(109,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(109,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(113,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(113,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(117,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(117,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(121,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(121,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(125,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(125,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(129,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(129,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(133,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(133,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(137,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(137,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Pintar.cpp(147,54): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  Reina.cpp
+  Rey.cpp
+  Tablero.cpp
+  Torre.cpp
+  Usuario.cpp
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(472,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(481,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(481,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(491,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(491,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(498,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(507,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(507,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(518,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(530,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(530,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(538,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(554,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(554,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(563,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(578,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(578,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(587,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(600,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(600,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(610,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(621,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(621,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(630,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(642,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(642,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(652,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(664,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(664,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(672,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(684,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(684,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(695,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(704,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(704,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(715,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(725,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(725,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(734,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(750,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(750,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(759,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(772,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(772,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(782,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(793,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(793,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(806,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(815,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(815,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(821,52): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(830,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\Usuario.cpp(830,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Generando código...
+C:\I.Electronica I\6\Informática industrial\Ajedrez.2\src\GestionJugadas.cpp(130): warning C4715: 'GestionJugadas::reySaleDeJaque': no todas las rutas de acceso de control devuelven un valor
+  Pang.vcxproj -> C:\I.Electronica I\6\Informática industrial\Ajedrez.2\bin\Pang.exe

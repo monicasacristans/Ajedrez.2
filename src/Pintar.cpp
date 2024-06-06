@@ -59,17 +59,20 @@ casilla Pintar::restringirCasilla(int x, int y) {
 
 void Pintar::pintarPiezasTablero() {
 
+    //Recorro el tablero
     for (int y = 0; y < max_y; ++y) {
         for (int x = 0; x < max_x; ++x) {
 
-            // Obtengo la pieza que hay en la casilla anterior
+            // Obtengo la pieza que hay en la casilla 
             Pieza* pieza = tablero->checkPiezaEnCasilla({ x,y });
 
             // Verifico que hay una pieza en la casilla seleccionada
             if (pieza != nullptr) {
 
+                // Hago la conversión de casillas a coordenadas de pantalla
                 casilla cas = restringirCasilla(x, y);
 
+                // Voy dibujando cada pieza en su coordenada correspondiente en el tablero
                 if (pieza->getTipo() == tipo::peon && pieza->getColor() == color::blanco) {
                     peon_b.setPos(cas.x, cas.y);
                     peon_b.draw();

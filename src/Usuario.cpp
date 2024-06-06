@@ -3,11 +3,10 @@
 
 Tablero tablero;
 GestionJugadas miJugada(&tablero);
-Pintar miPintura(&tablero, &miJugada);
+Pintar miPintura(&tablero);
 
 bool juegoInicializado = false;
 bool clicInicializado = false;
-
 
 struct OPCION {
 	int x, y, w, h;
@@ -130,7 +129,6 @@ void Usuario::raton(int button, int state, int x, int y) {
 	int screenX = x;
 	int screenY = y;
 
-
 	// Actualizar las coordenadas del objeto en el juego
 	std::cout << "Coordenadas del raton en la pantalla: (" << screenX << ", " << screenY << ")" << std::endl;
 
@@ -192,7 +190,6 @@ void Usuario::raton(int button, int state, int x, int y) {
 			pantallaFinal(x, y);
 			break;
 		}
-		
 	}
 }
 

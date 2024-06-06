@@ -3,14 +3,16 @@
 #include <vector>
 
 class Pieza {
+
 	casilla pos;
 	color colorPieza;
 	tipo tipoPieza;
 
-	bool haMovido; //controlar que la pieza se ha movido
+	bool haMovido = false; //controlar que la pieza se ha movido
+
 public:
 	// Constructor por defecto para inicializar una casilla vacía.
-	Pieza() : tipoPieza(tipo::vacio), colorPieza(color::ninguno), haMovido(false) {}
+	Pieza() : tipoPieza(tipo::vacio), colorPieza(color::ninguno) {}
 
 	// Constructor para crear una pieza con tipo y color específicos.
 	Pieza(tipo t, color c) : tipoPieza(t), colorPieza(c) {}

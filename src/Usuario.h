@@ -38,7 +38,7 @@ public:
 	enum Estado { INICIO, MODOJUEGO, OP, AYU, INST, TEXTO_A, TEXTO_IN, FINAL};
 	Estado estado;
 
-	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, TABLAS, PAUSA, PROMOCION};
+	enum EstadodeJuego{TURNO, JAQUE, JAQUE_MATE, PROMOCION};
 	EstadodeJuego estadodejuego;
 
 	void setEstadoJuego(EstadodeJuego nuevoestado) { estadodejuego = nuevoestado; }
