@@ -68,16 +68,6 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 				break;
 			}
 			else {
-				//Comprobar promocion 
-				if (mijugada.peonFinal(cas_destino) == true && p->getTipo() == tipo::peon) {
-					mijugada.setFlagPromocion(true);
-					usuario.setEstadoJuego(Usuario::PROMOCION);
-					setCasillaDestino(cas_destino);
-					usuario.teclado(tipoPromocion);
-				}
-				else{
-					mijugada.setFlagPromocion(false);
-				}
 
 				color colOponente = (p->getColor() == color::blanco) ? color::negro : color::blanco;
 				// Verificar jaque y jaque mate
@@ -144,6 +134,17 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 						//turno = !turno;
 						//break;
 					}
+				}
+
+				//Comprobar promocion 
+				if (mijugada.peonFinal(cas_destino) == true && p->getTipo() == tipo::peon) {
+					mijugada.setFlagPromocion(true);
+					usuario.setEstadoJuego(Usuario::PROMOCION);
+					setCasillaDestino(cas_destino);
+					usuario.teclado(tipoPromocion);
+				}
+				else {
+					mijugada.setFlagPromocion(false);
 				}
 			}
 			turno = !turno;
