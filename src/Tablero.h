@@ -28,7 +28,7 @@ class Tablero {
 	bool flag = false;
 	bool flagMovInvalido = false;
 	bool flagJaque = false;
-	bool flagJaqueM = false;
+	//bool flagJaqueM = false;
 	bool flagEnroque = false;
 
 	//bool flagCasElegida = false;
@@ -44,7 +44,7 @@ public:
 	bool getTurno();
 	bool getFlagMovValido();
 	bool getFlagJaque();
-	bool getFlagJaqueM();
+	//bool getFlagJaqueM();
 	bool getFlagEnroque();
 
 	///////ELIMINAR PIEZA

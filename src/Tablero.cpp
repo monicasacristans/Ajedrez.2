@@ -147,7 +147,7 @@ void Tablero::definirCoordenadasTablero(int button, int state, int x, int y) {
 				if ((p->getColor() == color::blanco && turno == true) || (p->getColor() == color::negro && turno == false)) {
 					
 					//primero compruebo el enroque
-					if (p->getTipo() == tipo::rey && abs(cas_destino.x - cas_origen.x) == 4) {
+					if (p->getTipo() == tipo::rey && (abs(cas_destino.x - cas_origen.x) == 3) || (abs(cas_destino.x - cas_origen.x) == -3)) {
 					mov_valido = jugada.enroque(cas_origen, cas_destino, tablero);
 					if (!mov_valido) {
 						flagEnroque = true;
@@ -295,8 +295,8 @@ void Tablero::set_tablero() {
 	tablero[0][1] = new Caballo(tipo::caballo, color::blanco);
 	tablero[0][2] = new Arzobispo(tipo::arzobispo, color::blanco);
 	tablero[0][3] = new Alfil(tipo::alfil, color::blanco);
-	tablero[0][4] = new Rey(tipo::rey, color::blanco);
-	tablero[0][5] = new Reina(tipo::reina, color::blanco);
+	tablero[0][5] = new Rey(tipo::rey, color::blanco);
+	tablero[0][4] = new Reina(tipo::reina, color::blanco);
 	tablero[0][6] = new Alfil(tipo::alfil, color::blanco);
 	tablero[0][7] = new Canciller(tipo::canciller, color::blanco);
 	tablero[0][8] = new Caballo(tipo::caballo, color::blanco);
@@ -321,8 +321,8 @@ void Tablero::set_tablero() {
 	tablero[7][1] = new Caballo(tipo::caballo, color::negro);
 	tablero[7][2] = new Arzobispo(tipo::arzobispo, color::negro);
 	tablero[7][3] = new Alfil(tipo::alfil, color::negro);
-	tablero[7][4] = new Rey(tipo::rey, color::negro);
-	tablero[7][5] = new Reina(tipo::reina, color::negro);
+	tablero[7][5] = new Rey(tipo::rey, color::negro);
+	tablero[7][4] = new Reina(tipo::reina, color::negro);
 	tablero[7][6] = new Alfil(tipo::alfil, color::negro);
 	tablero[7][7] = new Canciller(tipo::canciller, color::negro);
 	tablero[7][8] = new Caballo(tipo::caballo, color::negro);

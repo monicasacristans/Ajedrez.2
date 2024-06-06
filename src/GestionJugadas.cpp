@@ -121,14 +121,14 @@ bool GestionJugadas::enroque(casilla origen, casilla destino, Pieza* tablero[max
         }
     }
     // Verificar enroque largo (movimiento a la izquierda del rey)
-    else if (movX == -4 && rey->getColor() == color::blanco && rey->haSidoMovido() == false) {
-        if (tablero[origen.y][origen.x - 1] == nullptr && tablero[origen.y][origen.x - 2] == nullptr && tablero[origen.y][origen.x - 3] == nullptr) {
-            Pieza* torre = tablero[origen.y][origen.x - 4];
+    else if (movX == -3 && rey->getColor() == color::blanco && rey->haSidoMovido() == false) {
+        if (tablero[origen.y][origen.x - 1] == nullptr && tablero[origen.y][origen.x - 2] == nullptr ) {
+            Pieza* torre = tablero[origen.y][origen.x - 5];
             if (torre != nullptr && torre->getTipo() == tipo::torre && torre->haSidoMovido() == false) {
                 // Realizar el movimiento del enroque
-                tablero[origen.y][origen.x - 2] = rey;
+                tablero[origen.y][origen.x - 3] = rey;
                 tablero[origen.y][origen.x] = nullptr;
-                tablero[origen.y][origen.x - 1] = torre;
+                tablero[origen.y][origen.x - 2] = torre;
                 tablero[origen.y][origen.x - 4] = nullptr;
                 rey->marcarComoMovido();
                 torre->marcarComoMovido();
