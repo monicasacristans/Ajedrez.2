@@ -203,8 +203,6 @@ void Tablero::set_tablero() {
 	//Peones blancos 
 	for (int i = 0; i < 10; i++) {
 		tablero[1][i] = new Peon(tipo::peon, color::blanco);
-		piezasB.push_back(tablero[0][i]);
-		piezasB.push_back(tablero[1][i]);
 
 	}
 	//Peones negros
@@ -223,11 +221,6 @@ void Tablero::set_tablero() {
 	tablero[7][7] = new Canciller(tipo::canciller, color::negro);
 	tablero[7][8] = new Caballo(tipo::caballo, color::negro);
 	tablero[7][9] = new Torre(tipo::torre, color::negro);
-
-	for (int i = 0; i < 10; i++) {
-		piezasN.push_back(tablero[6][i]);
-		piezasN.push_back(tablero[7][i]);
-	}
 }
 
 void Tablero::getTablero(Pieza* tableroActual[max_y][max_x]) {
@@ -243,7 +236,6 @@ void Tablero::eliminarPieza(casilla destino) {
 
 	if (piezaComida != nullptr) {
 		ETSIDI::play("bin/sonidos/comer.mp3");
-		auto& listapiezas = (piezaComida->getColor() == color::blanco) ? piezasB : piezasN;
 
 		delete piezaComida; // Eliminar la pieza del destino
 		tablero[destino.y][destino.x] = nullptr; // Marcar la casilla de destino como vacía

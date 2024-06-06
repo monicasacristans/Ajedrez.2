@@ -36,7 +36,7 @@ class Pintar {
 
 public:
 	Pintar(Tablero* ptrTab, GestionJugadas* ptrGes) : tablero(ptrTab), mijugada(ptrGes) {}
-
+	~Pintar() {};
 	casilla restringirCasilla(int x, int y);
 
 	//void pintarPause();

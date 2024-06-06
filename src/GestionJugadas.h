@@ -12,7 +12,7 @@ class GestionJugadas {
 public:
 
 	GestionJugadas(Tablero *miTablero):tab(miTablero) {};
-
+	~GestionJugadas() {};
 
 	//JAQUE 
 	bool jaque(color col, Pieza* tablero[max_y][max_x]);
@@ -30,7 +30,6 @@ public:
 	void promocion(casilla cas, Pieza* tablero[max_y][max_x], int tipo);
 	bool getFlagPromocion() { return flagPromocion; }
 	void setFlagPromocion(bool prom) { flagPromocion = prom; };
-	Pieza* crearPieza(tipo t, color col);
 
 	//ENROQUE
 	bool verificarEnroque(color jugador, Pieza* tablero[max_y][max_x]);

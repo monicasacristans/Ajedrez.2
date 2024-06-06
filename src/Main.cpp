@@ -91,7 +91,7 @@ void OnDraw(void)
 
 void mouseClick(int button, int state, int x, int y)
 {
-	y= usuario.shapy - y;
+	y= (int)usuario.shapy - y;
 	usuario.raton(button, state, x, y);
 	//tablero.definirCoordenadasTablero(button, state, x, y);
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
@@ -107,7 +107,7 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
 	usuario.teclado(key);
-	y_t = usuario.shapy - y_t;
+	y_t = (int)usuario.shapy - y_t;
 	glutPostRedisplay();
 }
 

@@ -18,8 +18,6 @@ class Tablero {
 public:
 	Pieza *tablero[max_y][max_x];
 private:
-	std::vector<Pieza*> piezasB;
-	std::vector<Pieza*> piezasN;
 
 	bool turno = true; //true BLANCAS,  false NEGRASbool finturnon=false;
 	bool finturnon = false;
@@ -42,14 +40,6 @@ private:
 public:
 	Tablero();
 	~Tablero();
-
-
-	std::vector<Pieza*> getVectorPiezasN() { return piezasN; }
-	void set_vectorPiezasN(std::vector<Pieza*> p) { piezasN = p; }
-	std::vector<Pieza*> getVectorPiezasB() { return piezasB; }
-	void set_vectorPiezasB(std::vector<Pieza*> p) { piezasN = p; }
-	
-
 
 	void set_tablero();
 	void getTablero(Pieza* tableroActual[max_y][max_x]);
