@@ -11,7 +11,6 @@ class GestionJugadas {
 
 public:
 
-	GestionJugadas() {};
 	GestionJugadas(Tablero *miTablero):tab(miTablero) {};
 
 

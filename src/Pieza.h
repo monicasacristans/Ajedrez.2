@@ -15,6 +15,8 @@ public:
 	// Constructor para crear una pieza con tipo y color específicos.
 	Pieza(tipo t, color c) : tipoPieza(t), colorPieza(c) {}
 
+	virtual ~Pieza() {};
+
 	tipo getTipo();
 	color getColor();
 
