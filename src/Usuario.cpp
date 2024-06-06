@@ -270,6 +270,7 @@ void Usuario::dibuja() {
 			miPintura.pintarCorona();
 			miPintura.pintarError();
 			miPintura.pintarJaque();
+			miPintura.pintarEnroque();
 		}
 		if (estadodejuego == PROMOCION) {
 			miPintura.pintarPiezasTablero();
@@ -280,6 +281,7 @@ void Usuario::dibuja() {
 			miPintura.pintarError();
 			miPintura.pintarJaque();
 			miPintura.pintarPromocion();
+
 		}
 		break;
 	case OP:

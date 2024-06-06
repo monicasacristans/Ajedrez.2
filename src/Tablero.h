@@ -27,7 +27,7 @@ private:
 	bool flagJaque = false;
 	bool flagJaqueM = false;
 	bool flagPromocion = false;
-	bool flagEnroque = false;
+	bool flagEnroque=false;
 	bool enroqueActivado = false;
 
 	unsigned char tipoPromocion;
@@ -56,7 +56,7 @@ public:
 	void setFlagPromocion(bool prom) { flagPromocion= prom; }
 	
 	bool getFlagEnroque() { return flagEnroque; }
-
+	void setFlagEnroque(bool prom) { flagEnroque = prom; }
 
 
 	void setCasillaDestino(casilla cas) { cas_destino = cas; }

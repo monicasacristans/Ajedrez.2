@@ -313,6 +313,8 @@ void GestionJugadas::realizarEnroqueDerecha(color jugador, Pieza* tablero[max_y]
 		tablero[reyY][nuevaTorreX] = torre;
 		tablero[reyY][torreX] = nullptr;
 		torre->marcarComoMovido();
+
+		this->tab->setFlagEnroque(true);
 	}
 }
 
