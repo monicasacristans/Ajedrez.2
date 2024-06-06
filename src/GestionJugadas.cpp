@@ -264,7 +264,8 @@ void GestionJugadas::realizarEnroque(color jugador, Pieza* tablero[max_y][max_x]
 	int reyY = (jugador == color::blanco) ? 0 : max_y - 1;
 	int reyX = 5;
 
-	Rey* rey = dynamic_cast<Rey*>(tablero[reyY][reyX]);
+	Pieza* rey = tablero[reyY][reyX];
+
 	if (rey == nullptr)return;
 
 	// Variables para la torre y las nuevas posiciones del rey y la torre

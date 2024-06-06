@@ -12,26 +12,29 @@ bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y
 
     if ((movX == 1 && movY == 0) ||         // Movimiento vertical
         (movX == 0 && movY == 1) ||         // Movimiento horizontal
-        (movX == 3 && movY == 0 )||
-        (movX == -3 && movY == 0)||
-        (movX == 1 && movY == 1)  )      //Movimiento diagonal
-        {         // Movimiento enroque
-        
-        // Verificar si la casilla de destino está ocupada
+        (movX == -3 && movY == 0) ||
+        (movX == 3 && movY == 0) ||
+        (movX == 1 && movY == 1))      //Movimiento diagonal
+    {         // Movimiento enroque
+
+    // Verificar si la casilla de destino está ocupada
         if (tablero[destino.y][destino.x] != nullptr) {
-            // El rey no puede comer ninguna pieza
-            return false;
+            if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
+                marcarComoMovido();
+                return true; // Movimiento válido (comer pieza del oponente)
+            }
+            else {
+                // El rey no puede comer ninguna pieza
+                return false;
+            }
         }
         else {
-            // Movimiento válido (casilla de destino vacía)
             marcarComoMovido();
             return true;
         }
     }
-    else {
-        // Movimiento inválido para el rey
-        return false;
-    }
+
+    return false;
 }
 
     ////ENROQUE
