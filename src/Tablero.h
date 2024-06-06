@@ -18,7 +18,7 @@ public:
 	Pieza *tablero[max_y][max_x];
 private:
 
-	bool turno = true; //true BLANCAS,  false NEGRAS
+	bool turno = true; //true BLANCAS, false NEGRAS
 	bool finturnon = false;
 	bool finturnob = false;
 
@@ -35,7 +35,6 @@ private:
 	casilla cas_origen{ -1 , -1 };
 	casilla cas_destino{ - 1, -1 };
 
-
 public:
 	Tablero();
 	~Tablero();
@@ -43,25 +42,17 @@ public:
 	void set_tablero();
 	void getTablero(Pieza* tableroActual[max_y][max_x]);
 
-
 	bool getTurno() { return turno; }
 	void set_turno(bool t) { turno = t; }
-	void setEnroqueActivado(bool estado) { enroqueActivado = estado; }
-
 
 	bool getFlagMovValido(){ return flagMovInvalido; }//Flag para pintar los avisos
 	bool getFlagJaque(){ return flagJaque; }
 	bool getFlagJaqueM(){ return flagJaqueM; }
-	bool getFlagPromocion(){ return flagPromocion; }
-	void setFlagPromocion(bool prom) { flagPromocion= prom; }
-	
+	bool getFlagPromocion() { return flagPromocion; }
 	bool getFlagEnroque() { return flagEnroque; }
-	void setFlagEnroque(bool prom) { flagEnroque = prom; }
-
-
-	void setCasillaDestino(casilla cas) { cas_destino = cas; }
 	casilla getCasillaOrigen() const { return cas_origen; }
 	casilla getCasillaDestino() const { return cas_destino; }
+
 	//Turnos
 	bool getFinTurnoN() {
 		if (turno == true)
@@ -76,7 +67,10 @@ public:
 			return !finturnob;
 	}
 
-	
+	void setFlagPromocion(bool prom) { flagPromocion= prom; }
+	void setFlagEnroque(bool prom) { flagEnroque = prom; }
+	void setCasillaDestino(casilla cas) { cas_destino = cas; }
+
 	void definirCoordenadasTablero(int button, int state, int x, int y);
 	void realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_destino);
 	Pieza* checkPiezaEnCasilla(casilla pos);

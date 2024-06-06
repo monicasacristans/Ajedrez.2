@@ -1,2 +1,43 @@
-﻿  Tablero.cpp
-  Pang.vcxproj -> C:\Users\aleja\OneDrive\Documentos\GitHub\Ajedrez.2\bin\Pang.exe
+﻿  Pintar.cpp
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(30,50): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(30,32): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(31,50): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(31,32): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(32,56): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(32,32): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(33,56): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(33,32): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(80,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(80,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(84,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(84,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(88,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(88,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(92,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(92,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(96,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(96,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(100,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(100,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(104,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(104,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(108,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(108,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(112,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(112,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(116,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(116,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(120,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(120,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(124,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(124,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(128,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(128,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(132,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(132,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(136,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(136,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(140,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(140,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\cesar\Documents\GitHub\Ajedrez.2\src\Pintar.cpp(150,54): warning C4305: 'argument': truncation from 'double' to 'float'
+  Pang.vcxproj -> C:\Users\cesar\Documents\GitHub\Ajedrez.2\bin\Pang.exe

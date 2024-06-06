@@ -8,9 +8,7 @@ class GestionJugadas {
 	Tablero* tab = nullptr;
 	bool flagPromocion = false;
 
-
 public:
-
 	GestionJugadas(Tablero *miTablero):tab(miTablero) {};
 	~GestionJugadas() {};
 
@@ -24,8 +22,7 @@ public:
 	bool jaque_mate(color col, Pieza* tablero[max_y][max_x]);
 	casilla encontrarPosicionRey(color col, Pieza* tablero[max_y][max_x]);
 
-	//promocion
-
+	//PROMOCION
 	bool peonFinal(casilla origen);
 	void promocion(casilla cas, Pieza* tablero[max_y][max_x], int tipo);
 	bool getFlagPromocion() { return flagPromocion; }
@@ -36,5 +33,6 @@ public:
 	bool verificarEnroqueIzquierda(color jugador, Pieza* tablero[max_y][max_x]);
 	void realizarEnroqueIzquierda(color jugador, Pieza* tablero[max_y][max_x]);
 	void realizarEnroqueDerecha(color jugador, Pieza* tablero[max_y][max_x]);
+
 	friend class Tablero;
 };

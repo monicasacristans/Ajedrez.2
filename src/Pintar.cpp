@@ -38,8 +38,7 @@ void Pintar::pintarCuadricula() {
     // Dibujar seleccion atras
     setTextColor(1, 1, 1);
     setFont("bin/fuentes/Bitwise.ttf", 10);
-    printxy("Pulse R  para reiniciar", 70, 280);
-   
+    printxy("Pulse R  para reiniciar", 70, 280);  
 }
 
 casilla Pintar::restringirCasilla(int x, int y) {
@@ -235,7 +234,7 @@ void Pintar::pintarEnroque() {
     if (tablero->getFlagEnroque() == true) {
         setTextColor(255, 0, 0);
         setFont("bin/fuentes/Bitwise.ttf", 30);
-        printxy("ENROQUE", 10, 620);
+        printxy("ENROQUE", 40, 620);
     }
 }
 

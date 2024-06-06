@@ -108,7 +108,7 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					}
 				}
 
-				// Comprobar si el movimiento es un enroque
+				// Comprobar si el movimiento es un enroque hacia la derecha
 				if (p->getTipo() == tipo::rey && (cas_destino.x - cas_origen.x) == 3) {
 					mijugada.realizarEnroqueDerecha(p->getColor(), tablero);
 					if (!mov_valido) {
@@ -118,26 +118,27 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					else {
 						std::cout <<  "ENROQUE REALIZADO CORRECTAMENTE"  << std::endl;
 						flagEnroque = true;
-						turno = !turno;
-						break;
 					}
 				}
-				flagEnroque = false;
-
+				else {
+					flagEnroque = false;
+				}
+				// Comprobar si el movimiento es un enroque hacia la izquierda
 				if (p->getTipo() == tipo::rey && (cas_destino.x - cas_origen.x) == -3) {
 					mijugada.realizarEnroqueIzquierda(p->getColor(), tablero);
 					if (!mov_valido) {
-						std::cout << "ENROQUE REALIZADO CORRECTAMENTE" "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
+						std::cout << "ENROQUE NO REALIZADO CORRECTAMENTE. VUELVE A INTENTARLO" << std::endl;
 						flagEnroque = false;
 					}
 					else {
 						std::cout << "ENROQUE REALIZADO CORRECTAMENTE"  << std::endl;
 						flagEnroque = true;
-						turno = !turno;
-						break;
 					}
 				}
-				flagEnroque = false;
+				else {
+					flagEnroque = false;
+				}
+
 				//Comprobar promocion 
 				if (mijugada.peonFinal(cas_destino) == true && p->getTipo() == tipo::peon) {
 					mijugada.setFlagPromocion(true);
@@ -149,7 +150,6 @@ void Tablero::realizarMovimiento(Pieza* p, casilla cas_origen, casilla cas_desti
 					mijugada.setFlagPromocion(false);
 				}
 			}
-
 			turno = !turno;
 		}
 		break;

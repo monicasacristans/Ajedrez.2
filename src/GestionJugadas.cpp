@@ -277,7 +277,6 @@ void GestionJugadas::realizarEnroqueIzquierda(color jugador, Pieza* tablero[max_
 	}
 }
 
-
 void GestionJugadas::realizarEnroqueDerecha(color jugador, Pieza* tablero[max_y][max_x]) {
 	int reyY = (jugador == color::blanco) ? 0 : max_y - 1;
 	int reyX = 8;
@@ -317,9 +316,3 @@ void GestionJugadas::realizarEnroqueDerecha(color jugador, Pieza* tablero[max_y]
 		this->tab->setFlagEnroque(true);
 	}
 }
-
-
-
-
-
-

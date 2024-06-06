@@ -2,7 +2,6 @@
 
 Alfil::Alfil(tipo t, color c) :Pieza(t, c) {}
 
-
 bool Alfil::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
 
 	// Sentido del movimiento de las piezas 
