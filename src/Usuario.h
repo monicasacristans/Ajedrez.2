@@ -51,5 +51,19 @@ public:
 	enum Instrucciones { INS, TEXTO_I };
 	Instrucciones menu_instrucciones;
 
+	void pantallaInicio(int x, int y);
+	void pantallaOpciones(int x, int y);
+	void pantallaAyuda(int x, int y);
+	void subpantallasAyuda(int x, int y);
+	void pantallaInstrucciones(int x, int y);
+	void subpantallasInstrucciones(int x, int y);
+	void pantallaFinal(int x, int y);
 
+	void textoInicio();
+	void textoOpciones();
+	void textoAyuda();
+	void textoSubpantallasAyuda();
+	void textoInstrucciones();
+	void textoSubpantallasInstrucciones();
+	void textoFinal();
 };
