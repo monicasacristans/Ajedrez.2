@@ -193,13 +193,13 @@ bool::GestionJugadas::verificarEnroqueIzquierda(color jugador, Pieza* tablero[ma
 	int reyX = 2;
 
 	Rey* rey = dynamic_cast<Rey*>(tablero[reyY][reyX]);
-	if (rey == nullptr || !(rey->haSidoMovido())) {
+	if (rey == nullptr || (rey->haSidoMovido())) {
 		return false; // No es un rey o ya se ha movido
 	}
 	//ENROQUE LARGO
 	int torreX_izqd = 0;
 	Torre* torre_izquierda = dynamic_cast<Torre*>(tablero[reyY][torreX_izqd]);
-	bool enroqueIzquierdaPosible = (torre_izquierda != nullptr && torre_izquierda->haSidoMovido());
+	bool enroqueIzquierdaPosible = (torre_izquierda != nullptr && !torre_izquierda->haSidoMovido());
 	if (enroqueIzquierdaPosible) {
 		for (int x = reyX - 1; x > torreX_izqd; x--) {
 			if (tablero[reyY][x] != nullptr) {
@@ -217,7 +217,7 @@ bool::GestionJugadas::verificarEnroque(color jugador, Pieza* tablero[max_y][max_
 	int reyX = 8;
 
 	Rey* rey = dynamic_cast<Rey*>(tablero[reyY][reyX]);
-	if (rey == nullptr || !(rey->haSidoMovido())) {
+	if (rey == nullptr || (rey->haSidoMovido())) {
 		return false; // No es un rey o ya se ha movido
 	}
 
@@ -225,7 +225,7 @@ bool::GestionJugadas::verificarEnroque(color jugador, Pieza* tablero[max_y][max_
 	//ENROQUE CORTO
 	int torreX_dcha = max_x - 1;
 	Torre* torre_derecha = dynamic_cast<Torre*>(tablero[reyY][torreX_dcha]);
-	bool enroqueDerechaPosible = (torre_derecha != nullptr && torre_derecha->haSidoMovido());
+	bool enroqueDerechaPosible = (torre_derecha != nullptr && !torre_derecha->haSidoMovido());
 
 	if (enroqueDerechaPosible) {
 		for (int x = reyX + 1; x < torreX_dcha; x++) {
@@ -249,8 +249,8 @@ void GestionJugadas::realizarEnroqueIzquierda(color jugador, Pieza* tablero[max_
 	// Variables para la torre y las nuevas posiciones del rey y la torre
 	Torre* torre = nullptr;
 	int torreX = 0;
-	int nuevoReyX = 0;
-	int nuevaTorreX = 0;
+	int nuevoReyX = 2;
+	int nuevaTorreX = 3;
 
 	// ENROQUE LARGO
 
@@ -315,7 +315,6 @@ void GestionJugadas::realizarEnroqueDerecha(color jugador, Pieza* tablero[max_y]
 		torre->marcarComoMovido();
 	}
 }
-
 
 
 
