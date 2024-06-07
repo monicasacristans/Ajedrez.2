@@ -3,6 +3,7 @@
 Rey::Rey(tipo t, color c) :Pieza(t, c) {}
 
 bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y][max_x]) {
+
     // Diferencia de columnas y filas
     int movX = abs(destino.x - origen.x);
     int movY = abs(destino.y - origen.y);
@@ -15,8 +16,12 @@ bool Rey::movimientoValido(casilla origen, casilla destino, Pieza* tablero[max_y
 
         // Verificar si la casilla de destino está ocupada
         if (tablero[destino.y][destino.x] != nullptr) {
-            // El rey no puede comer ninguna pieza
-            return false;
+            if (tablero[destino.y][destino.x]->getColor() != this->getColor()) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
         else {
             // Movimiento inválido para el rey
