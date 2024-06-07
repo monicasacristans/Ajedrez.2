@@ -35,10 +35,19 @@ void Pintar::pintarCuadricula() {
         }
     }
 
-    // Dibujar seleccion atras
-    setTextColor(1, 1, 1);
-    setFont("bin/fuentes/Bitwise.ttf", 10);
-    printxy("Pulse R  para reiniciar", 70, 280);  
+    // Dibujar boton reinicio
+
+    setTextColor(255, 69, 0);
+    setFont("bin/fuentes/Bitwise.ttf", 20);
+    printxy("REINICIO", 86, 296); 
+    glColor3ub(255, 75, 8);
+    glLineWidth(3);
+    glBegin(GL_LINE_LOOP);
+    glVertex2i(70, 280);
+    glVertex2i(220, 280);
+    glVertex2i(220, 330);
+    glVertex2i(70, 330);
+    glEnd();
 }
 
 casilla Pintar::restringirCasilla(int x, int y) {

@@ -17,7 +17,6 @@ class Usuario {
 	int seleccion_ini = 0;
 	int seleccion_estado = 0;
 	int tipoPieza;
-	char key;
 
 	bool ganador; //blancas TRUE, negras FALSE 
 
@@ -31,7 +30,6 @@ public:
 	void dibujaFondo();
 	void setReshape(float x, float y) { shapx = x; shapy = y; }
 	void teclado(unsigned char key);
-	void tecleoReinicio(unsigned char key);
 	int getEstado() { return estado; }
 	bool getGanador() {return ganador;}
 
@@ -60,6 +58,7 @@ public:
 	void pantallaInstrucciones(int x, int y);
 	void subpantallasInstrucciones(int x, int y);
 	void pantallaFinal(int x, int y);
+	void botonReinicio(int x, int y);
 
 	void textoInicio();
 	void textoOpciones();

@@ -34,6 +34,7 @@ OPCION TEXTOJAQUEMATE[]{ {110,60,261,20,1,"atras"} }; //2
 OPCION TEXTOPROMOCION[]{ {110,60,261,20,1,"atras"} }; //3
 
 OPCION M_FINAL[]{ 590,400,561,60,1,"REVANCHA" ,570,330,561,60,2,"ABANDONAR" };
+OPCION REINI[]{ 70, 280, 150, 40, 1, "REINICIO" };
 
 
 Usuario::Usuario() {
@@ -114,7 +115,6 @@ void Usuario::teclado(unsigned char key) {
 	
 	if (estado == MODOJUEGO) {
 		if (estadodejuego == PROMOCION) {
-
 			if (key>='1' && key<='6') { // Verificar que la tecla sea un número válido para la promoción
 				tipoPieza = key - '0'; // Convertir el char a int restando '0'
 
@@ -122,11 +122,6 @@ void Usuario::teclado(unsigned char key) {
 				estadodejuego = TURNO; // Volver al estado de turno después de la promoción
 			}
 		}
-		if (key == 'r'||key== 'R') {
-			estadodejuego = REINICIO;
-			glutPostRedisplay();
-		}
-
 	}
 }
 
@@ -144,6 +139,8 @@ void Usuario::raton(int button, int state, int x, int y) {
 			break;
 
 		case MODOJUEGO:
+			botonReinicio(x, y);
+
 			switch (estadodejuego) {
 			case TURNO:
 				tablero.definirCoordenadasTablero(button, state, x, y);
@@ -167,43 +164,13 @@ void Usuario::raton(int button, int state, int x, int y) {
 					}
 				}
 				break;
-			case PROMOCION:
-				teclado(tipoPieza);
-				break;
-
 			case REINICIO:
 				//Reiniciar el tablero
-				estadodejuego = TURNO;
 				tablero.set_tablero();
 				tablero.set_turno(true);
 				estadodejuego = TURNO;
 				break;
 			}
-			//if (estadodejuego == TURNO) {
-			//	tablero.definirCoordenadasTablero(button, state, x, y);
-			//	Pieza* tableroActual[max_y][max_x];
-			//	tablero.getTablero(tableroActual);
-
-			//	if (tablero.getFinTurnoN() == true) {
-			//		if (miJugada.jaque_mate(color::blanco, tableroActual) == true) {
-			//			ETSIDI::play("bin/sonidos/ganador.mp3");
-			//			ganador = false;//Ganan negras
-			//			estado = FINAL;
-			//			return;
-			//		}
-			//	}
-			//	else if (tablero.getFinTurnoB() == true) {
-			//		if (miJugada.jaque_mate(color::negro, tableroActual) == true) {
-			//			ETSIDI::play("bin/sonidos/ganador.mp3");
-			//			ganador = true;//Ganan blancas
-			//			estado = FINAL;
-			//			return;
-			//		}
-			//	}
-			//}
-			//if (estadodejuego == PROMOCION) {
-			//	teclado(tipoPieza);
-			//}
 			break;
 
 		case OP:
@@ -271,6 +238,7 @@ void Usuario::dibuja() {
 			miPintura.pintarError();
 			miPintura.pintarJaque();
 			miPintura.pintarEnroque();
+
 		}
 		if (estadodejuego == PROMOCION) {
 			miPintura.pintarPiezasTablero();
@@ -505,6 +473,14 @@ void Usuario::pantallaFinal(int x, int y) {
 				tablero.set_tablero();
 				tablero.set_turno(true);
 			}
+		}
+	}
+}
+
+void Usuario::botonReinicio(int x, int y) {
+	for (const auto& m : REINI) {
+		if (x<m.x + m.w && x>  m.x && y<m.y + m.h && y> m.y) {
+			if (m.sel == 1) estadodejuego = REINICIO;
 		}
 	}
 }
